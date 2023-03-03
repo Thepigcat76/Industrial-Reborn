@@ -25,6 +25,9 @@ public enum CustomArmorMaterial implements ArmorMaterial {
     NIGHTVISION("nightvision", 15, new int[]{3, 0, 0, 0}, 9, SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F,
             () -> Ingredient.of(ItemStack.EMPTY)),
 
+    QUANTUM("quantum", 33, new int[]{10, 10, 10, 10}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.2F,
+            () -> Ingredient.of(ItemStack.EMPTY)),
+
     NANO("nano", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F,
             () -> Ingredient.of(ItemStack.EMPTY));
 

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/circuit",
+  "key": {
+    "c": {
+      "item": "indreb:advanced_circuit"
+    },
+    "i": {
+      "tag": "forge:plates/iridium"
+    },
+    "p": {
+      "item": "indreb:bioplastic"
+    },
+    "l": {
+      "item": "indreb:lapotron_crystal"
+    }
+  },
+  "pattern": [
+    "ici",
+    "lpl",
+    "ici"
+  ],
+  "result": {
+    "count": 4,
+    "item": "indreb:lapotronic_energy_relay"
+  }
+}

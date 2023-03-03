@@ -244,6 +244,7 @@ public class ItemTextures extends ItemModelProvider {
     protected void registerCrafting() {
         createGeneratedTexture(ModItems.ELECTRONIC_CIRCUIT, "crafting/electronic_circuit");
         createGeneratedTexture(ModItems.ADVANCED_CIRCUIT, "crafting/advanced_circuit");
+        createGeneratedTexture(ModItems.LAPOTRONIC_ENERGY_RELAY, "crafting/lapotronic_relay");
         createGeneratedTexture(ModItems.CARBON_FIBERS, "crafting/carbon_fibers");
         createGeneratedTexture(ModItems.COMBINED_CARBON_FIBERS, "crafting/combined_carbon_fibers");
         createGeneratedTexture(ModItems.CARBON_PLATE, "crafting/carbon_plate");
@@ -390,6 +391,11 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.NANO_CHESTPLATE, "armor/nano_chestplate");
         createGeneratedTexture(ModItems.NANO_LEGGINGS, "armor/nano_leggings");
         createGeneratedTexture(ModItems.NANO_BOOTS, "armor/nano_boots");
+
+        createGeneratedTexture(ModItems.QUANTUM_HELMET, "armor/quantum_helmet");
+        createGeneratedTexture(ModItems.QUANTUM_CHESTPLATE, "armor/quantum_chestplate");
+        createGeneratedTexture(ModItems.QUANTUM_LEGGINGS, "armor/quantum_leggings");
+        createGeneratedTexture(ModItems.QUANTUM_BOOTS, "armor/quantum_boots");
 
         createGeneratedTexture(ModItems.HAZMAT_SUIT_HELMET, "armor/hazmat_suit_helmet");
         createGeneratedTexture(ModItems.HAZMAT_SUIT_CHESTPLATE, "armor/hazmat_suit_chestplate");

@@ -258,6 +258,8 @@ public final class ModItems {
 
     public static final RegistryObject<Item> ELECTRONIC_CIRCUIT = registerItem("electronic_circuit", MaterialItem::new);
     public static final RegistryObject<Item> ADVANCED_CIRCUIT = registerItem("advanced_circuit", MaterialItem::new);
+
+    public static final RegistryObject<Item> LAPOTRONIC_ENERGY_RELAY = registerItem("lapotronic_energy_relay", MaterialItem::new);
     public static final RegistryObject<Item> CARBON_FIBERS = registerItem("carbon_fibers", MaterialItem::new);
     public static final RegistryObject<Item> COMBINED_CARBON_FIBERS = registerItem("combined_carbon_fibers", MaterialItem::new);
     public static final RegistryObject<Item> CARBON_PLATE = registerItem("carbon_plate", MaterialItem::new);
@@ -352,6 +354,11 @@ public final class ModItems {
     public static final RegistryObject<Item> NANO_LEGGINGS = registerItem("nano_leggings", () -> new NanoArmor(EquipmentSlot.LEGS));
     public static final RegistryObject<Item> NANO_BOOTS = registerItem("nano_boots", () -> new NanoArmor(EquipmentSlot.FEET));
     public static final RegistryObject<Item> NANO_SABER = registerItem("nano_saber", Nanosaber::new);
+
+    public static final RegistryObject<Item> QUANTUM_HELMET = registerItem("quantum_helmet", () -> new QuantumArmor(EquipmentSlot.HEAD, 4));
+    public static final RegistryObject<Item> QUANTUM_CHESTPLATE = registerItem("quantum_chestplate", () -> new QuantumArmor(EquipmentSlot.CHEST, 4));
+    public static final RegistryObject<Item> QUANTUM_LEGGINGS = registerItem("quantum_leggings", () -> new QuantumArmor(EquipmentSlot.LEGS, 4));
+    public static final RegistryObject<Item> QUANTUM_BOOTS = registerItem("quantum_boots", () -> new QuantumArmor(EquipmentSlot.FEET, 4));
 
     public static final RegistryObject<Item> PAINTER = registerItem("painter", () -> new ToolItem(1));
     public static final RegistryObject<Item> PAINTER_WHITE = registerItem("painter_white", () -> new Painter(MaterialColor.WOOL));

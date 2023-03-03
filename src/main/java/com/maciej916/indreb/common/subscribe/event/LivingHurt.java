@@ -35,8 +35,10 @@ public class LivingHurt {
             Iterable<ItemStack> stacks = player.getArmorSlots();
             for (ItemStack stack : stacks) {
                 if (stack.getItem() instanceof ArmorItem armorItem) {
-                    if (armorItem.getSlot() == EquipmentSlot.FEET && ((armorItem.getMaterial() == CustomArmorMaterial.RUBBER || armorItem.getMaterial() == CustomArmorMaterial.NANO)) ) {
+                    if (armorItem.getSlot() == EquipmentSlot.FEET && ((armorItem.getMaterial() == CustomArmorMaterial.RUBBER || armorItem.getMaterial() == CustomArmorMaterial.NANO))) {
                         event.setDistance((float) (event.getDistance() / 3.3));
+                    } else if (armorItem.getSlot() == EquipmentSlot.FEET && ((armorItem.getMaterial() == CustomArmorMaterial.QUANTUM))) {
+                        event.setDistance((float) (event.getDistance() / event.getDistance()));
                     }
                 }
             }
