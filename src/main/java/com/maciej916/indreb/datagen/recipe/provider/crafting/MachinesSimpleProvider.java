@@ -35,7 +35,7 @@ public class MachinesSimpleProvider extends RecipeProvider {
                 .define('f', Items.FLINT)
                 .define('C', Items.FURNACE)
                 .define('x', Items.SMOOTH_STONE)
-                .define('i', ModItemTags.FORGE_INGOTS_IRON)
+                .define('i', ModItemTags.FORGE_PLATES_IRON)
                 .group(MODID + "/machines/simple")
                 .unlockedBy("furnace", InventoryChangeTrigger.TriggerInstance.hasItems(Items.FURNACE))
                 .save(consumer, saveResource("simple_crusher"));
@@ -47,7 +47,7 @@ public class MachinesSimpleProvider extends RecipeProvider {
                 .define('C', Items.FURNACE)
                 .define('x', Items.SMOOTH_STONE)
                 .define('s', ModItemTags.FORGE_COBBLESTONE)
-                .define('i', ModItemTags.FORGE_INGOTS_IRON)
+                .define('i', ModItemTags.FORGE_PLATES_IRON)
                 .group(MODID + "/machines/simple")
                 .unlockedBy("furnace", InventoryChangeTrigger.TriggerInstance.hasItems(Items.FURNACE))
                 .save(consumer, saveResource("simple_compressor"));
@@ -59,7 +59,7 @@ public class MachinesSimpleProvider extends RecipeProvider {
                 .define('C', Items.FURNACE)
                 .define('x', Items.SMOOTH_STONE)
                 .define('T', ModItems.TREETAP.get())
-                .define('i', ModItemTags.FORGE_INGOTS_IRON)
+                .define('i', ModItemTags.FORGE_PLATES_IRON)
                 .group(MODID + "/machines/simple")
                 .unlockedBy("furnace", InventoryChangeTrigger.TriggerInstance.hasItems(Items.FURNACE))
                 .save(consumer, saveResource("simple_extractor"));

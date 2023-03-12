@@ -1,18 +1,13 @@
 package com.maciej916.indreb.common.item.impl.armor;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 import com.maciej916.indreb.common.api.enums.CustomArmorMaterial;
 import com.maciej916.indreb.common.api.enums.EnergyTier;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.interfaces.item.IArmorProperties;
 import com.maciej916.indreb.common.api.item.base.BaseElectricArmor;
-import com.maciej916.indreb.common.attributes.ModAttributes;
 import com.maciej916.indreb.common.capability.radiation.IHasRadiation;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
 
 public class QuantumArmor extends BaseElectricArmor implements IArmorProperties, IHasRadiation {
 
@@ -23,9 +18,13 @@ public class QuantumArmor extends BaseElectricArmor implements IArmorProperties,
         this.radiationProtection = radiationProtection;
     }
 
-
     @Override
     public int getRadiationProtection() {
         return radiationProtection;
+    }
+
+    private void startFlying(Player player) {
+        player.getAbilities().mayfly = true;
+        player.onUpdateAbilities();
     }
 }

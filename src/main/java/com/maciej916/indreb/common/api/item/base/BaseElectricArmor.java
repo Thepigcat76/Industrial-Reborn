@@ -186,13 +186,9 @@ public abstract class BaseElectricArmor extends ArmorItem implements IElectricIt
 
                 if (active) {
                     modifiers.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", getDefense(), AttributeModifier.Operation.ADDITION));
-                    modifiers.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "Armor toughness modifier", getToughness(), AttributeModifier.Operation.ADDITION));
-                    modifiers.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Knockback resistance modifier", getMaterial().getKnockbackResistance(), AttributeModifier.Operation.ADDITION));
                     modifiers.put(ModAttributes.RADIATION_PROTECTION.get(), new AttributeModifier(uuid, "Radiation protection modifier", getRadiationProtection(), AttributeModifier.Operation.ADDITION));
                 } else {
                     modifiers.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", 0, AttributeModifier.Operation.ADDITION));
-                    modifiers.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "Armor toughness modifier", 0, AttributeModifier.Operation.ADDITION));
-                    modifiers.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Knockback resistance modifier", 0, AttributeModifier.Operation.ADDITION));
                     modifiers.put(ModAttributes.RADIATION_PROTECTION.get(), new AttributeModifier(uuid, "Radiation protection modifier", 0, AttributeModifier.Operation.ADDITION));
                 }
 
