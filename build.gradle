@@ -33,6 +33,8 @@ minecraft {
     // These can be tweaked, removed, or duplicated as needed.
     runs {
         client {
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             workingDirectory project.file('run')
 
             // Recommended logging data for a userdev environment
@@ -135,6 +137,9 @@ repositories {
         content {
             includeGroup "curse.maven"
         }
+    maven { //Patchouli
+        url 'https://maven.blamejared.com'
+    }
     }
 }
 
@@ -153,6 +158,9 @@ dependencies {
 
     implementation fg.deobf("curse.maven:the-one-probe-245211:3965693")
     implementation fg.deobf("curse.maven:pipez-443900:3920730")
+
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.2-77:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.2-77")
 
 
 //    implementation fg.deobf("curse.maven:allthecompressed-514045:4068231")

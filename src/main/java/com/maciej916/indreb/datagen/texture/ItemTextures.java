@@ -186,6 +186,7 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.STEEL_INGOT, "ingot/steel");
         createGeneratedTexture(ModItems.LEAD_INGOT, "ingot/lead");
         createGeneratedTexture(ModItems.URANIUM_INGOT, "ingot/uranium");
+        createGeneratedTexture(ModItems.ADVANCED_ALLOY_INGOT, "ingot/advanced_ingot");
     }
 
     protected void registerDusts() {
@@ -218,7 +219,7 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.COPPER_PLATE, "plate/copper");
         createGeneratedTexture(ModItems.LEAD_PLATE, "plate/lead");
         createGeneratedTexture(ModItems.LAPIS_LAZULI_PLATE, "plate/lapis_lazuli");
-        createGeneratedTexture(ModItems.ADVANCED_ALLOY, "plate/advanced_alloy");
+        createGeneratedTexture(ModItems.ADVANCED_ALLOY_PLATE, "ingot/advanced_alloy_plate");
     }
 
     protected void registerPurified() {

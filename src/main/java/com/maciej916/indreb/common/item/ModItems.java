@@ -211,6 +211,7 @@ public final class ModItems {
     public static final RegistryObject<Item> SILVER_INGOT = registerItem("silver_ingot", MaterialItem::new);
     public static final RegistryObject<Item> LEAD_INGOT = registerItem("lead_ingot", MaterialItem::new);
     public static final RegistryObject<Item> URANIUM_INGOT = registerItem("uranium_ingot", MaterialItem::new);
+    public static final RegistryObject<Item> ADVANCED_ALLOY_INGOT = registerItem("advanced_alloy_ingot", MaterialItem::new);
 
     public static final RegistryObject<Item> TIN_DUST = registerItem("tin_dust", MaterialItem::new);
     public static final RegistryObject<Item> COPPER_DUST = registerItem("copper_dust", MaterialItem::new);
@@ -253,7 +254,7 @@ public final class ModItems {
     public static final RegistryObject<Item> BRONZE_PLATE = registerItem("bronze_plate", MaterialItem::new);
     public static final RegistryObject<Item> STEEL_PLATE = registerItem("steel_plate", MaterialItem::new);
     public static final RegistryObject<Item> LAPIS_LAZULI_PLATE = registerItem("lapis_lazuli_plate", MaterialItem::new);
-    public static final RegistryObject<Item> ADVANCED_ALLOY = registerItem("advanced_alloy", MaterialItem::new);
+    public static final RegistryObject<Item> ADVANCED_ALLOY_PLATE = registerItem("advanced_alloy_plate", MaterialItem::new);
     public static final RegistryObject<Item> IRIDIUM_PLATE = registerItem("iridium_plate", MaterialItemRare::new);
 
     public static final RegistryObject<Item> ELECTRONIC_CIRCUIT = registerItem("electronic_circuit", MaterialItem::new);

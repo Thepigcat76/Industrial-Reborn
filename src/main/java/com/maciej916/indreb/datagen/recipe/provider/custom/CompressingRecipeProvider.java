@@ -221,7 +221,7 @@ public class CompressingRecipeProvider extends RecipeProvider {
                 .setGroup("compressing/block")
                 .save(consumer,"netherite_ingot_netherite_block");
 
-        CompressingRecipeBuilder.builder(ModItems.ADVANCED_ALLOY, 1)
+        CompressingRecipeBuilder.builder(ModItems.ADVANCED_ALLOY_PLATE, 1)
                 .setIngredient(ModItems.MIXED_METAL_INGOT, 1)
                 .addCriterion("mixed_metal_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MIXED_METAL_INGOT.get()))
                 .setGroup("compressing/items")
