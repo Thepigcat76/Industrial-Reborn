@@ -7,8 +7,14 @@ import net.minecraft.world.damagesource.DamageSource;
 
 public interface IPlayerCapability {
 
+    boolean getFlight();
+    void setFlight(boolean enabled);
     boolean getNightVision();
     void setNightVision(boolean enabled);
+    boolean getSpeedBoost();
+    void setSpeedBoost(boolean enabled);
+    boolean getJumpBoost();
+    void setJumpBoost(boolean enabled);
 
     double getRadsLevel();
     void setRadsLevel(double radiationLevel);

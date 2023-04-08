@@ -351,6 +351,11 @@ public final class ModItems {
     public static final RegistryObject<Item> NANO_CHESTPLATE = registerItem("nano_chestplate", () -> new NanoArmor(EquipmentSlot.CHEST));
     public static final RegistryObject<Item> NANO_LEGGINGS = registerItem("nano_leggings", () -> new NanoArmor(EquipmentSlot.LEGS));
     public static final RegistryObject<Item> NANO_BOOTS = registerItem("nano_boots", () -> new NanoArmor(EquipmentSlot.FEET));
+
+    public static final RegistryObject<Item> QUANTUM_HELMET = registerItem("quantum_helmet", QuantumHelmet::new);
+    public static final RegistryObject<Item> QUANTUM_CHESTPLATE = registerItem("quantum_chestplate", QuantumChestplate::new);
+    public static final RegistryObject<Item> QUANTUM_LEGGINGS = registerItem("quantum_leggings", QuantumLeggings::new);
+    public static final RegistryObject<Item> QUANTUM_BOOTS = registerItem("quantum_boots", QuantumBoots::new);
     public static final RegistryObject<Item> NANO_SABER = registerItem("nano_saber", Nanosaber::new);
 
     public static final RegistryObject<Item> PAINTER = registerItem("painter", () -> new ToolItem(1));

@@ -11,4 +11,6 @@ public class ModKeys {
 
     public static final KeyMapping NIGHT_VISION_KEY = new KeyMapping("key." + IndReb.MODID + ".night_vision", KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_C, CATEGORY);
 
+    public static final KeyMapping QUANTUM_ABILITY_TOGGLE = new KeyMapping("key." + IndReb.MODID + ".quantum_ability_toggle", KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_I, CATEGORY);
+
 }

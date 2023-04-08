@@ -23,6 +23,12 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     private final LazyOptional<IPlayerCapability> playerCap = LazyOptional.of(() -> this);
     private boolean nightVision = false;
 
+    private boolean speedBoost = false;
+
+    private boolean jumpBoost = false;
+
+    private boolean flight = false;
+
     private boolean radsChanged = false;
     private double radsLevel = 0;
     private double playerRads = 0;
@@ -40,8 +46,38 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     }
 
     @Override
+    public boolean getFlight() {
+        return flight;
+    }
+
+    @Override
+    public boolean getSpeedBoost() {
+        return speedBoost;
+    }
+
+    @Override
+    public boolean getJumpBoost() {
+        return jumpBoost;
+    }
+
+    @Override
     public void setNightVision(boolean enabled) {
         this.nightVision = enabled;
+    }
+
+    @Override
+    public void setFlight(boolean enabled) {
+        this.flight = enabled;
+    }
+
+    @Override
+    public void setJumpBoost(boolean enabled) {
+        this.jumpBoost = enabled;
+    }
+
+    @Override
+    public void setSpeedBoost(boolean enabled) {
+        this.speedBoost = enabled;
     }
 
     @Override
@@ -174,6 +210,9 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
 
     @Override
     public void clone(IPlayerCapability capability) {
+        this.flight = capability.getFlight();
+        this.speedBoost = capability.getSpeedBoost();
+        this.jumpBoost = capability.getJumpBoost();
         this.nightVision = capability.getNightVision();
         this.radsLevel = capability.getRadsLevel();
         this.playerRads = capability.getPlayerRads();
@@ -212,6 +251,9 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     public CompoundTag serializeNBT() {
         CompoundTag tag = new CompoundTag();
         tag.putBoolean("nightVision", this.nightVision);
+        tag.putBoolean("flight", this.flight);
+        tag.putBoolean("speedBoost", this.speedBoost);
+        tag.putBoolean("jumpBoost", this.jumpBoost);
 
         tag.putDouble("radsLevel", this.radsLevel);
         tag.putDouble("playerRads", this.playerRads);
@@ -224,6 +266,9 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     @Override
     public void deserializeNBT(CompoundTag nbt) {
        this.nightVision = nbt.getBoolean("nightVision");
+       this.speedBoost = nbt.getBoolean("speedBoost");
+       this.jumpBoost = nbt.getBoolean("jumpBoost");
+       this.flight = nbt.getBoolean("flight");
 
        this.radsLevel = nbt.getDouble("radsLevel");
        this.playerRads = nbt.getDouble("playerRads");

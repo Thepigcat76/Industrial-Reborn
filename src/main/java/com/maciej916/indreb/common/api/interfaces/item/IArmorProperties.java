@@ -5,4 +5,16 @@ public interface IArmorProperties {
     default boolean supportsNightVision() {
         return false;
     }
+
+    default boolean supportsFlight() {
+        return false;
+    }
+
+    default boolean supportsSpeedBoost() {
+        return false;
+    }
+
+    default boolean supportsJumpBoost() {
+        return false;
+    }
 }

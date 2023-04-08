@@ -68,6 +68,7 @@ public final class ClientModEventSubscriber {
 	@SubscribeEvent
 	public static void onKeyRegister(RegisterKeyMappingsEvent event) {
 		event.register(ModKeys.NIGHT_VISION_KEY);
+		event.register(ModKeys.QUANTUM_ABILITY_TOGGLE);
 	}
 
 
