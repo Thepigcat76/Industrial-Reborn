@@ -15,6 +15,8 @@ public interface IPlayerCapability {
     void setSpeedBoost(boolean enabled);
     boolean getJumpBoost();
     void setJumpBoost(boolean enabled);
+    boolean getQuantumAbility();
+    void setQuantumAbility(boolean enabled);
 
     double getRadsLevel();
     void setRadsLevel(double radiationLevel);

@@ -6,11 +6,11 @@ import net.minecraft.world.entity.EquipmentSlot;
 public class QuantumHelmet extends QuantumArmor implements IArmorProperties {
 
     public QuantumHelmet() {
-        super(EquipmentSlot.HEAD);
+        super(EquipmentSlot.HEAD, 4);
     }
 
     @Override
-    public boolean supportsNightVision() {
+    public  boolean supportsQuantumAbility() {
         return true;
     }
 

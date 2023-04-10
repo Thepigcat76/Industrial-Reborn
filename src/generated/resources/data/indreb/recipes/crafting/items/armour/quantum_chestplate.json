@@ -2,29 +2,29 @@
   "type": "minecraft:crafting_shaped",
   "group": "indreb/items/quantum",
   "key": {
-    "n": {
-      "item": "indreb:nano_chestplate"
-    },
-    "r": {
-      "item": "indreb:lapotronic_energy_relay"
-    },
     "a": {
-      "item": "indreb:advanced_alloy_plate"
-    },
-    "h": {
-      "item": "indreb:radiation_shielding"
+      "item": "indreb:advanced_alloy"
     },
     "f": {
       "item": "indreb:iridium_neutron_reflector"
     },
     "l": {
       "item": "indreb:lapotron_crystal"
+    },
+    "n": {
+      "item": "indreb:nano_chestplate"
+    },
+    "p": {
+      "item": "indreb:plutonium_pellet"
+    },
+    "r": {
+      "item": "indreb:lapotronic_energy_relay"
     }
   },
   "pattern": [
     "ala",
-    "rnr",
-    "hfh"
+    "pnp",
+    "rfr"
   ],
   "result": {
     "item": "indreb:quantum_chestplate"

@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 public class FlightHandler {
 
     public static void toggleFlight(Player player) {
-        if (ModKeys.QUANTUM_ABILITY_TOGGLE.consumeClick()) {
+        if (ModKeys.CREATIVE_FLIGHT_KEY.consumeClick()) {
             boolean found = false;
             for (ItemStack stack : player.getArmorSlots()) {
                 if (stack.getItem() instanceof IArmorProperties armorProperties) {

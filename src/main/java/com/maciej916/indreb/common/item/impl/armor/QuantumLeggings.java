@@ -6,11 +6,11 @@ import net.minecraft.world.entity.EquipmentSlot;
 public class QuantumLeggings extends QuantumArmor implements IArmorProperties {
 
     public QuantumLeggings() {
-        super(EquipmentSlot.LEGS);
+        super(EquipmentSlot.LEGS, 4);
     }
 
     @Override
-    public  boolean supportsSpeedBoost() {
+    public  boolean supportsQuantumAbility() {
         return true;
     }
 }

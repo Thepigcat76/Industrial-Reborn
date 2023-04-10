@@ -2,26 +2,26 @@
   "type": "minecraft:crafting_shaped",
   "group": "indreb/items/quantum",
   "key": {
-    "i": {
-      "item": "indreb:electric_motor"
+    "a": {
+      "item": "indreb:advanced_machine_casing"
+    },
+    "b": {
+      "item": "indreb:bioplastic"
+    },
+    "l": {
+      "item": "indreb:lapotron_crystal"
     },
     "n": {
       "item": "indreb:nano_leggings"
     },
     "r": {
       "item": "indreb:lapotronic_energy_relay"
-    },
-    "a": {
-      "item": "indreb:advanced_machine_casing"
-    },
-    "l": {
-      "item": "indreb:lapotron_crystal"
     }
   },
   "pattern": [
     "ala",
     "rnr",
-    "i i"
+    "b b"
   ],
   "result": {
     "item": "indreb:quantum_leggings"

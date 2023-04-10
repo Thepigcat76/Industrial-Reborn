@@ -14,6 +14,10 @@ public interface IArmorProperties {
         return false;
     }
 
+    default boolean supportsQuantumAbility() {
+        return false;
+    }
+
     default boolean supportsJumpBoost() {
         return false;
     }

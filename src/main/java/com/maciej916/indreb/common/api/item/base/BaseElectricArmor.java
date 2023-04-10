@@ -6,8 +6,10 @@ import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
 import com.maciej916.indreb.common.api.enums.EnergyTier;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.interfaces.item.IElectricItem;
+import com.maciej916.indreb.common.attributes.ModAttributes;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.capability.energy.BasicEnergyStorageProvider;
+import com.maciej916.indreb.common.capability.radiation.IHasRadiation;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.item.ModItemGroups;
 import com.maciej916.indreb.common.util.CapabilityUtil;
@@ -31,7 +33,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public abstract class BaseElectricArmor extends ArmorItem implements IElectricItem {
+public abstract class BaseElectricArmor extends ArmorItem implements IElectricItem, IHasRadiation {
 
     private static final UUID[] ARMOR_MODIFIER_UUID_PER_SLOT = new UUID[]{UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
     private final int energyStored;
@@ -184,8 +186,10 @@ public abstract class BaseElectricArmor extends ArmorItem implements IElectricIt
 
                 if (active) {
                     modifiers.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", getDefense(), AttributeModifier.Operation.ADDITION));
+                    modifiers.put(ModAttributes.RADIATION_PROTECTION.get(), new AttributeModifier(uuid, "Radiation protection modifier", getRadiationProtection(), AttributeModifier.Operation.ADDITION));
                 } else {
                     modifiers.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", 0, AttributeModifier.Operation.ADDITION));
+                    modifiers.put(ModAttributes.RADIATION_PROTECTION.get(), new AttributeModifier(uuid, "Radiation protection modifier", 0, AttributeModifier.Operation.ADDITION));
                 }
 
                 return modifiers;

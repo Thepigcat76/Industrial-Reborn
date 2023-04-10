@@ -6,11 +6,11 @@ import net.minecraft.world.entity.EquipmentSlot;
 public class QuantumChestplate extends QuantumArmor implements IArmorProperties {
 
     public QuantumChestplate() {
-        super(EquipmentSlot.CHEST);
+        super(EquipmentSlot.CHEST, 4);
     }
 
     @Override
-    public  boolean supportsFlight() {
+    public  boolean supportsQuantumAbility() {
         return true;
     }
 }

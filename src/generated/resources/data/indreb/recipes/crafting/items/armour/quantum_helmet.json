@@ -2,23 +2,23 @@
   "type": "minecraft:crafting_shaped",
   "group": "indreb/items/quantum",
   "key": {
-    "i": {
-      "tag": "forge:plates/iridium"
-    },
-    "n": {
-      "item": "indreb:nano_helmet"
+    "a": {
+      "item": "indreb:advanced_circuit"
     },
     "h": {
       "item": "indreb:hazmat_suit_helmet"
     },
-    "r": {
-      "item": "indreb:reinforced_glass"
-    },
-    "a": {
-      "item": "indreb:advanced_circuit"
+    "i": {
+      "item": "indreb:iridium_plate"
     },
     "l": {
       "item": "indreb:lapotron_crystal"
+    },
+    "n": {
+      "item": "indreb:nano_helmet"
+    },
+    "r": {
+      "item": "indreb:reinforced_glass"
     }
   },
   "pattern": [

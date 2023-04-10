@@ -52,6 +52,19 @@ public class ItemsCircuitProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED.get()))
                 .save(consumer, saveResource("advanced_circuit"));
 
+        ShapedRecipeBuilder.shaped(ModItems.LAPOTRONIC_ENERGY_RELAY.get(), 4)
+                .pattern("ibi")
+                .pattern("hlh")
+                .pattern("ibi")
+                .define('i', ModItems.IRIDIUM_PLATE.get())
+                .define('b', ModItems.BIOPLASTIC.get())
+                .define('h', ModItems.HAFNIUM_PELLET.get())
+                .define('l', ModItems.LAPOTRON_CRYSTAL.get())
+                .group(MODID + "/items/circuit")
+                .unlockedBy("iridium_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_PLATE.get()))
+                .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL.get()))
+                .unlockedBy("hafnium_pellet", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.HAFNIUM_PELLET.get()))
+                .save(consumer, saveResource("lapotronic_energy_relay"));
 
 
     }

@@ -68,7 +68,10 @@ public final class ClientModEventSubscriber {
 	@SubscribeEvent
 	public static void onKeyRegister(RegisterKeyMappingsEvent event) {
 		event.register(ModKeys.NIGHT_VISION_KEY);
-		event.register(ModKeys.QUANTUM_ABILITY_TOGGLE);
+		event.register(ModKeys.SPEED_BOOST_KEY);
+		event.register(ModKeys.CREATIVE_FLIGHT_KEY);
+		event.register(ModKeys.JUMP_BOOST_KEY);
+		event.register(ModKeys.QUANTUM_ABILITY_KEY);
 	}
 
 

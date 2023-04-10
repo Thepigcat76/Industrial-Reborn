@@ -1,10 +1,7 @@
 package com.maciej916.indreb.common.client;
 
 import com.maciej916.indreb.IndReb;
-import com.maciej916.indreb.common.client.keys.impl.FlightHandler;
-import com.maciej916.indreb.common.client.keys.impl.JumpBoostHandler;
-import com.maciej916.indreb.common.client.keys.impl.NightVisionHandler;
-import com.maciej916.indreb.common.client.keys.impl.SpeedBoostHandler;
+import com.maciej916.indreb.common.client.keys.impl.*;
 import com.maciej916.indreb.common.proxy.ModProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
@@ -22,6 +19,7 @@ public final class ClientForgeEventSubscriber {
 		Minecraft minecraft = ModProxy.PROXY.getClient();
 
 		NightVisionHandler.toggleNightVision(minecraft.player);
+		QuantumAbilityHandler.toggleQuantumAbility(minecraft.player);
 		FlightHandler.toggleFlight(minecraft.player);
 		SpeedBoostHandler.toggleSpeed(minecraft.player);
 		JumpBoostHandler.toggleJumpBoost(minecraft.player);
@@ -31,6 +29,7 @@ public final class ClientForgeEventSubscriber {
 	public static void playerTick(TickEvent.PlayerTickEvent event) {
 		Player player = event.player;
 		NightVisionHandler.checkNightVision(player);
+		QuantumAbilityHandler.checkQuantumAbility(player);
 		FlightHandler.checkFlight(player);
 		SpeedBoostHandler.checkSpeedBoost(player);
 		JumpBoostHandler.checkJumpBoost(player);

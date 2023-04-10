@@ -11,8 +11,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 public class SpeedBoostHandler {
+
     public static void toggleSpeed(Player player) {
-        if (ModKeys.QUANTUM_ABILITY_TOGGLE.consumeClick()) {
+        if (ModKeys.SPEED_BOOST_KEY.consumeClick()) {
             boolean found = false;
             for (ItemStack stack : player.getArmorSlots()) {
                 if (stack.getItem() instanceof IArmorProperties armorProperties) {
@@ -49,14 +50,16 @@ public class SpeedBoostHandler {
 
     public static void toggle(IPlayerCapability cap, Player player, boolean enable) {
         if (enable) {
-            MobEffectInstance effect = new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000000, 4, false, false);
+            MobEffectInstance effect = new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000000, 10, false, true);
             effect.setNoCounter(true);
             player.playSound(ModSounds.NIGHT_VISION.get(), 1F, 0.8F / (player.getRandom().nextFloat() * 0.4F + 0.8F));
             player.addEffect(effect);
-        } else if (!player.isCreative()) {
-            player.getAbilities().mayfly = false;
+        } else {
+            player.removeEffect(MobEffects.MOVEMENT_SPEED);
         }
 
         cap.setSpeedBoost(enable);
     }
+
 }
+

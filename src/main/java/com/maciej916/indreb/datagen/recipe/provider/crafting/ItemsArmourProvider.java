@@ -186,6 +186,60 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("radiation_shielding", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RADIATION_SHIELDING.get()))
                 .save(consumer, saveResource("hazmat_suit_boots"));
 
+        ShapedRecipeBuilder.shaped(ModItems.QUANTUM_HELMET.get())
+                .pattern("rlr")
+                .pattern("ini")
+                .pattern("aha")
+                .define('r', ModItems.REINFORCED_GLASS.get())
+                .define('l', ModItems.LAPOTRON_CRYSTAL.get())
+                .define('n', ModItems.NANO_HELMET.get())
+                .define('i', ModItems.IRIDIUM_PLATE.get())
+                .define('a', ModItems.ADVANCED_CIRCUIT.get())
+                .define('h', ModItems.HAZMAT_SUIT_HELMET.get())
+                .group(MODID + "/items/quantum")
+                .unlockedBy("iridum_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_PLATE.get()))
+                .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL.get()))
+                .save(consumer, saveResource("quantum_helmet"));
 
+        ShapedRecipeBuilder.shaped(ModItems.QUANTUM_CHESTPLATE.get())
+                .pattern("ala")
+                .pattern("pnp")
+                .pattern("rfr")
+                .define('a', ModItems.ADVANCED_ALLOY.get())
+                .define('l', ModItems.LAPOTRON_CRYSTAL.get())
+                .define('p', ModItems.PLUTONIUM_PELLET.get())
+                .define('n', ModItems.NANO_CHESTPLATE.get())
+                .define('r', ModItems.LAPOTRONIC_ENERGY_RELAY.get())
+                .define('f', ModItems.IRIDIUM_NEUTRON_REFLECTOR.get())
+                .group(MODID + "/items/quantum")
+                .unlockedBy("iridum_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_PLATE.get()))
+                .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL.get()))
+                .save(consumer, saveResource("quantum_chestplate"));
+
+        ShapedRecipeBuilder.shaped(ModItems.QUANTUM_LEGGINGS.get())
+                .pattern("ala")
+                .pattern("rnr")
+                .pattern("b b")
+                .define('a', ModItems.ADVANCED_MACHINE_CASING.get())
+                .define('l', ModItems.LAPOTRON_CRYSTAL.get())
+                .define('r', ModItems.LAPOTRONIC_ENERGY_RELAY.get())
+                .define('n', ModItems.NANO_LEGGINGS.get())
+                .define('b', ModItems.BIOPLASTIC.get())
+                .group(MODID + "/items/quantum")
+                .unlockedBy("iridium_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_PLATE.get()))
+                .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL.get()))
+                .save(consumer, saveResource("quantum_leggings"));
+
+        ShapedRecipeBuilder.shaped(ModItems.QUANTUM_BOOTS.get())
+                .pattern("ini")
+                .pattern("rlr")
+                .define('i', ModItems.IRIDIUM_PLATE.get())
+                .define('n', ModItems.NANO_BOOTS.get())
+                .define('r', ModItems.RUBBER_BOOTS.get())
+                .define('l', ModItems.LAPOTRON_CRYSTAL.get())
+                .group(MODID + "/items/quantum")
+                .unlockedBy("iridium_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_PLATE.get()))
+                .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL.get()))
+                .save(consumer, saveResource("quantum_boots"));
     }
 }

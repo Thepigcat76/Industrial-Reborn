@@ -260,6 +260,7 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.SCRAP_BOX, "crafting/scrap_box");
         createGeneratedTexture(ModItems.BIOPLASTIC, "crafting/bioplastic");
         createGeneratedTexture(ModItems.RADIATION_SHIELDING, "crafting/radiation_shielding");
+        createGeneratedTexture(ModItems.LAPOTRONIC_ENERGY_RELAY, "crafting/lapotronic_relay");
     }
 
     protected void registerResource() {
@@ -267,6 +268,11 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.RUBBER, "resource/rubber");
         createGeneratedTexture(ModItems.IRIDIUM_SHARD, "resource/iridium_shard");
         createGeneratedTexture(ModItems.IRIDIUM, "resource/iridium");
+        createGeneratedTexture(ModItems.URANIUM_235_PILE, "resource/uranium_pile_235");
+        createGeneratedTexture(ModItems.URANIUM_238_PILE, "resource/uranium_pile_238");
+        createGeneratedTexture(ModItems.PLUTONIUM_PILE, "resource/plutonium_pile");
+        createGeneratedTexture(ModItems.PLUTONIUM_PELLET, "resource/plutonium_pellet");
+        createGeneratedTexture(ModItems.HAFNIUM_PELLET, "resource/hafnium_pellet");
     }
 
     protected void registerStorage() {
@@ -390,6 +396,11 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.NANO_CHESTPLATE, "armor/nano_chestplate");
         createGeneratedTexture(ModItems.NANO_LEGGINGS, "armor/nano_leggings");
         createGeneratedTexture(ModItems.NANO_BOOTS, "armor/nano_boots");
+
+        createGeneratedTexture(ModItems.QUANTUM_HELMET, "armor/quantum_helmet");
+        createGeneratedTexture(ModItems.QUANTUM_CHESTPLATE, "armor/quantum_chestplate");
+        createGeneratedTexture(ModItems.QUANTUM_LEGGINGS, "armor/quantum_leggings");
+        createGeneratedTexture(ModItems.QUANTUM_BOOTS, "armor/quantum_boots");
 
         createGeneratedTexture(ModItems.HAZMAT_SUIT_HELMET, "armor/hazmat_suit_helmet");
         createGeneratedTexture(ModItems.HAZMAT_SUIT_CHESTPLATE, "armor/hazmat_suit_chestplate");

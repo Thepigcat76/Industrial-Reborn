@@ -28,6 +28,7 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     private boolean jumpBoost = false;
 
     private boolean flight = false;
+    private boolean quantumAbility = false;
 
     private boolean radsChanged = false;
     private double radsLevel = 0;
@@ -48,6 +49,10 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     @Override
     public boolean getFlight() {
         return flight;
+    }
+
+    public boolean getQuantumAbility() {
+        return quantumAbility;
     }
 
     @Override
@@ -73,6 +78,11 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     @Override
     public void setJumpBoost(boolean enabled) {
         this.jumpBoost = enabled;
+    }
+
+    @Override
+    public void setQuantumAbility(boolean enabled) {
+        this.quantumAbility = enabled;
     }
 
     @Override
@@ -211,6 +221,7 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     @Override
     public void clone(IPlayerCapability capability) {
         this.flight = capability.getFlight();
+        this.quantumAbility = capability.getQuantumAbility();
         this.speedBoost = capability.getSpeedBoost();
         this.jumpBoost = capability.getJumpBoost();
         this.nightVision = capability.getNightVision();
