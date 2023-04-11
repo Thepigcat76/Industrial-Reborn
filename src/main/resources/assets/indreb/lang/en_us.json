@@ -252,7 +252,8 @@
   "item.indreb.combined_carbon_fibers": "Combined Carbon Fibers",
   "item.indreb.carbon_plate": "Carbon Plate",
 
-  "item.indreb.advanced_alloy": "Advanced Alloy",
+  "item.indreb.advanced_alloy_plate": "Advanced Alloy Plate",
+  "item.indreb.advanced_alloy_ingot": "Advanced Alloy Ingot",
 
   "item.indreb.nightvision_goggles": "Night Vision Goggles",
   "item.indreb.rubber_boots": "Rubber Boots",
@@ -323,6 +324,7 @@
   "item.indreb.debug_stick": "Debug Stick",
   "item.indreb.foam_sprayer": "Foam Sprayer",
   "item.indreb.iridium_shard": "Iridium Shard",
+  "item.indreb.raw_iridium_alloy": "Raw Iridium Alloy",
   "item.indreb.iridium": "Iridium",
   "item.indreb.multi_tool": "Multi Tool-Wrench",
   "item.indreb.coil": "Coil",
@@ -394,6 +396,14 @@
   "item.indreb.fuel_rod_mox_dual_depleted": "Dual Fuel Rod (Depleted MOX)",
   "item.indreb.fuel_rod_mox_quad": "Quad Fuel Rod (MOX)",
   "item.indreb.fuel_rod_mox_quad_depleted": "Quad Fuel Rod (Depleted MOX)",
+  "item.indreb.enriched_uranium_fuel": "Enriched Uranium Fuel",
+  "item.indreb.mox_fuel": "MOX Fuel",
+  "item.indreb.hafnium_pellet": "Hafnium Pellet",
+  "item.indreb.plutonium_pellet": "Plutonium Pellet",
+  "item.indreb.plutonium_pile": "Plutonium Pile",
+  "item.indreb.hafnium_pile": "Hafnium Pile",
+  "item.indreb.uranium_235_pile": "Uranium 235 Pile",
+  "item.indreb.uranium_238_pile": "Uranium 238 Pile",
 
   "item.indreb.tin_dust": "Tin Dust",
   "item.indreb.copper_dust": "Copper Dust",

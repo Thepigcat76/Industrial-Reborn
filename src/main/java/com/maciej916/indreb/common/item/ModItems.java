@@ -205,6 +205,7 @@ public final class ModItems {
     public static final RegistryObject<Item> RAW_SILVER = registerItem("raw_silver", MaterialItem::new);
 
     public static final RegistryObject<Item> TIN_INGOT = registerItem("tin_ingot", MaterialItem::new);
+    public static final RegistryObject<Item> ADVANCED_ALLOY_INGOT = registerItem("advanced_alloy_ingot", MaterialItem::new);
     public static final RegistryObject<Item> BRONZE_INGOT = registerItem("bronze_ingot", MaterialItem::new);
     public static final RegistryObject<Item> STEEL_INGOT = registerItem("steel_ingot", MaterialItem::new);
     public static final RegistryObject<Item> MIXED_METAL_INGOT = registerItem("mixed_metal_ingot", MaterialItem::new);
@@ -253,7 +254,7 @@ public final class ModItems {
     public static final RegistryObject<Item> BRONZE_PLATE = registerItem("bronze_plate", MaterialItem::new);
     public static final RegistryObject<Item> STEEL_PLATE = registerItem("steel_plate", MaterialItem::new);
     public static final RegistryObject<Item> LAPIS_LAZULI_PLATE = registerItem("lapis_lazuli_plate", MaterialItem::new);
-    public static final RegistryObject<Item> ADVANCED_ALLOY = registerItem("advanced_alloy", MaterialItem::new);
+    public static final RegistryObject<Item> ADVANCED_ALLOY_PLATE = registerItem("advanced_alloy_plate", MaterialItem::new);
     public static final RegistryObject<Item> IRIDIUM_PLATE = registerItem("iridium_plate", MaterialItemRare::new);
 
     public static final RegistryObject<Item> ELECTRONIC_CIRCUIT = registerItem("electronic_circuit", MaterialItem::new);
@@ -277,13 +278,14 @@ public final class ModItems {
     public static final RegistryObject<Item> RUBBER = registerItem("rubber", MaterialItem::new);
     public static final RegistryObject<Item> IRIDIUM_SHARD = registerItem("iridium_shard", MaterialItemRare::new);
     public static final RegistryObject<Item> IRIDIUM = registerItem("iridium", MaterialItemRare::new);
+    public static final RegistryObject<Item> RAW_IRIDIUM_ALLOY = registerItem("raw_iridium_alloy", MaterialItemRare::new);
     public static final RegistryObject<Item> PLUTONIUM_PILE = registerItem("plutonium_pile", MaterialItem::new);
     public static final RegistryObject<Item> URANIUM_235_PILE = registerItem("uranium_235_pile", MaterialItem::new);
     public static final RegistryObject<Item> URANIUM_238_PILE = registerItem("uranium_238_pile", MaterialItem::new);
     public static final RegistryObject<Item> HAFNIUM_PILE = registerItem("hafnium_pile", MaterialItem::new);
-    public static final RegistryObject<Item> MOX_PELLET = registerItem("mox_pellet", MaterialItem::new);
+    public static final RegistryObject<Item> MOX_FUEL = registerItem("mox_pellet", MaterialItem::new);
     public static final RegistryObject<Item> PLUTONIUM_PELLET = registerItem("plutonium_pellet", MaterialItem::new);
-    public static final RegistryObject<Item> URANIUM_PELLET = registerItem("uranium_pellet", MaterialItem::new);
+    public static final RegistryObject<Item> ENRICHED_URANIUM_FUEL = registerItem("enriched_uranium_fuel", MaterialItem::new);
     public static final RegistryObject<Item> HAFNIUM_PELLET = registerItem("hafnium_pellet", MaterialItem::new);
 
     public static final RegistryObject<Item> IRON_ROD = registerItem("iron_rod", MaterialItem::new);
