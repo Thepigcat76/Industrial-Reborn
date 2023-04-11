@@ -49,6 +49,7 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
     public static final int INPUT_SLOT = 0;
     public static final int OUTPUT_SLOT_1 = 1;
     public static final int OUTPUT_SLOT_2 = 2;
+    public static final int OUTPUT_SLOT_3 = 3;
 
     protected static List<ThermalCentrifugingRecipe> recipes;
     protected ThermalCentrifugingRecipe recipe;
@@ -72,6 +73,7 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
         ItemStack inputStack = getBaseStorage().getStackInSlot(INPUT_SLOT);
         ItemStack outputStack1 = getBaseStorage().getStackInSlot(OUTPUT_SLOT_1);
         ItemStack outputStack2 = getBaseStorage().getStackInSlot(OUTPUT_SLOT_2);
+        ItemStack outputStack3 = getBaseStorage().getStackInSlot(OUTPUT_SLOT_3);
 
         if (recipes == null) {
             initRecipes();
@@ -135,7 +137,13 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
                         if (!chanceResult.isEmpty()) {
                             StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT_2, chanceResult);
                         }
+                    } else if (outputStack3.isEmpty() || chanceResult.isEmpty() || (chanceResult.getCount() + outputStack3.getCount() <= outputStack3.getMaxStackSize() && chanceResult.getItem() == outputStack3.getItem())) {StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT_1, recipe.getResultItem());
+                        StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT, recipe.getIngredientCount().getIngredientsCount().get(0));
+                        progressRecipe.resetProgress();
+                        addRecipeUsed(recipe);
+                        rolledChance = false;
                     }
+
                 }
             }
         }
@@ -170,8 +178,9 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
     @Override
     public ArrayList<BaseSlot> addBaseSlots(ArrayList<BaseSlot> slots) {
         slots.add(new BaseSlot(INPUT_SLOT, 48, 33, 47, 32, InventorySlotType.INPUT, GuiSlotBg.NORMAL));
-        slots.add(new OutputSlot(OUTPUT_SLOT_1,  109, 25, 108, 24, GuiSlotBg.NORMAL_BLANK));
-        slots.add(new OutputSlot(OUTPUT_SLOT_2, 109, 44, 108, 43, GuiSlotBg.NORMAL_BLANK));
+        slots.add(new OutputSlot(OUTPUT_SLOT_1,  109, 15, 108, 14, GuiSlotBg.NORMAL_BLANK));
+        slots.add(new OutputSlot(OUTPUT_SLOT_2, 109, 34, 108, 33, GuiSlotBg.NORMAL_BLANK));
+        slots.add(new OutputSlot(OUTPUT_SLOT_3, 109, 53, 108, 52, GuiSlotBg.NORMAL_BLANK));
 
         return super.addBaseSlots(slots);
     }
@@ -208,7 +217,7 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
 
     private final Map<Direction, LazyOptional<WrappedHandler>> itemCapabilities = Map.of(
             Direction.UP, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
-            Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> i == OUTPUT_SLOT_1 || i == OUTPUT_SLOT_2, (i, stack) -> false)),
+            Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> i == OUTPUT_SLOT_1 || i == OUTPUT_SLOT_2 || i == OUTPUT_SLOT_3, (i, stack) -> false)),
             Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
             Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
             Direction.EAST, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),

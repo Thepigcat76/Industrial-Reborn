@@ -12,7 +12,7 @@ public class QuantumArmor extends BaseElectricArmor implements IHasRadiation {
 
     public final int radiationProtection;
     public QuantumArmor(EquipmentSlot slot, int radProtection) {
-        super(CustomArmorMaterial.QUANTUM, slot, new Properties(), 0, 1000000, EnergyType.RECEIVE, EnergyTier.ULTRA);
+        super(CustomArmorMaterial.QUANTUM, slot, new Properties(), 0, 1000000, EnergyType.RECEIVE, EnergyTier.SUPER);
         this.radiationProtection = radProtection;
     }
 

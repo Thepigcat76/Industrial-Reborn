@@ -66,11 +66,11 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .pattern("ada")
                 .pattern("iai")
                 .define('d', ModItemTags.FORGE_GEMS_DIAMOND)
-                .define('a', ModItems.ADVANCED_ALLOY.get())
+                .define('a', ModItems.ADVANCED_ALLOY_PLATE.get())
                 .define('i', ModItems.IRIDIUM.get())
                 .group(MODID + "/items/crafting")
                 .unlockedBy("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
-                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY.get()))
+                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY_PLATE.get()))
                 .unlockedBy("iridium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM.get()))
                 .save(consumer, saveResource("iridium_plate"));
 

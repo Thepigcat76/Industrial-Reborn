@@ -277,7 +277,7 @@ public class JEIPlugin implements IModPlugin {
 
         registration.addRecipeTransferHandler(MenuAlloySmelter.class, ModMenuTypes.ALLOY_SMELTER.get(), ALLOY_SMELTING_TYPE, BlockEntityAlloySmelter.INPUT_SLOT_0, 3, BlockEntityAlloySmelter.OUTPUT_SLOT, 36);
         registration.addRecipeTransferHandler(MenuOreWashingPlant.class, ModMenuTypes.ORE_WASHING_PLANT.get(), ORE_WASHING_TYPE, BlockEntityOreWashingPlant.INPUT_SLOT, 1, BlockEntityOreWashingPlant.OUTPUT_SLOT_2 + 6, 36);
-        registration.addRecipeTransferHandler(MenuThermalCentrifuge.class, ModMenuTypes.THERMAL_CENTRIFUGE.get(), THERMAL_CENTRIFUGING_TYPE, BlockEntityThermalCentrifuge.INPUT_SLOT, 1, BlockEntityThermalCentrifuge.OUTPUT_SLOT_2 + 6, 36);
+        registration.addRecipeTransferHandler(MenuThermalCentrifuge.class, ModMenuTypes.THERMAL_CENTRIFUGE.get(), THERMAL_CENTRIFUGING_TYPE, BlockEntityThermalCentrifuge.INPUT_SLOT, 1, BlockEntityThermalCentrifuge.OUTPUT_SLOT_3 + 6, 36);
 
     }
 

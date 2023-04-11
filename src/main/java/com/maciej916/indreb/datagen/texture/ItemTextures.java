@@ -218,7 +218,7 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.COPPER_PLATE, "plate/copper");
         createGeneratedTexture(ModItems.LEAD_PLATE, "plate/lead");
         createGeneratedTexture(ModItems.LAPIS_LAZULI_PLATE, "plate/lapis_lazuli");
-        createGeneratedTexture(ModItems.ADVANCED_ALLOY, "plate/advanced_alloy");
+        createGeneratedTexture(ModItems.ADVANCED_ALLOY_PLATE, "plate/advanced_alloy");
     }
 
     protected void registerPurified() {

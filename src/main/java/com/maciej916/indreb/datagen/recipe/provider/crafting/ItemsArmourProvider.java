@@ -205,7 +205,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .pattern("ala")
                 .pattern("pnp")
                 .pattern("rfr")
-                .define('a', ModItems.ADVANCED_ALLOY.get())
+                .define('a', ModItems.ADVANCED_ALLOY_PLATE.get())
                 .define('l', ModItems.LAPOTRON_CRYSTAL.get())
                 .define('p', ModItems.PLUTONIUM_PELLET.get())
                 .define('n', ModItems.NANO_CHESTPLATE.get())

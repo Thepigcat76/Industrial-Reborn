@@ -131,18 +131,18 @@ public class ItemsReactorProvider extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(ModItems.CONTAINMENT_REACTOR_PLATING.get())
                 .requires(ModItems.REACTOR_PLATING.get())
-                .requires(ModItems.ADVANCED_ALLOY.get(), 2)
+                .requires(ModItems.ADVANCED_ALLOY_PLATE.get(), 2)
                 .group(MODID + "/items/reactor")
                 .unlockedBy("reactor_plating", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.REACTOR_PLATING.get()))
-                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY.get()))
+                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY_PLATE.get()))
                 .save(consumer, saveResource("containment_reactor_plating"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.REACTOR_PLATING.get())
                 .requires(ModItemTags.FORGE_PLATES_LEAD)
-                .requires(ModItems.ADVANCED_ALLOY.get())
+                .requires(ModItems.ADVANCED_ALLOY_PLATE.get())
                 .group(MODID + "/items/reactor")
                 .unlockedBy("lead_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LEAD_PLATE.get()))
-                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY.get()))
+                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY_PLATE.get()))
                 .save(consumer, saveResource("reactor_plating"));
 
         ShapedRecipeBuilder.shaped(ModItems.HEAT_CAPACITY_REACTOR_PLATING.get())

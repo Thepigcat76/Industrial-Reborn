@@ -45,12 +45,12 @@ public class CasingProvider extends RecipeProvider {
                 .pattern("scs")
                 .define('s', ModItemTags.FORGE_PLATES_STEEL)
                 .define('c', ModItems.CARBON_PLATE.get())
-                .define('a', ModItems.ADVANCED_ALLOY.get())
+                .define('a', ModItems.ADVANCED_ALLOY_PLATE.get())
                 .define('b', ModBlocks.BASIC_MACHINE_CASING.get())
                 .group(MODID + "/casing")
                 .unlockedBy("steel_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STEEL_PLATE.get()))
                 .unlockedBy("carbon_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_PLATE.get()))
-                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY.get()))
+                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY_PLATE.get()))
                 .unlockedBy("basic_machine", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BASIC_MACHINE_CASING.get()))
                 .save(consumer, saveResource("advanced_machine_casing"));
 
@@ -60,12 +60,12 @@ public class CasingProvider extends RecipeProvider {
                 .pattern("sas")
                 .define('s', ModItemTags.FORGE_PLATES_STEEL)
                 .define('c', ModItems.CARBON_PLATE.get())
-                .define('a', ModItems.ADVANCED_ALLOY.get())
+                .define('a', ModItems.ADVANCED_ALLOY_PLATE.get())
                 .define('b', ModBlocks.BASIC_MACHINE_CASING.get())
                 .group(MODID + "/casing")
                 .unlockedBy("steel_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STEEL_PLATE.get()))
                 .unlockedBy("carbon_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_PLATE.get()))
-                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY.get()))
+                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY_PLATE.get()))
                 .unlockedBy("basic_machine", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BASIC_MACHINE_CASING.get()))
                 .save(consumer, saveResource("advanced_machine_casing_2"));
 
