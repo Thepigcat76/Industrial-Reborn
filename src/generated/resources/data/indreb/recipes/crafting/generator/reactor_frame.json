@@ -3,7 +3,7 @@
   "group": "indreb/generator",
   "key": {
     "a": {
-      "item": "indreb:advanced_alloy"
+      "item": "indreb:advanced_alloy_plate"
     },
     "b": {
       "item": "indreb:basic_machine_casing"
