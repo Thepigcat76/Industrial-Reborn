@@ -268,11 +268,6 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.RUBBER, "resource/rubber");
         createGeneratedTexture(ModItems.IRIDIUM_SHARD, "resource/iridium_shard");
         createGeneratedTexture(ModItems.IRIDIUM, "resource/iridium");
-        createGeneratedTexture(ModItems.URANIUM_235_PILE, "resource/uranium_pile_235");
-        createGeneratedTexture(ModItems.URANIUM_238_PILE, "resource/uranium_pile_238");
-        createGeneratedTexture(ModItems.PLUTONIUM_PILE, "resource/plutonium_pile");
-        createGeneratedTexture(ModItems.PLUTONIUM_PELLET, "resource/plutonium_pellet");
-        createGeneratedTexture(ModItems.HAFNIUM_PELLET, "resource/hafnium_pellet");
     }
 
     protected void registerStorage() {

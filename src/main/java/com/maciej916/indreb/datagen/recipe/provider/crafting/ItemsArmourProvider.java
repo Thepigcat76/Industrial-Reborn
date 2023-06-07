@@ -203,11 +203,10 @@ public class ItemsArmourProvider extends RecipeProvider {
 
         ShapedRecipeBuilder.shaped(ModItems.QUANTUM_CHESTPLATE.get())
                 .pattern("ala")
-                .pattern("pnp")
+                .pattern("ana")
                 .pattern("rfr")
                 .define('a', ModItems.ADVANCED_ALLOY_PLATE.get())
                 .define('l', ModItems.LAPOTRON_CRYSTAL.get())
-                .define('p', ModItems.PLUTONIUM_PELLET.get())
                 .define('n', ModItems.NANO_CHESTPLATE.get())
                 .define('r', ModItems.LAPOTRONIC_ENERGY_RELAY.get())
                 .define('f', ModItems.IRIDIUM_NEUTRON_REFLECTOR.get())

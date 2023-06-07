@@ -279,15 +279,7 @@ public final class ModItems {
     public static final RegistryObject<Item> IRIDIUM_SHARD = registerItem("iridium_shard", MaterialItemRare::new);
     public static final RegistryObject<Item> IRIDIUM = registerItem("iridium", MaterialItemRare::new);
     public static final RegistryObject<Item> RAW_IRIDIUM_ALLOY = registerItem("raw_iridium_alloy", MaterialItemRare::new);
-    public static final RegistryObject<Item> PLUTONIUM_PILE = registerItem("plutonium_pile", MaterialItem::new);
-    public static final RegistryObject<Item> URANIUM_235_PILE = registerItem("uranium_235_pile", MaterialItem::new);
-    public static final RegistryObject<Item> URANIUM_238_PILE = registerItem("uranium_238_pile", MaterialItem::new);
-    public static final RegistryObject<Item> HAFNIUM_PILE = registerItem("hafnium_pile", MaterialItem::new);
     public static final RegistryObject<Item> MOX_FUEL = registerItem("mox_pellet", MaterialItem::new);
-    public static final RegistryObject<Item> PLUTONIUM_PELLET = registerItem("plutonium_pellet", MaterialItem::new);
-    public static final RegistryObject<Item> ENRICHED_URANIUM_FUEL = registerItem("enriched_uranium_fuel", MaterialItem::new);
-    public static final RegistryObject<Item> HAFNIUM_PELLET = registerItem("hafnium_pellet", MaterialItem::new);
-
     public static final RegistryObject<Item> IRON_ROD = registerItem("iron_rod", MaterialItem::new);
     public static final RegistryObject<Item> BIOPLASTIC = registerItem("bioplastic", MaterialItem::new);
     public static final RegistryObject<Item> LAPOTRONIC_ENERGY_RELAY = registerItem("lapotronic_energy_relay", MaterialItem::new);
