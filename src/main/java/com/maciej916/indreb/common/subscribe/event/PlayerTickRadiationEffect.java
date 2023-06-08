@@ -22,10 +22,9 @@ public class PlayerTickRadiationEffect {
         radiation.setNoCounter(true);
         event.player.getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(cap -> {
             double radsLevel = cap.getPlayerRads();
-            if (radsLevel > 0.5) {
+            if (radsLevel > 0.05) {
                 event.player.addEffect(radiation);
             }
-            event.player.sendSystemMessage(Component.literal(String.valueOf(radsLevel)));
         });
     }
 
