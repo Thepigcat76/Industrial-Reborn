@@ -14,16 +14,13 @@
     "n": {
       "item": "indreb:nano_chestplate"
     },
-    "p": {
-      "item": "indreb:plutonium_pellet"
-    },
     "r": {
       "item": "indreb:lapotronic_energy_relay"
     }
   },
   "pattern": [
     "ala",
-    "pnp",
+    "ana",
     "rfr"
   ],
   "result": {

@@ -205,7 +205,6 @@ public final class ModItems {
     public static final RegistryObject<Item> RAW_SILVER = registerItem("raw_silver", MaterialItem::new);
 
     public static final RegistryObject<Item> TIN_INGOT = registerItem("tin_ingot", MaterialItem::new);
-    public static final RegistryObject<Item> ADVANCED_ALLOY_INGOT = registerItem("advanced_alloy_ingot", MaterialItem::new);
     public static final RegistryObject<Item> BRONZE_INGOT = registerItem("bronze_ingot", MaterialItem::new);
     public static final RegistryObject<Item> STEEL_INGOT = registerItem("steel_ingot", MaterialItem::new);
     public static final RegistryObject<Item> MIXED_METAL_INGOT = registerItem("mixed_metal_ingot", MaterialItem::new);
@@ -278,8 +277,6 @@ public final class ModItems {
     public static final RegistryObject<Item> RUBBER = registerItem("rubber", MaterialItem::new);
     public static final RegistryObject<Item> IRIDIUM_SHARD = registerItem("iridium_shard", MaterialItemRare::new);
     public static final RegistryObject<Item> IRIDIUM = registerItem("iridium", MaterialItemRare::new);
-    public static final RegistryObject<Item> RAW_IRIDIUM_ALLOY = registerItem("raw_iridium_alloy", MaterialItemRare::new);
-    public static final RegistryObject<Item> MOX_FUEL = registerItem("mox_pellet", MaterialItem::new);
     public static final RegistryObject<Item> IRON_ROD = registerItem("iron_rod", MaterialItem::new);
     public static final RegistryObject<Item> BIOPLASTIC = registerItem("bioplastic", MaterialItem::new);
     public static final RegistryObject<Item> LAPOTRONIC_ENERGY_RELAY = registerItem("lapotronic_energy_relay", MaterialItem::new);

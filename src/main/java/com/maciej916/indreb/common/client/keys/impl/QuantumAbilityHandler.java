@@ -48,28 +48,15 @@ public class QuantumAbilityHandler {
     }
 
     public static void toggle(IPlayerCapability cap, Player player, boolean enable) {
+        MobEffectInstance fireResistance = new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000000, 4, false, false);
+        fireResistance.setNoCounter(true);
         if (enable) {
-            MobEffectInstance effectJump = new MobEffectInstance(MobEffects.JUMP, 1000000, 4, false, false);
-            effectJump.setNoCounter(true);
-            MobEffectInstance effectSpeed = new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000000, 4, false, false);
-            effectJump.setNoCounter(true);
-            MobEffectInstance effectFireResistance = new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1000000, 1, false, false);
-            effectJump.setNoCounter(true);
-            player.playSound(SoundEvents.BEACON_ACTIVATE, 1F, 0.8F / (player.getRandom().nextFloat() * 0.4F + 0.8F));
-            player.addEffect(effectJump);
-            player.addEffect(effectSpeed);
-            player.addEffect(effectFireResistance);
             player.getAbilities().mayfly = true;
+            player.addEffect(fireResistance);
             player.onUpdateAbilities();
-        } else if(!player.isCreative()) {
-            player.removeEffect(MobEffects.JUMP);
-            player.removeEffect(MobEffects.MOVEMENT_SPEED);
-            player.removeEffect(MobEffects.FIRE_RESISTANCE);
+        }  else {
             player.getAbilities().mayfly = false;
-        } else {
-            player.removeEffect(MobEffects.JUMP);
             player.removeEffect(MobEffects.MOVEMENT_SPEED);
-            player.removeEffect(MobEffects.FIRE_RESISTANCE);
         }
 
         cap.setQuantumAbility(enable);

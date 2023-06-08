@@ -11,6 +11,8 @@ public final class ModItemGroups {
 
 	public static final CreativeModeTab MAIN = new ModItemGroup(IndReb.MODID, () -> new ItemStack(ModItems.GENERATOR.get()));
 
+	public static final CreativeModeTab BUILDING_MATERIALS = new ModItemGroup(IndReb.MODID, () -> new ItemStack(ModItems.EXPLOSION_HAZARD_SIGN_BLOCK.get()));
+
 	public static final class ModItemGroup extends CreativeModeTab {
 
 		@Nonnull

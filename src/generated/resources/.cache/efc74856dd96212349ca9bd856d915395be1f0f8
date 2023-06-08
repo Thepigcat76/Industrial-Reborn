@@ -1,4 +1,4 @@
-// 1.19.2	2023-04-12T17:54:11.2340947	Item Models: indreb
+// 1.19.2	2023-06-08T17:16:34.1514683	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy_plate.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -178,7 +178,6 @@ d5b0daad6362dacdc520354be422a5879d3e6d32 assets/indreb/models/item/gold_cable_in
 97c8e550e085031bd5b8e19273a3e5fcafcd7b84 assets/indreb/models/item/gold_chunk.json
 2b4cd18bba5fac76203990c15d45db2bbd813f32 assets/indreb/models/item/gold_dust.json
 5f17c98adc3436db6d4290820eee0d0f0c26c150 assets/indreb/models/item/gold_plate.json
-080d7476af0eafc2bbc0c7125585cfe39be29cd8 assets/indreb/models/item/hafnium_pellet.json
 fdb60cea3d4c9e3083c1bd7b8b0eab88157cc281 assets/indreb/models/item/hammer.json
 6cbba999021d78798ef8671872ed65537911475e assets/indreb/models/item/hazmat_suit_boots.json
 301c33cad8c9f1037054814bdd7aafc04f9cfaa3 assets/indreb/models/item/hazmat_suit_chestplate.json
@@ -265,8 +264,6 @@ ed9343ab4c791f7bd0c8399bfaf2484387fa0c19 assets/indreb/models/item/painter_red.j
 ac5e982db4c2c76663b75203d1e0dfaa9c3b75d9 assets/indreb/models/item/painter_white.json
 0eebe62185d3f3496575487fe77d954c8d0d1371 assets/indreb/models/item/painter_yellow.json
 b29dac12ec5c8ff2d1e6d1179f4c004ce50d3168 assets/indreb/models/item/pattern_storage.json
-ed97173d18f4debe71f8f15e7a211fd8e7a28c00 assets/indreb/models/item/plutonium_pellet.json
-9ddacc26979645539f363a8d7ab17d082a56fb65 assets/indreb/models/item/plutonium_pile.json
 c157c9614d289ab36857cceecf932aa9db15dada assets/indreb/models/item/power_unit.json
 d65e8e6ac5823b9de2b2a3daaf0cf0515617b82f assets/indreb/models/item/pulling_upgrade.json
 4cc37dbf73c30223e241c00edd83e3ad394866b2 assets/indreb/models/item/purified_copper.json
@@ -428,8 +425,6 @@ f9709b2457080975b10922a8590580f494b0fde9 assets/indreb/models/item/upgrade/pulli
 72e2cb144d9e7267939472350c2f5b607959ba08 assets/indreb/models/item/upgrade/pulling_south.json
 67b7c3370a1834e50799b0bf081538f008c6f3a0 assets/indreb/models/item/upgrade/pulling_up.json
 73c6592800fcda10c07f2b71b64efbcf3b095ea6 assets/indreb/models/item/upgrade/pulling_west.json
-920596f7d2c6102f836129a7c79f7cfcd0064c49 assets/indreb/models/item/uranium_235_pile.json
-75f818264e10cdfd418864f485b69cd2dfb5daf6 assets/indreb/models/item/uranium_238_pile.json
 14b1141ec6c78d51a58f7aa6887983f22796f799 assets/indreb/models/item/uranium_block.json
 fdfedd3de2f1b4a4ca7994a0a46f3c7102a76d92 assets/indreb/models/item/uranium_chunk.json
 76c22a2e1d02c163e68dc403f84bcda817edddcd assets/indreb/models/item/uranium_dust.json
