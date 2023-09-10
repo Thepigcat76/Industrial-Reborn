@@ -16,6 +16,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -24,7 +25,7 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public abstract class BaseElectricItem extends BaseItem implements IElectricItem {
+public abstract class BaseElectricItem extends Item implements IElectricItem {
 
     private final int energyStored;
     private final int maxEnergy;
@@ -32,7 +33,7 @@ public abstract class BaseElectricItem extends BaseItem implements IElectricItem
     private final EnergyTier energyTier;
 
     public BaseElectricItem(Properties properties, int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
-        super(null, properties.setNoRepair().stacksTo(1));
+        super(properties.setNoRepair().stacksTo(1));
         this.energyStored = energyStored;
         this.maxEnergy = maxEnergy;
         this.energyType = energyType;
@@ -78,24 +79,6 @@ public abstract class BaseElectricItem extends BaseItem implements IElectricItem
     @Override
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
         return false;
-    }
-
-    @Override
-    public void fillItemCategory(CreativeModeTab tab, NonNullList<ItemStack> list) {
-        if (allowedIn(tab)) {
-            list.add(new ItemStack(this));
-
-            ItemStack full = new ItemStack(this);
-            IEnergyStorage cap = CapabilityUtil.getCapabilityHelper(full, ModCapabilities.ENERGY).getValue();
-
-            if (cap != null) {
-                cap.setEnergy(cap.maxEnergy());
-                full.getOrCreateTag().putInt("energyStored", cap.maxEnergy());
-                full.getOrCreateTag().putInt("maxEnergy", cap.maxEnergy());
-            }
-
-            list.add(full);
-        }
     }
 
     @Override

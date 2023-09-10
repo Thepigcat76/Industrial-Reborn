@@ -41,8 +41,8 @@ public abstract class BaseElectricArmor extends ArmorItem implements IElectricIt
     private final EnergyType energyType;
     private final EnergyTier energyTier;
 
-    public BaseElectricArmor(ArmorMaterial material, EquipmentSlot slot, Properties properties, int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
-        super(material, slot, properties.setNoRepair().stacksTo(1).tab(ModItemGroups.MAIN));
+    public BaseElectricArmor(ArmorMaterial material, ArmorItem.Type type, Properties properties, int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
+        super(material, type, properties.setNoRepair().stacksTo(1));
         this.energyStored = energyStored;
         this.maxEnergy = maxEnergy;
         this.energyType = energyType;
@@ -98,24 +98,6 @@ public abstract class BaseElectricArmor extends ArmorItem implements IElectricIt
         return false;
     }
 
-    @Override
-    public void fillItemCategory(CreativeModeTab tab, NonNullList<ItemStack> list) {
-        if (tab == CreativeModeTab.TAB_COMBAT || tab == CreativeModeTab.TAB_SEARCH) {
-            list.add(new ItemStack(this));
-        } else if (allowedIn(tab)) {
-            list.add(new ItemStack(this));
-            ItemStack full = new ItemStack(this);
-            IEnergyStorage cap = CapabilityUtil.getCapabilityHelper(full, ModCapabilities.ENERGY).getValue();
-            if (cap != null) {
-                cap.setEnergy(cap.maxEnergy());
-                full.getOrCreateTag().putInt("energyStored", cap.maxEnergy());
-                full.getOrCreateTag().putInt("maxEnergy", cap.maxEnergy());
-            }
-
-            list.add(full);
-        }
-    }
-
     @org.jetbrains.annotations.Nullable
     @Override
     public CompoundTag getShareTag(ItemStack stack) {
@@ -165,7 +147,7 @@ public abstract class BaseElectricArmor extends ArmorItem implements IElectricIt
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         if (stack.getItem().equals(this)) {
-            if (slot == getSlot()) {
+            if (slot == getEquipmentSlot()) {
                 CompoundTag tag = stack.getTag();
                 boolean active = false;
 

@@ -1,20 +1,22 @@
 package com.maciej916.indreb.common.recipe.impl;
 
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.SimpleRecipeSerializer;
+import net.minecraft.world.item.crafting.SimpleCraftingRecipeSerializer;
 import net.minecraft.world.level.Level;
 
 public class ElectricCraftingRecipe extends CustomRecipe {
 
-    public static final SimpleRecipeSerializer<ElectricCraftingRecipe> SERIALIZER = new SimpleRecipeSerializer<> (ElectricCraftingRecipe::new);
+    public static final SimpleCraftingRecipeSerializer<ElectricCraftingRecipe> SERIALIZER = new SimpleCraftingRecipeSerializer<> (ElectricCraftingRecipe::new);
 
 
-    public ElectricCraftingRecipe(ResourceLocation pId) {
-        super(pId);
+    public ElectricCraftingRecipe(ResourceLocation pId, CraftingBookCategory pCategory) {
+        super(pId, pCategory);
     }
 
     @Override
@@ -26,8 +28,8 @@ public class ElectricCraftingRecipe extends CustomRecipe {
     }
 
     @Override
-    public ItemStack assemble(CraftingContainer pContainer) {
-        return getResultItem().copy();
+    public ItemStack assemble(CraftingContainer pContainer, RegistryAccess pRegistryAccess) {
+        return getResultItem(pRegistryAccess).copy();
     }
 
     @Override

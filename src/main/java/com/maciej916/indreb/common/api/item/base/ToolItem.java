@@ -1,12 +1,12 @@
 package com.maciej916.indreb.common.api.item.base;
 
-import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-public class ToolItem extends BaseItem {
+public class ToolItem extends Item {
 
     public ToolItem(int maxDamage) {
-        super(CreativeModeTab.TAB_TOOLS, new Properties().stacksTo(1).durability(maxDamage).setNoRepair());
+        super(new Properties().stacksTo(1).durability(maxDamage).setNoRepair());
     }
 
     @Override

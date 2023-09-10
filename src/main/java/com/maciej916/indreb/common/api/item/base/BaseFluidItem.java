@@ -21,7 +21,7 @@ import java.util.List;
 public abstract class BaseFluidItem extends BaseItem {
 
     public BaseFluidItem(Properties properties) {
-        super(CreativeModeTab.TAB_MATERIALS, properties.setNoRepair());
+        super(properties.setNoRepair());
     }
 
     @Override

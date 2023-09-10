@@ -1,11 +1,10 @@
 package com.maciej916.indreb.common.api.item.base;
 
-import net.minecraft.world.item.CreativeModeTab;
-
+@Deprecated
 public class RedstoneItem extends BaseItem {
 
     public RedstoneItem() {
-        super(CreativeModeTab.TAB_REDSTONE, new Properties());
+        super(new Properties());
     }
 
 }

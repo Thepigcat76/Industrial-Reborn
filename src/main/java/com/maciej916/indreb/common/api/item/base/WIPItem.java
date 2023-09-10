@@ -3,6 +3,7 @@ package com.maciej916.indreb.common.api.item.base;
 import com.maciej916.indreb.common.enums.EnumLang;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
@@ -11,10 +12,10 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class WIPItem extends BaseItem {
+public class WIPItem extends Item {
 
     public WIPItem() {
-        super(null, new Properties().stacksTo(1));
+        super(new Properties().stacksTo(1));
     }
 
     @Override

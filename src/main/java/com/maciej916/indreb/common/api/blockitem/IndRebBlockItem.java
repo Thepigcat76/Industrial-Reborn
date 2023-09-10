@@ -12,7 +12,7 @@ public class IndRebBlockItem extends BlockItem {
     Rarity rarity;
 
     public IndRebBlockItem(Block block, Rarity rarity) {
-        super(block, new Item.Properties().tab(ModItemGroups.MAIN));
+        super(block, new Item.Properties());
         this.rarity = rarity;
     }
 

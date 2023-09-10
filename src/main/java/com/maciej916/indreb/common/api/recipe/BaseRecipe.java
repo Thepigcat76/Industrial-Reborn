@@ -3,6 +3,7 @@ package com.maciej916.indreb.common.api.recipe;
 import com.maciej916.indreb.common.api.recipe.interfaces.IBaseRecipe;
 import com.maciej916.indreb.common.api.recipe.lib.IngredientCount;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
@@ -37,7 +38,7 @@ public abstract class BaseRecipe implements Recipe<SimpleContainer>, IBaseRecipe
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer container) {
+    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
         return result;
     }
 
@@ -51,8 +52,7 @@ public abstract class BaseRecipe implements Recipe<SimpleContainer>, IBaseRecipe
         return ingredients.getIngredients();
     }
 
-    @Override
-    public ItemStack getResultItem() {
+    public ItemStack getResult() {
         return result.copy();
     }
 

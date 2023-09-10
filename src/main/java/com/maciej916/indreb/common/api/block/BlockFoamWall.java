@@ -3,7 +3,6 @@ package com.maciej916.indreb.common.api.block;
 import com.maciej916.indreb.common.api.interfaces.item.IPainter;
 import com.maciej916.indreb.common.sound.ModSounds;
 import com.maciej916.indreb.common.util.RenderUtils;
-import com.mojang.math.Vector3f;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.DustParticleOptions;
@@ -16,16 +15,16 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
+import org.joml.Vector3f;
 
 import java.util.Random;
 
 public class BlockFoamWall extends Block {
 
-    public BlockFoamWall(MaterialColor color) {
-        super(Block.Properties.of(Material.STONE, color).strength(5.0F, 4.0F).sound(SoundType.STONE));
+    public BlockFoamWall(MapColor color) {
+        super(Properties.of().strength(5.0F, 4.0F).sound(SoundType.STONE).mapColor(color));
     }
 
     @Override
@@ -39,7 +38,7 @@ public class BlockFoamWall extends Block {
                 Random random = new Random();
                 Direction dir = blockHitResult.getDirection();
 
-                int rgbColor = painter.getColor().calculateRGBColor(MaterialColor.Brightness.NORMAL);
+                int rgbColor = painter.getColor().calculateRGBColor(MapColor.Brightness.NORMAL);
                 Vector3f COLOR = new Vector3f(RenderUtils.getBlue(rgbColor), RenderUtils.getGreen(rgbColor), RenderUtils.getRed(rgbColor));
                 for(int i = 0; i < 5; i++) {
                     double x,y,z;

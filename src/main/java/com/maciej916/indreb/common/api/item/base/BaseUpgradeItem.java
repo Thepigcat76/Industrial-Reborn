@@ -10,7 +10,7 @@ public class BaseUpgradeItem extends BaseItem implements IItemUpgrade {
     private final UpgradeType upgradeType;
 
     public BaseUpgradeItem(UpgradeType upgradeType) {
-        super(CreativeModeTab.TAB_REDSTONE, new Properties().stacksTo(16));
+        super(new Properties().stacksTo(16));
         this.upgradeType = upgradeType;
     }
 
