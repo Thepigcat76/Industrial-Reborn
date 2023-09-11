@@ -7,7 +7,7 @@ import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
 import com.maciej916.indreb.common.api.slot.ElectricSlot;
-import com.maciej916.indreb.common.api.tier.SolarPanelTier;
+import com.maciej916.indreb.common.api.tier.SolarPanelTiers;
 import com.maciej916.indreb.common.api.util.ProgressFloat;
 import com.maciej916.indreb.common.api.util.ProgressInt;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class BlockEntitySolarPanel extends IndRebBlockEntity implements IBlockEntityEnergy, IHasSound {
 
-    SolarPanelTier tier;
+    SolarPanelTiers tier;
     public ProgressInt progressActive = new ProgressInt(0, 2);
     public ProgressFloat progressAmount;
 
@@ -82,9 +82,9 @@ public class BlockEntitySolarPanel extends IndRebBlockEntity implements IBlockEn
     @Override
     public ArrayList<ElectricSlot> addElectricSlots(ArrayList<ElectricSlot> slots) {
         BlockSolarPanel block = (BlockSolarPanel) getBlock();
-        SolarPanelTier localTier = block.getSolarTier();
-        int leftOffset = 130 - (18 * localTier.getTierLevel()) / 2;
-        for (int i = 0; i < localTier.getTierLevel(); i++) {
+        SolarPanelTiers localTier = block.getSolarTier();
+        int leftOffset = 130 - (18 * localTier.getTierLvl()) / 2;
+        for (int i = 0; i < localTier.getTierLvl(); i++) {
             slots.add(new ElectricSlot(i, leftOffset + (18 * i), 57, InventorySlotType.ELECTRIC, GuiSlotBg.BATTERY, true, true));
         }
 

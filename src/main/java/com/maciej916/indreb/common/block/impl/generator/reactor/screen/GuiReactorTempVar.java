@@ -6,6 +6,7 @@ import com.maciej916.indreb.common.api.interfaces.screen.IGuiHelper;
 import com.maciej916.indreb.common.api.screen.widget.BaseProgressWidget;
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.BlockEntityNuclearReactor;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -21,11 +22,11 @@ public class GuiReactorTempVar extends BaseProgressWidget {
     }
 
     @Override
-    public void renderToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
+    public void renderToolTip(Screen screen, GuiGraphics guiGraphics, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused()) {
-            screen.renderTooltip(pPoseStack, Component.translatable("tooltip." + IndReb.MODID + ".core_heat", getProgress().getPercentProgressString() + "%"), pMouseX, pMouseY);
+            guiGraphics.renderTooltip(screen.getMinecraft().font, Component.translatable("tooltip." + IndReb.MODID + ".core_heat", getProgress().getPercentProgressString() + "%"), pMouseX, pMouseY);
         }
-        super.renderToolTip(screen, pPoseStack, pMouseX, pMouseY);
+        super.renderToolTip(screen, guiGraphics, pMouseX, pMouseY);
     }
 
     @Override

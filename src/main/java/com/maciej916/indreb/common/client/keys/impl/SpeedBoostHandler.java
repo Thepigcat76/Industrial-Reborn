@@ -51,7 +51,7 @@ public class SpeedBoostHandler {
     public static void toggle(IPlayerCapability cap, Player player, boolean enable) {
         if (enable) {
             MobEffectInstance effect = new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000000, 10, false, true);
-            effect.setNoCounter(true);
+            effect.isInfiniteDuration();
             player.playSound(ModSounds.NIGHT_VISION.get(), 1F, 0.8F / (player.getRandom().nextFloat() * 0.4F + 0.8F));
             player.addEffect(effect);
         } else {

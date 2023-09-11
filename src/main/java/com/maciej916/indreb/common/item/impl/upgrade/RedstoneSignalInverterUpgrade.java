@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.item.impl.upgrade;
 
 import com.maciej916.indreb.IndReb;
-import com.maciej916.indreb.common.api.enums.UpgradeType;
+import com.maciej916.indreb.common.api.enums.UpgradeTypes;
 import com.maciej916.indreb.common.api.item.base.BaseUpgradeItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -14,7 +14,7 @@ import java.util.List;
 public class RedstoneSignalInverterUpgrade extends BaseUpgradeItem {
 
     public RedstoneSignalInverterUpgrade() {
-        super(UpgradeType.REDSTONE_SIGNAL_INVERTER);
+        super(UpgradeTypes.REDSTONE_SIGNAL_INVERTER);
     }
 
     @Override

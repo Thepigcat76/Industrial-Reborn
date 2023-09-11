@@ -1,10 +1,11 @@
 package com.maciej916.indreb.common.api.enums;
 
+import com.maciej916.indreb.common.api.enums.interfaces.EnergyTier;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
 import com.maciej916.indreb.common.enums.EnumLang;
 import net.minecraft.ChatFormatting;
 
-public enum EnergyTier {
+public enum EnergyTiers implements EnergyTier {
     BASIC("Basic", EnumLang.TIER_BASIC, 1, ChatFormatting.GREEN),
     STANDARD("Standard", EnumLang.TIER_STANDARD,2, ChatFormatting.YELLOW),
     ADVANCED("Advanced", EnumLang.TIER_ADVANCED,3, ChatFormatting.RED),
@@ -17,7 +18,7 @@ public enum EnergyTier {
     private final Integer lvl;
     private final ChatFormatting color;
 
-    EnergyTier(String name, EnumLang lang, Integer lvl, ChatFormatting color) {
+    EnergyTiers(String name, EnumLang lang, Integer lvl, ChatFormatting color) {
         this.name = name;
         this.lang = lang;
         this.lvl = lvl;
@@ -51,9 +52,9 @@ public enum EnergyTier {
         };
     }
 
-    public static EnergyTier getTierFromLvl(int lvl) {
-        EnergyTier[] currencies = EnergyTier.values();
-        for (EnergyTier enumTier : currencies) {
+    public static EnergyTiers getTierFromLvl(int lvl) {
+        EnergyTiers[] currencies = EnergyTiers.values();
+        for (EnergyTiers enumTier : currencies) {
             if (enumTier.getLvl() == lvl) {
                 return enumTier;
             }

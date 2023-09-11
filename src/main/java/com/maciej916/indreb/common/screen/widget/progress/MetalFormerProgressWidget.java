@@ -19,6 +19,6 @@ public class MetalFormerProgressWidget extends BaseProgressWidget {
     @Override
     protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
         this.setProgressType(entity.getMode().getSprite());
-        super.renderBg(pPoseStack, pMinecraft, pMouseX, pMouseY);
+        super.renderBackground(pPoseStack, pMinecraft, pMouseX, pMouseY);
     }
 }

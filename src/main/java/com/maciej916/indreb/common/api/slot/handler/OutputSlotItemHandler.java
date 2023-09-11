@@ -24,7 +24,7 @@ public class OutputSlotItemHandler extends BaseSlotItemHandler {
 
     @Override
     public void onTake(Player player, ItemStack stack) {
-        if (!player.level.isClientSide() && entity instanceof IHasExp iec) {
+        if (!player.level().isClientSide() && entity instanceof IHasExp iec) {
             if (!iec.hasExpButton()) {
                 iec.collectExpServer((ServerPlayer) player);
             }

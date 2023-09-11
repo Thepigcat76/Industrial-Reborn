@@ -3,7 +3,7 @@ package com.maciej916.indreb.common.block.impl.transformer;
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IBlockEntityTransformer;
 import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.TransformerMode;
 import com.maciej916.indreb.common.api.interfaces.block.IStateFacing;
@@ -33,7 +33,7 @@ public class BlockEntityTransformer extends IndRebBlockEntity implements IBlockE
 
         BlockTransformer block = (BlockTransformer) getBlock();
         this.transformerTier = block.getTransformerTier();
-        EnergyTier energyTier = transformerTier.getMaxTier();
+        EnergyTiers energyTier = transformerTier.getMaxTier();
 
         createEnergyStorage(0, transformerTier.getMaxTier().getBasicTransfer(), EnergyType.TRANSFORMER, energyTier);
 
@@ -111,12 +111,12 @@ public class BlockEntityTransformer extends IndRebBlockEntity implements IBlockE
     }
 
     @Override
-    public EnergyTier energyExtractTier() {
+    public EnergyTiers energyExtractTier() {
         return (transformerMode == TransformerMode.STEP_UP ? transformerTier.getMaxTier() : transformerTier.getMinTier());
     }
 
     @Override
-    public EnergyTier energyReceiveTier() {
+    public EnergyTiers energyReceiveTier() {
         return (transformerMode == TransformerMode.STEP_UP ? transformerTier.getMinTier() : transformerTier.getMaxTier());
     }
 

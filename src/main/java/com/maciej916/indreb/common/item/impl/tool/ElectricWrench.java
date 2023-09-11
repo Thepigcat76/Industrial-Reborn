@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.item.impl.tool;
 
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.item.base.BaseElectricItem;
 import com.maciej916.indreb.common.util.wrench.WrenchHelper;
@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 
 public class ElectricWrench extends BaseElectricItem {
 
-    public ElectricWrench(int energyStored, int maxEnergy, EnergyTier energyTier) {
+    public ElectricWrench(int energyStored, int maxEnergy, EnergyTiers energyTier) {
         super(new Item.Properties(), energyStored, maxEnergy, EnergyType.RECEIVE, energyTier);
     }
 

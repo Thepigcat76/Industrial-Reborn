@@ -1,8 +1,8 @@
 package com.maciej916.indreb.common.api.interfaces.block;
 
-import com.maciej916.indreb.common.api.tier.CableTier;
+import com.maciej916.indreb.common.api.tier.CableTiers;
 
 public interface IBlockCable {
 
-    CableTier getCableTier();
+    CableTiers getCableTier();
 }

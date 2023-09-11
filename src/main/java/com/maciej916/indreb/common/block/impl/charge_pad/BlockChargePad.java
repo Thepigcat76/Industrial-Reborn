@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.block.impl.charge_pad;
 
 import com.maciej916.indreb.common.api.block.IndRebEntityBlock;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.interfaces.block.IElectricMachine;
 import com.maciej916.indreb.common.api.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.api.interfaces.block.IStateFacing;
@@ -79,7 +79,7 @@ public class BlockChargePad extends IndRebEntityBlock implements IStateFacing, I
     }
 
     @Override
-    public EnergyTier getEnergyTier() {
+    public EnergyTiers getEnergyTier() {
         return null;
     }
 }

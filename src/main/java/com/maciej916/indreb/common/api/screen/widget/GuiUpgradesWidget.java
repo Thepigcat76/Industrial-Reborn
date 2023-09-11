@@ -4,8 +4,8 @@ import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasUpgrades;
 import com.maciej916.indreb.common.api.interfaces.screen.IGuiHelper;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
@@ -19,10 +19,10 @@ public class GuiUpgradesWidget extends BaseWidget {
     }
 
     @Override
-    protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
+    protected void renderBackground(GuiGraphics guiGraphics, Minecraft pMinecraft, int pMouseX, int pMouseY) {
         RenderSystem.setShaderTexture(0, getResourceLocation());
-        blit(pPoseStack, getX(), getY(), (upgrades.getUpgradesSlots() - 1) * 25, 134, getWidth(), getHeight());
-        super.renderBg(pPoseStack, pMinecraft, pMouseX, pMouseY);
+        guiGraphics.blit(getResourceLocation(), getX(), getY(), (upgrades.getUpgradesSlots() - 1) * 25, 134, getWidth(), getHeight());
+        super.renderBackground(guiGraphics, pMinecraft, pMouseX, pMouseY);
     }
 
     @Override
@@ -33,5 +33,10 @@ public class GuiUpgradesWidget extends BaseWidget {
     @Override
     public boolean addsExtraArea() {
         return true;
+    }
+
+    @Override
+    protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+
     }
 }

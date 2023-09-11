@@ -20,7 +20,6 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -35,7 +34,7 @@ public class BlockIronScaffolding extends Block implements SimpleWaterloggedBloc
     public static final BooleanProperty BOTTOM = BlockStateProperties.BOTTOM;
 
     public BlockIronScaffolding() {
-        super(Properties.of(Material.METAL).strength(3F, 5F).dynamicShape().noCollission());
+        super(Properties.of().strength(3F, 5F).dynamicShape().noCollission());
         this.registerDefaultState(this.stateDefinition.any().setValue(DISTANCE_IRON, 14).setValue(WATERLOGGED, Boolean.FALSE).setValue(BOTTOM, Boolean.FALSE));
     }
 

@@ -20,7 +20,6 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
@@ -28,7 +27,7 @@ import javax.annotation.Nullable;
 public class BlockIndustrialTNT extends TntBlock {
 
     public BlockIndustrialTNT() {
-        super(Properties.of(Material.EXPLOSIVE).instabreak().sound(SoundType.GRASS));
+        super(Properties.of().instabreak().sound(SoundType.GRASS));
     }
 
     @Override
@@ -39,7 +38,7 @@ public class BlockIndustrialTNT extends TntBlock {
     @Override
     public void wasExploded(Level pLevel, BlockPos pPos, Explosion pExplosion) {
         if (!pLevel.isClientSide) {
-            PrimedITnt primedITnt = new PrimedITnt(pLevel, (double)pPos.getX() + 0.5D, (double)pPos.getY(), (double)pPos.getZ() + 0.5D, pExplosion.getSourceMob());
+            PrimedITnt primedITnt = new PrimedITnt(pLevel, (double)pPos.getX() + 0.5D, (double)pPos.getY(), (double)pPos.getZ() + 0.5D, pExplosion.getIndirectSourceEntity());
             int i = primedITnt.getFuse();
             primedITnt.setFuse((short)(pLevel.random.nextInt(i / 4) + i / 8));
             pLevel.addFreshEntity(primedITnt);

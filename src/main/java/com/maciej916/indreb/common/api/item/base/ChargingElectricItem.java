@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.api.item.base;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.energy.comparator.EnergyReceiveComparator;
@@ -23,7 +23,7 @@ import java.util.List;
 
 public class ChargingElectricItem extends EnergyStorageItem {
 
-    public ChargingElectricItem(int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
+    public ChargingElectricItem(int maxEnergy, EnergyType energyType, EnergyTiers energyTier) {
         super(0, maxEnergy, energyType, energyTier);
     }
 

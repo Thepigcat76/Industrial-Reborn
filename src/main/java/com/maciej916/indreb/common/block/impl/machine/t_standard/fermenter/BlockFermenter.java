@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.block.impl.machine.t_standard.fermenter;
 
 import com.maciej916.indreb.common.api.block.BaseElectricMachineBlock;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.BlockEntityUtil;
@@ -27,7 +27,7 @@ import java.util.List;
 public class BlockFermenter extends BaseElectricMachineBlock {
 
     public BlockFermenter() {
-        super(EnergyTier.STANDARD,0, 0);
+        super(EnergyTiers.STANDARD,0, 0);
     }
 
     @Override

@@ -15,6 +15,7 @@ import com.maciej916.indreb.common.util.StackHandlerHelper;
 import com.maciej916.indreb.common.util.WrappedHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
@@ -97,7 +98,7 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
 
                     if (progressRecipe.isCurrentAboveEqualMax()) {
                         if (bonusStack.isEmpty() || chanceResult.isEmpty() || (chanceResult.getCount() + bonusStack.getCount() <= bonusStack.getMaxStackSize() && chanceResult.getItem() == bonusStack.getItem())) {
-                            StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem());
+                            StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResult());
                             StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT, recipe.getIngredientCount().getIngredientsCount().get(0));
                             progressRecipe.resetProgress();
                             addRecipeUsed(recipe);
@@ -212,7 +213,7 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
         final ItemStack inputStack = getBaseStorage().getStackInSlot(INPUT_SLOT);
         final ItemStack outputStack = getBaseStorage().getStackInSlot(OUTPUT_SLOT);
 
-        return !inputStack.isEmpty() && (outputStack.isEmpty() || (outputStack.getCount() + recipe.getResultItem().getCount() <= outputStack.getMaxStackSize() && recipe.getResultItem().getItem() == outputStack.getItem()));
+        return !inputStack.isEmpty() && (outputStack.isEmpty() || (outputStack.getCount() + recipe.getResult().getCount() <= outputStack.getMaxStackSize() && recipe.getResult().getItem() == outputStack.getItem()));
     }
 
 }

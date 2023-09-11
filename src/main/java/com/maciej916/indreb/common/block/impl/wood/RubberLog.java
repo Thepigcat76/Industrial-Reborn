@@ -28,8 +28,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
@@ -41,7 +39,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class RubberLog extends IndRebBlock implements IStateRubberLog, IStateAxis {
 
     public RubberLog() {
-        super(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F, 3.0F).sound(SoundType.WOOD).randomTicks());
+        super(Block.Properties.of().strength(2.0F, 3.0F).sound(SoundType.WOOD).randomTicks());
     }
 
     @Override

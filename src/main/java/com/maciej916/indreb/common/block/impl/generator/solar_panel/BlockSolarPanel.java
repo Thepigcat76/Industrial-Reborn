@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.block.impl.generator.solar_panel;
 
 import com.maciej916.indreb.common.api.block.BaseElectricMachineBlock;
-import com.maciej916.indreb.common.api.tier.SolarPanelTier;
+import com.maciej916.indreb.common.api.tier.SolarPanelTiers;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
@@ -22,10 +22,10 @@ import java.util.List;
 
 public class BlockSolarPanel extends BaseElectricMachineBlock {
 
-    private final SolarPanelTier solarTier;
+    private final SolarPanelTiers solarTier;
     protected final VoxelShape SHAPE;
 
-    public BlockSolarPanel(SolarPanelTier tier) {
+    public BlockSolarPanel(SolarPanelTiers tier) {
         super(tier.getEnergyTier(), 0, 0);
         this.SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, tier.getHeight(), 16.0D);
         this.solarTier = tier;
@@ -56,7 +56,7 @@ public class BlockSolarPanel extends BaseElectricMachineBlock {
         ));
     }
 
-    public SolarPanelTier getSolarTier() {
+    public SolarPanelTiers getSolarTier() {
         return solarTier;
     }
 

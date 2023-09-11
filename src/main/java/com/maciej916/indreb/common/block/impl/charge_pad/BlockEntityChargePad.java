@@ -4,7 +4,7 @@ import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IBlockEntityChargePad;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasSound;
 import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
@@ -33,7 +33,7 @@ public class BlockEntityChargePad extends IndRebBlockEntity implements IBlockEnt
 
         BlockChargePad block = (BlockChargePad) getBlock();
         this.chargePadTier = block.getChargePadTier();
-        EnergyTier energyTier = chargePadTier.getEnergyTier();
+        EnergyTiers energyTier = chargePadTier.getEnergyTier();
 
         createEnergyStorage(chargePadTier.getEnergyStored(), chargePadTier.getEnergyCapacity(), EnergyType.BOTH, energyTier);
     }

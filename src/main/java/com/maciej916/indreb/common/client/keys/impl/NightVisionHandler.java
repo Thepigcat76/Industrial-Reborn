@@ -51,7 +51,7 @@ public class NightVisionHandler {
     public static void toggle(IPlayerCapability cap, Player player, boolean enable) {
         if (enable) {
             MobEffectInstance effect = new MobEffectInstance(MobEffects.NIGHT_VISION, 1000000, 100, false, true);
-            effect.setNoCounter(true);
+            effect.isInfiniteDuration();
             player.playSound(ModSounds.NIGHT_VISION.get(), 1F, 0.8F / (player.getRandom().nextFloat() * 0.4F + 0.8F));
             player.addEffect(effect);
             System.out.println("activerrr");

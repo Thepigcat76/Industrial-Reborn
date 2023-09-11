@@ -1,8 +1,9 @@
 package com.maciej916.indreb.common.energy;
 
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
+import com.maciej916.indreb.common.api.enums.interfaces.EnergyTier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -103,7 +104,7 @@ public class EnergyNetwork implements IEnergyStorage, INBTSerializable<CompoundT
     }
 
     public EnergyTier getCurrentTier() {
-        return currentTier != null ? currentTier : EnergyTier.BASIC;
+        return currentTier != null ? currentTier : EnergyTiers.BASIC;
     }
 
     public void setCurrentTier(EnergyTier currentTier) {
@@ -216,7 +217,7 @@ public class EnergyNetwork implements IEnergyStorage, INBTSerializable<CompoundT
     public void deserializeNBT(CompoundTag nbt) {
         energy = nbt.getInt("energy");
         energyMax = nbt.getInt("energyMax");
-        energyTier = EnergyTier.getTierFromLvl(nbt.getInt("energyTier"));
+        energyTier = EnergyTiers.getTierFromLvl(nbt.getInt("energyTier"));
 
         HashSet<BlockPos> nbtConnections = new HashSet<>();
         for (long longPos : nbt.getLongArray("connections")) {

@@ -13,6 +13,7 @@ import com.maciej916.indreb.common.api.screen.widget.GuiUpgradesWidget;
 import com.maciej916.indreb.common.api.screen.widget.bar.GuiEnergyBarHorizontalWidget;
 import com.maciej916.indreb.common.api.screen.widget.bar.GuiEnergyBarVerticalWidget;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
@@ -72,10 +73,11 @@ public class IndRebScreen <T extends IndRebContainerMenu> extends WidgetScreen<T
         }
     }
 
+
     @Override
-    protected void renderBg(PoseStack poseStack, float pPartialTick, int pMouseX, int pMouseY) {
+    protected void renderBg(GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
         updateData();
-        super.renderBg(poseStack, pPartialTick, pMouseX, pMouseY);
+        super.renderBg(pGuiGraphics, pPartialTick, pMouseX, pMouseY);
     }
 
     @Override

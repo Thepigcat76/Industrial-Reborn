@@ -2,11 +2,9 @@ package com.maciej916.indreb.common.api.item.base;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -15,17 +13,15 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.MapColor;
 
 public class BaseElectricSwordItem extends TieredElectricItem {
     private final float attackDamage;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
-    public BaseElectricSwordItem(Tier tier, int damage, float speed, Properties properties, int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
+    public BaseElectricSwordItem(Tier tier, int damage, float speed, Properties properties, int energyStored, int maxEnergy, EnergyType energyType, EnergyTiers energyTier) {
         super(tier, properties, energyStored, maxEnergy, energyType, energyTier);
         this.attackDamage = (float)damage + tier.getAttackDamageBonus();
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();

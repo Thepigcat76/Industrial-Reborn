@@ -22,13 +22,7 @@ import javax.annotation.Nullable;
 public class BlockItemIronScaffolding extends BlockItem {
 
     public BlockItemIronScaffolding(Block block) {
-        super(block, new Properties().tab(ModItemGroups.MAIN));
-    }
-
-    @Override
-    public void fillItemCategory(CreativeModeTab pCategory, NonNullList<ItemStack> pItems) {
-        if (pCategory == CreativeModeTab.TAB_DECORATIONS) pItems.add(new ItemStack(this));
-        super.fillItemCategory(pCategory, pItems);
+        super(block, new Properties());
     }
 
     @Nullable

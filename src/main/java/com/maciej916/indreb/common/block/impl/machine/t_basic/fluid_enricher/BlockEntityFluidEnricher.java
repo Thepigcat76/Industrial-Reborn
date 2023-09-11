@@ -81,7 +81,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IHasE
 
     public BlockEntityFluidEnricher(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.FLUID_ENRICHER.get(), pos, blockState);
-        createEnergyStorage(0, ServerConfig.fluid_enricher_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.BASIC);
+        createEnergyStorage(0, ServerConfig.fluid_enricher_energy_capacity.get(), EnergyType.RECEIVE, EnergyTiers.BASIC);
 
         this.containerData.syncProgressFloat(0, this.progressRecipe);
         this.containerData.syncProgressInt(1, this.progressFill);
@@ -280,8 +280,8 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IHasE
     }
 
     @Override
-    public List<UpgradeType> getSupportedUpgrades() {
-        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER, UpgradeType.FLUID_PULLING, UpgradeType.FLUID_EJECTOR);
+    public List<UpgradeTypes> getSupportedUpgrades() {
+        return List.of(UpgradeTypes.OVERCLOCKER, UpgradeTypes.TRANSFORMER, UpgradeTypes.ENERGY_STORAGE, UpgradeTypes.EJECTOR, UpgradeTypes.PULLING, UpgradeTypes.REDSTONE_SIGNAL_INVERTER, UpgradeTypes.FLUID_PULLING, UpgradeTypes.FLUID_EJECTOR);
     }
 
     @Override

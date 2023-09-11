@@ -12,7 +12,7 @@ import net.minecraft.world.inventory.SimpleContainerData;
 public class MenuBatteryBox extends IndRebContainerMenu {
 
     public MenuBatteryBox(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
-        this((IndRebBlockEntity) playerInventory.player.level.getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(0));
+        this((IndRebBlockEntity) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(0));
     }
 
     public MenuBatteryBox(IndRebBlockEntity entity, int containerId, Inventory playerInventory, Player player, ContainerData data) {

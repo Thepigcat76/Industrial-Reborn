@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.block.impl.machine.t_super.replicator;
 
 import com.maciej916.indreb.common.api.block.BaseElectricMachineBlock;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
 import com.maciej916.indreb.common.enums.EnumLang;
@@ -40,7 +40,7 @@ public class BlockReplicator extends BaseElectricMachineBlock {
     public static final Vector3f PARTICLE_COLOR = new Vector3f(Vec3.fromRGB24(0XA1800e7c));
 
     public BlockReplicator() {
-        super(EnergyTier.SUPER,6, 0);
+        super(EnergyTiers.SUPER,6, 0);
     }
 
     @Override

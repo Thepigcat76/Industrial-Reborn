@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.block.impl.misc.luminator;
 
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
@@ -14,7 +14,7 @@ public class BlockEntityLuminator extends IndRebBlockEntity implements IBlockEnt
 
     public BlockEntityLuminator(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.LUMINATOR.get(), pos, blockState);
-        createEnergyStorage(0, 20, EnergyType.RECEIVE, EnergyTier.ULTRA);
+        createEnergyStorage(0, 20, EnergyType.RECEIVE, EnergyTiers.ULTRA);
     }
 
     @Override

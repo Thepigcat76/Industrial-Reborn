@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor
 
 import com.maciej916.indreb.common.api.block.BaseMachineBlock;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IIndRebBlockEntity;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.multiblock.MultiBlockTools;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.enums.EnumLang;
@@ -104,9 +104,9 @@ public class BlockNuclearReactor extends BaseMachineBlock implements IReactorPar
     public void appendHoverText(ItemStack pStack, @javax.annotation.Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
         pTooltip.add(TextComponentUtil.build(
                 Component.translatable(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                EnergyTier.BASIC.getLang().getTranslationComponent().withStyle(EnergyTier.BASIC.getColor()),
+                EnergyTiers.BASIC.getLang().getTranslationComponent().withStyle(EnergyTiers.BASIC.getColor()),
                 Component.literal(" - ").withStyle(ChatFormatting.GRAY),
-                EnergyTier.SUPER.getLang().getTranslationComponent().withStyle(EnergyTier.SUPER.getColor())
+                EnergyTiers.SUPER.getLang().getTranslationComponent().withStyle(EnergyTiers.SUPER.getColor())
         ));
 
         pTooltip.add(TextComponentUtil.build(

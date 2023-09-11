@@ -33,7 +33,7 @@ public class GuiUpButton extends BaseButtonWidget {
 
     @Override
     protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
-        super.renderBg(pPoseStack, pMinecraft, pMouseX, pMouseY);
+        super.renderBackground(pPoseStack, pMinecraft, pMouseX, pMouseY);
 
         RenderSystem.setShaderTexture(0, getResourceLocation());
         GuiSprite sprite = GuiSprite.UP_ICON;

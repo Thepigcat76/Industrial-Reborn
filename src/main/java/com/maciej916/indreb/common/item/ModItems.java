@@ -3,9 +3,9 @@ package com.maciej916.indreb.common.item;
 import com.google.common.base.Supplier;
 import com.maciej916.indreb.common.api.blockitem.BlockItemElectric;
 import com.maciej916.indreb.common.api.blockitem.IndRebBlockItem;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
-import com.maciej916.indreb.common.api.enums.UpgradeType;
+import com.maciej916.indreb.common.api.enums.UpgradeTypes;
 import com.maciej916.indreb.common.api.item.base.*;
 import com.maciej916.indreb.common.api.tier.CustomTiers;
 import com.maciej916.indreb.common.block.ModBlocks;
@@ -290,39 +290,39 @@ public final class ModItems {
     public static final RegistryObject<Item> TOOL_BOX = registerItem("tool_box", WIPItem::new);
     public static final RegistryObject<Item> FOAM_SPRAYER = registerItem("foam_sprayer", FoamSprayer::new);
 
-    public static final RegistryObject<Item> ELECTRIC_TREETAP = registerItem("electric_treetap", () -> new ElectricTreetap(0, 10000, EnergyTier.BASIC));
-    public static final RegistryObject<Item> ELECTRIC_WRENCH = registerItem("electric_wrench", () -> new ElectricWrench(0, 10000, EnergyTier.BASIC));
+    public static final RegistryObject<Item> ELECTRIC_TREETAP = registerItem("electric_treetap", () -> new ElectricTreetap(0, 10000, EnergyTiers.BASIC));
+    public static final RegistryObject<Item> ELECTRIC_WRENCH = registerItem("electric_wrench", () -> new ElectricWrench(0, 10000, EnergyTiers.BASIC));
 
-    public static final RegistryObject<Item> CHAINSAW = registerItem("chainsaw", () -> new ElectricChainsaw(Tiers.IRON,6.0F, -3.1F, 0, 30000, 50, 100, EnergyTier.BASIC));
-    public static final RegistryObject<Item> DIAMOND_CHAINSAW = registerItem("diamond_chainsaw", () -> new ElectricChainsaw(Tiers.DIAMOND,5.0F, -3.0F, 0, 80000, 70, 120, EnergyTier.STANDARD));
-    public static final RegistryObject<Item> IRIDIUM_CHAINSAW = registerItem("iridium_chainsaw", () -> new ElectricChainsaw(CustomTiers.IRIDIUM,5.0F, -3.0F, 0, 300000, 200, 400, EnergyTier.ADVANCED));
+    public static final RegistryObject<Item> CHAINSAW = registerItem("chainsaw", () -> new ElectricChainsaw(Tiers.IRON,6.0F, -3.1F, 0, 30000, 50, 100, EnergyTiers.BASIC));
+    public static final RegistryObject<Item> DIAMOND_CHAINSAW = registerItem("diamond_chainsaw", () -> new ElectricChainsaw(Tiers.DIAMOND,5.0F, -3.0F, 0, 80000, 70, 120, EnergyTiers.STANDARD));
+    public static final RegistryObject<Item> IRIDIUM_CHAINSAW = registerItem("iridium_chainsaw", () -> new ElectricChainsaw(CustomTiers.IRIDIUM,5.0F, -3.0F, 0, 300000, 200, 400, EnergyTiers.ADVANCED));
 
-    public static final RegistryObject<Item> MINING_DRILL = registerItem("mining_drill", () -> new ElectricDrill(Tiers.IRON,1, -2.8F, 0, 30000, 50, 100, EnergyTier.BASIC));
-    public static final RegistryObject<Item> DIAMOND_DRILL = registerItem("diamond_drill", () -> new ElectricDrill(Tiers.DIAMOND,1, -2.8F, 0, 80000, 70, 120, EnergyTier.STANDARD));
-    public static final RegistryObject<Item> IRIDIUM_DRILL = registerItem("iridium_drill", () -> new ElectricDrill(CustomTiers.IRIDIUM, 1, -2.8F, 0, 300000, 200, 400, EnergyTier.ADVANCED));
+    public static final RegistryObject<Item> MINING_DRILL = registerItem("mining_drill", () -> new ElectricDrill(Tiers.IRON,1, -2.8F, 0, 30000, 50, 100, EnergyTiers.BASIC));
+    public static final RegistryObject<Item> DIAMOND_DRILL = registerItem("diamond_drill", () -> new ElectricDrill(Tiers.DIAMOND,1, -2.8F, 0, 80000, 70, 120, EnergyTiers.STANDARD));
+    public static final RegistryObject<Item> IRIDIUM_DRILL = registerItem("iridium_drill", () -> new ElectricDrill(CustomTiers.IRIDIUM, 1, -2.8F, 0, 300000, 200, 400, EnergyTiers.ADVANCED));
 
-    public static final RegistryObject<Item> ELECTRIC_HOE = registerItem("electric_hoe", () -> new ElectricHoe(Tiers.IRON,-2, -1.0F, 0, 10000, 50, 100, 50, EnergyTier.BASIC));
+    public static final RegistryObject<Item> ELECTRIC_HOE = registerItem("electric_hoe", () -> new ElectricHoe(Tiers.IRON,-2, -1.0F, 0, 10000, 50, 100, 50, EnergyTiers.BASIC));
     public static final RegistryObject<Item> WIND_METER = registerItem("wind_meter", WIPItem::new);
-    public static final RegistryObject<Item> MULTI_TOOL = registerItem("multi_tool", () -> new MultiTool(Tiers.DIAMOND,-3, 0.0F, 0, 300000, 800, 1400, 500, EnergyTier.ADVANCED));
+    public static final RegistryObject<Item> MULTI_TOOL = registerItem("multi_tool", () -> new MultiTool(Tiers.DIAMOND,-3, 0.0F, 0, 300000, 800, 1400, 500, EnergyTiers.ADVANCED));
 
 
-    public static final RegistryObject<Item> BATTERY = registerItem("battery", () -> new EnergyStorageItem(0, 10000, EnergyType.BOTH, EnergyTier.BASIC));
-    public static final RegistryObject<Item> ADVANCED_BATTERY = registerItem("advanced_battery", () -> new EnergyStorageItem(0, 40000, EnergyType.BOTH, EnergyTier.STANDARD));
-    public static final RegistryObject<Item> ENERGY_CRYSTAL = registerItem("energy_crystal", () -> new EnergyStorageItem(0, 100000, EnergyType.BOTH, EnergyTier.ADVANCED));
-    public static final RegistryObject<Item> LAPOTRON_CRYSTAL = registerItem("lapotron_crystal", () -> new EnergyStorageItem(0, 1000000, EnergyType.BOTH, EnergyTier.SUPER));
-    public static final RegistryObject<Item> CHARGING_BATTERY = registerItem("charging_battery", () -> new ChargingElectricItem(40000, EnergyType.BOTH, EnergyTier.BASIC));
-    public static final RegistryObject<Item> CHARGING_ADVANCED_BATTERY = registerItem("advanced_charging_battery", () ->new ChargingElectricItem(400000, EnergyType.BOTH, EnergyTier.STANDARD));
-    public static final RegistryObject<Item> CHARGING_ENERGY_CRYSTAL = registerItem("charging_energy_crystal", () -> new ChargingElectricItem(4000000, EnergyType.BOTH, EnergyTier.ADVANCED));
-    public static final RegistryObject<Item> CHARGING_LAPOTRON_CRYSTAL = registerItem("charging_lapotron_crystal", () -> new ChargingElectricItem(40000000, EnergyType.BOTH, EnergyTier.SUPER));
+    public static final RegistryObject<Item> BATTERY = registerItem("battery", () -> new EnergyStorageItem(0, 10000, EnergyType.BOTH, EnergyTiers.BASIC));
+    public static final RegistryObject<Item> ADVANCED_BATTERY = registerItem("advanced_battery", () -> new EnergyStorageItem(0, 40000, EnergyType.BOTH, EnergyTiers.STANDARD));
+    public static final RegistryObject<Item> ENERGY_CRYSTAL = registerItem("energy_crystal", () -> new EnergyStorageItem(0, 100000, EnergyType.BOTH, EnergyTiers.ADVANCED));
+    public static final RegistryObject<Item> LAPOTRON_CRYSTAL = registerItem("lapotron_crystal", () -> new EnergyStorageItem(0, 1000000, EnergyType.BOTH, EnergyTiers.SUPER));
+    public static final RegistryObject<Item> CHARGING_BATTERY = registerItem("charging_battery", () -> new ChargingElectricItem(40000, EnergyType.BOTH, EnergyTiers.BASIC));
+    public static final RegistryObject<Item> CHARGING_ADVANCED_BATTERY = registerItem("advanced_charging_battery", () ->new ChargingElectricItem(400000, EnergyType.BOTH, EnergyTiers.STANDARD));
+    public static final RegistryObject<Item> CHARGING_ENERGY_CRYSTAL = registerItem("charging_energy_crystal", () -> new ChargingElectricItem(4000000, EnergyType.BOTH, EnergyTiers.ADVANCED));
+    public static final RegistryObject<Item> CHARGING_LAPOTRON_CRYSTAL = registerItem("charging_lapotron_crystal", () -> new ChargingElectricItem(40000000, EnergyType.BOTH, EnergyTiers.SUPER));
 
     public static final RegistryObject<Item> OVERCLOCKER_UPGRADE = registerItem("overclocker_upgrade", OverclockerUpgrade::new);
     public static final RegistryObject<Item> TRANSFORMER_UPGRADE = registerItem("transformer_upgrade", TransformerUpgrade::new);
     public static final RegistryObject<Item> ENERGY_STORAGE_UPGRADE = registerItem("energy_storage_upgrade", EnergyStorageUpgrade::new);
     public static final RegistryObject<Item> REDSTONE_SIGNAL_INVERTER_UPGRADE = registerItem("redstone_signal_inverter_upgrade", RedstoneSignalInverterUpgrade::new);
-    public static final RegistryObject<Item> EJECTOR_UPGRADE = registerItem("ejector_upgrade", () -> new PushPullUpgrade(UpgradeType.EJECTOR));
-    public static final RegistryObject<Item> PULLING_UPGRADE = registerItem("pulling_upgrade", () -> new PushPullUpgrade(UpgradeType.PULLING));
-    public static final RegistryObject<Item> FLUID_EJECTOR_UPGRADE = registerItem("fluid_ejector_upgrade", () -> new PushPullUpgrade(UpgradeType.FLUID_EJECTOR));
-    public static final RegistryObject<Item> FLUID_PULLING_UPGRADE = registerItem("fluid_pulling_upgrade", () -> new PushPullUpgrade(UpgradeType.FLUID_PULLING));
+    public static final RegistryObject<Item> EJECTOR_UPGRADE = registerItem("ejector_upgrade", () -> new PushPullUpgrade(UpgradeTypes.EJECTOR));
+    public static final RegistryObject<Item> PULLING_UPGRADE = registerItem("pulling_upgrade", () -> new PushPullUpgrade(UpgradeTypes.PULLING));
+    public static final RegistryObject<Item> FLUID_EJECTOR_UPGRADE = registerItem("fluid_ejector_upgrade", () -> new PushPullUpgrade(UpgradeTypes.FLUID_EJECTOR));
+    public static final RegistryObject<Item> FLUID_PULLING_UPGRADE = registerItem("fluid_pulling_upgrade", () -> new PushPullUpgrade(UpgradeTypes.FLUID_PULLING));
     public static final RegistryObject<Item> ADVANCED_EJECTOR_UPGRADE = registerItem("advanced_ejector_upgrade", WIPItem::new);
     public static final RegistryObject<Item> ADVANCED_PULLING_UPGRADE = registerItem("advanced_pulling_upgrade", WIPItem::new);
     public static final RegistryObject<Item> ADVANCED_FLUID_EJECTOR_UPGRADE = registerItem("advanced_fluid_ejector_upgrade", WIPItem::new);

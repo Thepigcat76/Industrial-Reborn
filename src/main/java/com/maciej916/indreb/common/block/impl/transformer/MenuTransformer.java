@@ -12,7 +12,7 @@ import net.minecraft.world.inventory.SimpleContainerData;
 public class MenuTransformer extends IndRebContainerMenu {
 
     public MenuTransformer(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
-        this((IndRebBlockEntity) playerInventory.player.level.getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(BlockEntityTransformer.SYNC_DATA_SLOTS));
+        this((IndRebBlockEntity) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(BlockEntityTransformer.SYNC_DATA_SLOTS));
     }
 
     public MenuTransformer(IndRebBlockEntity entity, int containerId, Inventory playerInventory, Player player, ContainerData data) {

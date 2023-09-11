@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.energy;
 
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
+import com.maciej916.indreb.common.api.enums.interfaces.EnergyTier;
 import com.maciej916.indreb.common.api.interfaces.block.IBlockCable;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyNetworks;

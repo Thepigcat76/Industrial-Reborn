@@ -5,7 +5,7 @@ import com.maciej916.indreb.common.api.blockentity.interfaces.IBlockEntityTransf
 import com.maciej916.indreb.common.api.blockentity.interfaces.IIndRebBlockEntity;
 import com.maciej916.indreb.common.api.energy.BasicEnergyStorage;
 import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.capability.ModCapabilities;
@@ -449,8 +449,8 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
                                                     int leftReceive = Math.max(0, oEnergy.maxReceive() - getEnergyReceivedBlock(relativePos));
                                                     if (leftReceive > 0) {
                                                         if (be instanceof IBlockEntityTransformer beT && oBe instanceof IBlockEntityTransformer iBeT) {
-                                                            EnergyTier fromTier = beT.energyExtractTier();
-                                                            EnergyTier toTier = iBeT.energyReceiveTier();
+                                                            EnergyTiers fromTier = beT.energyExtractTier();
+                                                            EnergyTiers toTier = iBeT.energyReceiveTier();
                                                             if (Objects.equals(fromTier.getLvl(), toTier.getLvl())) {
                                                                 transferTo.add(new TransferTo(oEnergy, relativePos, leftReceive));
                                                             } else {
@@ -459,14 +459,14 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
                                                                 }
                                                             }
                                                         } else if (be instanceof IBlockEntityTransformer beT) {
-                                                            EnergyTier fromTier = beT.energyExtractTier();
+                                                            EnergyTiers fromTier = beT.energyExtractTier();
                                                             if (fromTier.getLvl() <= oEnergy.energyTier().getLvl()) {
                                                                 transferTo.add(new TransferTo(oEnergy, relativePos, leftReceive));
                                                             } else {
                                                                 createExplosion(relativePos, fromTier.getLvl());
                                                             }
                                                         } else if (oBe instanceof IBlockEntityTransformer iBeT) {
-                                                            EnergyTier toTier = iBeT.energyReceiveTier();
+                                                            EnergyTiers toTier = iBeT.energyReceiveTier();
                                                             if (Objects.equals(energy.energyTier().getLvl(), toTier.getLvl())) {
                                                                 transferTo.add(new TransferTo(oEnergy, relativePos, leftReceive));
                                                             } else {
@@ -524,7 +524,7 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
                             if (be != null) {
                                 be.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
                                     if (energy.canReceiveEnergy(oppositeDir)) {
-                                        EnergyTier currentTier = network.getCurrentTier();
+                                        EnergyTiers currentTier = network.getCurrentTier();
 
                                         if (energy.energyType() == EnergyType.BOTH || energy.energyType() == EnergyType.RECEIVE) {
                                             if (energy.energyTier().getLvl() >= currentTier.getLvl()) {
@@ -539,7 +539,7 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
 
                                         if (energy.energyType() == EnergyType.TRANSFORMER) {
                                             IBlockEntityTransformer beTransformer = (IBlockEntityTransformer) be;
-                                            EnergyTier transformerTier = beTransformer.energyReceiveTier();
+                                            EnergyTiers transformerTier = beTransformer.energyReceiveTier();
                                             if (transformerTier.getLvl() >= currentTier.getLvl()) {
                                                 if (energy.maxReceive() > 0) {
                                                     int leftReceive = Math.max(0, energy.maxReceive() - getEnergyReceivedBlock(relativePos));
@@ -659,7 +659,7 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
                                 if (energy.energyType() == EnergyType.TRANSFORMER) {
                                     if (energy.canExtractEnergy(oppositeDir)) {
                                         IBlockEntityTransformer beTransformer = (IBlockEntityTransformer) be;
-                                        EnergyTier tier = beTransformer.energyExtractTier();
+                                        EnergyTiers tier = beTransformer.energyExtractTier();
 
                                         int leftExtract = Math.max(0, energy.maxExtract() - getEnergyExtractedBlock(relativePos));
                                         if (leftReceive > 0 && leftExtract > 0) {

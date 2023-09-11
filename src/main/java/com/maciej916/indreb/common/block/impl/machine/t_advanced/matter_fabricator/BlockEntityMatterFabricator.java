@@ -75,7 +75,7 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IH
 
     public BlockEntityMatterFabricator(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.MATTER_FABRICATOR.get(), pos, blockState);
-        createEnergyStorage(0, ServerConfig.matter_fabricator_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.ADVANCED);
+        createEnergyStorage(0, ServerConfig.matter_fabricator_energy_capacity.get(), EnergyType.RECEIVE, EnergyTiers.ADVANCED);
 
         this.containerData.syncProgressFloat(0, this.progressRecipe);
         this.containerData.syncProgressInt(1, this.progressDrain);
@@ -242,8 +242,8 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IH
     }
 
     @Override
-    public List<UpgradeType> getSupportedUpgrades() {
-        return List.of(UpgradeType.TRANSFORMER, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER, UpgradeType.FLUID_EJECTOR);
+    public List<UpgradeTypes> getSupportedUpgrades() {
+        return List.of(UpgradeTypes.TRANSFORMER, UpgradeTypes.EJECTOR, UpgradeTypes.PULLING, UpgradeTypes.REDSTONE_SIGNAL_INVERTER, UpgradeTypes.FLUID_EJECTOR);
     }
 
     @Override

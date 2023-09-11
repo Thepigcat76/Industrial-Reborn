@@ -1,8 +1,9 @@
 package com.maciej916.indreb.common.api.enums;
 
+import com.maciej916.indreb.common.api.enums.interfaces.UpgradeType;
 import com.maciej916.indreb.common.enums.EnumLang;
 
-public enum UpgradeType {
+public enum UpgradeTypes implements UpgradeType {
     OVERCLOCKER("overclocker_upgrade", EnumLang.OVERCLOCKER_UPGRADE),
     TRANSFORMER("transformer_upgrade", EnumLang.TRANSFORMER_UPGRADE),
     ENERGY_STORAGE("energy_storage_upgrade", EnumLang.ENERGY_STORAGE_UPGRADE),
@@ -15,17 +16,18 @@ public enum UpgradeType {
     private final String type;
     private final EnumLang lang;
 
-    UpgradeType(String type, EnumLang lang) {
+    UpgradeTypes(String type, EnumLang lang) {
         this.type = type;
         this.lang = lang;
     }
 
+    @Override
     public String getType() {
         return type;
     }
 
+    @Override
     public EnumLang getLang() {
         return lang;
     }
 }
-

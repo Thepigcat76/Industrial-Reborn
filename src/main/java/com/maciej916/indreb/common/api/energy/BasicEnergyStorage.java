@@ -2,8 +2,9 @@ package com.maciej916.indreb.common.api.energy;
 
 import com.maciej916.indreb.common.api.blockentity.interfaces.IBaseProgress;
 import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
+import com.maciej916.indreb.common.api.enums.interfaces.EnergyTier;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.common.util.INBTSerializable;

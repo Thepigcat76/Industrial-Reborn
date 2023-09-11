@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.api.screen;
 
 import com.maciej916.indreb.common.api.screen.widget.BaseWidget;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -32,10 +33,10 @@ public class WidgetScreen <T extends IndRebContainerMenu> extends BaseScreen<T> 
     }
 
     @Override
-    protected void renderTooltip(PoseStack poseStack, int mouseX, int mouseY) {
-        super.renderTooltip(poseStack, mouseX, mouseY);
+    protected void renderTooltip(GuiGraphics pGuiGraphics, int pX, int pY) {
+        super.renderTooltip(pGuiGraphics, pX, pY);
         for (BaseWidget widget : widgets) {
-            widget.renderToolTip(this, poseStack, mouseX, mouseY);
+            widget.renderToolTip(this, pGuiGraphics, pX, pY);
         }
     }
 

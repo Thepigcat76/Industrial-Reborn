@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.block.impl.transformer;
 
 import com.maciej916.indreb.common.api.block.IndRebEntityBlock;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.interfaces.block.IElectricMachine;
 import com.maciej916.indreb.common.api.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.api.tier.TransformerTier;
@@ -55,7 +55,7 @@ public class BlockTransformer extends IndRebEntityBlock implements IStateFacing,
     }
 
     @Override
-    public EnergyTier getEnergyTier() {
+    public EnergyTiers getEnergyTier() {
         return transformerTier.getMaxTier();
     }
 

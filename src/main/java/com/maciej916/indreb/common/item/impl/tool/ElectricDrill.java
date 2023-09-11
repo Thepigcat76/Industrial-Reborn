@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.item.impl.tool;
 
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.item.base.BaseElectricDiggerItem;
 import com.maciej916.indreb.common.api.tier.CustomTiers;
@@ -15,7 +15,7 @@ public class ElectricDrill extends BaseElectricDiggerItem {
     private final int energyCostMine;
     private final int energyCostHurt;
 
-    public ElectricDrill(Tier tier, float attackDamage, float attackSpeed, int energyStored, int maxEnergy, int energyCostMine, int energyCostHurt, EnergyTier energyTier) {
+    public ElectricDrill(Tier tier, float attackDamage, float attackSpeed, int energyStored, int maxEnergy, int energyCostMine, int energyCostHurt, EnergyTiers energyTier) {
         super(tier, attackDamage, attackSpeed, BlockTags.MINEABLE_WITH_PICKAXE, new Item.Properties(), energyStored, maxEnergy, EnergyType.RECEIVE, energyTier);
         this.energyCostMine = energyCostMine;
         this.energyCostHurt = energyCostHurt;

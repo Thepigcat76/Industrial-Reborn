@@ -9,6 +9,7 @@ import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.network.chat.Component;
@@ -33,21 +34,21 @@ public abstract class BaseFluidBarWidget extends BaseWidget {
     }
 
     @Override
-    public void renderToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
+    public void renderToolTip(Screen screen, GuiGraphics guiGraphics, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused()) {
             if (fluidStorage.getFluid().getFluid() != Fluids.EMPTY) {
-                screen.renderTooltip(pPoseStack, Component.translatable("gui." + IndReb.MODID + ".fluid", fluidStorage.getFluid().getDisplayName().getString(), TextComponentUtil.getFormattedStorageUnit(fluidStorage.getFluidAmount(), Screen.hasShiftDown()), TextComponentUtil.getFormattedStorageUnit(fluidStorage.getCapacity(), Screen.hasShiftDown())), pMouseX, pMouseY);
+                guiGraphics.renderTooltip(screen.getMinecraft().font, Component.translatable("gui." + IndReb.MODID + ".fluid", fluidStorage.getFluid().getDisplayName().getString(), TextComponentUtil.getFormattedStorageUnit(fluidStorage.getFluidAmount(), Screen.hasShiftDown()), TextComponentUtil.getFormattedStorageUnit(fluidStorage.getCapacity(), Screen.hasShiftDown())), pMouseX, pMouseY);
             } else {
-                screen.renderTooltip(pPoseStack, Component.translatable("gui." + IndReb.MODID + ".fluid_empty"), pMouseX, pMouseY);
+                guiGraphics.renderTooltip(screen.getMinecraft().font, Component.translatable("gui." + IndReb.MODID + ".fluid_empty"), pMouseX, pMouseY);
             }
         }
-        super.renderToolTip(screen, pPoseStack, pMouseX, pMouseY);
+        super.renderToolTip(screen, guiGraphics, pMouseX, pMouseY);
     }
 
     @Override
-    protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
+    public void renderBackground(GuiGraphics guiGraphics, Minecraft pMinecraft, int pMouseX, int pMouseY) {
         RenderSystem.setShaderTexture(0, getResourceLocation());
-        blit(pPoseStack, getX(), getY(), textureX,  textureY, getWidth(), getHeight());
+        guiGraphics.blit(getResourceLocation(), getX(), getY(), textureX,  textureY, getWidth(), getHeight());
 
         final int fluidStored = fluidStorage.getFluid().getAmount();
         if (fluidStored > 0) {
@@ -98,7 +99,7 @@ public abstract class BaseFluidBarWidget extends BaseWidget {
             RenderSystem.setShaderColor(1, 1, 1, 1);
         }
 
-        super.renderBg(pPoseStack, pMinecraft, pMouseX, pMouseY);
+        super.renderBackground(guiGraphics, pMinecraft, pMouseX, pMouseY);
     }
 
     @Override

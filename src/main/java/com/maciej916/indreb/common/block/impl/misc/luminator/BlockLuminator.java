@@ -14,8 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -32,7 +31,7 @@ public class BlockLuminator extends IndRebEntityBlock implements IStateFacing, I
     public VoxelShape EAST = Shapes.box(0,0,0,0.2,1,1);
 
     public BlockLuminator() {
-        super(Properties.of(Material.GLASS, MaterialColor.QUARTZ).noCollission().dynamicShape().lightLevel(state -> state.getValue(BlockStateHelper.ACTIVE_PROPERTY) ? 16 : 0));
+        super(Properties.of().mapColor(MapColor.QUARTZ).noCollission().dynamicShape().lightLevel(state -> state.getValue(BlockStateHelper.ACTIVE_PROPERTY) ? 16 : 0));
         WrenchHelper.registerAction(this).add(WrenchHelper.dropAction());
     }
 

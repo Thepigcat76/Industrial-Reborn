@@ -5,8 +5,8 @@ import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.interfaces.screen.IGuiHelper;
 import com.maciej916.indreb.common.api.slot.BaseSlot;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
 
 public class GuiSlotWidget extends BaseWidget {
@@ -19,11 +19,15 @@ public class GuiSlotWidget extends BaseWidget {
     }
 
     @Override
-    protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
+    protected void renderBackground(GuiGraphics guiGraphics, Minecraft pMinecraft, int pMouseX, int pMouseY) {
         RenderSystem.setShaderTexture(0, new ResourceLocation(IndReb.MODID, "textures/gui/container/process.png"));
-        blit(pPoseStack, getX(), getY(), guiSlotBg.getOffsetLeft(), guiSlotBg.getOffsetTop(), guiSlotBg.getWidth(), guiSlotBg.getHeight());
+        guiGraphics.blit(getResourceLocation(), getX(), getY(), guiSlotBg.getOffsetLeft(), guiSlotBg.getOffsetTop(), guiSlotBg.getWidth(), guiSlotBg.getHeight());
 
-        super.renderBg(pPoseStack, pMinecraft, pMouseX, pMouseY);
+        super.renderBackground(guiGraphics, pMinecraft, pMouseX, pMouseY);
     }
 
+    @Override
+    protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+
+    }
 }

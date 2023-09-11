@@ -3,10 +3,9 @@ package com.maciej916.indreb.common.api.screen.widget;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.enums.GuiSprite;
 import com.maciej916.indreb.common.api.interfaces.screen.IGuiHelper;
-import com.maciej916.indreb.common.api.screen.widget.BaseWidget;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
@@ -61,15 +60,15 @@ public abstract class BaseButtonWidget extends BaseWidget {
 
 
     @Override
-    protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
+    public void renderBackground(GuiGraphics guiGraphics, Minecraft pMinecraft, int pMouseX, int pMouseY) {
         RenderSystem.setShaderTexture(0, getResourceLocation());
         if (isHoveredOrFocused()) {
-            blit(pPoseStack, getX(), getY(), guiSprite.getActiveOffsetLeft(), guiSprite.getActiveOffsetTop(), guiSprite.getActiveWidth(), guiSprite.getActiveHeight());
+            guiGraphics.blit(getResourceLocation(), getX(), getY(), guiSprite.getActiveOffsetLeft(), guiSprite.getActiveOffsetTop(), guiSprite.getActiveWidth(), guiSprite.getActiveHeight());
         } else {
-            blit(pPoseStack, getX(), getY(), guiSprite.getOffsetLeft(), guiSprite.getOffsetTop(), guiSprite.getWidth(), guiSprite.getHeight());
+            guiGraphics.blit(getResourceLocation(), getX(), getY(), guiSprite.getOffsetLeft(), guiSprite.getOffsetTop(), guiSprite.getWidth(), guiSprite.getHeight());
         }
 
-        super.renderBg(pPoseStack, pMinecraft, pMouseX, pMouseY);
+        super.renderBackground(guiGraphics, pMinecraft, pMouseX, pMouseY);
     }
 
     @Override

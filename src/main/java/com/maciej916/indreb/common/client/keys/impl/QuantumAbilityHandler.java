@@ -49,7 +49,7 @@ public class QuantumAbilityHandler {
 
     public static void toggle(IPlayerCapability cap, Player player, boolean enable) {
         MobEffectInstance fireResistance = new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000000, 4, false, false);
-        fireResistance.setNoCounter(true);
+        fireResistance.isInfiniteDuration();
         if (enable) {
             player.getAbilities().mayfly = true;
             player.addEffect(fireResistance);

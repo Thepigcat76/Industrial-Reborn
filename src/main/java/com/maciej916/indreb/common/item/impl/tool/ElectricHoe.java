@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.item.impl.tool;
 
 import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.item.base.BaseElectricDiggerItem;
 import com.mojang.datafixers.util.Pair;
@@ -32,7 +32,7 @@ public class ElectricHoe extends BaseElectricDiggerItem {
     private final int energyCostHurt;
     private final int energyCostTile;
 
-    public ElectricHoe(Tier tier, float attackDamage, float attackSpeed, int energyStored, int maxEnergy, int energyCostMine, int energyCostHurt, int energyCostTile, EnergyTier energyTier) {
+    public ElectricHoe(Tier tier, float attackDamage, float attackSpeed, int energyStored, int maxEnergy, int energyCostMine, int energyCostHurt, int energyCostTile, EnergyTiers energyTier) {
         super(tier, attackDamage, attackSpeed, BlockTags.MINEABLE_WITH_HOE, new Item.Properties(), energyStored, maxEnergy, EnergyType.RECEIVE, energyTier);
         this.energyCostMine = energyCostMine;
         this.energyCostHurt = energyCostHurt;

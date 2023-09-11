@@ -3,10 +3,11 @@ package com.maciej916.indreb.common.api.blockentity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.*;
 import com.maciej916.indreb.common.api.energy.BasicEnergyStorage;
 import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
-import com.maciej916.indreb.common.api.enums.UpgradeType;
+import com.maciej916.indreb.common.api.enums.UpgradeTypes;
+import com.maciej916.indreb.common.api.enums.interfaces.EnergyTier;
 import com.maciej916.indreb.common.api.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.api.interfaces.item.IItemUpgrade;
 import com.maciej916.indreb.common.api.item.base.BaseUpgradeItem;
@@ -68,7 +69,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.*;
 
-import static com.maciej916.indreb.common.api.enums.UpgradeType.*;
+import static com.maciej916.indreb.common.api.enums.UpgradeTypes.*;
 
 public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEntity, IBlockEntityChunkSync, MenuProvider, IHasProbeInfo, IContainerData {
 
@@ -328,7 +329,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
         return false;
     }
 
-    public List<UpgradeType> getSupportedUpgrades() {
+    public List<UpgradeTypes> getSupportedUpgrades() {
         return new ArrayList<>();
     }
 
@@ -476,24 +477,24 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
             ItemStack stack = getUpgradesStorage().getStackInSlot(i);
             CompoundTag tag = stack.getOrCreateTag();
             if (!stack.isEmpty() && stack.getItem() instanceof BaseUpgradeItem itemUpgrade) {
-                if (itemUpgrade.getUpgradeType() == UpgradeType.OVERCLOCKER) {
+                if (itemUpgrade.getUpgradeType() == UpgradeTypes.OVERCLOCKER) {
                     countSpeed += stack.getCount();
                     countEnergyUsage += stack.getCount();
                 }
 
-                if (itemUpgrade.getUpgradeType() == UpgradeType.ENERGY_STORAGE) {
+                if (itemUpgrade.getUpgradeType() == UpgradeTypes.ENERGY_STORAGE) {
                     countEnergyStorage += stack.getCount();
                 }
 
-                if (itemUpgrade.getUpgradeType() == UpgradeType.TRANSFORMER) {
+                if (itemUpgrade.getUpgradeType() == UpgradeTypes.TRANSFORMER) {
                     countTransformer += stack.getCount();
                 }
 
-                if (itemUpgrade.getUpgradeType() == UpgradeType.REDSTONE_SIGNAL_INVERTER && !invertRedstone) {
+                if (itemUpgrade.getUpgradeType() == UpgradeTypes.REDSTONE_SIGNAL_INVERTER && !invertRedstone) {
                     invertRedstone = true;
                 }
 
-                if (itemUpgrade.getUpgradeType() == UpgradeType.PULLING ||
+                if (itemUpgrade.getUpgradeType() == UpgradeTypes.PULLING ||
                         itemUpgrade.getUpgradeType() == EJECTOR ||
                         itemUpgrade.getUpgradeType() == FLUID_EJECTOR ||
                         itemUpgrade.getUpgradeType() == FLUID_PULLING
@@ -531,7 +532,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
         energyStorage.setMaxEnergy(newEnergy);
 
         int newTier = energyStorage.origTier.getLvl() + countTransformer;
-        energyStorage.setEnergyTier(newTier > 5 ? EnergyTier.ULTRA : EnergyTier.getTierFromLvl(newTier));
+        energyStorage.setEnergyTier(newTier > 5 ? EnergyTiers.ULTRA : EnergyTiers.getTierFromLvl(newTier));
     }
 
     @Override

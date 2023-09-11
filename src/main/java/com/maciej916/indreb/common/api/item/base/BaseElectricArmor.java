@@ -3,7 +3,7 @@ package com.maciej916.indreb.common.api.item.base;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.attributes.ModAttributes;
@@ -11,12 +11,10 @@ import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.capability.energy.BasicEnergyStorageProvider;
 import com.maciej916.indreb.common.capability.radiation.IHasRadiation;
 import com.maciej916.indreb.common.enums.EnumLang;
-import com.maciej916.indreb.common.item.ModItemGroups;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
@@ -39,9 +37,9 @@ public abstract class BaseElectricArmor extends ArmorItem implements IElectricIt
     private final int energyStored;
     private final int maxEnergy;
     private final EnergyType energyType;
-    private final EnergyTier energyTier;
+    private final EnergyTiers energyTier;
 
-    public BaseElectricArmor(ArmorMaterial material, ArmorItem.Type type, Properties properties, int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
+    public BaseElectricArmor(ArmorMaterial material, ArmorItem.Type type, Properties properties, int energyStored, int maxEnergy, EnergyType energyType, EnergyTiers energyTier) {
         super(material, type, properties.setNoRepair().stacksTo(1));
         this.energyStored = energyStored;
         this.maxEnergy = maxEnergy;
@@ -56,7 +54,7 @@ public abstract class BaseElectricArmor extends ArmorItem implements IElectricIt
     }
 
     @Override
-    public EnergyTier getEnergyTier() {
+    public EnergyTiers getEnergyTier() {
         return energyTier;
     }
 

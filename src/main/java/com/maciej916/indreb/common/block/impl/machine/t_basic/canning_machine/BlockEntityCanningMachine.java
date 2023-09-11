@@ -56,7 +56,7 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IHas
 
     public BlockEntityCanningMachine(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.CANNING_MACHINE.get(), pos, blockState);
-        createEnergyStorage(0, ServerConfig.canning_machine_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.BASIC);
+        createEnergyStorage(0, ServerConfig.canning_machine_energy_capacity.get(), EnergyType.RECEIVE, EnergyTiers.BASIC);
 
         this.containerData.syncProgressFloat(0, this.progressRecipe);
     }
@@ -197,8 +197,8 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IHas
     }
 
     @Override
-    public List<UpgradeType> getSupportedUpgrades() {
-        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER);
+    public List<UpgradeTypes> getSupportedUpgrades() {
+        return List.of(UpgradeTypes.OVERCLOCKER, UpgradeTypes.TRANSFORMER, UpgradeTypes.ENERGY_STORAGE, UpgradeTypes.EJECTOR, UpgradeTypes.PULLING, UpgradeTypes.REDSTONE_SIGNAL_INVERTER);
     }
 
     @Override

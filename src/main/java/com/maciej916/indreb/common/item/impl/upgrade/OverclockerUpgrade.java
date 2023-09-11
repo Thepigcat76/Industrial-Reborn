@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.item.impl.upgrade;
 
 import com.maciej916.indreb.IndReb;
-import com.maciej916.indreb.common.api.enums.UpgradeType;
+import com.maciej916.indreb.common.api.enums.UpgradeTypes;
 import com.maciej916.indreb.common.api.item.base.BaseUpgradeItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -17,7 +17,7 @@ public class OverclockerUpgrade extends BaseUpgradeItem {
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
     public OverclockerUpgrade() {
-        super(UpgradeType.OVERCLOCKER);
+        super(UpgradeTypes.OVERCLOCKER);
     }
 
     @Override

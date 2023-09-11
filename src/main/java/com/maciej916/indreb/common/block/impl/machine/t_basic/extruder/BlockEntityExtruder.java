@@ -77,7 +77,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IHasExp, I
 
     public BlockEntityExtruder(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.EXTRUDER.get(), pos, blockState);
-        createEnergyStorage(0, ServerConfig.extruder_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.BASIC);
+        createEnergyStorage(0, ServerConfig.extruder_energy_capacity.get(), EnergyType.RECEIVE, EnergyTiers.BASIC);
 
         this.containerData.syncProgressFloat(0, this.progressRecipe);
     }
@@ -232,8 +232,8 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IHasExp, I
     }
 
     @Override
-    public List<UpgradeType> getSupportedUpgrades() {
-        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.REDSTONE_SIGNAL_INVERTER, UpgradeType.FLUID_PULLING);
+    public List<UpgradeTypes> getSupportedUpgrades() {
+        return List.of(UpgradeTypes.OVERCLOCKER, UpgradeTypes.TRANSFORMER, UpgradeTypes.ENERGY_STORAGE, UpgradeTypes.EJECTOR, UpgradeTypes.REDSTONE_SIGNAL_INVERTER, UpgradeTypes.FLUID_PULLING);
     }
 
     public void initRecipes() {

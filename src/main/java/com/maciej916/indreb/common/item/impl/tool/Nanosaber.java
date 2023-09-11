@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.item.impl.tool;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.item.base.BaseElectricSwordItem;
 import com.maciej916.indreb.common.capability.ModCapabilities;
@@ -24,7 +24,7 @@ import net.minecraft.world.level.Level;
 public class Nanosaber extends BaseElectricSwordItem {
 
     public Nanosaber() {
-        super(Tiers.DIAMOND, 1, -3F, new Item.Properties().setNoRepair().stacksTo(1).tab(CreativeModeTab.TAB_COMBAT), 0, 100000, EnergyType.RECEIVE, EnergyTier.ADVANCED);
+        super(Tiers.DIAMOND, 1, -3F, new Item.Properties().setNoRepair().stacksTo(1).tab(CreativeModeTab.TAB_COMBAT), 0, 100000, EnergyType.RECEIVE, EnergyTiers.ADVANCED);
     }
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {

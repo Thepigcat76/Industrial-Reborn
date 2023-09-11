@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.MutableComponent;
 
 import java.text.DecimalFormat;
@@ -19,12 +20,13 @@ public class GuiUtil {
         if (shadow) {
             getFont().drawShadow(poseStack, text, x, y, color, true);
         } else {
-            getFont().draw(poseStack, text, x, y, color);
+            getFont().drawInBatch(poseStack, text, x, y, color);
         }
     }
 
-    public static void prepTextScale(PoseStack poseStack, Consumer<PoseStack> runnable, float x, float y, float scale) {
+    public static void prepTextScale(GuiGraphics guiGraphics, Consumer<PoseStack> runnable, float x, float y, float scale) {
         float yAdd = 4 - (scale * 8) / 2F;
+        PoseStack poseStack = guiGraphics.pose();
         poseStack.pushPose();
         poseStack.translate(x, y + yAdd, 0);
         poseStack.scale(scale, scale, scale);
@@ -34,13 +36,13 @@ public class GuiUtil {
     }
 
 
-    public static void renderScaled(PoseStack poseStack, String text, int x, int y, float scale, int color, boolean shadow) {
-        prepTextScale(poseStack, m -> drawString(m, text, 0, 0, color, shadow), x, y, scale);
+    public static void renderScaled(GuiGraphics guiGraphics, String text, int x, int y, float scale, int color, boolean shadow) {
+        prepTextScale(guiGraphics, m -> drawString(m, text, 0, 0, color, shadow), x, y, scale);
     }
 
-    public static void renderScaledCenter(PoseStack poseStack, MutableComponent component, int x, int width, int y, float scale, int color, boolean shadow) {
+    public static void renderScaledCenter(GuiGraphics guiGraphics, MutableComponent component, int x, int width, int y, float scale, int color, boolean shadow) {
         int left = (width / 2) + x - (int) (getFont().width(component) * scale) / 2;
-        renderScaled(poseStack, component.getString(), left, y, scale, color, shadow);
+        renderScaled(guiGraphics, component.getString(), left, y, scale, color, shadow);
     }
 
     public static DecimalFormat DECIMAL_FORMAT_1 = new DecimalFormat("0.0");

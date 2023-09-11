@@ -4,7 +4,6 @@ import com.maciej916.indreb.common.api.block.BlockFoam;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.common.util.Constants;
-import com.mojang.math.Vector3f;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -18,13 +17,15 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import org.joml.Vector3f;
+import org.joml.Vector3fc;
 
 public class FoamBlock extends BlockFoam {
 
-    public static final Vector3f PARTICLE_COLOR = new Vector3f(Vec3.fromRGB24(0xe4e4e4));
+    public static final Vector3f PARTICLE_COLOR = new Vector3f((Vector3fc) Vec3.fromRGB24(0xe4e4e4));
 
     public FoamBlock() {
-        super(BlockBehaviour.Properties.of(Constants.FOAM_BLOCK).strength(0.25F).sound(SoundType.POWDER_SNOW).dynamicShape(), PARTICLE_COLOR);
+        super(BlockBehaviour.Properties.of().strength(0.25F).sound(SoundType.POWDER_SNOW).dynamicShape().noCollission().noOcclusion(), PARTICLE_COLOR);
     }
 
     @Override

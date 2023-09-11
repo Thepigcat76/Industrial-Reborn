@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.block.impl.machine.t_basic.canning_machine;
 
 import com.maciej916.indreb.common.api.block.BaseElectricMachineBlock;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.TextComponentUtil;
@@ -21,7 +21,7 @@ import java.util.List;
 public class BlockCanningMachine extends BaseElectricMachineBlock {
 
     public BlockCanningMachine() {
-        super(EnergyTier.BASIC,0, 0);
+        super(EnergyTiers.BASIC,0, 0);
     }
 
     @Override

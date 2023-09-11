@@ -52,8 +52,7 @@ import com.maciej916.indreb.common.world.rubber_tree.RubberTreeGrower;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -62,26 +61,26 @@ import net.minecraftforge.registries.RegistryObject;
 public final class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, IndReb.MODID);
 
-    public static final RegistryObject<Block> TIN_ORE = registerBlock("tin_ore", () -> new BlockOre(Material.STONE, 3f, 5F, SoundType.STONE));
-    public static final RegistryObject<Block> DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore", () -> new BlockOre(Material.STONE, 3f, 6F, SoundType.DEEPSLATE));
-    public static final RegistryObject<Block> LEAD_ORE = registerBlock("lead_ore", () -> new BlockOre(Material.STONE, 3f, 5F, SoundType.STONE));
-    public static final RegistryObject<Block> DEEPSLATE_LEAD_ORE = registerBlock("deepslate_lead_ore", () -> new BlockOre(Material.STONE, 3f, 6F, SoundType.DEEPSLATE));
-    public static final RegistryObject<Block> URANIUM_ORE = registerBlock("uranium_ore", () -> new BlockOre(Material.STONE, 3f, 5F, SoundType.STONE));
-    public static final RegistryObject<Block> DEEPSLATE_URANIUM_ORE = registerBlock("deepslate_uranium_ore", () -> new BlockOre(Material.STONE, 3f, 6F, SoundType.DEEPSLATE));
-    public static final RegistryObject<Block> SILVER_ORE = registerBlock("silver_ore", () -> new BlockOre(Material.STONE, 3f, 5F, SoundType.STONE));
-    public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore", () -> new BlockOre(Material.STONE, 3f, 6F, SoundType.DEEPSLATE));
+    public static final RegistryObject<Block> TIN_ORE = registerBlock("tin_ore", () -> new BlockOre(3f, 5F, SoundType.STONE));
+    public static final RegistryObject<Block> DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore", () -> new BlockOre(3f, 6F, SoundType.DEEPSLATE));
+    public static final RegistryObject<Block> LEAD_ORE = registerBlock("lead_ore", () -> new BlockOre(3f, 5F, SoundType.STONE));
+    public static final RegistryObject<Block> DEEPSLATE_LEAD_ORE = registerBlock("deepslate_lead_ore", () -> new BlockOre(3f, 6F, SoundType.DEEPSLATE));
+    public static final RegistryObject<Block> URANIUM_ORE = registerBlock("uranium_ore", () -> new BlockOre(3f, 5F, SoundType.STONE));
+    public static final RegistryObject<Block> DEEPSLATE_URANIUM_ORE = registerBlock("deepslate_uranium_ore", () -> new BlockOre(3f, 6F, SoundType.DEEPSLATE));
+    public static final RegistryObject<Block> SILVER_ORE = registerBlock("silver_ore", () -> new BlockOre(3f, 5F, SoundType.STONE));
+    public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore", () -> new BlockOre(3f, 6F, SoundType.DEEPSLATE));
 
-    public static final RegistryObject<Block> RAW_TIN_BLOCK = registerBlock("raw_tin_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> RAW_LEAD_BLOCK = registerBlock("raw_lead_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> RAW_URANIUM_BLOCK = registerBlock("raw_uranium_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> RAW_SILVER_BLOCK = registerBlock("raw_silver_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> RAW_TIN_BLOCK = registerBlock("raw_tin_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> RAW_LEAD_BLOCK = registerBlock("raw_lead_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> RAW_URANIUM_BLOCK = registerBlock("raw_uranium_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> RAW_SILVER_BLOCK = registerBlock("raw_silver_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
 
-    public static final RegistryObject<Block> TIN_BLOCK = registerBlock("tin_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> LEAD_BLOCK = registerBlock("lead_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> URANIUM_BLOCK = registerBlock("uranium_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> SILVER_BLOCK = registerBlock("silver_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> STEEL_BLOCK = registerBlock("steel_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> BRONZE_BLOCK = registerBlock("bronze_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> TIN_BLOCK = registerBlock("tin_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> LEAD_BLOCK = registerBlock("lead_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> URANIUM_BLOCK = registerBlock("uranium_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> SILVER_BLOCK = registerBlock("silver_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> STEEL_BLOCK = registerBlock("steel_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> BRONZE_BLOCK = registerBlock("bronze_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
 
     public static final RegistryObject<Block> RUBBER_LOG = registerBlock("rubber_log", RubberLog::new);
     public static final RegistryObject<Block> STRIPPED_RUBBER_LOG = registerBlock("stripped_rubber_log", StrippedRubberLog::new);
@@ -97,36 +96,36 @@ public final class ModBlocks {
     public static final RegistryObject<Block> RUBBER_GATE = registerBlock("rubber_gate", RubberGate::new);
     public static final RegistryObject<Block> RUBBER_DOOR = registerBlock("rubber_door", RubberDoor::new);
     public static final RegistryObject<Block> RUBBER_TRAP_DOOR = registerBlock("rubber_trap_door", RubberTrapDoor::new);
-//    public static final RegistryObject<Block> RUBBER_SIGN = registerBlock("rubber_sign", RubberStandingSign::new);
-//    public static final RegistryObject<Block> RUBBER_WALL_SIGN = registerBlock("rubber_wall_sign", RubberWallSign::new);
+    //    public static final RegistryObject<Block> RUBBER_SIGN = registerBlock("rubber_sign", RubberStandingSign::new);
+    //    public static final RegistryObject<Block> RUBBER_WALL_SIGN = registerBlock("rubber_wall_sign", RubberWallSign::new);
 
-    public static final RegistryObject<Block> RESIN_SHEET = registerBlock("resin_sheet", () -> new BlockSheetLayer(Material.METAL, MaterialColor.COLOR_ORANGE, 0.5F, 0.7f, SoundType.MUD));
-    public static final RegistryObject<Block> RUBBER_SHEET = registerBlock("rubber_sheet", () -> new BlockSheetLayer(Material.METAL, MaterialColor.COLOR_BLACK, 1f, 1.2f, SoundType.WOOL));
-    public static final RegistryObject<Block> RESIN_BLOCK = registerBlock("resin_block", () -> new BlockSheet(Material.METAL, MaterialColor.COLOR_ORANGE, 0.5F, 0.7f, SoundType.MUD));
-    public static final RegistryObject<Block> RUBBER_BLOCK = registerBlock("rubber_block", () -> new BlockSheet(Material.METAL, MaterialColor.COLOR_BLACK, 1f, 1.2f, SoundType.WOOL));
+    public static final RegistryObject<Block> RESIN_SHEET = registerBlock("resin_sheet", () -> new BlockSheetLayer(MapColor.COLOR_ORANGE, 0.5F, 0.7f, SoundType.MUD));
+    public static final RegistryObject<Block> RUBBER_SHEET = registerBlock("rubber_sheet", () -> new BlockSheetLayer(MapColor.COLOR_BLACK, 1f, 1.2f, SoundType.WOOL));
+    public static final RegistryObject<Block> RESIN_BLOCK = registerBlock("resin_block", () -> new BlockSheet(MapColor.COLOR_ORANGE, 0.5F, 0.7f, SoundType.MUD));
+    public static final RegistryObject<Block> RUBBER_BLOCK = registerBlock("rubber_block", () -> new BlockSheet(MapColor.COLOR_BLACK, 1f, 1.2f, SoundType.WOOL));
 
-    public static final RegistryObject<Block> BASIC_MACHINE_CASING = registerBlock("basic_machine_casing", () -> new BlockResource(Material.METAL, MaterialColor.COLOR_LIGHT_GRAY,1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> ADVANCED_MACHINE_CASING = registerBlock("advanced_machine_casing", () -> new BlockResource(Material.METAL, MaterialColor.COLOR_GRAY, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> BASIC_MACHINE_CASING = registerBlock("basic_machine_casing", () -> new BlockResource(MapColor.COLOR_LIGHT_GRAY, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> ADVANCED_MACHINE_CASING = registerBlock("advanced_machine_casing", () -> new BlockResource(MapColor.COLOR_GRAY, 1f, 3f, SoundType.METAL));
 
     public static final RegistryObject<Block> CONSTRUCTION_FOAM = registerBlock("construction_foam", FoamBlock::new);
     public static final RegistryObject<Block> REINFORCED_CONSTRUCTION_FOAM = registerBlock("reinforced_construction_foam", ReinforcedFoamBlock::new);
 
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_WHITE = registerBlock("construction_foam_wall_white", () -> new BlockFoamWall(MaterialColor.WOOL));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_RED = registerBlock("construction_foam_wall_red", () -> new BlockFoamWall(MaterialColor.COLOR_RED));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_ORANGE = registerBlock("construction_foam_wall_orange", () -> new BlockFoamWall(MaterialColor.COLOR_ORANGE));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_PINK = registerBlock("construction_foam_wall_pink", () -> new BlockFoamWall(MaterialColor.COLOR_PINK));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_YELLOW = registerBlock("construction_foam_wall_yellow", () -> new BlockFoamWall(MaterialColor.COLOR_YELLOW));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_LIME = registerBlock("construction_foam_wall_lime", () -> new BlockFoamWall(MaterialColor.COLOR_LIGHT_GREEN));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_GREEN = registerBlock("construction_foam_wall_green", () -> new BlockFoamWall(MaterialColor.COLOR_GREEN));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_LIGHT_BLUE = registerBlock("construction_foam_wall_light_blue", () -> new BlockFoamWall(MaterialColor.COLOR_LIGHT_BLUE));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_CYAN = registerBlock("construction_foam_wall_cyan", () -> new BlockFoamWall(MaterialColor.COLOR_CYAN));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_BLUE = registerBlock("construction_foam_wall_blue", () -> new BlockFoamWall(MaterialColor.COLOR_BLUE));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_MAGENTA = registerBlock("construction_foam_wall_magenta", () -> new BlockFoamWall(MaterialColor.COLOR_MAGENTA));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_PURPLE = registerBlock("construction_foam_wall_purple", () -> new BlockFoamWall(MaterialColor.COLOR_PURPLE));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_BROWN = registerBlock("construction_foam_wall_brown", () -> new BlockFoamWall(MaterialColor.COLOR_BROWN));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_GRAY = registerBlock("construction_foam_wall_gray", () -> new BlockFoamWall(MaterialColor.COLOR_GRAY));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_LIGHT_GRAY = registerBlock("construction_foam_wall_light_gray", () -> new BlockFoamWall(MaterialColor.COLOR_LIGHT_GRAY));
-    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_BLACK = registerBlock("construction_foam_wall_black", () -> new BlockFoamWall(MaterialColor.COLOR_BLACK));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_WHITE = registerBlock("construction_foam_wall_white", () -> new BlockFoamWall(MapColor.WOOL));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_RED = registerBlock("construction_foam_wall_red", () -> new BlockFoamWall(MapColor.COLOR_RED));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_ORANGE = registerBlock("construction_foam_wall_orange", () -> new BlockFoamWall(MapColor.COLOR_ORANGE));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_PINK = registerBlock("construction_foam_wall_pink", () -> new BlockFoamWall(MapColor.COLOR_PINK));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_YELLOW = registerBlock("construction_foam_wall_yellow", () -> new BlockFoamWall(MapColor.COLOR_YELLOW));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_LIME = registerBlock("construction_foam_wall_lime", () -> new BlockFoamWall(MapColor.COLOR_LIGHT_GREEN));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_GREEN = registerBlock("construction_foam_wall_green", () -> new BlockFoamWall(MapColor.COLOR_GREEN));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_LIGHT_BLUE = registerBlock("construction_foam_wall_light_blue", () -> new BlockFoamWall(MapColor.COLOR_LIGHT_BLUE));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_CYAN = registerBlock("construction_foam_wall_cyan", () -> new BlockFoamWall(MapColor.COLOR_CYAN));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_BLUE = registerBlock("construction_foam_wall_blue", () -> new BlockFoamWall(MapColor.COLOR_BLUE));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_MAGENTA = registerBlock("construction_foam_wall_magenta", () -> new BlockFoamWall(MapColor.COLOR_MAGENTA));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_PURPLE = registerBlock("construction_foam_wall_purple", () -> new BlockFoamWall(MapColor.COLOR_PURPLE));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_BROWN = registerBlock("construction_foam_wall_brown", () -> new BlockFoamWall(MapColor.COLOR_BROWN));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_GRAY = registerBlock("construction_foam_wall_gray", () -> new BlockFoamWall(MapColor.COLOR_GRAY));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_LIGHT_GRAY = registerBlock("construction_foam_wall_light_gray", () -> new BlockFoamWall(MapColor.COLOR_LIGHT_GRAY));
+    public static final RegistryObject<Block> CONSTRUCTION_FOAM_WALL_BLACK = registerBlock("construction_foam_wall_black", () -> new BlockFoamWall(MapColor.COLOR_BLACK));
 
     public static final RegistryObject<Block> REINFORCED_GLASS = registerBlock("reinforced_glass", ReinforcedGlass::new);
     public static final RegistryObject<Block> REINFORCED_STONE = registerBlock("reinforced_stone", ReinforcedStone::new);
@@ -134,38 +133,38 @@ public final class ModBlocks {
     public static final RegistryObject<Block> REINFORCED_STONE_STAIRS = registerBlock("reinforced_stone_stairs", ReinforcedStoneStairs::new);
     public static final RegistryObject<Block> REINFORCED_STONE_BRICKS = registerBlock("reinforced_stone_bricks", ReinforcedStone::new);
     public static final RegistryObject<Block> SMOOTH_REINFORCED_STONE = registerBlock("smooth_reinforced_stone", ReinforcedStone::new);
-    public static final RegistryObject<Block> REINFORCED_STONE_BRICK_WALL = registerBlock("reinforced_stone_brick_wall", ReinforcedWall::new);
+    public static final RegistryObject<Block> REINFORCED_STONE_BRICK_WALL = registerBlock("reinforced__brick_wall", ReinforcedWall::new);
     public static final RegistryObject<Block> REINFORCED_DOOR = registerBlock("reinforced_door", ReinforcedDoor::new);
 
     public static final RegistryObject<Block> IRON_SCAFFOLDING = registerBlock("iron_scaffolding", BlockIronScaffolding::new);
     public static final RegistryObject<Block> IRON_FENCE = registerBlock("iron_fence", BlockIronFence::new);
     public static final RegistryObject<Block> IRON_GATE = registerBlock("iron_gate", BlockIronGate::new);
 
-    public static final RegistryObject<Block> YELLOW_STRIPES_BLOCK_LEFT = registerBlock("yellow_stripes_block_left", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> YELLOW_STRIPES_BLOCK_RIGHT = registerBlock("yellow_stripes_block_right", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> RADIOACTIVE_HAZARD_SIGN_BLOCK = registerBlock("radioactive_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> BIO_HAZARD_SIGN_BLOCK = registerBlock("bio_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> EXPLOSION_HAZARD_SIGN_BLOCK = registerBlock("explosion_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> FIRE_HAZARD_SIGN_BLOCK = registerBlock("fire_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> ACID_HAZARD_SIGN_BLOCK = registerBlock("acid_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> MAGIC_HAZARD_SIGN_BLOCK = registerBlock("magic_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> FROST_HAZARD_SIGN_BLOCK = registerBlock("frost_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    public static final RegistryObject<Block> NOISE_HAZARD_SIGN_BLOCK = registerBlock("noise_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> YELLOW_STRIPES_BLOCK_LEFT = registerBlock("yellow_stripes_block_left", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> YELLOW_STRIPES_BLOCK_RIGHT = registerBlock("yellow_stripes_block_right", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> RADIOACTIVE_HAZARD_SIGN_BLOCK = registerBlock("radioactive_hazard_sign_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> BIO_HAZARD_SIGN_BLOCK = registerBlock("bio_hazard_sign_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> EXPLOSION_HAZARD_SIGN_BLOCK = registerBlock("explosion_hazard_sign_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> FIRE_HAZARD_SIGN_BLOCK = registerBlock("fire_hazard_sign_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> ACID_HAZARD_SIGN_BLOCK = registerBlock("acid_hazard_sign_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> MAGIC_HAZARD_SIGN_BLOCK = registerBlock("magic_hazard_sign_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> FROST_HAZARD_SIGN_BLOCK = registerBlock("frost_hazard_sign_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> NOISE_HAZARD_SIGN_BLOCK = registerBlock("noise_hazard_sign_block", () -> new BlockResource(1f, 3f, SoundType.METAL));
 
     public static final RegistryObject<Block> INDUSTRIAL_TNT = registerBlock("industrial_tnt", BlockIndustrialTNT::new);
     public static final RegistryObject<Block> NUKE = registerBlock("nuke", BlockNuke::new);
 
     public static final RegistryObject<Block> LUMINATOR = registerBlock("luminator", BlockLuminator::new);
 
-    public static final RegistryObject<Block> TIN_CABLE = registerBlock("tin_cable", () -> new BlockCable(0.127F, CableTier.TIN_CABLE));
-    public static final RegistryObject<Block> TIN_CABLE_INSULATED = registerBlock("tin_cable_insulated", () -> new BlockCable(0.189F, CableTier.TIN_CABLE_INSULATED));
-    public static final RegistryObject<Block> COPPER_CABLE = registerBlock("copper_cable", () -> new BlockCable(0.127F, CableTier.COPPER_CABLE));
-    public static final RegistryObject<Block> COPPER_CABLE_INSULATED = registerBlock("copper_cable_insulated", () -> new BlockCable(0.251F, CableTier.COPPER_CABLE_INSULATED));
-    public static final RegistryObject<Block> GOLD_CABLE = registerBlock("gold_cable", () -> new BlockCable(0.127F, CableTier.GOLD_CABLE));
-    public static final RegistryObject<Block> GOLD_CABLE_INSULATED = registerBlock("gold_cable_insulated", () -> new BlockCable(0.189F, CableTier.GOLD_CABLE_INSULATED));
-    public static final RegistryObject<Block> HV_CABLE = registerBlock("hv_cable", () -> new BlockCable(0.189F, CableTier.HV_CABLE));
-    public static final RegistryObject<Block> HV_CABLE_INSULATED = registerBlock("hv_cable_insulated", () -> new BlockCable(0.313F, CableTier.HV_CABLE_INSULATED));
-    public static final RegistryObject<Block> GLASS_FIBRE_CABLE = registerBlock("glass_fibre_cable", () -> new BlockCable(0.127F, CableTier.GLASS_FIBRE_CABLE));
+    public static final RegistryObject<Block> TIN_CABLE = registerBlock("tin_cable", () -> new BlockCable(0.127F, CableTiers.TIN_CABLE));
+    public static final RegistryObject<Block> TIN_CABLE_INSULATED = registerBlock("tin_cable_insulated", () -> new BlockCable(0.189F, CableTiers.TIN_CABLE_INSULATED));
+    public static final RegistryObject<Block> COPPER_CABLE = registerBlock("copper_cable", () -> new BlockCable(0.127F, CableTiers.COPPER_CABLE));
+    public static final RegistryObject<Block> COPPER_CABLE_INSULATED = registerBlock("copper_cable_insulated", () -> new BlockCable(0.251F, CableTiers.COPPER_CABLE_INSULATED));
+    public static final RegistryObject<Block> GOLD_CABLE = registerBlock("gold_cable", () -> new BlockCable(0.127F, CableTiers.GOLD_CABLE));
+    public static final RegistryObject<Block> GOLD_CABLE_INSULATED = registerBlock("gold_cable_insulated", () -> new BlockCable(0.189F, CableTiers.GOLD_CABLE_INSULATED));
+    public static final RegistryObject<Block> HV_CABLE = registerBlock("hv_cable", () -> new BlockCable(0.189F, CableTiers.HV_CABLE));
+    public static final RegistryObject<Block> HV_CABLE_INSULATED = registerBlock("hv_cable_insulated", () -> new BlockCable(0.313F, CableTiers.HV_CABLE_INSULATED));
+    public static final RegistryObject<Block> GLASS_FIBRE_CABLE = registerBlock("glass_fibre_cable", () -> new BlockCable(0.127F, CableTiers.GLASS_FIBRE_CABLE));
 
     public static final RegistryObject<Block> IRON_FURNACE = registerBlock("iron_furnace", BlockIronFurnace::new);
     public static final RegistryObject<Block> SIMPLE_CRUSHER = registerBlock("simple_crusher", BlockSimpleCrusher::new);
@@ -173,10 +172,10 @@ public final class ModBlocks {
     public static final RegistryObject<Block> SIMPLE_EXTRACTOR = registerBlock("simple_extractor", BlockSimpleExtractor::new);
 
     public static final RegistryObject<Block> GENERATOR = registerBlock("generator", BlockGenerator::new);
-    public static final RegistryObject<Block> SOLAR_PANEL = registerBlock("solar_panel", () -> new BlockSolarPanel(SolarPanelTier.BASIC));
-    public static final RegistryObject<Block> ADVANCED_SOLAR_PANEL = registerBlock("advanced_solar_panel", () -> new BlockSolarPanel(SolarPanelTier.ADVANCED));
-    public static final RegistryObject<Block> HYBRID_SOLAR_PANEL = registerBlock("hybrid_solar_panel", () -> new BlockSolarPanel(SolarPanelTier.HYBRID));
-    public static final RegistryObject<Block> QUANTUM_SOLAR_PANEL = registerBlock("quantum_solar_panel", () -> new BlockSolarPanel(SolarPanelTier.QUANTUM));
+    public static final RegistryObject<Block> SOLAR_PANEL = registerBlock("solar_panel", () -> new BlockSolarPanel(SolarPanelTiers.BASIC));
+    public static final RegistryObject<Block> ADVANCED_SOLAR_PANEL = registerBlock("advanced_solar_panel", () -> new BlockSolarPanel(SolarPanelTiers.ADVANCED));
+    public static final RegistryObject<Block> HYBRID_SOLAR_PANEL = registerBlock("hybrid_solar_panel", () -> new BlockSolarPanel(SolarPanelTiers.HYBRID));
+    public static final RegistryObject<Block> QUANTUM_SOLAR_PANEL = registerBlock("quantum_solar_panel", () -> new BlockSolarPanel(SolarPanelTiers.QUANTUM));
     public static final RegistryObject<Block> GEO_GENERATOR = registerBlock("geo_generator", BlockGeoGenerator::new);
     public static final RegistryObject<Block> SEMIFLUID_GENERATOR = registerBlock("semifluid_generator", BlockSemifluidGenerator::new);
 
@@ -210,27 +209,20 @@ public final class ModBlocks {
     public static final RegistryObject<Block> TELEPORT_ANCHOR = registerBlock("teleport_anchor", BlockWIP::new);
 
 
+    public static final RegistryObject<Block> BATTERY_BOX = registerBlock("battery_box", () -> new BlockBatteryBox(BatteryBoxTiers.BASIC, BlockBehaviour.Properties.of().strength(1f, 3f).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> CESU = registerBlock("cesu", () -> new BlockBatteryBox(BatteryBoxTiers.STANDARD, BlockBehaviour.Properties.of().strength(5f, 3f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> MFE = registerBlock("mfe", () -> new BlockBatteryBox(BatteryBoxTiers.ADVANCED, BlockBehaviour.Properties.of().strength(5f, 3f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> MFSU = registerBlock("mfsu", () -> new BlockBatteryBox(BatteryBoxTiers.SUPER, BlockBehaviour.Properties.of().strength(5f, 3f).sound(SoundType.METAL)));
 
+    public static final RegistryObject<Block> CHARGE_PAD_BATTERY_BOX = registerBlock("charge_pad_battery_box", () -> new BlockChargePad(ChargePadTier.BASIC, BlockBehaviour.Properties.of().strength(1f, 3f).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> CHARGE_PAD_CESU = registerBlock("charge_pad_cesu", () -> new BlockChargePad(ChargePadTier.STANDARD, BlockBehaviour.Properties.of().strength(5f, 3f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> CHARGE_PAD_MFE = registerBlock("charge_pad_mfe", () -> new BlockChargePad(ChargePadTier.ADVANCED, BlockBehaviour.Properties.of().strength(5f, 3f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> CHARGE_PAD_MFSU = registerBlock("charge_pad_mfsu", () -> new BlockChargePad(ChargePadTier.SUPER, BlockBehaviour.Properties.of().strength(5f, 3f).sound(SoundType.METAL)));
 
-    public static final RegistryObject<Block> BATTERY_BOX = registerBlock("battery_box", () -> new BlockBatteryBox(BatteryBoxTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> CESU = registerBlock("cesu", () -> new BlockBatteryBox(BatteryBoxTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-    public static final RegistryObject<Block> MFE = registerBlock("mfe", () -> new BlockBatteryBox(BatteryBoxTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-    public static final RegistryObject<Block> MFSU = registerBlock("mfsu", () -> new BlockBatteryBox(BatteryBoxTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-
-    public static final RegistryObject<Block> CHARGE_PAD_BATTERY_BOX = registerBlock("charge_pad_battery_box", () -> new BlockChargePad(ChargePadTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> CHARGE_PAD_CESU = registerBlock("charge_pad_cesu", () -> new BlockChargePad(ChargePadTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-    public static final RegistryObject<Block> CHARGE_PAD_MFE = registerBlock("charge_pad_mfe", () -> new BlockChargePad(ChargePadTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-    public static final RegistryObject<Block> CHARGE_PAD_MFSU = registerBlock("charge_pad_mfsu", () -> new BlockChargePad(ChargePadTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-
-    public static final RegistryObject<Block> LV_TRANSFORMER = registerBlock("lv_transformer", () -> new BlockTransformer(TransformerTier.BASIC, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-    public static final RegistryObject<Block> MV_TRANSFORMER = registerBlock("mv_transformer", () -> new BlockTransformer(TransformerTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-    public static final RegistryObject<Block> HV_TRANSFORMER = registerBlock("hv_transformer", () -> new BlockTransformer(TransformerTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-    public static final RegistryObject<Block> EV_TRANSFORMER = registerBlock("ev_transformer", () -> new BlockTransformer(TransformerTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-
-
-
-
-
+    public static final RegistryObject<Block> LV_TRANSFORMER = registerBlock("lv_transformer", () -> new BlockTransformer(TransformerTier.BASIC, BlockBehaviour.Properties.of().strength(5f, 3f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> MV_TRANSFORMER = registerBlock("mv_transformer", () -> new BlockTransformer(TransformerTier.STANDARD, BlockBehaviour.Properties.of().strength(5f, 3f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> HV_TRANSFORMER = registerBlock("hv_transformer", () -> new BlockTransformer(TransformerTier.ADVANCED, BlockBehaviour.Properties.of().strength(5f, 3f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> EV_TRANSFORMER = registerBlock("ev_transformer", () -> new BlockTransformer(TransformerTier.SUPER, BlockBehaviour.Properties.of().strength(5f, 3f).sound(SoundType.METAL)));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

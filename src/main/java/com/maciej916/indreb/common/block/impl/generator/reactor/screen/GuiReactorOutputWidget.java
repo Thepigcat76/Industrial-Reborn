@@ -6,6 +6,8 @@ import com.maciej916.indreb.common.api.screen.widget.BaseWidget;
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.BlockEntityNuclearReactor;
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 
 public class GuiReactorOutputWidget extends BaseWidget {
@@ -18,13 +20,13 @@ public class GuiReactorOutputWidget extends BaseWidget {
     }
 
     @Override
-    public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTicks) {
+    public void renderButton(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTicks) {
         if (entity.getReactor().isFluid()) {
-            GuiUtil.renderScaled(pPoseStack, Component.translatable("gui." + IndReb.MODID + ".output_mode", entity.getReactor().getVentedHeat() + " HU/s").getString(), getX(), getY(), 0.85f, 0x008fd6, false);
+            GuiUtil.renderScaled(guiGraphics, Component.translatable("gui." + IndReb.MODID + ".output_mode", entity.getReactor().getVentedHeat() + " HU/s").getString(), getX(), getY(), 0.85f, 0x008fd6, false);
         } else {
-            GuiUtil.renderScaled(pPoseStack, Component.translatable("gui." + IndReb.MODID + ".output_mode", (entity.getReactor().getCurrentIEOutput() / 20) + " IE/t").getString(), getX(), getY(), 0.85f, 0x008fd6, false);
+            GuiUtil.renderScaled(guiGraphics, Component.translatable("gui." + IndReb.MODID + ".output_mode", (entity.getReactor().getCurrentIEOutput() / 20) + " IE/t").getString(), getX(), getY(), 0.85f, 0x008fd6, false);
         }
-        super.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTicks);
+        super.renderButton(guiGraphics, pMouseX, pMouseY, pPartialTicks);
     }
 
 }

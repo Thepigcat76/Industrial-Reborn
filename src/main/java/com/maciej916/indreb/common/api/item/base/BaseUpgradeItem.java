@@ -1,21 +1,20 @@
 package com.maciej916.indreb.common.api.item.base;
 
-import com.maciej916.indreb.common.api.enums.UpgradeType;
+import com.maciej916.indreb.common.api.enums.UpgradeTypes;
 import com.maciej916.indreb.common.api.interfaces.item.IItemUpgrade;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
 public class BaseUpgradeItem extends BaseItem implements IItemUpgrade {
 
-    private final UpgradeType upgradeType;
+    private final UpgradeTypes upgradeType;
 
-    public BaseUpgradeItem(UpgradeType upgradeType) {
+    public BaseUpgradeItem(UpgradeTypes upgradeType) {
         super(new Properties().stacksTo(16));
         this.upgradeType = upgradeType;
     }
 
     @Override
-    public UpgradeType getUpgradeType() {
+    public UpgradeTypes getUpgradeType() {
         return upgradeType;
     }
 

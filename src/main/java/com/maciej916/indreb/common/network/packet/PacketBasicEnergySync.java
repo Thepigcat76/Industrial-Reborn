@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.network.packet;
 
 import com.maciej916.indreb.common.api.blockentity.interfaces.IIndRebBlockEntity;
 import com.maciej916.indreb.common.api.energy.BasicEnergyStorage;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.proxy.ModProxy;
 import net.minecraft.client.player.LocalPlayer;
@@ -90,7 +90,7 @@ public class PacketBasicEnergySync {
                         basicEnergyStorage.maxEnergy = maxEnergy;
 
                         basicEnergyStorage.energyType = EnergyType.getTierFromId(energyTypeId);
-                        basicEnergyStorage.energyTier = EnergyTier.getTierFromLvl(energyTierLvl);
+                        basicEnergyStorage.energyTier = EnergyTiers.getTierFromLvl(energyTierLvl);
 
                         basicEnergyStorage.lastGenerated = lastGenerated;
                         basicEnergyStorage.totalGenerated = totalGenerated;

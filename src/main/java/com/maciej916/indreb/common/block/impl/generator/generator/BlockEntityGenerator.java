@@ -4,7 +4,7 @@ import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasCooldown;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasSound;
 import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
@@ -47,7 +47,7 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements IHasCoold
 
     public BlockEntityGenerator(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.GENERATOR.get(), pos, blockState);
-        createEnergyStorage(0, ServerConfig.generator_energy_capacity.get(), EnergyType.EXTRACT, EnergyTier.BASIC);
+        createEnergyStorage(0, ServerConfig.generator_energy_capacity.get(), EnergyType.EXTRACT, EnergyTiers.BASIC);
 
         this.containerData.syncProgressFloat(0, this.progressBurn);
     }

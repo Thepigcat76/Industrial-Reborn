@@ -3,13 +3,13 @@ package com.maciej916.indreb.common.block.impl.battery_box;
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IBlockEntityBatteryBox;
 import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
 import com.maciej916.indreb.common.api.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.api.slot.ElectricSlot;
-import com.maciej916.indreb.common.api.tier.BatteryBoxTier;
+import com.maciej916.indreb.common.api.tier.BatteryBoxTiers;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -23,14 +23,14 @@ import java.util.ArrayList;
 
 public class BlockEntityBatteryBox extends IndRebBlockEntity implements IBlockEntityEnergy, IBlockEntityBatteryBox {
 
-    private final BatteryBoxTier batteryBoxTier;
+    private final BatteryBoxTiers batteryBoxTier;
 
     public BlockEntityBatteryBox(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.BATTERY_BOX.get(), pos, blockState);
 
         BlockBatteryBox block = (BlockBatteryBox) getBlock();
         this.batteryBoxTier = block.getBatteryBoxTier();
-        EnergyTier energyTier = batteryBoxTier.getEnergyTier();
+        EnergyTiers energyTier = batteryBoxTier.getEnergyTier();
 
         createEnergyStorage(batteryBoxTier.getEnergyStored(), batteryBoxTier.getEnergyCapacity(), EnergyType.BOTH, energyTier);
     }
@@ -75,7 +75,7 @@ public class BlockEntityBatteryBox extends IndRebBlockEntity implements IBlockEn
     }
 
     @Override
-    public BatteryBoxTier getBatteryBoxTier() {
+    public BatteryBoxTiers getBatteryBoxTier() {
         return batteryBoxTier;
     }
 }

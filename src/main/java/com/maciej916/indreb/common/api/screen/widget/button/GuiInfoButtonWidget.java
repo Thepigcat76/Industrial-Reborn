@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.api.screen.widget.button;
 
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasUpgrades;
 import com.maciej916.indreb.common.api.enums.GuiSprite;
-import com.maciej916.indreb.common.api.enums.UpgradeType;
+import com.maciej916.indreb.common.api.enums.UpgradeTypes;
 import com.maciej916.indreb.common.api.interfaces.screen.IGuiHelper;
 import com.maciej916.indreb.common.api.screen.widget.BaseButtonWidget;
 import com.maciej916.indreb.common.enums.EnumLang;
@@ -30,7 +30,7 @@ public class GuiInfoButtonWidget extends BaseButtonWidget {
         if (isHoveredOrFocused()) {
             List<Component> elements = new ArrayList<>();
             elements.add(Component.translatable(EnumLang.SUPPORTED_UPGRADES.getTranslationKey()).withStyle(ChatFormatting.AQUA));
-            for (UpgradeType ut: upgrades.getSupportedUpgrades()) {
+            for (UpgradeTypes ut: upgrades.getSupportedUpgrades()) {
                 elements.add(ut.getLang().getTranslationComponent());
             }
             screen.renderComponentTooltip(pPoseStack, elements, pMouseX, pMouseY);
@@ -41,7 +41,7 @@ public class GuiInfoButtonWidget extends BaseButtonWidget {
 
     @Override
     protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
-        super.renderBg(pPoseStack, pMinecraft, pMouseX, pMouseY);
+        super.renderBackground(pPoseStack, pMinecraft, pMouseX, pMouseY);
 
         RenderSystem.setShaderTexture(0, getResourceLocation());
         GuiSprite sprite = GuiSprite.INFO_ICON;

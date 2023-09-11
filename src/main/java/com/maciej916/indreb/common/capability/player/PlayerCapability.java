@@ -240,7 +240,7 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
 
     public void syncRads(ServerPlayer player) {
         if (radsChanged) {
-            if (player.getLevel().getGameTime() % 20 == 0) {
+            if (player.level().getGameTime() % 20 == 0) {
                 boolean geigerFound = false;
                 for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
                     ItemStack itemStack = player.getInventory().getItem(i);

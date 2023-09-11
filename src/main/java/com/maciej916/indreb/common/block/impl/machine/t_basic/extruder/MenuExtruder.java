@@ -12,7 +12,7 @@ import net.minecraft.world.inventory.SimpleContainerData;
 public class MenuExtruder extends IndRebContainerMenu {
 
     public MenuExtruder(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
-        this((IndRebBlockEntity) playerInventory.player.level.getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(0));
+        this((IndRebBlockEntity) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(0));
     }
 
     public MenuExtruder(IndRebBlockEntity entity, int containerId, Inventory playerInventory, Player player, ContainerData data) {

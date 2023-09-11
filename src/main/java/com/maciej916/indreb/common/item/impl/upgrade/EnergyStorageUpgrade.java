@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.item.impl.upgrade;
 
 import com.maciej916.indreb.IndReb;
-import com.maciej916.indreb.common.api.enums.UpgradeType;
+import com.maciej916.indreb.common.api.enums.UpgradeTypes;
 import com.maciej916.indreb.common.api.item.base.BaseUpgradeItem;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
@@ -15,7 +15,7 @@ import java.util.List;
 public class EnergyStorageUpgrade extends BaseUpgradeItem {
 
     public EnergyStorageUpgrade() {
-        super(UpgradeType.ENERGY_STORAGE);
+        super(UpgradeTypes.ENERGY_STORAGE);
     }
 
     @Override

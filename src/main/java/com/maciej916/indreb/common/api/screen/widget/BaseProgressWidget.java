@@ -5,8 +5,8 @@ import com.maciej916.indreb.common.api.blockentity.interfaces.IBaseProgress;
 import com.maciej916.indreb.common.api.enums.GuiSprite;
 import com.maciej916.indreb.common.api.interfaces.screen.IGuiHelper;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
@@ -16,6 +16,8 @@ public abstract class BaseProgressWidget extends BaseWidget {
     private GuiSprite guiSprite;
     private final Direction direction;
     private final boolean reverse;
+    private int x;
+    private int y;
 
     public BaseProgressWidget(IGuiHelper helper, int x, int y, IBaseProgress progress, GuiSprite guiSprite, Direction direction, boolean reverse) {
         super(helper, x, y, guiSprite.getWidth(), guiSprite.getHeight());
@@ -23,6 +25,8 @@ public abstract class BaseProgressWidget extends BaseWidget {
         this.guiSprite = guiSprite;
         this.direction = direction;
         this.reverse = reverse;
+        this.x = x;
+        this.y = y;
     }
 
     public void setProgressType(int x, int y, GuiSprite guiSprite) {
@@ -54,10 +58,10 @@ public abstract class BaseProgressWidget extends BaseWidget {
     }
 
     @Override
-    protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
+    public void renderBackground(GuiGraphics guiGraphics, Minecraft pMinecraft, int pMouseX, int pMouseY) {
         RenderSystem.setShaderTexture(0, getResourceLocation());
 
-        blit(pPoseStack, getX(), getY(), guiSprite.getOffsetLeft(), guiSprite.getOffsetTop(), guiSprite.getWidth(), guiSprite.getHeight());
+        guiGraphics.blit(getResourceLocation(), getX(), getY(), guiSprite.getOffsetLeft(), guiSprite.getOffsetTop(), guiSprite.getWidth(), guiSprite.getHeight());
 
         float currProgress = Math.min(progress.getPercentProgress(), 100);
         int scaleX = Math.round(currProgress / 100 * guiSprite.getActiveHeight());
@@ -66,8 +70,8 @@ public abstract class BaseProgressWidget extends BaseWidget {
         switch (direction) {
             case VERTICAL:
                 if (reverse) {
-                    blit(
-                            pPoseStack,
+                    guiGraphics.blit(
+                            getResourceLocation(),
                             getX() + guiSprite.getRenderOffsetLeft(),
                             getY() + guiSprite.getRenderOffsetTop() + guiSprite.getActiveHeight() - scaleX,
                             guiSprite.getActiveOffsetLeft(),
@@ -76,8 +80,8 @@ public abstract class BaseProgressWidget extends BaseWidget {
                             scaleX
                     );
                 } else {
-                    blit(
-                            pPoseStack,
+                    guiGraphics.blit(
+                            getResourceLocation(),
                             getX() + guiSprite.getRenderOffsetLeft(),
                             getY() + guiSprite.getRenderOffsetTop() + scaleX,
                             guiSprite.getActiveOffsetLeft(), guiSprite.getActiveOffsetTop() + scaleX,
@@ -88,8 +92,8 @@ public abstract class BaseProgressWidget extends BaseWidget {
                 break;
             case HORIZONTAL:
                 if (reverse) {
-                    blit(
-                            pPoseStack,
+                    guiGraphics.blit(
+                            getResourceLocation(),
                             getX() + guiSprite.getRenderOffsetLeft(),
                             getY() + guiSprite.getRenderOffsetTop(),
                             guiSprite.getActiveOffsetLeft(),
@@ -98,8 +102,8 @@ public abstract class BaseProgressWidget extends BaseWidget {
                             guiSprite.getActiveHeight()
                     );
                 } else {
-                    blit(
-                            pPoseStack,
+                    guiGraphics.blit(
+                            getResourceLocation(),
                             getX() + guiSprite.getRenderOffsetLeft(),
                             getY() + guiSprite.getRenderOffsetTop(),
                             guiSprite.getActiveOffsetLeft(),
@@ -111,7 +115,7 @@ public abstract class BaseProgressWidget extends BaseWidget {
                 break;
         }
 
-        super.renderBg(pPoseStack, pMinecraft, pMouseX, pMouseY);
+        super.renderBackground(guiGraphics, pMinecraft, pMouseX, pMouseY);
     }
 
     @Override

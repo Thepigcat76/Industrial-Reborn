@@ -3,7 +3,7 @@ package com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasSound;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
@@ -51,7 +51,7 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity implements IHas
 
     public BlockEntityNuclearReactor(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.NUCLEAR_REACTOR.get(), pos, blockState);
-        createEnergyStorage(0, 0, EnergyType.EXTRACT, EnergyTier.BASIC);
+        createEnergyStorage(0, 0, EnergyType.EXTRACT, EnergyTiers.BASIC);
 
         this.containerData.syncBool(0, () -> getReactor().getEnabled());
         this.containerData.syncInt(1, () -> getReactor().getVentedHeat());
@@ -184,7 +184,7 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity implements IHas
 
             setChanged();
 
-            for (EnergyTier tier: EnergyTier.values()) {
+            for (EnergyTiers tier: EnergyTiers.values()) {
                 if (tier.getBasicTransfer() > reactor.getCurrentIEOutput() / 20) {
                     getEnergyStorage().setMaxEnergy(tier.getBasicTransfer());
                     if (getEnergyStorage().energyTier() != tier) {

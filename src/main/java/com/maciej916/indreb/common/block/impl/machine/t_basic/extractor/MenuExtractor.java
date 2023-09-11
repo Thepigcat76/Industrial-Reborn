@@ -12,7 +12,7 @@ import net.minecraft.world.inventory.SimpleContainerData;
 public class MenuExtractor extends IndRebContainerMenu {
 
     public MenuExtractor(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
-        this((IndRebBlockEntity) playerInventory.player.level.getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(0));
+        this((IndRebBlockEntity) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(0));
     }
 
     public MenuExtractor(IndRebBlockEntity entity, int containerId, Inventory playerInventory, Player player, ContainerData data) {

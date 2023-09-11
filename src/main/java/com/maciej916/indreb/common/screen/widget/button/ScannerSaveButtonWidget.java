@@ -48,7 +48,7 @@ public class ScannerSaveButtonWidget extends BaseButtonWidget {
     @Override
     protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
         if (entity.getMode().getId() >= 4) {
-            super.renderBg(pPoseStack, pMinecraft, pMouseX, pMouseY);
+            super.renderBackground(pPoseStack, pMinecraft, pMouseX, pMouseY);
         }
     }
 }

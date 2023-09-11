@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.block.impl.generator.generator;
 
 import com.maciej916.indreb.common.api.block.BaseElectricMachineBlock;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.BlockStateHelper;
@@ -28,7 +28,7 @@ import java.util.List;
 public class BlockGenerator extends BaseElectricMachineBlock {
 
     public BlockGenerator() {
-        super(EnergyTier.BASIC, 12, 0);
+        super(EnergyTiers.BASIC, 12, 0);
     }
 
     @Override

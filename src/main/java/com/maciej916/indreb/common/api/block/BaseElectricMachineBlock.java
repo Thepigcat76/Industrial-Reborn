@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.api.block;
 
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.interfaces.block.IElectricMachine;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.TextComponentUtil;
@@ -16,9 +16,9 @@ import java.util.List;
 
 public abstract class BaseElectricMachineBlock extends BaseMachineBlock implements IElectricMachine {
 
-    private final EnergyTier tier;
+    private final EnergyTiers tier;
 
-    public BaseElectricMachineBlock(EnergyTier tier, int lightOn, int lightOff) {
+    public BaseElectricMachineBlock(EnergyTiers tier, int lightOn, int lightOff) {
         super(lightOn, lightOff);
         this.tier = tier;
         registerWrenchAction();
@@ -29,7 +29,7 @@ public abstract class BaseElectricMachineBlock extends BaseMachineBlock implemen
     }
 
     @Override
-    public EnergyTier getEnergyTier() {
+    public EnergyTiers getEnergyTier() {
         return tier;
     }
 

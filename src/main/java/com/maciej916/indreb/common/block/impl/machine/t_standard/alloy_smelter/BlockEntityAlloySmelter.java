@@ -58,7 +58,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IHasEx
 
     public BlockEntityAlloySmelter(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.ALLOY_SMELTER.get(), pos, blockState);
-        createEnergyStorage(0, ServerConfig.alloy_smelter_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.STANDARD);
+        createEnergyStorage(0, ServerConfig.alloy_smelter_energy_capacity.get(), EnergyType.RECEIVE, EnergyTiers.STANDARD);
 
         this.containerData.syncProgressFloat(0, this.progressRecipe);
         this.containerData.syncProgressFloat(1, this.progressHeat);
@@ -251,8 +251,8 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IHasEx
     }
 
     @Override
-    public List<UpgradeType> getSupportedUpgrades() {
-        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER);
+    public List<UpgradeTypes> getSupportedUpgrades() {
+        return List.of(UpgradeTypes.OVERCLOCKER, UpgradeTypes.TRANSFORMER, UpgradeTypes.ENERGY_STORAGE, UpgradeTypes.EJECTOR, UpgradeTypes.PULLING, UpgradeTypes.REDSTONE_SIGNAL_INVERTER);
     }
 
     @Override

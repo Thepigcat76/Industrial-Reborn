@@ -1,10 +1,10 @@
 package com.maciej916.indreb.common.block.impl.battery_box;
 
 import com.maciej916.indreb.common.api.block.IndRebEntityBlock;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.interfaces.block.IElectricMachine;
 import com.maciej916.indreb.common.api.interfaces.block.IStateFacing;
-import com.maciej916.indreb.common.api.tier.BatteryBoxTier;
+import com.maciej916.indreb.common.api.tier.BatteryBoxTiers;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.TextComponentUtil;
@@ -26,9 +26,9 @@ import java.util.List;
 
 public class BlockBatteryBox extends IndRebEntityBlock implements IStateFacing, IElectricMachine {
 
-    private final BatteryBoxTier batteryBoxTier;
+    private final BatteryBoxTiers batteryBoxTier;
 
-    public BlockBatteryBox(BatteryBoxTier batteryBoxTier, Properties properties) {
+    public BlockBatteryBox(BatteryBoxTiers batteryBoxTier, Properties properties) {
         super(properties);
         this.batteryBoxTier = batteryBoxTier;
         WrenchHelper.registerAction(this).add(WrenchHelper.rotationHitAction()).add(WrenchHelper.dropAction());
@@ -39,7 +39,7 @@ public class BlockBatteryBox extends IndRebEntityBlock implements IStateFacing, 
         return new BlockEntityBatteryBox(pos, state);
     }
 
-    public BatteryBoxTier getBatteryBoxTier() {
+    public BatteryBoxTiers getBatteryBoxTier() {
         return batteryBoxTier;
     }
 
@@ -68,7 +68,7 @@ public class BlockBatteryBox extends IndRebEntityBlock implements IStateFacing, 
     }
 
     @Override
-    public EnergyTier getEnergyTier() {
+    public EnergyTiers getEnergyTier() {
         return batteryBoxTier.getEnergyTier();
     }
 

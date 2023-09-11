@@ -1,30 +1,34 @@
 package com.maciej916.indreb.common.api.tier;
 
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
+import com.maciej916.indreb.common.api.tier.interfaces.BatteryBoxTier;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
 
-public enum ChargePadTier {
-    BASIC(EnergyTier.BASIC, 0),
-    STANDARD(EnergyTier.STANDARD, 0),
-    ADVANCED(EnergyTier.ADVANCED, 0),
-    SUPER(EnergyTier.SUPER, 0);
+public enum ChargePadTier implements BatteryBoxTier {
+    BASIC(EnergyTiers.BASIC, 0),
+    STANDARD(EnergyTiers.STANDARD, 0),
+    ADVANCED(EnergyTiers.ADVANCED, 0),
+    SUPER(EnergyTiers.SUPER, 0);
 
-    private final EnergyTier energyTier;
+    private final EnergyTiers energyTier;
     private final int energyStored;
 
-    ChargePadTier(EnergyTier energyTier, int energyStored) {
+    ChargePadTier(EnergyTiers energyTier, int energyStored) {
         this.energyTier = energyTier;
         this.energyStored = energyStored;
     }
 
-    public EnergyTier getEnergyTier() {
+    @Override
+    public EnergyTiers getEnergyTier() {
         return energyTier;
     }
 
+    @Override
     public int getEnergyStored() {
         return energyStored;
     }
 
+    @Override
     public int getEnergyCapacity() {
         return switch (energyTier) {
             case BASIC -> ServerConfig.wooden_battery_box_capacity.get();

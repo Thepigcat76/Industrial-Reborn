@@ -51,7 +51,7 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IHa
 
     public BlockEntityElectricFurnace(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.ELECTRIC_FURNACE.get(), pos, blockState);
-        createEnergyStorage(0, ServerConfig.electric_furnace_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.BASIC);
+        createEnergyStorage(0, ServerConfig.electric_furnace_energy_capacity.get(), EnergyType.RECEIVE, EnergyTiers.BASIC);
 
         this.containerData.syncProgressFloat(0, this.progressRecipe);
     }
@@ -183,8 +183,8 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IHa
     }
 
     @Override
-    public List<UpgradeType> getSupportedUpgrades() {
-        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER);
+    public List<UpgradeTypes> getSupportedUpgrades() {
+        return List.of(UpgradeTypes.OVERCLOCKER, UpgradeTypes.TRANSFORMER, UpgradeTypes.ENERGY_STORAGE, UpgradeTypes.EJECTOR, UpgradeTypes.PULLING, UpgradeTypes.REDSTONE_SIGNAL_INVERTER);
     }
 
     protected Optional<SmeltingRecipe> getRecipe(ItemStack input) {

@@ -48,7 +48,7 @@ public abstract class StandardMachineBlockEntity extends IndRebBlockEntity imple
 
     public StandardMachineBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState, int energyCapacity) {
         super(type, pos, blockState);
-        createEnergyStorage(0, energyCapacity, EnergyType.RECEIVE, EnergyTier.BASIC);
+        createEnergyStorage(0, energyCapacity, EnergyType.RECEIVE, EnergyTiers.BASIC);
 
         this.containerData.syncProgressFloat(0, this.progressRecipe);
     }
@@ -190,8 +190,8 @@ public abstract class StandardMachineBlockEntity extends IndRebBlockEntity imple
     }
 
     @Override
-    public List<UpgradeType> getSupportedUpgrades() {
-        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER);
+    public List<UpgradeTypes> getSupportedUpgrades() {
+        return List.of(UpgradeTypes.OVERCLOCKER, UpgradeTypes.TRANSFORMER, UpgradeTypes.ENERGY_STORAGE, UpgradeTypes.EJECTOR, UpgradeTypes.PULLING, UpgradeTypes.REDSTONE_SIGNAL_INVERTER);
     }
 
     protected Optional<?> getRecipe(ItemStack input) {

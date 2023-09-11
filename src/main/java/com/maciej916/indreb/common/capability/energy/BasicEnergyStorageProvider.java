@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.capability.energy;
 
 import com.maciej916.indreb.common.api.energy.BasicEnergyStorage;
 import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import net.minecraft.core.Direction;
@@ -16,7 +16,7 @@ public class BasicEnergyStorageProvider extends BasicEnergyStorage implements IC
 
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> this);
 
-    public BasicEnergyStorageProvider(int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
+    public BasicEnergyStorageProvider(int energyStored, int maxEnergy, EnergyType energyType, EnergyTiers energyTier) {
         super(energyStored, maxEnergy, energyType, energyTier);
     }
 

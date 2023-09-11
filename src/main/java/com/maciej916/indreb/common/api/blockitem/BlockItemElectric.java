@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.api.blockitem;
 
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.interfaces.block.IElectricMachine;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.TextComponentUtil;
@@ -32,7 +32,7 @@ public class BlockItemElectric extends IndRebBlockItem {
             int energy = ct.getInt("energy_stored");
             if (energy > 0) {
                 if (getBlock() instanceof IElectricMachine bem) {
-                    EnergyTier energyTier = bem.getEnergyTier();
+                    EnergyTiers energyTier = bem.getEnergyTier();
 
                     componentList.add(TextComponentUtil.build(
                             Component.translatable(EnumLang.STORED.getTranslationKey()).withStyle(ChatFormatting.GRAY),

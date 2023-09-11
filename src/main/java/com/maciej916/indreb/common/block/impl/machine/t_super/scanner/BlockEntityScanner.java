@@ -4,7 +4,7 @@ import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasExp;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasSound;
 import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
@@ -62,7 +62,7 @@ public class BlockEntityScanner extends IndRebBlockEntity implements IBlockEntit
 
     public BlockEntityScanner(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.SCANNER.get(), pos, blockState);
-        createEnergyStorage(0, ServerConfig.scanner_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.SUPER);
+        createEnergyStorage(0, ServerConfig.scanner_energy_capacity.get(), EnergyType.RECEIVE, EnergyTiers.SUPER);
 
         this.containerData.syncProgressFloat(0, this.progressRecipe);
         this.containerData.syncInt(1, () -> mode.getId());

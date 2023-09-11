@@ -1,27 +1,30 @@
 package com.maciej916.indreb.common.api.tier;
 
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
+import com.maciej916.indreb.common.api.enums.interfaces.EnergyTier;
+import com.maciej916.indreb.common.api.tier.interfaces.SolarPanelTier;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
 
-public enum SolarPanelTier {
-    BASIC(1,EnergyTier.BASIC, "basic", 8.0D),
-    ADVANCED(2, EnergyTier.STANDARD, "advanced", 8.0D),
-    HYBRID(3, EnergyTier.ADVANCED, "hybrid", 8.0D),
-    QUANTUM(4, EnergyTier.SUPER, "quantum", 8.0D);
+public enum SolarPanelTiers implements SolarPanelTier {
+    BASIC(1, EnergyTiers.BASIC, "basic", 8.0D),
+    ADVANCED(2, EnergyTiers.STANDARD, "advanced", 8.0D),
+    HYBRID(3, EnergyTiers.ADVANCED, "hybrid", 8.0D),
+    QUANTUM(4, EnergyTiers.SUPER, "quantum", 8.0D);
 
     private final int tierLevel;
-    private final EnergyTier energyTier;
+    private final EnergyTiers energyTier;
     private final String tier;
     private final double height;
 
-    SolarPanelTier(int tierLevel, EnergyTier energyTier, String tier, double height) {
+    SolarPanelTiers(int tierLevel, EnergyTiers energyTier, String tier, double height) {
         this.tierLevel = tierLevel;
         this.energyTier = energyTier;
         this.tier = tier;
         this.height = height;
     }
 
-    public int getTierLevel() {
+    @Override
+    public int getTierLvl() {
         return tierLevel;
     }
 

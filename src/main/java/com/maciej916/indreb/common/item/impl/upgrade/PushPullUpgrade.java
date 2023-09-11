@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.item.impl.upgrade;
 
 import com.maciej916.indreb.IndReb;
-import com.maciej916.indreb.common.api.enums.UpgradeType;
+import com.maciej916.indreb.common.api.enums.UpgradeTypes;
 import com.maciej916.indreb.common.api.item.base.BaseUpgradeItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Direction;
@@ -21,7 +21,7 @@ import java.util.List;
 
 public class PushPullUpgrade extends BaseUpgradeItem {
 
-    public PushPullUpgrade(UpgradeType upgradeType) {
+    public PushPullUpgrade(UpgradeTypes upgradeType) {
         super(upgradeType);
     }
 

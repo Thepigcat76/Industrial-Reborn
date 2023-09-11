@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.api.interfaces.screen.IGuiHelper;
 import com.maciej916.indreb.common.api.screen.widget.BaseProgressWidget;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -22,12 +23,12 @@ public class GuiEnergyBarVerticalWidget extends BaseProgressWidget {
     }
 
     @Override
-    public void renderToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
+    public void renderToolTip(Screen screen, GuiGraphics guiGraphics, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused()) {
-            screen.renderTooltip(pPoseStack, Component.translatable("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedStorageUnit(energyStorage.energyStored(), isShiftDown()), TextComponentUtil.getFormattedStorageUnit(getProgress().getProgressMax(), isShiftDown())), pMouseX, pMouseY);
+            guiGraphics.renderTooltip(screen.getMinecraft().font, Component.translatable("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedStorageUnit(energyStorage.energyStored(), isShiftDown()), TextComponentUtil.getFormattedStorageUnit(getProgress().getProgressMax(), isShiftDown())), pMouseX, pMouseY);
         }
 
-        super.renderToolTip(screen, pPoseStack, pMouseX, pMouseY);
+        super.renderToolTip(screen, guiGraphics, pMouseX, pMouseY);
     }
 
     @Override

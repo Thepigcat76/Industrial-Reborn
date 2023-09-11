@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.block.impl.cable;
 
 import com.maciej916.indreb.common.api.block.BlockVoxel;
 import com.maciej916.indreb.common.api.interfaces.block.IBlockCable;
-import com.maciej916.indreb.common.api.tier.CableTier;
+import com.maciej916.indreb.common.api.tier.CableTiers;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.BlockStateHelper;
@@ -32,9 +32,9 @@ import java.util.List;
 
 public class BlockCable extends BlockVoxel implements SimpleWaterloggedBlock, IBlockCable {
 
-    private final CableTier cableTier;
+    private final CableTiers cableTier;
 
-    public BlockCable(float apothem, CableTier cableTier) {
+    public BlockCable(float apothem, CableTiers cableTier) {
         super(cableTier.getProperties(), apothem);
         this.cableTier = cableTier;
         WrenchHelper.registerAction(this).add(WrenchHelper.dropAction());
@@ -59,7 +59,7 @@ public class BlockCable extends BlockVoxel implements SimpleWaterloggedBlock, IB
         }
     }
 
-    public CableTier getCableTier() {
+    public CableTiers getCableTier() {
         return cableTier;
     }
 

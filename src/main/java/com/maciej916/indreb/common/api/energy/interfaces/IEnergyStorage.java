@@ -1,7 +1,8 @@
 package com.maciej916.indreb.common.api.energy.interfaces;
 
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
+import com.maciej916.indreb.common.api.enums.interfaces.EnergyTier;
 import net.minecraft.core.Direction;
 
 public interface IEnergyStorage {

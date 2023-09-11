@@ -3,7 +3,6 @@ package com.maciej916.indreb.common.client.renderer;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.entity.PrimedNuke;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -12,6 +11,9 @@ import net.minecraft.client.renderer.entity.TntMinecartRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import org.joml.Quaterniond;
+import org.joml.Quaternionf;
+import org.joml.Vector3f;
 
 public class NukeRenderer extends EntityRenderer<PrimedNuke> {
     private final BlockRenderDispatcher blockRenderer;
@@ -38,6 +40,7 @@ public class NukeRenderer extends EntityRenderer<PrimedNuke> {
         pMatrixStack.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
         pMatrixStack.translate(-0.5D, -0.5D, 0.5D);
         pMatrixStack.mulPose(Vector3f.YP.rotationDegrees(90.0F));
+        pMatrixStack.mulPose();
         TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, ModBlocks.NUKE.get().defaultBlockState(), pMatrixStack, pBuffer, pPackedLight, i / 5 % 2 == 0);
         pMatrixStack.popPose();
         super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);

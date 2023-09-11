@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.api.item.base;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
@@ -25,7 +25,7 @@ public class BaseElectricDiggerItem extends TieredElectricItem {
     private final float attackDamageBaseline;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
-    public BaseElectricDiggerItem(Tier tier, float attackDamage, float attackSpeed, TagKey<Block> blocks, Properties properties, int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
+    public BaseElectricDiggerItem(Tier tier, float attackDamage, float attackSpeed, TagKey<Block> blocks, Properties properties, int energyStored, int maxEnergy, EnergyType energyType, EnergyTiers energyTier) {
         super(tier, properties, energyStored, maxEnergy, energyType, energyTier);
         this.blocks = blocks;
         this.speed = tier.getSpeed();

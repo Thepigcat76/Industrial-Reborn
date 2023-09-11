@@ -4,7 +4,7 @@ import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IBlockEntityFluid;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasSound;
 import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
@@ -84,7 +84,7 @@ public class BlockEntityReplicator extends IndRebBlockEntity implements IBlockEn
 
     public BlockEntityReplicator(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.REPLICATOR.get(), pos, blockState);
-        createEnergyStorage(0, ServerConfig.replicator_matter_capacity.get(), EnergyType.RECEIVE, EnergyTier.SUPER);
+        createEnergyStorage(0, ServerConfig.replicator_matter_capacity.get(), EnergyType.RECEIVE, EnergyTiers.SUPER);
 
         this.containerData.syncProgressFloat(0, this.progressRecipe);
         this.containerData.syncProgressInt(1, this.progressFill);

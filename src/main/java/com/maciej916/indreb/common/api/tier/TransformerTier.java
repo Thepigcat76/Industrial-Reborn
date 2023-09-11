@@ -1,26 +1,26 @@
 package com.maciej916.indreb.common.api.tier;
 
-import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTiers;
 
 public enum TransformerTier {
-    BASIC(EnergyTier.BASIC, EnergyTier.STANDARD),
-    STANDARD(EnergyTier.STANDARD, EnergyTier.ADVANCED),
-    ADVANCED(EnergyTier.ADVANCED, EnergyTier.SUPER),
-    SUPER(EnergyTier.SUPER, EnergyTier.ULTRA);
+    BASIC(EnergyTiers.BASIC, EnergyTiers.STANDARD),
+    STANDARD(EnergyTiers.STANDARD, EnergyTiers.ADVANCED),
+    ADVANCED(EnergyTiers.ADVANCED, EnergyTiers.SUPER),
+    SUPER(EnergyTiers.SUPER, EnergyTiers.ULTRA);
 
-    private final EnergyTier minTier;
-    private final EnergyTier maxTier;
+    private final EnergyTiers minTier;
+    private final EnergyTiers maxTier;
 
-    TransformerTier(EnergyTier minTier, EnergyTier maxTier) {
+    TransformerTier(EnergyTiers minTier, EnergyTiers maxTier) {
         this.minTier = minTier;
         this.maxTier = maxTier;
     }
 
-    public EnergyTier getMinTier() {
+    public EnergyTiers getMinTier() {
         return minTier;
     }
 
-    public EnergyTier getMaxTier() {
+    public EnergyTiers getMaxTier() {
         return maxTier;
     }
 }
