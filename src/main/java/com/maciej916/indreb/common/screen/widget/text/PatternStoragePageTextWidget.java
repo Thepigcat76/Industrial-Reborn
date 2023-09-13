@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.api.screen.widget.BaseWidget;
 import com.maciej916.indreb.common.block.impl.misc.pattern_storage.BlockEntityPatternStorage;
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 
 public class PatternStoragePageTextWidget extends BaseWidget {
 
@@ -16,10 +17,10 @@ public class PatternStoragePageTextWidget extends BaseWidget {
     }
 
     @Override
-    public void renderButton(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
+    public void renderButton(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
 
-        GuiUtil.renderScaled(poseStack, Math.min(entity.getCurrentPattern() + 1, entity.getPatternsStored()) + " / " + entity.getPatternsStored(), getX(), getY(), 0.85f, 4210752, false);
+        GuiUtil.renderScaled(guiGraphics, Math.min(entity.getCurrentPattern() + 1, entity.getPatternsStored()) + " / " + entity.getPatternsStored(), getX(), getY(), 0.85f, 4210752, false);
 
-        super.renderButton(poseStack, mouseX, mouseY, partialTick);
+        super.renderButton(guiGraphics, mouseX, mouseY, partialTick);
     }
 }

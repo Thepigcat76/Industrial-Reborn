@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.api.recipe.BaseRecipe;
 import com.maciej916.indreb.common.api.recipe.lib.IngredientCount;
 import com.maciej916.indreb.common.api.recipe.lib.ResultItem;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -31,6 +32,11 @@ public class FluidExtrudingRecipe extends BaseRecipe {
         this.secondFluid = secondFluid;
         this.consumeFist = consumeFist;
         this.consumeSecond = consumeSecond;
+    }
+
+    @Override
+    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+        return getResult();
     }
 
     @Override

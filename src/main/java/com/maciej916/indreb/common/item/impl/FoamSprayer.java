@@ -41,24 +41,6 @@ public class FoamSprayer extends BaseFluidItem {
     }
 
     @Override
-    public void fillItemCategory(CreativeModeTab pCategory, NonNullList<ItemStack> pItems) {
-        if (pCategory == ModItemGroups.MAIN || pCategory == CreativeModeTab.TAB_SEARCH) {
-            for (Fluid fluid : ForgeRegistries.FLUIDS) {
-                if (fluid == ConstructionFoam.STILL_FLUID || fluid == ReinforcedConstructionFoam.STILL_FLUID) {
-                    ItemStack stack = new ItemStack(this);
-                    FluidHandlerStack cap = (FluidHandlerStack) CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
-                    if (cap != null) {
-                        cap.setFluidStack(new FluidStack(fluid, ServerConfig.foam_sprayer_capacity.get()));
-                        pItems.add(stack);
-                    }
-                }
-            }
-        }
-
-        super.fillItemCategory(pCategory, pItems);
-    }
-
-    @Override
     public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
         return new FluidHandlerStack(stack, ServerConfig.foam_sprayer_capacity.get());
     }
@@ -210,7 +192,7 @@ public class FoamSprayer extends BaseFluidItem {
         List<BlockPos> blockPos = new ArrayList<>();
 
         BlockState stateStart = level.getBlockState(startPos);
-        if (stateStart.getBlock() == Blocks.AIR || stateStart.getMaterial().isReplaceable()) {
+        if (stateStart.getBlock() == Blocks.AIR || stateStart.canBeReplaced()) {
             blockPos.add(startPos);
         }
 
@@ -218,7 +200,7 @@ public class FoamSprayer extends BaseFluidItem {
             for (int j = -1; j <= 1; j++) {
                 BlockPos offsetPos = startPos.offset(i, 0, j);
                 BlockState state = level.getBlockState(offsetPos);
-                if (state.getBlock() == Blocks.AIR || state.getMaterial().isReplaceable()) {
+                if (state.getBlock() == Blocks.AIR || state.canBeReplaced()) {
                     blockPos.add(offsetPos);
                 }
             }
@@ -232,7 +214,7 @@ public class FoamSprayer extends BaseFluidItem {
                     }
                     BlockPos offsetPos = startPos.offset(i, 0, j);
                     BlockState state = level.getBlockState(offsetPos);
-                    if (state.getBlock() == Blocks.AIR || state.getMaterial().isReplaceable()) {
+                    if (state.getBlock() == Blocks.AIR || state.canBeReplaced()) {
                         blockPos.add(offsetPos);
                     }
                 }
@@ -246,7 +228,7 @@ public class FoamSprayer extends BaseFluidItem {
         List<BlockPos> blockPos = new ArrayList<>();
 
         BlockState stateStart = level.getBlockState(startPos);
-        if (stateStart.getBlock() == Blocks.AIR || stateStart.getMaterial().isReplaceable()) {
+        if (stateStart.getBlock() == Blocks.AIR || stateStart.canBeReplaced()) {
             blockPos.add(startPos);
         }
 
@@ -260,7 +242,7 @@ public class FoamSprayer extends BaseFluidItem {
                 }
 
                 BlockState state = level.getBlockState(offsetPos);
-                if (state.getBlock() == Blocks.AIR || state.getMaterial().isReplaceable()) {
+                if (state.getBlock() == Blocks.AIR || state.canBeReplaced()) {
                     blockPos.add(offsetPos);
                 }
             }
@@ -281,7 +263,7 @@ public class FoamSprayer extends BaseFluidItem {
                     }
 
                     BlockState state = level.getBlockState(offsetPos);
-                    if (state.getBlock() == Blocks.AIR || state.getMaterial().isReplaceable()) {
+                    if (state.getBlock() == Blocks.AIR || state.canBeReplaced()) {
                         blockPos.add(offsetPos);
                     }
                 }

@@ -8,7 +8,6 @@ import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Matrix4f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -18,6 +17,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.event.RenderLevelStageEvent;
+import org.joml.Matrix4f;
 
 public class EnergyInfoRenderer {
 
@@ -32,7 +32,7 @@ public class EnergyInfoRenderer {
     }
 
     private static void highlightNetworks(LocalPlayer player, PoseStack matrixStack) {
-        Level level = player.getLevel();
+        Level level = player.level();
 
         MultiBufferSource.BufferSource buffer = Minecraft.getInstance().renderBuffers().bufferSource();
         VertexConsumer builder = buffer.getBuffer(ModRenderType.OVERLAY_LINES);

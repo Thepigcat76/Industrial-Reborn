@@ -37,7 +37,7 @@ public class PacketFluidSync {
         ctx.get().enqueueWork(() -> {
             LocalPlayer player = ModProxy.PROXY.getLocalPlayer();
             if (player != null) {
-                Level level = player.getLevel();
+                Level level = player.level();
                 if (level.getBlockEntity(blockPos) instanceof IBlockEntityFluid entity) {
                     entity.setStoredFluids(fluidStacks);
                 }

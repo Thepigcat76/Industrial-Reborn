@@ -18,7 +18,7 @@ public class LivingHurt {
 
     @SubscribeEvent
     public static void livingHurtEvent(LivingHurtEvent event) {
-        if (!event.getSource().isBypassInvul() && event.getEntity() instanceof Player player) {
+        if (!event.getSource().getEntity().isInvulnerable() && event.getEntity() instanceof Player player) {
             Iterable<ItemStack> stacks = player.getArmorSlots();
             for (ItemStack stack : stacks) {
                 if (stack.getItem() instanceof IElectricItem iei) {
@@ -35,9 +35,9 @@ public class LivingHurt {
             Iterable<ItemStack> stacks = player.getArmorSlots();
             for (ItemStack stack : stacks) {
                 if (stack.getItem() instanceof ArmorItem armorItem) {
-                    if (armorItem.getSlot() == EquipmentSlot.FEET && ((armorItem.getMaterial() == CustomArmorMaterial.RUBBER || armorItem.getMaterial() == CustomArmorMaterial.NANO)) ) {
+                    if (armorItem.getEquipmentSlot() == EquipmentSlot.FEET && ((armorItem.getMaterial() == CustomArmorMaterial.RUBBER || armorItem.getMaterial() == CustomArmorMaterial.NANO)) ) {
                         event.setDistance((float) (event.getDistance() / 3.3));
-                    } else if (armorItem.getSlot() == EquipmentSlot.FEET && ((armorItem.getMaterial() == CustomArmorMaterial.QUANTUM))) {
+                    } else if (armorItem.getEquipmentSlot() == EquipmentSlot.FEET && ((armorItem.getMaterial() == CustomArmorMaterial.QUANTUM))) {
                         event.setDistance((float) (event.getDistance() / event.getDistance()));
                     }
                 }

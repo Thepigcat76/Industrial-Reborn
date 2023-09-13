@@ -21,6 +21,7 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -63,7 +64,7 @@ public class OreWashingCategory extends AbstractRecipeCategory<OreWashingRecipe>
         List<ItemStack> inputItems = Stream.of(countStack.ingredient().getItems()).peek(itemStack -> itemStack.setCount(countStack.getCount())).toList();
 
         builder.addSlot(RecipeIngredientRole.INPUT, 49, 19).addItemStacks(inputItems);
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 103, recipe.hasBonus() ? 11 : 19).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 103, recipe.hasBonus() ? 11 : 19).addItemStack(recipe.getResult());
 
         if (recipe.hasBonus()) {
             builder.addSlot(RecipeIngredientRole.OUTPUT, 103, 28).addItemStacks(recipe.getChanceResultItemStacks()).addTooltipCallback(new RecipeSlotTooltipCallback(recipe));
@@ -71,15 +72,15 @@ public class OreWashingCategory extends AbstractRecipeCategory<OreWashingRecipe>
     }
 
     @Override
-    public void draw(OreWashingRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY) {
-        this.progress.draw(poseStack, halfX - 2, 17);
-        this.energy.draw(poseStack, halfX + 58, 7);
+    public void draw(OreWashingRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        this.progress.draw(guiGraphics, halfX - 2, 17);
+        this.energy.draw(guiGraphics, halfX + 58, 7);
 
         if (recipe.getExperience() > 0) {
-            GuiUtil.renderScaled(poseStack, recipe.getExperience() + " XP", 0, 0, 0.75f, 0x7E7E7E, false);
+            GuiUtil.renderScaled(guiGraphics, recipe.getExperience() + " XP", 0, 0, 0.75f, 0x7E7E7E, false);
         }
 
-        GuiUtil.renderScaled(poseStack, recipe.getTickEnergyCost() + " IE/T", 0, 48, 0.75f, 0x7E7E7E, false);
+        GuiUtil.renderScaled(guiGraphics, recipe.getTickEnergyCost() + " IE/T", 0, 48, 0.75f, 0x7E7E7E, false);
     }
 
     private record RecipeSlotTooltipCallback(OreWashingRecipe recipe) implements IRecipeSlotTooltipCallback {

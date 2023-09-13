@@ -28,7 +28,7 @@ public class PacketMetalFormerMode {
         ctx.get().enqueueWork(() -> {
             ServerPlayer player = ctx.get().getSender();
             assert player != null;
-            if (player.level.getBlockEntity(blockPos) instanceof BlockEntityMetalFormer be) {
+            if (player.level().getBlockEntity(blockPos) instanceof BlockEntityMetalFormer be) {
                 be.updateModeServer();
             }
         });

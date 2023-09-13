@@ -36,12 +36,6 @@ public class IEMeter extends BaseItem {
     }
 
     @Override
-    public void fillItemCategory(CreativeModeTab category, NonNullList<ItemStack> items) {
-        if (category == CreativeModeTab.TAB_TOOLS) items.add(new ItemStack(this));
-        super.fillItemCategory(category, items);
-    }
-
-    @Override
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
 

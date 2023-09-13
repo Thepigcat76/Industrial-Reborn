@@ -10,6 +10,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.items.ItemStackHandler;
 
@@ -231,7 +232,7 @@ public class Reactor implements INBTSerializable<CompoundTag>, IBaseProgress, IG
         }
 
         for (BlockPos expPos: exPos) {
-            level.explode(null, expPos.getX() + 0.5D, expPos.getY() + 0.5D, expPos.getZ() + 0.5D, explosionPower / totalRodCount, false, Explosion.BlockInteraction.DESTROY);
+            level.explode(null, expPos.getX() + 0.5D, expPos.getY() + 0.5D, expPos.getZ() + 0.5D, explosionPower / totalRodCount, false, Level.ExplosionInteraction.TNT);
         }
     }
 

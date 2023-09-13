@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.api.screen.widget.BaseWidget;
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 
@@ -26,9 +27,9 @@ public class EnergyProgressTextWidget extends BaseWidget {
     }
 
     @Override
-    public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTicks) {
+    public void renderButton(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTicks) {
         MutableComponent component = Component.translatable("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedStorageUnit(progress.getCurrentProgress()), TextComponentUtil.getFormattedStorageUnit(progress.getProgressMax()));
-        GuiUtil.renderScaled(pPoseStack, component.getString(), getX(), getY(), scale, color, shadow);
-        super.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTicks);
+        GuiUtil.renderScaled(guiGraphics, component.getString(), getX(), getY(), scale, color, shadow);
+        super.renderButton(guiGraphics, pMouseX, pMouseY, pPartialTicks);
     }
 }

@@ -10,12 +10,13 @@ import com.maciej916.indreb.common.capability.radiation.IHasRadiation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 
-public class RubberBoots extends BaseArmor implements IArmorProperties, IHasRadiation {
+public class RubberBoots extends ArmorItem implements IArmorProperties, IHasRadiation {
 
     public RubberBoots() {
-        super(CustomArmorMaterial.RUBBER, EquipmentSlot.FEET);
+        super(CustomArmorMaterial.RUBBER, Type.BOOTS, new Properties());
     }
 
     @Override
@@ -26,7 +27,7 @@ public class RubberBoots extends BaseArmor implements IArmorProperties, IHasRadi
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         if (stack.getItem().equals(this)) {
-            if (slot == getSlot()) {
+            if (slot == getEquipmentSlot()) {
                 Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
                 modifiers.putAll(super.getAttributeModifiers(slot, stack));
                 modifiers.put(ModAttributes.RADIATION_PROTECTION.get(), new AttributeModifier(ModAttributes.RADIATION_PROTECTION_MODIFIER.toString(), this.getRadiationProtection(), AttributeModifier.Operation.ADDITION));

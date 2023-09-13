@@ -6,7 +6,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 public class NanoHelmet extends NanoArmor implements IArmorProperties {
 
     public NanoHelmet() {
-        super(EquipmentSlot.HEAD);
+        super(Type.HELMET);
     }
 
     @Override

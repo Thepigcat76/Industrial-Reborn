@@ -1,5 +1,7 @@
 package com.maciej916.indreb.common.sound;
 
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -54,7 +56,7 @@ public final class ModSounds {
 
     private static RegistryObject<SoundEvent> registerSound(String name) {
         ResourceLocation soundLocation = new ResourceLocation(MODID, name);
-        SoundEvent soundEvent = new SoundEvent(soundLocation);
+        SoundEvent soundEvent = SoundEvent.createVariableRangeEvent(soundLocation);
         return SOUNDS.register(name, () -> soundEvent);
     }
 

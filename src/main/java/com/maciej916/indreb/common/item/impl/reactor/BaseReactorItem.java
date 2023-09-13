@@ -25,7 +25,7 @@ public class BaseReactorItem extends BaseItem {
     protected final int maxHeat;
 
     public BaseReactorItem(Properties properties, int maxDamage, int maxHeat) {
-        super(CreativeModeTab.TAB_MISC, properties);
+        super(properties);
         this.isBarVisible = maxDamage > 1 || maxHeat > 1;
         this.maxDamage = maxDamage;
         this.maxHeat = maxHeat;

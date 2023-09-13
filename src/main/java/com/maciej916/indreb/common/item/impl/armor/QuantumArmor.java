@@ -6,12 +6,13 @@ import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.item.base.BaseElectricArmor;
 import com.maciej916.indreb.common.capability.radiation.IHasRadiation;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 
 public class QuantumArmor extends BaseElectricArmor implements IHasRadiation {
 
     public final int radiationProtection;
-    public QuantumArmor(EquipmentSlot slot, int radProtection) {
-        super(CustomArmorMaterial.QUANTUM, slot, new Properties(), 0, 1000000, EnergyType.RECEIVE, EnergyTiers.SUPER);
+    public QuantumArmor(ArmorItem.Type type, int radProtection) {
+        super(CustomArmorMaterial.QUANTUM, type, new Properties(), 0, 1000000, EnergyType.RECEIVE, EnergyTiers.SUPER);
         this.radiationProtection = radProtection;
     }
 

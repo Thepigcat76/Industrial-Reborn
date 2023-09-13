@@ -19,7 +19,6 @@ import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 
@@ -28,7 +27,7 @@ import javax.annotation.Nullable;
 public class BlockNuke extends TntBlock implements EntityBlock {
 
     public BlockNuke() {
-        super(Properties.of(Material.EXPLOSIVE).instabreak().sound(SoundType.GRASS));
+        super(Properties.of().instabreak().sound(SoundType.GRASS));
     }
 
     @Override
@@ -41,7 +40,7 @@ public class BlockNuke extends TntBlock implements EntityBlock {
         if (!pLevel.isClientSide) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
             if (entity instanceof BlockEntityNuke nuke) {
-                PrimedNuke primedNuke = new PrimedNuke(pLevel, (double)pPos.getX() + 0.5D, (double)pPos.getY(), (double)pPos.getZ() + 0.5D, pExplosion.getSourceMob(), nuke.getExplosionRadius());
+                PrimedNuke primedNuke = new PrimedNuke(pLevel, (double)pPos.getX() + 0.5D, (double)pPos.getY(), (double)pPos.getZ() + 0.5D, pExplosion.getIndirectSourceEntity(), nuke.getExplosionRadius());
                 int i = primedNuke.getFuse();
                 primedNuke.setFuse((short)(pLevel.random.nextInt(i / 4) + i / 8));
                 pLevel.addFreshEntity(primedNuke);

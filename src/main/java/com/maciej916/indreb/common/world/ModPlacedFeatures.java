@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.world;
 
 import com.maciej916.indreb.common.block.ModBlocks;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -15,7 +16,7 @@ import java.util.List;
 import static com.maciej916.indreb.IndReb.MODID;
 
 public class ModPlacedFeatures {
-    public static final DeferredRegister<PlacedFeature> PLACED_FEATURES = DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, MODID);
+    public static final DeferredRegister<PlacedFeature> PLACED_FEATURES = DeferredRegister.create(Registries.PLACED_FEATURE, MODID);
 
     public static final RegistryObject<PlacedFeature> ORE_TIN_SMALL_PLACED = PLACED_FEATURES.register("ore_tin_small_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.ORE_TIN_SMALL.getHolder().get(),

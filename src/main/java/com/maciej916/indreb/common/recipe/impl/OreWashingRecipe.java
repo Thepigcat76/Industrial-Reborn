@@ -6,6 +6,7 @@ import com.maciej916.indreb.common.api.recipe.lib.ChanceResult;
 import com.maciej916.indreb.common.api.recipe.lib.IngredientCount;
 import com.maciej916.indreb.common.api.recipe.lib.ResultItem;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -30,6 +31,11 @@ public class OreWashingRecipe extends BaseChanceRecipe {
 
     public FluidStack getFluidInput() {
         return fluidInput;
+    }
+
+    @Override
+    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+        return getResult();
     }
 
     @Override

@@ -32,7 +32,7 @@ public class ScrapBox extends BaseItem {
     private static final List<ScrapBox> SCRAP_BOX = new ArrayList<>();
 
     public ScrapBox() {
-        super(CreativeModeTab.TAB_MATERIALS, new Properties());
+        super(new Properties());
         SCRAP_BOX.add(this);
     }
 

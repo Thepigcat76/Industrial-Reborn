@@ -12,6 +12,7 @@ import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -38,11 +39,11 @@ public class ScrapBoxCategory extends AbstractRecipeCategory<ScrapBoxRecipe> {
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, ScrapBoxRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 9, 6).addItemStacks(Arrays.stream(recipe.getIngredients().get(0).getItems()).toList());
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 65, 6).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 65, 6).addItemStack(recipe.getResult());
     }
 
     @Override
-    public void draw(ScrapBoxRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY) {
-        GuiUtil.renderScaledCenter(poseStack, Component.literal(recipe.getDropChance() + " %"), 26, 36, 22, 0.75f, 0x7E7E7E, false);
+    public void draw(ScrapBoxRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        GuiUtil.renderScaledCenter(guiGraphics, Component.literal(recipe.getDropChance() + " %"), 26, 36, 22, 0.75f, 0x7E7E7E, false);
     }
 }

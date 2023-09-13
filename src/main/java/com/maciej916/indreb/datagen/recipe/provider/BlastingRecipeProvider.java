@@ -26,7 +26,7 @@ public class BlastingRecipeProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
 
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItemTags.FORGE_RAW_MATERIALS_TIN), ModItems.TIN_INGOT.get(), 0.6f, 100)

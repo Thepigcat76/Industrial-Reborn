@@ -6,6 +6,8 @@ import com.maciej916.indreb.common.api.screen.widget.BaseProgressWidget;
 import com.maciej916.indreb.common.block.impl.machine.t_basic.metal_former.BlockEntityMetalFormer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiGraphics;
 
 public class MetalFormerProgressWidget extends BaseProgressWidget {
 
@@ -17,8 +19,8 @@ public class MetalFormerProgressWidget extends BaseProgressWidget {
     }
 
     @Override
-    protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
+    public void renderBackground(GuiGraphics guiGraphics, Minecraft pMinecraft, int pMouseX, int pMouseY) {
         this.setProgressType(entity.getMode().getSprite());
-        super.renderBackground(pPoseStack, pMinecraft, pMouseX, pMouseY);
+        super.renderBackground(guiGraphics, pMinecraft, pMouseX, pMouseY);
     }
 }

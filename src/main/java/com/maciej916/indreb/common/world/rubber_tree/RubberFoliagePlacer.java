@@ -16,16 +16,16 @@ public class RubberFoliagePlacer extends BlobFoliagePlacer {
     }
 
     @Override
-    protected void createFoliage(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource random, TreeConfiguration config, int pMaxFreeTreeHeight, FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
-        for(int i = offset + 2; i >= offset - foliageHeight - 1; --i) {
-            int j = Math.max(foliageRadius + attachment.radiusOffset() - 1 - i / 2, 0);
+    protected void createFoliage(LevelSimulatedReader pLevel, FoliageSetter pBlockSetter, RandomSource pRandom, TreeConfiguration pConfig, int pMaxFreeTreeHeight, FoliageAttachment pAttachment, int pFoliageHeight, int pFoliageRadius, int pOffset) {
+        for (int i = pOffset + 2; i >= pOffset - pFoliageHeight - 1; --i) {
+            int j = Math.max(pFoliageRadius + pAttachment.radiusOffset() - 1 - i / 2, 0);
             if (i >= 1) j = 0;
-            this.placeLeavesRow(level, blockSetter, random, config, attachment.pos(), j, i, attachment.doubleTrunk());
+            this.placeLeavesRow(pLevel, pBlockSetter, pRandom, pConfig, pAttachment.pos(), j, i, pAttachment.doubleTrunk());
         }
     }
 
     @Override
     protected boolean shouldSkipLocation(RandomSource random, int localX, int localY, int localZ, int range, boolean large) {
-        return !(localY >= 0 && localZ== 0 && localX== 0) && localX == range && localZ == range && (random.nextInt(2) == 0 || localY == 0);
+        return !(localY >= 0 && localZ == 0 && localX == 0) && localX == range && localZ == range && (random.nextInt(2) == 0 || localY == 0);
     }
 }

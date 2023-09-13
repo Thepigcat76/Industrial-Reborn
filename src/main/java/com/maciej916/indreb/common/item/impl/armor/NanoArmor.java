@@ -5,11 +5,12 @@ import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.item.base.BaseElectricArmor;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 
 public class NanoArmor extends BaseElectricArmor {
 
-    public NanoArmor(EquipmentSlot slot) {
-        super(CustomArmorMaterial.NANO, slot, new Properties(), 0, 100000, EnergyType.RECEIVE, EnergyTiers.ADVANCED);
+    public NanoArmor(ArmorItem.Type type) {
+        super(CustomArmorMaterial.NANO, type, new Properties(), 0, 100000, EnergyType.RECEIVE, EnergyTiers.ADVANCED);
     }
 
 }

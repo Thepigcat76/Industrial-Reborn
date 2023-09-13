@@ -11,7 +11,7 @@ import java.util.HashSet;
 public class LevelUtil {
 
     public static HashSet<LevelChunk> getRadiusChunks(Player player, int radius) {
-        Level level = player.getLevel();
+        Level level = player.level();
         BlockPos pos = player.blockPosition();
         LevelChunk chunk = level.getChunkAt(pos);
 

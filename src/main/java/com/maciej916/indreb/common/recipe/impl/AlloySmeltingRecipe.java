@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.api.recipe.BaseRecipe;
 import com.maciej916.indreb.common.api.recipe.lib.IngredientCount;
 import com.maciej916.indreb.common.api.recipe.lib.IngredientCountStack;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -52,6 +53,11 @@ public class AlloySmeltingRecipe extends BaseRecipe {
         }
 
         return false;
+    }
+
+    @Override
+    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+        return this.getResult();
     }
 
     public int getIngredientCost(ItemStack stack) {
@@ -106,7 +112,7 @@ public class AlloySmeltingRecipe extends BaseRecipe {
         @Override
         public void toNetwork(FriendlyByteBuf buffer, AlloySmeltingRecipe recipe) {
             recipe.getIngredientCount().toNetwork(buffer);
-            buffer.writeItemStack(recipe.getResultItem(), false);
+            buffer.writeItemStack(recipe.getResult(), false);
             buffer.writeInt(recipe.getDuration());
             buffer.writeInt(recipe.getTickEnergyCost());
             buffer.writeFloat(recipe.getExperience());

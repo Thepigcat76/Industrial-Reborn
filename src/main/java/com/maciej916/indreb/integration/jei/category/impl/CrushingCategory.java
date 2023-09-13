@@ -19,6 +19,7 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -58,7 +59,7 @@ public class CrushingCategory extends AbstractRecipeCategory<CrushingRecipe> {
         List<ItemStack> inputItems = Stream.of(countStack.ingredient().getItems()).peek(itemStack -> itemStack.setCount(countStack.getCount())).toList();
 
         builder.addSlot(RecipeIngredientRole.INPUT, 9, 19).addItemStacks(inputItems);
-        builder.addSlot(RecipeIngredientRole.OUTPUT, halfX + 8, 6).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, halfX + 8, 6).addItemStack(recipe.getResult());
 
         if (recipe.hasBonus()) {
             builder.addSlot(RecipeIngredientRole.OUTPUT, halfX + 8, 29).addItemStacks(recipe.getChanceResultItemStacks()).addTooltipCallback(new RecipeSlotTooltipCallback(recipe));
@@ -66,15 +67,15 @@ public class CrushingCategory extends AbstractRecipeCategory<CrushingRecipe> {
     }
 
     @Override
-    public void draw(CrushingRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY) {
-        this.progress.draw(poseStack, halfX - 24, 19);
-        this.energy.draw(poseStack, halfX + 39, 7);
+    public void draw(CrushingRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        this.progress.draw(guiGraphics, halfX - 24, 19);
+        this.energy.draw(guiGraphics, halfX + 39, 7);
 
         if (recipe.hasExperience()) {
-            GuiUtil.renderScaled(poseStack, recipe.getExperience() + " XP", 0, 0, 0.75f, 0x7E7E7E, false);
+            GuiUtil.renderScaled(guiGraphics, recipe.getExperience() + " XP", 0, 0, 0.75f, 0x7E7E7E, false);
         }
 
-        GuiUtil.renderScaled(poseStack, recipe.getTickEnergyCost() + " IE/T", 0, 48, 0.75f, 0x7E7E7E, false);
+        GuiUtil.renderScaled(guiGraphics, recipe.getTickEnergyCost() + " IE/T", 0, 48, 0.75f, 0x7E7E7E, false);
     }
 
     private record RecipeSlotTooltipCallback(CrushingRecipe recipe) implements IRecipeSlotTooltipCallback {

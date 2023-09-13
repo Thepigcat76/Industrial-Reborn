@@ -42,11 +42,6 @@ public class ElectricDrill extends BaseElectricDiggerItem {
         return (ForgeRegistries.BLOCKS.tags().getTag(BlockTags.MINEABLE_WITH_PICKAXE).contains(blockState.getBlock()) || ForgeRegistries.BLOCKS.tags().getTag(BlockTags.MINEABLE_WITH_SHOVEL).contains(blockState.getBlock())) && getEnergyStorage(itemStack).consumeEnergy(getMineCost(), true) > 1 ? this.speed : 1.0F;
     }
 
-    @Override
-    public void fillItemCategory(CreativeModeTab pCategory, NonNullList<ItemStack> pItems) {
-        if (pCategory == CreativeModeTab.TAB_TOOLS) pItems.add(new ItemStack(this));
-        super.fillItemCategory(pCategory, pItems);
-    }
 
     @Override
     public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {

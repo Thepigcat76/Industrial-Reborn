@@ -28,8 +28,8 @@ public class PlayerTickRadiation {
     public static void event(TickEvent.PlayerTickEvent event) {
         Player player = event.player;
 
-        if (!event.player.getLevel().isClientSide()) {
-            ServerLevel level = (ServerLevel) event.player.getLevel();
+        if (!event.player.level().isClientSide()) {
+            ServerLevel level = (ServerLevel) event.player.level();
             player.getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(cap -> {
                 double radiationAdd = 0;
                 double radiationRemove = 0;

@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.api.recipe.BaseChanceRecipe;
 import com.maciej916.indreb.common.api.recipe.lib.ChanceResult;
 import com.maciej916.indreb.common.api.recipe.lib.IngredientCount;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -21,6 +22,11 @@ public class CompressingRecipe extends BaseChanceRecipe {
 
     public CompressingRecipe(ResourceLocation id, IngredientCount ingredients, ItemStack result, int duration, int tickEnergyCost, float experience, ChanceResult chanceResult) {
         super(id, ingredients, result, duration, tickEnergyCost, experience, chanceResult);
+    }
+
+    @Override
+    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+        return getResult();
     }
 
     @Override
@@ -67,7 +73,7 @@ public class CompressingRecipe extends BaseChanceRecipe {
         @Override
         public void toNetwork(FriendlyByteBuf buffer, CompressingRecipe recipe) {
             recipe.getIngredientCount().toNetwork(buffer);
-            buffer.writeItemStack(recipe.getResultItem(), false);
+            buffer.writeItemStack(recipe.getResult(), false);
             buffer.writeInt(recipe.getDuration());
             buffer.writeInt(recipe.getTickEnergyCost());
             buffer.writeFloat(recipe.getExperience());

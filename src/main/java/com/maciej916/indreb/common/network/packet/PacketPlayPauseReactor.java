@@ -27,7 +27,7 @@ public class PacketPlayPauseReactor {
     public void handle(Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {
             ServerPlayer player = ctx.get().getSender();
-            if (player.level.getBlockEntity(blockPos) instanceof BlockEntityNuclearReactor be) {
+            if (player.level().getBlockEntity(blockPos) instanceof BlockEntityNuclearReactor be) {
                 be.clickPlayPauseServer();
             }
         });

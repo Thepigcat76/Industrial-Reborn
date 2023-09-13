@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.BlockEntit
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 
 public class ScannerClearButtonWidget extends BaseButtonWidget {
@@ -19,9 +20,9 @@ public class ScannerClearButtonWidget extends BaseButtonWidget {
     }
 
     @Override
-    public void renderToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
+    public void renderToolTip(Screen screen, GuiGraphics guiGraphics, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused() && entity.getMode().getId() >= 4) {
-            screen.renderTooltip(pPoseStack, EnumLang.CLEAR_PATTERN.getTranslationComponent(), pMouseX, pMouseY);
+            guiGraphics.renderTooltip(screen.getMinecraft().font, EnumLang.CLEAR_PATTERN.getTranslationComponent(), pMouseX, pMouseY);
         }
     }
 

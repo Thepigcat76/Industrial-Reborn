@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.maciej916.indreb.common.api.recipe.BaseRecipe;
 import com.maciej916.indreb.common.api.recipe.lib.IngredientCount;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -46,6 +47,11 @@ public class CanningRecipe extends BaseRecipe {
         }
     }
 
+    @Override
+    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+        return this.getResult();
+    }
+
     public static class Serializer implements RecipeSerializer<CanningRecipe> {
 
         @Override
@@ -77,7 +83,7 @@ public class CanningRecipe extends BaseRecipe {
         @Override
         public void toNetwork(FriendlyByteBuf buffer, CanningRecipe recipe) {
             recipe.getIngredientCount().toNetwork(buffer);
-            buffer.writeItemStack(recipe.getResultItem(), false);
+            buffer.writeItemStack(recipe.getResult(), false);
             buffer.writeInt(recipe.getDuration());
             buffer.writeInt(recipe.getTickEnergyCost());
             buffer.writeFloat(recipe.getExperience());

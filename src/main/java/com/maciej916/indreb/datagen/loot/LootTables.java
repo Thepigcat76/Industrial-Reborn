@@ -12,6 +12,7 @@ import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.StringRepresentable;
@@ -45,6 +46,7 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
 public class LootTables extends LootTableProvider {
@@ -62,13 +64,13 @@ public class LootTables extends LootTableProvider {
     private final DataGenerator generator;
     private final Map<ResourceLocation, LootTable> tables = new HashMap<>();
 
-    public LootTables(DataGenerator generator) {
-        super(generator);
+    public LootTables(PackOutput packOutput) {
+        super(packOutput);
         this.generator = generator;
     }
 
     @Override
-    public void run(CachedOutput cache) {
+    public CompletableFuture<?> run(CachedOutput cache) {
 
         registerOres();
         registerRawBlock();
@@ -93,6 +95,7 @@ public class LootTables extends LootTableProvider {
         registerSuperMachines();
 
         writeTables(cache);
+        return null;
     }
 
     private void registerOres() {

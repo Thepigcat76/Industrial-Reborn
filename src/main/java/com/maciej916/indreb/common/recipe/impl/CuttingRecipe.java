@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.maciej916.indreb.common.api.recipe.BaseRecipe;
 import com.maciej916.indreb.common.api.recipe.lib.IngredientCount;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -20,6 +21,11 @@ public class CuttingRecipe extends BaseRecipe {
 
     public CuttingRecipe(ResourceLocation id, IngredientCount ingredients, ItemStack result, int duration, int tickEnergyCost, float experience) {
         super(id, ingredients, result, duration, tickEnergyCost, experience);
+    }
+
+    @Override
+    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+        return getResult();
     }
 
     @Override

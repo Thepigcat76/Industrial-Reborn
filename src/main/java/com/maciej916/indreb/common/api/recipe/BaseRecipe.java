@@ -57,6 +57,11 @@ public abstract class BaseRecipe implements Recipe<SimpleContainer>, IBaseRecipe
     }
 
     @Override
+    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+        return result.copy();
+    }
+
+    @Override
     public boolean isSpecial() {
         return true;
     }

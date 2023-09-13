@@ -81,7 +81,7 @@ public class PacketBasicEnergySync {
         ctx.get().enqueueWork(() -> {
             LocalPlayer player = ModProxy.PROXY.getLocalPlayer();
             if (player != null) {
-                Level level = player.getLevel();
+                Level level = player.level();
                 if (level.getBlockEntity(blockPos) instanceof IIndRebBlockEntity entity) {
                     if (entity.hasEnergyStorage()) {
                         BasicEnergyStorage basicEnergyStorage = entity.getEnergyStorage();

@@ -2,14 +2,13 @@ package com.maciej916.indreb.common.fluid.impl;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.fluid.BaseFluidType;
-import com.mojang.math.Vector3f;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.material.FlowingFluid;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
+import org.joml.Vector3f;
 
 public class Matter {
 
@@ -35,7 +34,7 @@ public class Matter {
     }
 
     public static LiquidBlock Block() {
-        LIQUID_BLOCK = new LiquidBlock(() -> STILL_FLUID, Block.Properties.of(Material.WATER).noCollission().strength(100.0F).noLootTable());
+        LIQUID_BLOCK = new LiquidBlock(() -> STILL_FLUID, Block.Properties.of().noCollission().strength(100.0F).noLootTable());
         return LIQUID_BLOCK;
     }
 

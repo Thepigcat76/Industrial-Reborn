@@ -6,7 +6,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 public class QuantumLeggings extends QuantumArmor implements IArmorProperties {
 
     public QuantumLeggings() {
-        super(EquipmentSlot.LEGS, 4);
+        super(Type.LEGGINGS, 4);
     }
 
     @Override

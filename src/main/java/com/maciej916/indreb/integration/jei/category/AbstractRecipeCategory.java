@@ -1,6 +1,7 @@
 package com.maciej916.indreb.integration.jei.category;
 
 import com.maciej916.indreb.IndReb;
+import com.maciej916.indreb.common.recipe.impl.ExtrudingRecipe;
 import com.maciej916.indreb.common.util.Cache;
 import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -10,9 +11,11 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
@@ -71,5 +74,5 @@ public abstract class AbstractRecipeCategory<T> implements IRecipeCategory<T> {
     public abstract void setRecipe(IRecipeLayoutBuilder builder, T recipe, IFocusGroup focuses);
 
     @Override
-    public abstract void draw(T recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY);
+    public abstract void draw(T recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY);
 }

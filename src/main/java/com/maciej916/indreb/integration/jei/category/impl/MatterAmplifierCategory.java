@@ -13,6 +13,7 @@ import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -42,7 +43,7 @@ public class MatterAmplifierCategory extends AbstractRecipeCategory<MatterAmplif
     }
 
     @Override
-    public void draw(MatterAmplifierRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY) {
-        GuiUtil.renderScaled(poseStack, Component.translatable("gui." + IndReb.MODID + ".text_amplifier").getString() + " " + recipe.getAmplifiedAmount(), 34, 10, 0.75f, 0x7E7E7E, false);
+    public void draw(MatterAmplifierRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        GuiUtil.renderScaled(guiGraphics, Component.translatable("gui." + IndReb.MODID + ".text_amplifier").getString() + " " + recipe.getAmplifiedAmount(), 34, 10, 0.75f, 0x7E7E7E, false);
     }
 }

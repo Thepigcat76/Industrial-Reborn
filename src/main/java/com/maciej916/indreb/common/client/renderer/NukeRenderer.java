@@ -3,6 +3,7 @@ package com.maciej916.indreb.common.client.renderer;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.entity.PrimedNuke;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -37,10 +38,9 @@ public class NukeRenderer extends EntityRenderer<PrimedNuke> {
             pMatrixStack.scale(f1, f1, f1);
         }
 
-        pMatrixStack.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
-        pMatrixStack.translate(-0.5D, -0.5D, 0.5D);
-        pMatrixStack.mulPose(Vector3f.YP.rotationDegrees(90.0F));
-        pMatrixStack.mulPose();
+        pMatrixStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
+        pMatrixStack.translate(-0.5F, -0.5F, 0.5F);
+        pMatrixStack.mulPose(Axis.YP.rotationDegrees(90.0F));
         TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, ModBlocks.NUKE.get().defaultBlockState(), pMatrixStack, pBuffer, pPackedLight, i / 5 % 2 == 0);
         pMatrixStack.popPose();
         super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);

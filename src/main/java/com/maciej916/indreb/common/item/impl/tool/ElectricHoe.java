@@ -50,12 +50,6 @@ public class ElectricHoe extends BaseElectricDiggerItem {
     }
 
     @Override
-    public void fillItemCategory(CreativeModeTab pCategory, NonNullList<ItemStack> pItems) {
-        if (pCategory == CreativeModeTab.TAB_TOOLS) pItems.add(new ItemStack(this));
-        super.fillItemCategory(pCategory, pItems);
-    }
-
-    @Override
     public InteractionResult useOn(UseOnContext useOnContext) {
         ItemStack itemstack = useOnContext.getItemInHand();
         IEnergyStorage energy = getEnergyStorage(itemstack);

@@ -19,7 +19,7 @@ public class PlayerTickRadiationEffect {
     @SubscribeEvent
     public static void tick(TickEvent.PlayerTickEvent event) {
         MobEffectInstance radiation = new MobEffectInstance(ModEffects.RADIATION.get(), 10000, 0, false, false);
-        radiation.setNoCounter(true);
+        radiation.isInfiniteDuration();
         event.player.getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(cap -> {
             double radsLevel = cap.getPlayerRads();
             if (radsLevel > 0.05) {

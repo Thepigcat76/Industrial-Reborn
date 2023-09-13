@@ -8,6 +8,7 @@ import com.maciej916.indreb.common.enums.EnumLang;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -25,10 +26,10 @@ public class ScannerSaveButtonWidget extends BaseButtonWidget {
     }
 
     @Override
-    public void renderToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
+    public void renderToolTip(Screen screen, GuiGraphics guiGraphics, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused() && entity.getMode().getId() >= 4) {
             ResourceLocation rl = ForgeRegistries.ITEMS.getKey(entity.getResult().getResultStack().getItem());
-            screen.renderComponentTooltip(pPoseStack, List.of(
+            guiGraphics.renderComponentTooltip(screen.getMinecraft().font, List.of(
                     EnumLang.SAVE_PATTERN.getTranslationComponent(),
                     Component.literal(entity.getResult().getResultStack().getItem().getName(entity.getResult().getResultStack()).getString()).withStyle(ChatFormatting.GRAY),
                     Component.translatable(rl.toString()).withStyle(ChatFormatting.DARK_GRAY)
@@ -46,9 +47,9 @@ public class ScannerSaveButtonWidget extends BaseButtonWidget {
     }
 
     @Override
-    protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
+    public void renderBackground(GuiGraphics guiGraphics, Minecraft pMinecraft, int pMouseX, int pMouseY) {
         if (entity.getMode().getId() >= 4) {
-            super.renderBackground(pPoseStack, pMinecraft, pMouseX, pMouseY);
+            super.renderBackground(guiGraphics, pMinecraft, pMouseX, pMouseY);
         }
     }
 }

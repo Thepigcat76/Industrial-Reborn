@@ -8,6 +8,7 @@ import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 
 import java.awt.*;
@@ -22,20 +23,20 @@ public class TransformerInfoTextWidget extends BaseWidget {
     }
 
     @Override
-    public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTicks) {
+    public void renderButton(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTicks) {
 
         TransformerMode mode = entity.getTransformerMode();
 
         if (mode == TransformerMode.STEP_UP) {
             int color = new Color(33, 178, 13).getRGB();
-            GuiUtil.renderScaled(pPoseStack, net.minecraft.network.chat.Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(entity.getTransformerTier().getMinTier().getBasicTransfer())).getString(), getX() + 3, getY() + 2, 0.8f, color, false);
-            GuiUtil.renderScaled(pPoseStack, net.minecraft.network.chat.Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(entity.getTransformerTier().getMaxTier().getBasicTransfer())).getString(), getX() + 3, getY() + 18, 0.8f, color, false);
+            GuiUtil.renderScaled(guiGraphics, net.minecraft.network.chat.Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(entity.getTransformerTier().getMinTier().getBasicTransfer())).getString(), getX() + 3, getY() + 2, 0.8f, color, false);
+            GuiUtil.renderScaled(guiGraphics, net.minecraft.network.chat.Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(entity.getTransformerTier().getMaxTier().getBasicTransfer())).getString(), getX() + 3, getY() + 18, 0.8f, color, false);
         } else {
             int color = new Color(178, 13, 13).getRGB();
-            GuiUtil.renderScaled(pPoseStack, net.minecraft.network.chat.Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(entity.getTransformerTier().getMaxTier().getBasicTransfer())).getString(), getX() + 3, getY() + 2, 0.8f, color, false);
-            GuiUtil.renderScaled(pPoseStack, Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(entity.getTransformerTier().getMinTier().getBasicTransfer())).getString(), getX() + 3, getY() + 18, 0.8f, color, false);
+            GuiUtil.renderScaled(guiGraphics, net.minecraft.network.chat.Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(entity.getTransformerTier().getMaxTier().getBasicTransfer())).getString(), getX() + 3, getY() + 2, 0.8f, color, false);
+            GuiUtil.renderScaled(guiGraphics, Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(entity.getTransformerTier().getMinTier().getBasicTransfer())).getString(), getX() + 3, getY() + 18, 0.8f, color, false);
         }
 
-        super.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTicks);
+        super.renderButton(guiGraphics, pMouseX, pMouseY, pPartialTicks);
     }
 }

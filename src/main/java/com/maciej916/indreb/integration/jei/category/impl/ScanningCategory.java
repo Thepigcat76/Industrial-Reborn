@@ -17,6 +17,7 @@ import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -57,18 +58,18 @@ public class ScanningCategory extends AbstractRecipeCategory<ScanningRecipe> {
     }
 
     @Override
-    public void draw(ScanningRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY) {
-        this.progress.draw(poseStack, halfX - 76, 5);
-        this.energy.draw(poseStack, halfX + 58, 7);
+    public void draw(ScanningRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        this.progress.draw(guiGraphics, halfX - 76, 5);
+        this.energy.draw(guiGraphics, halfX + 58, 7);
 
         if (recipe.getExperience() > 0) {
-            GuiUtil.renderScaled(poseStack, recipe.getExperience() + " XP", 0, -2, 0.75f, 0x7E7E7E, false);
+            GuiUtil.renderScaled(guiGraphics, recipe.getExperience() + " XP", 0, -2, 0.75f, 0x7E7E7E, false);
         }
 
-        GuiUtil.renderScaled(poseStack, Component.translatable("gui." + IndReb.MODID + ".scanner.replication_cost").getString(), 67, 18, 0.65f, 0x00a200, false);
-        GuiUtil.renderScaled(poseStack, Component.translatable("gui." + IndReb.MODID + ".scanner.matter_cost").getString() + " " + TextComponentUtil.getFormattedStorageUnit(recipe.getMatterCost(), true) + " mB", 67, 25, 0.65f, 0x00a200, false);
-        GuiUtil.renderScaled(poseStack, Component.translatable("gui." + IndReb.MODID + ".scanner.energy_cost").getString() + " " + TextComponentUtil.getFormattedStorageUnit(recipe.getEnergyCost(), true) + " IE", 67, 32, 0.65f, 0x00a200, false);
+        GuiUtil.renderScaled(guiGraphics, Component.translatable("gui." + IndReb.MODID + ".scanner.replication_cost").getString(), 67, 18, 0.65f, 0x00a200, false);
+        GuiUtil.renderScaled(guiGraphics, Component.translatable("gui." + IndReb.MODID + ".scanner.matter_cost").getString() + " " + TextComponentUtil.getFormattedStorageUnit(recipe.getMatterCost(), true) + " mB", 67, 25, 0.65f, 0x00a200, false);
+        GuiUtil.renderScaled(guiGraphics, Component.translatable("gui." + IndReb.MODID + ".scanner.energy_cost").getString() + " " + TextComponentUtil.getFormattedStorageUnit(recipe.getEnergyCost(), true) + " IE", 67, 32, 0.65f, 0x00a200, false);
 
-        GuiUtil.renderScaled(poseStack, recipe.getTickEnergyCost() + " IE/T", 0, 48, 0.75f, 0x7E7E7E, false);
+        GuiUtil.renderScaled(guiGraphics, recipe.getTickEnergyCost() + " IE/T", 0, 48, 0.75f, 0x7E7E7E, false);
     }
 }

@@ -19,12 +19,12 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class MemoryCard extends BaseItem {
+public class MemoryCard extends Item {
 
     public static final Rarity MEMORY_RARITY = Rarity.create("memory_rarity", ChatFormatting.DARK_PURPLE);
 
     public MemoryCard() {
-        super(CreativeModeTab.TAB_MATERIALS, new Item.Properties().stacksTo(1));
+        super(new Item.Properties().stacksTo(1));
     }
 
     @Override

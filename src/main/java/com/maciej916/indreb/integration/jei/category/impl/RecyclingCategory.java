@@ -19,6 +19,7 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -85,31 +86,31 @@ public class RecyclingCategory extends AbstractRecipeCategory<RecyclingRecipe> {
 
         builder.addSlot(RecipeIngredientRole.INPUT, 9, 19).addItemStacks(inputItems);
 
-        int resultSize = recipe.getResultItem().getCount();
+        int resultSize = recipe.getResult().getCount();
         List<ItemStack> resultItems = new ArrayList<>();
         if (resultSize > 1) {
             for (int i = resultSize; i >= 1; i--) {
-                ItemStack newStack = recipe.getResultItem();
+                ItemStack newStack = recipe.getResult();
                 newStack.setCount(i);
                 resultItems.add(newStack);
             }
         } else {
-            resultItems.add(recipe.getResultItem());
+            resultItems.add(recipe.getResult());
         }
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, halfX + 8, 19).addItemStacks(resultItems).addTooltipCallback(new RecipeSlotTooltipCallback(recipe));
     }
 
     @Override
-    public void draw(RecyclingRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY) {
-        this.progress.draw(poseStack, halfX - 24, 19);
-        this.energy.draw(poseStack, halfX + 39, 7);
+    public void draw(RecyclingRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        this.progress.draw(guiGraphics, halfX - 24, 19);
+        this.energy.draw(guiGraphics, halfX + 39, 7);
 
         if (recipe.getExperience() > 0) {
-            GuiUtil.renderScaled(poseStack, recipe.getExperience() + " XP", 0, 0, 0.75f, 0x7E7E7E, false);
+            GuiUtil.renderScaled(guiGraphics, recipe.getExperience() + " XP", 0, 0, 0.75f, 0x7E7E7E, false);
         }
 
-        GuiUtil.renderScaled(poseStack, recipe.getTickEnergyCost() + " IE/T", 0, 48, 0.75f, 0x7E7E7E, false);
+        GuiUtil.renderScaled(guiGraphics, recipe.getTickEnergyCost() + " IE/T", 0, 48, 0.75f, 0x7E7E7E, false);
     }
 
     private record RecipeSlotTooltipCallback(RecyclingRecipe recipe) implements IRecipeSlotTooltipCallback {

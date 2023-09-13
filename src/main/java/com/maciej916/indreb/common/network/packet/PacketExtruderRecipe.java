@@ -32,7 +32,7 @@ public class PacketExtruderRecipe {
         ctx.get().enqueueWork(() -> {
             ServerPlayer player = ctx.get().getSender();
             assert player != null;
-            if (player.level.getBlockEntity(blockPos) instanceof BlockEntityExtruder be) {
+            if (player.level().getBlockEntity(blockPos) instanceof BlockEntityExtruder be) {
                 be.changeRecipeServer(next);
             }
         });

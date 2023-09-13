@@ -70,7 +70,7 @@ public final class ForgeEventSubscriber {
     @SubscribeEvent
     public static void playerTick(TickEvent.PlayerTickEvent event) {
         Player player = event.player;
-        if (!player.getLevel().isClientSide()) {
+        if (!player.level().isClientSide()) {
             player.getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(iPlayerCapability -> iPlayerCapability.tickServer((ServerPlayer) player));
         }
     }

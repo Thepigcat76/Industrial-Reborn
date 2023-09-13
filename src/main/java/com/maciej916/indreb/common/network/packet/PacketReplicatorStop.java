@@ -28,7 +28,7 @@ public class PacketReplicatorStop {
         ctx.get().enqueueWork(() -> {
             ServerPlayer player = ctx.get().getSender();
             assert player != null;
-            if (player.level.getBlockEntity(blockPos) instanceof BlockEntityReplicator entityReplicator) {
+            if (player.level().getBlockEntity(blockPos) instanceof BlockEntityReplicator entityReplicator) {
                 entityReplicator.stopRun();
             }
         });

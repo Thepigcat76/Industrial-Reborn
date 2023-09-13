@@ -27,7 +27,7 @@ public class PacketExperienceCollect {
     public void handle(Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {
             ServerPlayer player = ctx.get().getSender();
-            if (player.level.getBlockEntity(blockPos) instanceof IHasExp be) {
+            if (player.level().getBlockEntity(blockPos) instanceof IHasExp be) {
                 be.collectExpServer(player);
             }
         });

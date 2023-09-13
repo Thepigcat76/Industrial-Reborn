@@ -6,7 +6,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 public class QuantumHelmet extends QuantumArmor implements IArmorProperties {
 
     public QuantumHelmet() {
-        super(EquipmentSlot.HEAD, 4);
+        super(Type.HELMET, 4);
     }
 
     @Override

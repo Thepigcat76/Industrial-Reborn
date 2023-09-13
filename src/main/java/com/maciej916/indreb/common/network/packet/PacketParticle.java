@@ -31,7 +31,7 @@ public class PacketParticle {
         ctx.get().enqueueWork(() -> {
             LocalPlayer player = ModProxy.PROXY.getLocalPlayer();
             if (player != null) {
-                Level level = player.getLevel();
+                Level level = player.level();
                 RandomSource random = player.getRandom();
 
                 for (int i = 0; i < 5; i++) {

@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.api.screen.widget.BaseWidget;
 import com.maciej916.indreb.common.block.impl.machine.t_super.replicator.BlockEntityReplicator;
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 
 public class ReplicatorModeTextWidget extends BaseWidget {
@@ -17,7 +18,7 @@ public class ReplicatorModeTextWidget extends BaseWidget {
     }
 
     @Override
-    public void renderButton(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
+    public void renderButton(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
 
         String string;
         if (entity.getMode().getId() > 0) {
@@ -26,7 +27,7 @@ public class ReplicatorModeTextWidget extends BaseWidget {
             string = Component.translatable(entity.getMode().getLang()).getString();
         }
 
-        GuiUtil.renderScaled(poseStack, string, getX(), getY(), 0.8f, entity.getMode().getColor(), false);
-        super.renderButton(poseStack, mouseX, mouseY, partialTick);
+        GuiUtil.renderScaled(guiGraphics, string, getX(), getY(), 0.8f, entity.getMode().getColor(), false);
+        super.renderButton(guiGraphics, mouseX, mouseY, partialTick);
     }
 }

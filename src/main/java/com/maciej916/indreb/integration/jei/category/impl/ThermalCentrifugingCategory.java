@@ -19,6 +19,7 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -59,7 +60,7 @@ public class ThermalCentrifugingCategory extends AbstractRecipeCategory<ThermalC
         List<ItemStack> inputItems = Stream.of(countStack.ingredient().getItems()).peek(itemStack -> itemStack.setCount(countStack.getCount())).toList();
 
         builder.addSlot(RecipeIngredientRole.INPUT, 9, 19).addItemStacks(inputItems);
-        builder.addSlot(RecipeIngredientRole.OUTPUT, halfX + 8, recipe.hasBonus() ? 11 : 19).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, halfX + 8, recipe.hasBonus() ? 11 : 19).addItemStack(recipe.getResult());
 
         if (recipe.hasBonus()) {
             builder.addSlot(RecipeIngredientRole.OUTPUT, halfX + 8, 28).addItemStacks(recipe.getChanceResultItemStacks()).addTooltipCallback(new RecipeSlotTooltipCallback(recipe));
@@ -67,18 +68,18 @@ public class ThermalCentrifugingCategory extends AbstractRecipeCategory<ThermalC
     }
 
     @Override
-    public void draw(ThermalCentrifugingRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY) {
-        this.progress.draw(poseStack, halfX - 24, 19);
-        this.energy.draw(poseStack, halfX + 39, 7);
+    public void draw(ThermalCentrifugingRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        this.progress.draw(guiGraphics, halfX - 24, 19);
+        this.energy.draw(guiGraphics, halfX + 39, 7);
 
         if (recipe.getExperience() > 0) {
-            GuiUtil.renderScaled(poseStack, recipe.getExperience() + " XP", 0, 0, 0.75f, 0x7E7E7E, false);
+            GuiUtil.renderScaled(guiGraphics, recipe.getExperience() + " XP", 0, 0, 0.75f, 0x7E7E7E, false);
         }
 
         MutableComponent component = Component.literal(GuiUtil.DECIMAL_FORMAT_1.format(recipe.getTemperature()) + " " + GuiUtil.DEGREE_SYMBOL + "C");
-        GuiUtil.renderScaledCenter(poseStack, component, 10, 44,39, 0.75f, 4210752, false);
+        GuiUtil.renderScaledCenter(guiGraphics, component, 10, 44,39, 0.75f, 4210752, false);
 
-        GuiUtil.renderScaled(poseStack, recipe.getTickEnergyCost() + " IE/T", 0, 48, 0.75f, 0x7E7E7E, false);
+        GuiUtil.renderScaled(guiGraphics, recipe.getTickEnergyCost() + " IE/T", 0, 48, 0.75f, 0x7E7E7E, false);
     }
 
     private record RecipeSlotTooltipCallback(ThermalCentrifugingRecipe recipe) implements IRecipeSlotTooltipCallback {

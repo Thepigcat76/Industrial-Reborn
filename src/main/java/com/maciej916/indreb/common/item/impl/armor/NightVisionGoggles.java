@@ -8,7 +8,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 public class NightVisionGoggles extends BaseArmor implements IArmorProperties {
 
     public NightVisionGoggles() {
-        super(CustomArmorMaterial.NIGHTVISION, EquipmentSlot.HEAD);
+        super(CustomArmorMaterial.NIGHTVISION, Type.HELMET);
     }
 
     @Override

@@ -9,6 +9,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -16,6 +19,7 @@ import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -77,7 +81,8 @@ public class AdvancedShapedRecipe implements CraftingRecipe, IShapedRecipe<Craft
      * Get the result of this recipe, usually for display purposes (e.g. recipe book). If your recipe has more than one
      * possible result (e.g. it's dynamic and depends on its inputs), then return an empty stack.
      */
-    public ItemStack getResultItem() {
+    @Override
+    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
         return this.result;
     }
 
@@ -112,6 +117,14 @@ public class AdvancedShapedRecipe implements CraftingRecipe, IShapedRecipe<Craft
     }
 
     /**
+     * Returns an Item that is the result of this recipe
+     */
+    @Override
+    public ItemStack assemble(CraftingContainer pContainer, RegistryAccess pRegistryAccess) {
+        return this.getResultItem(pRegistryAccess).copy();
+    }
+
+    /**
      * Checks if the region of a crafting inventory is match for the recipe.
      */
     private boolean matches(CraftingContainer pCraftingInventory, int pWidth, int pHeight, boolean pMirrored) {
@@ -135,13 +148,6 @@ public class AdvancedShapedRecipe implements CraftingRecipe, IShapedRecipe<Craft
         }
 
         return true;
-    }
-
-    /**
-     * Returns an Item that is the result of this recipe
-     */
-    public ItemStack assemble(CraftingContainer pInv) {
-        return this.getResultItem().copy();
     }
 
     public int getWidth() {
@@ -300,7 +306,7 @@ public class AdvancedShapedRecipe implements CraftingRecipe, IShapedRecipe<Craft
 
     public static Item itemFromJson(JsonObject pItemObject) {
         String s = GsonHelper.getAsString(pItemObject, "item");
-        Item item = Registry.ITEM.getOptional(new ResourceLocation(s)).orElseThrow(() -> {
+        Item item = BuiltInRegistries.ITEM.getOptional(new ResourceLocation(s)).orElseThrow(() -> {
             return new JsonSyntaxException("Unknown item '" + s + "'");
         });
         if (item == Items.AIR) {
@@ -308,6 +314,11 @@ public class AdvancedShapedRecipe implements CraftingRecipe, IShapedRecipe<Craft
         } else {
             return item;
         }
+    }
+
+    @Override
+    public CraftingBookCategory category() {
+        return CraftingBookCategory.MISC;
     }
 
     public static class Serializer implements RecipeSerializer<AdvancedShapedRecipe> {

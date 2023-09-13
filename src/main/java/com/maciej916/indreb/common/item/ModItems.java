@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.api.blockitem.BlockItemElectric;
 import com.maciej916.indreb.common.api.blockitem.IndRebBlockItem;
 import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
+import com.maciej916.indreb.common.api.enums.ToolTypes;
 import com.maciej916.indreb.common.api.enums.UpgradeTypes;
 import com.maciej916.indreb.common.api.item.base.*;
 import com.maciej916.indreb.common.api.tier.CustomTiers;
@@ -17,11 +18,12 @@ import com.maciej916.indreb.common.item.impl.reactor.*;
 import com.maciej916.indreb.common.item.impl.tool.*;
 import com.maciej916.indreb.common.item.impl.upgrade.*;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -336,21 +338,21 @@ public final class ModItems {
     public static final RegistryObject<Item> NIGHTVISION_GOGGLES = registerItem("nightvision_goggles", NightVisionGoggles::new);
     public static final RegistryObject<Item> RUBBER_BOOTS = registerItem("rubber_boots", RubberBoots::new);
 
-    public static final RegistryObject<Item> BRONZE_HELMET = registerItem("bronze_helmet", () -> new BronzeArmor(EquipmentSlot.HEAD));
-    public static final RegistryObject<Item> BRONZE_CHESTPLATE = registerItem("bronze_chestplate", () -> new BronzeArmor(EquipmentSlot.CHEST));
-    public static final RegistryObject<Item> BRONZE_LEGGINGS = registerItem("bronze_leggings", () -> new BronzeArmor(EquipmentSlot.LEGS));
-    public static final RegistryObject<Item> BRONZE_BOOTS = registerItem("bronze_boots", () -> new BronzeArmor(EquipmentSlot.FEET));
+    public static final RegistryObject<Item> BRONZE_HELMET = registerItem("bronze_helmet", () -> new BronzeArmor(ArmorItem.Type.HELMET));
+    public static final RegistryObject<Item> BRONZE_CHESTPLATE = registerItem("bronze_chestplate", () -> new BronzeArmor(ArmorItem.Type.CHESTPLATE));
+    public static final RegistryObject<Item> BRONZE_LEGGINGS = registerItem("bronze_leggings", () -> new BronzeArmor(ArmorItem.Type.LEGGINGS));
+    public static final RegistryObject<Item> BRONZE_BOOTS = registerItem("bronze_boots", () -> new BronzeArmor(ArmorItem.Type.BOOTS));
 
-    public static final RegistryObject<Item> BRONZE_SWORD = registerItem("bronze_sword", BronzeSword::new);
-    public static final RegistryObject<Item> BRONZE_PICKAXE = registerItem("bronze_pickaxe", BronzePickaxe::new);
-    public static final RegistryObject<Item> BRONZE_AXE = registerItem("bronze_axe", BronzeAxe::new);
-    public static final RegistryObject<Item> BRONZE_SHOVEL = registerItem("bronze_shovel", BronzeShovel::new);
-    public static final RegistryObject<Item> BRONZE_HOE = registerItem("bronze_hoe", BronzeHoe::new);
+    public static final RegistryObject<Item> BRONZE_SWORD = registerItem("bronze_sword", () -> new BronzeTool(ToolTypes.SWORD).getTool());
+    public static final RegistryObject<Item> BRONZE_PICKAXE = registerItem("bronze_pickaxe", () -> new BronzeTool(ToolTypes.PICKAXE).getTool());
+    public static final RegistryObject<Item> BRONZE_AXE = registerItem("bronze_axe", () -> new BronzeTool(ToolTypes.AXE).getTool());
+    public static final RegistryObject<Item> BRONZE_SHOVEL = registerItem("bronze_shovel", () -> new BronzeTool(ToolTypes.AXE).getTool());
+    public static final RegistryObject<Item> BRONZE_HOE = registerItem("bronze_hoe", () -> new BronzeTool(ToolTypes.HOE).getTool());
 
     public static final RegistryObject<Item> NANO_HELMET = registerItem("nano_helmet", NanoHelmet::new);
-    public static final RegistryObject<Item> NANO_CHESTPLATE = registerItem("nano_chestplate", () -> new NanoArmor(EquipmentSlot.CHEST));
-    public static final RegistryObject<Item> NANO_LEGGINGS = registerItem("nano_leggings", () -> new NanoArmor(EquipmentSlot.LEGS));
-    public static final RegistryObject<Item> NANO_BOOTS = registerItem("nano_boots", () -> new NanoArmor(EquipmentSlot.FEET));
+    public static final RegistryObject<Item> NANO_CHESTPLATE = registerItem("nano_chestplate", () -> new NanoArmor(ArmorItem.Type.CHESTPLATE));
+    public static final RegistryObject<Item> NANO_LEGGINGS = registerItem("nano_leggings", () -> new NanoArmor(ArmorItem.Type.LEGGINGS));
+    public static final RegistryObject<Item> NANO_BOOTS = registerItem("nano_boots", () -> new NanoArmor(ArmorItem.Type.BOOTS));
 
     public static final RegistryObject<Item> QUANTUM_HELMET = registerItem("quantum_helmet", QuantumHelmet::new);
     public static final RegistryObject<Item> QUANTUM_CHESTPLATE = registerItem("quantum_chestplate", QuantumChestplate::new);
@@ -359,22 +361,22 @@ public final class ModItems {
     public static final RegistryObject<Item> NANO_SABER = registerItem("nano_saber", Nanosaber::new);
 
     public static final RegistryObject<Item> PAINTER = registerItem("painter", () -> new ToolItem(1));
-    public static final RegistryObject<Item> PAINTER_WHITE = registerItem("painter_white", () -> new Painter(MaterialColor.WOOL));
-    public static final RegistryObject<Item> PAINTER_RED = registerItem("painter_red", () -> new Painter(MaterialColor.COLOR_RED));
-    public static final RegistryObject<Item> PAINTER_ORANGE = registerItem("painter_orange", () -> new Painter(MaterialColor.COLOR_ORANGE));
-    public static final RegistryObject<Item> PAINTER_PINK = registerItem("painter_pink", () -> new Painter(MaterialColor.COLOR_PINK));
-    public static final RegistryObject<Item> PAINTER_YELLOW = registerItem("painter_yellow", () -> new Painter(MaterialColor.COLOR_YELLOW));
-    public static final RegistryObject<Item> PAINTER_LIME = registerItem("painter_lime", () -> new Painter(MaterialColor.COLOR_LIGHT_GREEN));
-    public static final RegistryObject<Item> PAINTER_GREEN = registerItem("painter_green", () -> new Painter(MaterialColor.COLOR_GREEN));
-    public static final RegistryObject<Item> PAINTER_LIGHT_BLUE = registerItem("painter_light_blue", () -> new Painter(MaterialColor.COLOR_LIGHT_BLUE));
-    public static final RegistryObject<Item> PAINTER_CYAN = registerItem("painter_cyan", () -> new Painter(MaterialColor.COLOR_CYAN));
-    public static final RegistryObject<Item> PAINTER_BLUE = registerItem("painter_blue", () -> new Painter(MaterialColor.COLOR_BLUE));
-    public static final RegistryObject<Item> PAINTER_MAGENTA = registerItem("painter_magenta", () -> new Painter(MaterialColor.COLOR_MAGENTA));
-    public static final RegistryObject<Item> PAINTER_PURPLE = registerItem("painter_purple", () -> new Painter(MaterialColor.COLOR_PURPLE));
-    public static final RegistryObject<Item> PAINTER_BROWN = registerItem("painter_brown", () -> new Painter(MaterialColor.COLOR_BROWN));
-    public static final RegistryObject<Item> PAINTER_GRAY = registerItem("painter_gray", () -> new Painter(MaterialColor.COLOR_GRAY));
-    public static final RegistryObject<Item> PAINTER_LIGHT_GRAY = registerItem("painter_light_gray", () -> new Painter(MaterialColor.COLOR_LIGHT_GRAY));
-    public static final RegistryObject<Item> PAINTER_BLACK = registerItem("painter_black", () -> new Painter(MaterialColor.COLOR_BLACK));
+    public static final RegistryObject<Item> PAINTER_WHITE = registerItem("painter_white", () -> new Painter(MapColor.WOOL));
+    public static final RegistryObject<Item> PAINTER_RED = registerItem("painter_red", () -> new Painter(MapColor.COLOR_RED));
+    public static final RegistryObject<Item> PAINTER_ORANGE = registerItem("painter_orange", () -> new Painter(MapColor.COLOR_ORANGE));
+    public static final RegistryObject<Item> PAINTER_PINK = registerItem("painter_pink", () -> new Painter(MapColor.COLOR_PINK));
+    public static final RegistryObject<Item> PAINTER_YELLOW = registerItem("painter_yellow", () -> new Painter(MapColor.COLOR_YELLOW));
+    public static final RegistryObject<Item> PAINTER_LIME = registerItem("painter_lime", () -> new Painter(MapColor.COLOR_LIGHT_GREEN));
+    public static final RegistryObject<Item> PAINTER_GREEN = registerItem("painter_green", () -> new Painter(MapColor.COLOR_GREEN));
+    public static final RegistryObject<Item> PAINTER_LIGHT_BLUE = registerItem("painter_light_blue", () -> new Painter(MapColor.COLOR_LIGHT_BLUE));
+    public static final RegistryObject<Item> PAINTER_CYAN = registerItem("painter_cyan", () -> new Painter(MapColor.COLOR_CYAN));
+    public static final RegistryObject<Item> PAINTER_BLUE = registerItem("painter_blue", () -> new Painter(MapColor.COLOR_BLUE));
+    public static final RegistryObject<Item> PAINTER_MAGENTA = registerItem("painter_magenta", () -> new Painter(MapColor.COLOR_MAGENTA));
+    public static final RegistryObject<Item> PAINTER_PURPLE = registerItem("painter_purple", () -> new Painter(MapColor.COLOR_PURPLE));
+    public static final RegistryObject<Item> PAINTER_BROWN = registerItem("painter_brown", () -> new Painter(MapColor.COLOR_BROWN));
+    public static final RegistryObject<Item> PAINTER_GRAY = registerItem("painter_gray", () -> new Painter(MapColor.COLOR_GRAY));
+    public static final RegistryObject<Item> PAINTER_LIGHT_GRAY = registerItem("painter_light_gray", () -> new Painter(MapColor.COLOR_LIGHT_GRAY));
+    public static final RegistryObject<Item> PAINTER_BLACK = registerItem("painter_black", () -> new Painter(MapColor.COLOR_BLACK));
 
     public static final RegistryObject<Item> FLUID_CELL = registerItem("fluid_cell", FluidCell::new);
     public static final RegistryObject<Item> MEMORY_CARD = registerItem("memory_card", MemoryCard::new);
@@ -436,10 +438,10 @@ public final class ModItems {
 
     public static final RegistryObject<Item> GEIGER_COUNTER = registerItem("geiger_counter", GeigerCounter::new);
 
-    public static final RegistryObject<Item> HAZMAT_SUIT_HELMET = registerItem("hazmat_suit_helmet", () -> new HazmatArmor(EquipmentSlot.HEAD, 2));
-    public static final RegistryObject<Item> HAZMAT_SUIT_CHESTPLATE = registerItem("hazmat_suit_chestplate", () -> new HazmatArmor(EquipmentSlot.CHEST, 4));
-    public static final RegistryObject<Item> HAZMAT_SUIT_LEGGINGS = registerItem("hazmat_suit_leggings", () -> new HazmatArmor(EquipmentSlot.LEGS, 3));
-    public static final RegistryObject<Item> HAZMAT_SUIT_BOOTS = registerItem("hazmat_suit_boots", () -> new HazmatArmor(EquipmentSlot.FEET, 2));
+    public static final RegistryObject<Item> HAZMAT_SUIT_HELMET = registerItem("hazmat_suit_helmet", () -> new HazmatArmor(ArmorItem.Type.HELMET, 2));
+    public static final RegistryObject<Item> HAZMAT_SUIT_CHESTPLATE = registerItem("hazmat_suit_chestplate", () -> new HazmatArmor(ArmorItem.Type.CHESTPLATE, 4));
+    public static final RegistryObject<Item> HAZMAT_SUIT_LEGGINGS = registerItem("hazmat_suit_leggings", () -> new HazmatArmor(ArmorItem.Type.LEGGINGS, 3));
+    public static final RegistryObject<Item> HAZMAT_SUIT_BOOTS = registerItem("hazmat_suit_boots", () -> new HazmatArmor(ArmorItem.Type.BOOTS, 2));
 
     public static final RegistryObject<Item> RADIATION_SHIELDING = registerItem("radiation_shielding", MaterialItem::new);
 

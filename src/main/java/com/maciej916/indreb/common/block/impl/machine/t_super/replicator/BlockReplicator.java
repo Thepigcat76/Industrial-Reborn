@@ -9,7 +9,6 @@ import com.maciej916.indreb.common.util.BlockEntityUtil;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.Constants;
 import com.maciej916.indreb.common.util.TextComponentUtil;
-import com.mojang.math.Vector3f;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -32,12 +31,14 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Vector3f;
+import org.joml.Vector3fc;
 
 import java.util.List;
 
 public class BlockReplicator extends BaseElectricMachineBlock {
 
-    public static final Vector3f PARTICLE_COLOR = new Vector3f(Vec3.fromRGB24(0XA1800e7c));
+    public static final Vector3f PARTICLE_COLOR = new Vector3f((Vector3fc) Vec3.fromRGB24(0XA1800e7c));
 
     public BlockReplicator() {
         super(EnergyTiers.SUPER,6, 0);

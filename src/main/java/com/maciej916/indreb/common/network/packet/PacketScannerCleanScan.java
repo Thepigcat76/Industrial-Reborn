@@ -28,7 +28,7 @@ public class PacketScannerCleanScan {
         ctx.get().enqueueWork(() -> {
             ServerPlayer player = ctx.get().getSender();
             assert player != null;
-            if (player.level.getBlockEntity(blockPos) instanceof BlockEntityScanner be) {
+            if (player.level().getBlockEntity(blockPos) instanceof BlockEntityScanner be) {
                 be.cleanScanServer();
             }
         });

@@ -6,7 +6,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 public class QuantumBoots extends QuantumArmor implements IArmorProperties {
 
     public QuantumBoots() {
-        super(EquipmentSlot.FEET, 4);
+        super(Type.BOOTS, 4);
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 
@@ -20,9 +21,9 @@ public class SolarPanelTextWidget extends BaseWidget {
     }
 
     @Override
-    public void renderButton(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
+    public void renderButton(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
         MutableComponent component = Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(progress.getCurrentProgress()));
-        GuiUtil.renderScaledCenter(poseStack, component, getX(), getWidth(), getY(), 0.8f, 4210752, false);
-        super.renderButton(poseStack, mouseX, mouseY, partialTick);
+        GuiUtil.renderScaledCenter(guiGraphics, component, getX(), getWidth(), getY(), 0.8f, 4210752, false);
+        super.renderButton(guiGraphics, mouseX, mouseY, partialTick);
     }
 }

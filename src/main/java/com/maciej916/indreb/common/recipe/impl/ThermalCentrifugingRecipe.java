@@ -76,7 +76,7 @@ public class ThermalCentrifugingRecipe extends BaseChanceRecipe {
         @Override
         public void toNetwork(FriendlyByteBuf buffer, ThermalCentrifugingRecipe recipe) {
             recipe.getIngredientCount().toNetwork(buffer);
-            buffer.writeItemStack(recipe.getResultItem(), false);
+            buffer.writeItemStack(recipe.getResult(), false);
             buffer.writeFloat(recipe.getTemperature());
             buffer.writeInt(recipe.getDuration());
             buffer.writeInt(recipe.getTickEnergyCost());

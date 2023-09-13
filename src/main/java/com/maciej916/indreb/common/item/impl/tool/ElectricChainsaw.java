@@ -48,12 +48,6 @@ public class ElectricChainsaw extends BaseElectricDiggerItem {
     }
 
     @Override
-    public void fillItemCategory(CreativeModeTab tab, NonNullList<ItemStack> itemStacks) {
-        if (tab == CreativeModeTab.TAB_TOOLS) itemStacks.add(new ItemStack(this));
-        super.fillItemCategory(tab, itemStacks);
-    }
-
-    @Override
     public InteractionResult useOn(UseOnContext useOnContext) {
         ItemStack itemstack = useOnContext.getItemInHand();
         IEnergyStorage energy = getEnergyStorage(itemstack);
