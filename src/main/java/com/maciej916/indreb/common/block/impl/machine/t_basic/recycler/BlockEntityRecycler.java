@@ -118,8 +118,8 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IHasExp, I
                     if (progressRecipe.isCurrentAboveEqualMax()) {
                         float random = new Random().nextFloat(100);
                         if (random <= recipe.getChance()) {
-                            ItemStack resultStack = recipe.getResultItem();
-                            if (recipe.getResultItem().getCount() > 1) resultStack.setCount(Math.max(new Random().nextInt(recipe.getResultItem().getCount()), 1));
+                            ItemStack resultStack = recipe.getResult();
+                            if (recipe.getResult().getCount() > 1) resultStack.setCount(Math.max(new Random().nextInt(recipe.getResult().getCount()), 1));
                             StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, resultStack);
 
                         }
@@ -251,7 +251,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IHasExp, I
         final ItemStack inputStack = getBaseStorage().getStackInSlot(INPUT_SLOT);
         final ItemStack outputStack = getBaseStorage().getStackInSlot(OUTPUT_SLOT);
 
-        return !inputStack.isEmpty() && ( outputStack.isEmpty() || (outputStack.getCount() + recipe.getResultItem().getCount() <= outputStack.getMaxStackSize() && recipe.getResultItem().getItem() == outputStack.getItem()));
+        return !inputStack.isEmpty() && ( outputStack.isEmpty() || (outputStack.getCount() + recipe.getResult().getCount() <= outputStack.getMaxStackSize() && recipe.getResult().getItem() == outputStack.getItem()));
     }
 
 }

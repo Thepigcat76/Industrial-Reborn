@@ -10,6 +10,7 @@ import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -32,11 +33,13 @@ public class AlloySmeltingRecipeBuilder {
     private int duration;
     private int tickEnergyCost;
     private float experience;
+    private RecipeCategory recipeCategory;
 
     private String group = "";
     private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
 
-    private AlloySmeltingRecipeBuilder(ItemStack result, int duration, int tickEnergyCost, float experience) {
+    private AlloySmeltingRecipeBuilder(RecipeCategory recipeCategory, ItemStack result, int duration, int tickEnergyCost, float experience) {
+        this.recipeCategory = recipeCategory;
         this.result = result;
         this.duration = duration;
         this.tickEnergyCost = tickEnergyCost;
@@ -44,11 +47,11 @@ public class AlloySmeltingRecipeBuilder {
     }
 
     public static AlloySmeltingRecipeBuilder builder(RegistryObject<Item> item, int resultCount) {
-        return builder(item.get(), resultCount);
+        return builder(RecipeCategory.MISC ,item.get(), resultCount);
     }
 
-    public static AlloySmeltingRecipeBuilder builder(ItemLike item, int resultCount) {
-        return new AlloySmeltingRecipeBuilder(new ItemStack(item, resultCount), 560, 16, 0);
+    public static AlloySmeltingRecipeBuilder builder(RecipeCategory recipeCategory, ItemLike item, int resultCount) {
+        return new AlloySmeltingRecipeBuilder(recipeCategory, new ItemStack(item, resultCount), 560, 16, 0);
     }
 
     private AlloySmeltingRecipeBuilder addIngredient(Ingredient ingredient, int count) {

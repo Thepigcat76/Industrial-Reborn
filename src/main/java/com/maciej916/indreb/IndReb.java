@@ -53,9 +53,6 @@ public class IndReb {
 
         ModSounds.register(modEventBus);
 
-        ModConfiguredFeatures.register(modEventBus);
-        ModPlacedFeatures.register(modEventBus);
-
         ModLootModifiers.register(modEventBus);
 
         ModConfig.register();

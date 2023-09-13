@@ -4,10 +4,8 @@ import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.item.ModItems;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 
@@ -17,8 +15,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class ReinforcedStoneProvider extends RecipeProvider {
 
-    public ReinforcedStoneProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ReinforcedStoneProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -26,16 +24,16 @@ public class ReinforcedStoneProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_STONE_SLAB.get(), 6)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_STONE_SLAB.get(), 6)
                 .pattern("rrr")
                 .define('r', ModBlocks.REINFORCED_STONE.get())
                 .group(MODID + "/reinforced_stone")
                 .unlockedBy("reinforced_stone", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_STONE.get()))
                 .save(consumer, saveResource("reinforced_stone_slab"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_STONE_STAIRS.get(), 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_STONE_STAIRS.get(), 4)
                 .pattern("r  ")
                 .pattern("rr ")
                 .pattern("rrr")
@@ -44,7 +42,7 @@ public class ReinforcedStoneProvider extends RecipeProvider {
                 .unlockedBy("reinforced_stone", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_STONE.get()))
                 .save(consumer, saveResource("reinforced_stone_stairs"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_STONE_BRICKS.get(), 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_STONE_BRICKS.get(), 4)
                 .pattern("rr ")
                 .pattern("rr ")
                 .define('r', ModBlocks.REINFORCED_STONE.get())
@@ -52,7 +50,7 @@ public class ReinforcedStoneProvider extends RecipeProvider {
                 .unlockedBy("reinforced_stone", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_STONE.get()))
                 .save(consumer, saveResource("reinforced_stone_bricks"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_STONE_BRICK_WALL.get(), 6)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_STONE_BRICK_WALL.get(), 6)
                 .pattern("rrr")
                 .pattern("rrr")
                 .define('r', ModBlocks.REINFORCED_STONE.get())
@@ -60,7 +58,7 @@ public class ReinforcedStoneProvider extends RecipeProvider {
                 .unlockedBy("reinforced_stone", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_STONE.get()))
                 .save(consumer, saveResource("reinforced_stone_brick_wall"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_DOOR.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_DOOR.get(), 1)
                 .pattern("rg ")
                 .pattern("rl ")
                 .pattern("rr ")
@@ -73,7 +71,7 @@ public class ReinforcedStoneProvider extends RecipeProvider {
                 .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY_PLATE.get()))
                 .save(consumer, saveResource("reinforced_door"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_GLASS.get(), 6)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS.get(), 6)
                 .pattern("rgr")
                 .pattern("aga")
                 .pattern("rgr")
@@ -86,7 +84,7 @@ public class ReinforcedStoneProvider extends RecipeProvider {
                 .unlockedBy("glass", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GLASS))
                 .save(consumer, saveResource("reinforced_glass"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_GLASS.get(), 6)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS.get(), 6)
                 .pattern("rar")
                 .pattern("ggg")
                 .pattern("rar")
@@ -99,13 +97,14 @@ public class ReinforcedStoneProvider extends RecipeProvider {
                 .unlockedBy("glass", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GLASS))
                 .save(consumer, saveResource("reinforced_glass_2"));
 
-        ShapelessRecipeBuilder.shapeless(ModItems.REINFORCED_STONE.get(), 1)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModItems.REINFORCED_STONE.get(), 1)
                 .requires(ModItems.REINFORCED_CONSTRUCTION_FOAM.get())
                 .requires(Items.GRAVEL, 3)
                 .group(MODID + "/reinforced_stone")
                 .unlockedBy("reinforced_construction_foam", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.REINFORCED_CONSTRUCTION_FOAM.get()))
                 .unlockedBy("gravel", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GRAVEL))
                 .save(consumer, saveResource("reinforced_stone"));
+
 
     }
 }

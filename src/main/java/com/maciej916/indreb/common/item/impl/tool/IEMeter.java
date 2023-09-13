@@ -24,9 +24,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class IEMeter extends BaseItem {
+public class IEMeter extends Item {
     public IEMeter() {
-        super(CreativeModeTab.TAB_TOOLS, new Item.Properties());
+        super(new Item.Properties());
     }
 
     @Override

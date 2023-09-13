@@ -5,7 +5,9 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -18,8 +20,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class ItemsToolProvider extends RecipeProvider {
 
-    public ItemsToolProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ItemsToolProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -27,9 +29,9 @@ public class ItemsToolProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModItems.WRENCH.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WRENCH.get())
                 .pattern("C C")
                 .pattern("CCC")
                 .pattern(" C ")
@@ -38,7 +40,7 @@ public class ItemsToolProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
                 .save(consumer, saveResource("wrench"));
 
-        ShapedRecipeBuilder.shaped(ModItems.TREETAP.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.TREETAP.get())
                 .pattern(" p ")
                 .pattern("ppp")
                 .pattern("p  ")
@@ -47,7 +49,7 @@ public class ItemsToolProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_PLANKS))
                 .save(consumer, saveResource("treetap"));
 
-        ShapedRecipeBuilder.shaped(ModItems.HAMMER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.HAMMER.get())
                 .pattern(" ii")
                 .pattern("SSi")
                 .pattern(" ii")
@@ -57,7 +59,7 @@ public class ItemsToolProvider extends RecipeProvider {
                 .unlockedBy("iron_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
                 .save(consumer, saveResource("hammer"));
 
-        ShapedRecipeBuilder.shaped(ModItems.CUTTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.CUTTER.get())
                 .pattern("p p")
                 .pattern(" p ")
                 .pattern("i i")
@@ -67,7 +69,7 @@ public class ItemsToolProvider extends RecipeProvider {
                 .unlockedBy("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE.get()))
                 .save(consumer, saveResource("cutter"));
 
-        ShapedRecipeBuilder.shaped(ModItems.BRONZE_AXE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BRONZE_AXE.get())
                 .pattern("bb ")
                 .pattern("bs ")
                 .pattern(" s ")
@@ -77,7 +79,7 @@ public class ItemsToolProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_axe"));
 
-        ShapedRecipeBuilder.shaped(ModItems.BRONZE_PICKAXE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BRONZE_PICKAXE.get())
                 .pattern("bbb")
                 .pattern(" s ")
                 .pattern(" s ")
@@ -87,7 +89,7 @@ public class ItemsToolProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_pickaxe"));
 
-        ShapedRecipeBuilder.shaped(ModItems.BRONZE_SHOVEL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BRONZE_SHOVEL.get())
                 .pattern(" b ")
                 .pattern(" s ")
                 .pattern(" s ")
@@ -97,7 +99,7 @@ public class ItemsToolProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_shovel"));
 
-        ShapedRecipeBuilder.shaped(ModItems.BRONZE_HOE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BRONZE_HOE.get())
                 .pattern("bb ")
                 .pattern(" s ")
                 .pattern(" s ")
@@ -107,7 +109,7 @@ public class ItemsToolProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_hoe"));
 
-        ShapedRecipeBuilder.shaped(ModItems.BRONZE_SWORD.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BRONZE_SWORD.get())
                 .pattern("b")
                 .pattern("b")
                 .pattern("s")
@@ -117,7 +119,7 @@ public class ItemsToolProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_sword"));
 
-        ShapedRecipeBuilder.shaped(ModItems.IE_METER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.IE_METER.get())
                 .pattern(" g ")
                 .pattern("cec")
                 .pattern("c c")
@@ -130,7 +132,7 @@ public class ItemsToolProvider extends RecipeProvider {
                 .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT.get()))
                 .save(consumer, saveResource("ie_meter"));
 
-        ShapedRecipeBuilder.shaped(ModItems.TOOL_BOX.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.TOOL_BOX.get())
                 .pattern("bcb")
                 .pattern("bbb")
                 .pattern("   ")
@@ -141,7 +143,7 @@ public class ItemsToolProvider extends RecipeProvider {
                 .unlockedBy("bronze_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_PLATE.get()))
                 .save(consumer, saveResource("tool_box"));
 
-        ShapedRecipeBuilder.shaped(ModItems.GEIGER_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GEIGER_COUNTER.get())
                 .pattern("bos")
                 .pattern("crc")
                 .pattern("crc")

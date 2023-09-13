@@ -9,6 +9,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
@@ -26,24 +27,24 @@ public class GuiExpButtonWidget extends BaseButtonWidget {
     }
 
     @Override
-    public void renderToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
+    public void renderToolTip(Screen screen, GuiGraphics guiGraphics, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused()) {
-            screen.renderComponentTooltip(pPoseStack,
+            guiGraphics.renderComponentTooltip(screen.getMinecraft().font,
                     List.of(
                             Component.translatable("gui." + IndReb.MODID + ".collect_exp").withStyle(ChatFormatting.GREEN),
                             Component.literal(df.format(expCollector.getStoredExperience()) + " EXP")
                     ), pMouseX, pMouseY);
         }
-        super.renderToolTip(screen, pPoseStack, pMouseX, pMouseY);
+        super.renderToolTip(screen, guiGraphics, pMouseX, pMouseY);
     }
 
     @Override
-    protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
-        super.renderBackground(pPoseStack, pMinecraft, pMouseX, pMouseY);
+    public void renderBackground(GuiGraphics guiGraphics, Minecraft pMinecraft, int pMouseX, int pMouseY) {
+        super.renderBackground(guiGraphics, pMinecraft, pMouseX, pMouseY);
 
         RenderSystem.setShaderTexture(0, getResourceLocation());
         GuiSprite sprite = GuiSprite.EXP_ICON;
 
-        blit(pPoseStack, getX() + sprite.getRenderOffsetLeft(), getY() + sprite.getRenderOffsetLeft(), sprite.getOffsetLeft(), sprite.getOffsetTop(), sprite.getWidth(), sprite.getHeight());
+        guiGraphics.blit(getResourceLocation(), getX() + sprite.getRenderOffsetLeft(), getY() + sprite.getRenderOffsetLeft(), sprite.getOffsetLeft(), sprite.getOffsetTop(), sprite.getWidth(), sprite.getHeight());
     }
 }

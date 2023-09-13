@@ -114,7 +114,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IHasExp, I
                 }
 
                 if (progressRecipe.isCurrentAboveEqualMax()) {
-                    StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem());
+                    StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResult());
                     progressRecipe.resetProgress();
                     if (recipe.isConsumeFist()) firstTank.takeFluid(recipe.getFirstFluid().getAmount(), false);
                     if (recipe.isConsumeSecond()) secondTank.takeFluid(recipe.getSecondFluid().getAmount(), false);
@@ -243,7 +243,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IHasExp, I
     public void setRecipe(int index) {
         if (level != null) {
             this.recipe = Objects.requireNonNullElseGet(recipes, () -> level.getRecipeManager().getAllRecipesFor(ModRecipeType.FLUID_EXTRUDING.get())).get(index);
-            getBaseStorage().setStackInSlot(RECIPE_SLOT, this.recipe.getResultItem());
+            getBaseStorage().setStackInSlot(RECIPE_SLOT, this.recipe.getResult());
             progressRecipe.resetProgress();
         }
     }
@@ -266,7 +266,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IHasExp, I
 
     private boolean canWork() {
         final ItemStack outputStack = getBaseStorage().getStackInSlot(OUTPUT_SLOT);
-        return outputStack.isEmpty() || (outputStack.getCount() + recipe.getResultItem().getCount() <= outputStack.getMaxStackSize() && recipe.getResultItem().getItem() == outputStack.getItem());
+        return outputStack.isEmpty() || (outputStack.getCount() + recipe.getResult().getCount() <= outputStack.getMaxStackSize() && recipe.getResult().getItem() == outputStack.getItem());
     }
 
     @Override

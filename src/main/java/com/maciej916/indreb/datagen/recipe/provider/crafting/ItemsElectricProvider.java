@@ -5,7 +5,9 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -17,8 +19,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class ItemsElectricProvider extends RecipeProvider {
 
-    public ItemsElectricProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ItemsElectricProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -26,9 +28,9 @@ public class ItemsElectricProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModItems.BATTERY.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BATTERY.get())
                 .pattern(" C ")
                 .pattern("TrT")
                 .pattern("TrT")
@@ -39,7 +41,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("copper_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED.get()))
                 .save(consumer, saveResource("battery"));
 
-        ShapedRecipeBuilder.shaped(ModItems.ADVANCED_BATTERY.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ADVANCED_BATTERY.get())
                 .pattern("iri")
                 .pattern("pbp")
                 .pattern("iri")
@@ -52,7 +54,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("copper_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED.get()))
                 .save(consumer, saveResource("advanced_battery"));
 
-        ShapedRecipeBuilder.shaped(ModItems.LAPOTRON_CRYSTAL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.LAPOTRON_CRYSTAL.get())
                 .pattern("lal")
                 .pattern("lel")
                 .pattern("lal")
@@ -64,7 +66,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT.get()))
                 .save(consumer, saveResource("lapotron_crystal"));
 
-        ShapedRecipeBuilder.shaped(ModItems.NANO_SABER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NANO_SABER.get())
                 .pattern("ga ")
                 .pattern("ga ")
                 .pattern("cec")
@@ -79,7 +81,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY_PLATE.get()))
                 .save(consumer, saveResource("nano_saber"));
 
-        ShapedRecipeBuilder.shaped(ModItems.MINING_DRILL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.MINING_DRILL.get())
                 .pattern(" i ")
                 .pattern("iii")
                 .pattern("ipi")
@@ -90,7 +92,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("power_unit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.POWER_UNIT.get()))
                 .save(consumer, saveResource("mining_drill"));
 
-        ShapedRecipeBuilder.shaped(ModItems.DIAMOND_DRILL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.DIAMOND_DRILL.get())
                 .pattern(" d ")
                 .pattern("dcd")
                 .pattern(" a ")
@@ -103,7 +105,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("advanced_battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_BATTERY.get()))
                 .save(consumer, saveResource("diamond_drill"));
 
-        ShapedRecipeBuilder.shaped(ModItems.IRIDIUM_DRILL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.IRIDIUM_DRILL.get())
                 .pattern(" i ")
                 .pattern("idi")
                 .pattern(" e ")
@@ -116,7 +118,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
                 .save(consumer, saveResource("iridium_drill"));
 
-        ShapedRecipeBuilder.shaped(ModItems.CHAINSAW.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.CHAINSAW.get())
                 .pattern(" ii")
                 .pattern("iii")
                 .pattern("pi ")
@@ -127,7 +129,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("power_unit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.POWER_UNIT.get()))
                 .save(consumer, saveResource("chainsaw"));
 
-        ShapedRecipeBuilder.shaped(ModItems.DIAMOND_CHAINSAW.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.DIAMOND_CHAINSAW.get())
                 .pattern(" dd")
                 .pattern(" cd")
                 .pattern("a  ")
@@ -140,7 +142,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("advanced_battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_BATTERY.get()))
                 .save(consumer, saveResource("diamond_chainsaw"));
 
-        ShapedRecipeBuilder.shaped(ModItems.IRIDIUM_CHAINSAW.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.IRIDIUM_CHAINSAW.get())
                 .pattern(" ii")
                 .pattern(" ci")
                 .pattern("e  ")
@@ -153,7 +155,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
                 .save(consumer, saveResource("iridium_chainsaw"));
 
-        ShapedRecipeBuilder.shaped(ModItems.ELECTRIC_HOE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.ELECTRIC_HOE.get())
                 .pattern("ii ")
                 .pattern(" i ")
                 .pattern(" s ")
@@ -164,7 +166,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("small_power_unit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SMALL_POWER_UNIT.get()))
                 .save(consumer, saveResource("electric_hoe"));
 
-        ShapedRecipeBuilder.shaped(ModItems.ELECTRIC_TREETAP.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.ELECTRIC_TREETAP.get())
                 .pattern("ts ")
                 .define('t', ModItems.TREETAP.get())
                 .define('s', ModItems.SMALL_POWER_UNIT.get())
@@ -173,7 +175,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("small_power_unit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SMALL_POWER_UNIT.get()))
                 .save(consumer, saveResource("electric_treetap"));
 
-        ShapedRecipeBuilder.shaped(ModItems.ELECTRIC_WRENCH.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.ELECTRIC_WRENCH.get())
                 .pattern("w ")
                 .pattern("s ")
                 .define('w', ModItems.WRENCH.get())
@@ -183,7 +185,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("small_power_unit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SMALL_POWER_UNIT.get()))
                 .save(consumer, saveResource("electric_wrench"));
 
-        ShapedRecipeBuilder.shaped(ModItems.WIND_METER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WIND_METER.get())
                 .pattern(" t ")
                 .pattern("tbt")
                 .pattern(" ts")
@@ -196,7 +198,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("small_power_unit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SMALL_POWER_UNIT.get()))
                 .save(consumer, saveResource("wind_meter"));
 
-        ShapedRecipeBuilder.shaped(ModItems.MULTI_TOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.MULTI_TOOL.get())
                 .pattern("ctc")
                 .pattern("aea")
                 .pattern("wih")
@@ -217,7 +219,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("electric_hoe", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRIC_HOE.get()))
                 .save(consumer, saveResource("multi_tool"));
 
-        ShapedRecipeBuilder.shaped(ModItems.CHARGING_BATTERY.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CHARGING_BATTERY.get())
                 .pattern("ebe")
                 .pattern("b b")
                 .pattern("ebe")
@@ -228,7 +230,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BATTERY.get()))
                 .save(consumer, saveResource("charging_battery"));
 
-        ShapedRecipeBuilder.shaped(ModItems.CHARGING_ADVANCED_BATTERY.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CHARGING_ADVANCED_BATTERY.get())
                 .pattern("hah")
                 .pattern("aca")
                 .pattern("hah")
@@ -241,7 +243,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("charging_battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CHARGING_BATTERY.get()))
                 .save(consumer, saveResource("advanced_charging_battery"));
 
-        ShapedRecipeBuilder.shaped(ModItems.CHARGING_ENERGY_CRYSTAL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CHARGING_ENERGY_CRYSTAL.get())
                 .pattern("hah")
                 .pattern("aca")
                 .pattern("hah")
@@ -254,7 +256,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("charging_advanced_battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CHARGING_ADVANCED_BATTERY.get()))
                 .save(consumer, saveResource("charging_energy_crystal"));
 
-        ShapedRecipeBuilder.shaped(ModItems.CHARGING_LAPOTRON_CRYSTAL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CHARGING_LAPOTRON_CRYSTAL.get())
                 .pattern("hah")
                 .pattern("aca")
                 .pattern("hah")
@@ -267,7 +269,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("charging_energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CHARGING_ENERGY_CRYSTAL.get()))
                 .save(consumer, saveResource("charging_lapotron_crystal"));
 
-        ShapedRecipeBuilder.shaped(ModItems.BASIC_TRANSPORTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BASIC_TRANSPORTER.get())
                 .pattern("pgp")
                 .pattern("pcp")
                 .pattern("hah")
@@ -284,7 +286,7 @@ public class ItemsElectricProvider extends RecipeProvider {
                 .unlockedBy("charging_advanced_battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CHARGING_ADVANCED_BATTERY.get()))
                 .save(consumer, saveResource("basic_transporter"));
 
-        ShapedRecipeBuilder.shaped(ModItems.ADVANCED_TRANSPORTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ADVANCED_TRANSPORTER.get())
                 .pattern("pgp")
                 .pattern("cbc")
                 .pattern("hah")

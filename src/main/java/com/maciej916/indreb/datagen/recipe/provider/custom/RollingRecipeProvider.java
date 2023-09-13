@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.datagen.recipe.builder.RollingRecipeBuilder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.Items;
@@ -13,12 +14,12 @@ import java.util.function.Consumer;
 
 public class RollingRecipeProvider extends RecipeProvider {
 
-    public RollingRecipeProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public RollingRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
         RollingRecipeBuilder.builder(ModItems.COPPER_PLATE, 1)
                 .setIngredient(ModItemTags.FORGE_INGOTS_COPPER, 1)

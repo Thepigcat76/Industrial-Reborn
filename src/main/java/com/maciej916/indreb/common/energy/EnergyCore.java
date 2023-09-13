@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.api.energy.BasicEnergyStorage;
 import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
 import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.EnergyType;
+import com.maciej916.indreb.common.api.enums.interfaces.EnergyTier;
 import com.maciej916.indreb.common.api.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.energy.comparator.EnergyExtractComparator;
@@ -124,7 +125,7 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
     }
 
     private void createExplosion(BlockPos pos, int lvl) {
-        world.explode(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 2, false, Explosion.BlockInteraction.DESTROY);
+        world.explode(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 2, false, Level.ExplosionInteraction.TNT);
     }
 
     private void createBurn(EnergyNetwork network, BlockPos blockPos) {
@@ -524,7 +525,7 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
                             if (be != null) {
                                 be.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
                                     if (energy.canReceiveEnergy(oppositeDir)) {
-                                        EnergyTiers currentTier = network.getCurrentTier();
+                                        EnergyTier currentTier = network.getCurrentTier();
 
                                         if (energy.energyType() == EnergyType.BOTH || energy.energyType() == EnergyType.RECEIVE) {
                                             if (energy.energyTier().getLvl() >= currentTier.getLvl()) {

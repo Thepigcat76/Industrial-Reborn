@@ -107,7 +107,7 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
             if (canWork()) {
                 if (
                         getEnergyStorage().consumeEnergy(energyCost, true) == energyCost &&
-                        (outputStack1.isEmpty() || (recipe.getResultItem().getCount() + outputStack1.getCount() <= outputStack1.getMaxStackSize() && recipe.getResultItem().getItem() == outputStack1.getItem())) &&
+                        (outputStack1.isEmpty() || (recipe.getResult().getCount() + outputStack1.getCount() <= outputStack1.getMaxStackSize() && recipe.getResult().getItem() == outputStack1.getItem())) &&
                         !progressRecipe.isCurrentAboveEqualMax()
                 ) {
                     getEnergyStorage().consumeEnergy(energyCost, false);
@@ -126,7 +126,7 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
 
                 if (progressRecipe.isCurrentAboveEqualMax()) {
                     if (outputStack2.isEmpty() || chanceResult.isEmpty() || (chanceResult.getCount() + outputStack2.getCount() <= outputStack2.getMaxStackSize() && chanceResult.getItem() == outputStack2.getItem())) {
-                        StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT_1, recipe.getResultItem());
+                        StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT_1, recipe.getResult());
                         StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT, recipe.getIngredientCount().getIngredientsCount().get(0));
                         progressRecipe.resetProgress();
                         addRecipeUsed(recipe);
@@ -277,7 +277,7 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
         final ItemStack inputStack = getBaseStorage().getStackInSlot(INPUT_SLOT);
         final ItemStack outputStack1 = getBaseStorage().getStackInSlot(OUTPUT_SLOT_1);
 
-        return !inputStack.isEmpty() && (outputStack1.isEmpty() || (outputStack1.getCount() + recipe.getResultItem().getCount() <= outputStack1.getMaxStackSize() && recipe.getResultItem().getItem() == outputStack1.getItem()));
+        return !inputStack.isEmpty() && (outputStack1.isEmpty() || (outputStack1.getCount() + recipe.getResult().getCount() <= outputStack1.getMaxStackSize() && recipe.getResult().getItem() == outputStack1.getItem()));
     }
 
     @Override

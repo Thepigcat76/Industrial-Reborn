@@ -13,9 +13,12 @@ import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.StringRepresentable;
+import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -47,9 +50,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.BiConsumer;
 import java.util.stream.Stream;
 
-public class LootTables extends LootTableProvider {
+public class ModBlockLootTables extends BlockLootSubProvider {
 
     private static final LootItemCondition.Builder HAS_SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1))));
     private static final LootItemCondition.Builder HAS_NO_SILK_TOUCH = HAS_SILK_TOUCH.invert();
@@ -61,17 +65,14 @@ public class LootTables extends LootTableProvider {
     private static final float[] JUNGLE_LEAVES_SAPLING_CHANGES = new float[]{0.025F, 0.027777778F, 0.03125F, 0.041666668F, 0.1F};
     private static final float[] NORMAL_LEAVES_STICK_CHANCES = new float[]{0.02F, 0.022222223F, 0.025F, 0.033333335F, 0.1F};
 
-    private final DataGenerator generator;
     private final Map<ResourceLocation, LootTable> tables = new HashMap<>();
 
-    public LootTables(PackOutput packOutput) {
-        super(packOutput);
-        this.generator = generator;
+    public ModBlockLootTables() {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
     }
 
     @Override
-    public CompletableFuture<?> run(CachedOutput cache) {
-
+    public void generate(BiConsumer<ResourceLocation, LootTable.Builder> pOutput) {
         registerOres();
         registerRawBlock();
         registerMaterial();
@@ -93,9 +94,6 @@ public class LootTables extends LootTableProvider {
         registerStandardMachines();
         registerAdvancedMachines();
         registerSuperMachines();
-
-        writeTables(cache);
-        return null;
     }
 
     private void registerOres() {
@@ -293,17 +291,6 @@ public class LootTables extends LootTableProvider {
         dropBreakable(ModBlocks.REPLICATOR, ModBlockEntities.REPLICATOR.get(), ModBlocks.ADVANCED_MACHINE_CASING, 80);
     }
 
-
-
-
-
-
-
-
-
-
-
-
     private void dropSelf(RegistryObject<Block> block) {
         tables.put(block.get().getLootTable(), createStandardTable(block).setParamSet(LootContextParamSets.BLOCK).build());
     }
@@ -341,12 +328,17 @@ public class LootTables extends LootTableProvider {
     }
 
 
-    protected static LootTable.Builder createOakLeavesDrops(RegistryObject<Block> pOakLeavesBlock, RegistryObject<Block> pSaplingBlock, float... pChances) {
+    protected LootTable.Builder createOakLeavesDrops(RegistryObject<Block> pOakLeavesBlock, RegistryObject<Block> pSaplingBlock, float... pChances) {
         return createLeavesDrops(pOakLeavesBlock.get(), pSaplingBlock.get(), pChances).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(applyExplosionCondition(pOakLeavesBlock.get(), LootItem.lootTableItem(Items.APPLE)).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.005F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));
     }
 
-    protected static LootTable.Builder createLeavesDrops(Block pLeavesBlock, Block pSaplingBlock, float... pChances) {
+    protected LootTable.Builder createLeavesDrops(Block pLeavesBlock, Block pSaplingBlock, float... pChances) {
         return createSilkTouchOrShearsDispatchTable(pLeavesBlock, applyExplosionCondition(pLeavesBlock, LootItem.lootTableItem(pSaplingBlock)).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, pChances))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(applyExplosionDecay(pLeavesBlock, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.02F, 0.022222223F, 0.025F, 0.033333335F, 0.1F))));
+    }
+
+    @Override
+    protected void generate() {
+
     }
 
     protected static LootTable.Builder createSilkTouchOrShearsDispatchTable(Block pBlock, LootPoolEntryContainer.Builder<?> pAlternativeEntryBuilder) {
@@ -357,23 +349,23 @@ public class LootTables extends LootTableProvider {
         return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(pBlock).when(pConditionBuilder).otherwise(pAlternativeEntryBuilder)));
     }
 
-    protected static <T extends FunctionUserBuilder<T>> T applyExplosionDecay(ItemLike pItem, FunctionUserBuilder<T> pFunction) {
+    protected <T extends FunctionUserBuilder<T>> T applyExplosionDecay(ItemLike pItem, FunctionUserBuilder<T> pFunction) {
         return (T)(!EXPLOSION_RESISTANT.contains(pItem.asItem()) ? pFunction.apply(ApplyExplosionDecay.explosionDecay()) : pFunction.unwrap());
     }
 
-    protected static <T extends ConditionUserBuilder<T>> T applyExplosionCondition(ItemLike pItem, ConditionUserBuilder<T> pCondition) {
+    protected <T extends ConditionUserBuilder<T>> T applyExplosionCondition(ItemLike pItem, ConditionUserBuilder<T> pCondition) {
         return (T)(!EXPLOSION_RESISTANT.contains(pItem.asItem()) ? pCondition.when(ExplosionCondition.survivesExplosion()) : pCondition.unwrap());
     }
 
-    public static LootTable.Builder createDoorTable(RegistryObject<Block> block) {
+    public LootTable.Builder createDoorTable(RegistryObject<Block> block) {
         return createSinglePropConditionTable(block.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER);
     }
 
-    protected static <T extends Comparable<T> & StringRepresentable> LootTable.Builder createSinglePropConditionTable(Block pBlock, Property<T> pProperty, T pValue) {
+    protected <T extends Comparable<T> & StringRepresentable> LootTable.Builder createSinglePropConditionTable(Block pBlock, Property<T> pProperty, T pValue) {
         return LootTable.lootTable().withPool(applyExplosionCondition(pBlock, LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(pProperty, pValue))))));
     }
 
-    protected static LootTable.Builder createOreDrop(Block block, Item item) {
+    protected LootTable.Builder createOreDrop(Block block, Item item) {
         return createSilkTouchDispatchTable(block, applyExplosionDecay(block, LootItem.lootTableItem(item).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
     }
 
@@ -409,22 +401,5 @@ public class LootTables extends LootTableProvider {
                                 .withEntry(DynamicLoot.dynamicEntry(new ResourceLocation("minecraft", "contents"))))
                 );
         return LootTable.lootTable().withPool(builder);
-    }
-
-    private void writeTables(CachedOutput cache) {
-        Path outputFolder = this.generator.getOutputFolder();
-        this.tables.forEach((key, lootTable) -> {
-            Path path = outputFolder.resolve("data/" + key.getNamespace() + "/loot_tables/" + key.getPath() + ".json");
-            try {
-                DataProvider.saveStable(cache, net.minecraft.world.level.storage.loot.LootTables.serialize(lootTable), path);
-            } catch (IOException e) {
-                IndReb.LOGGER.error("Couldn't write loot table {}", path, e);
-            }
-        });
-    }
-
-    @Override
-    public String getName() {
-        return "Industrial Reborn Loot Tables";
     }
 }

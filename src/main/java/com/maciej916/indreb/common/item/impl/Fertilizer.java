@@ -6,6 +6,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.BlockTags;
@@ -25,10 +27,10 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
-public class Fertilizer extends BaseItem {
+public class Fertilizer extends Item {
 
     public Fertilizer() {
-        super(CreativeModeTab.TAB_MATERIALS, new Item.Properties());
+        super(new Item.Properties());
     }
 
     public InteractionResult useOn(UseOnContext p_40637_) {
@@ -109,7 +111,7 @@ public class Fertilizer extends BaseItem {
                     Holder<Biome> holder = level.getBiome(blockpos);
                     if (holder.is(BiomeTags.PRODUCES_CORALS_FROM_BONEMEAL)) {
                         if (i == 0 && direction != null && direction.getAxis().isHorizontal()) {
-                            blockstate = Registry.BLOCK.getTag(BlockTags.WALL_CORALS).flatMap((p_204098_) -> {
+                            blockstate = BuiltInRegistries.BLOCK.getTag(BlockTags.WALL_CORALS).flatMap((p_204098_) -> {
                                 return p_204098_.getRandomElement(level.random);
                             }).map((p_204100_) -> {
                                 return p_204100_.value().defaultBlockState();
@@ -118,7 +120,7 @@ public class Fertilizer extends BaseItem {
                                 blockstate = blockstate.setValue(BaseCoralWallFanBlock.FACING, direction);
                             }
                         } else if (randomsource.nextInt(4) == 0) {
-                            blockstate = Registry.BLOCK.getTag(BlockTags.UNDERWATER_BONEMEALS).flatMap((p_204091_) -> {
+                            blockstate = BuiltInRegistries.BLOCK.getTag(BlockTags.UNDERWATER_BONEMEALS).flatMap((p_204091_) -> {
                                 return p_204091_.getRandomElement(level.random);
                             }).map((p_204095_) -> {
                                 return p_204095_.value().defaultBlockState();
@@ -186,7 +188,7 @@ public class Fertilizer extends BaseItem {
                 double d6 = (double) p_40640_.getX() + d5 + randomsource.nextDouble() * d0 * 2.0D;
                 double d7 = (double) p_40640_.getY() + randomsource.nextDouble() * d1;
                 double d8 = (double) p_40640_.getZ() + d5 + randomsource.nextDouble() * d0 * 2.0D;
-                if (!p_40639_.getBlockState((new BlockPos(d6, d7, d8)).below()).isAir()) {
+                if (!p_40639_.getBlockState((new BlockPos((int) d6, (int) d7, (int) d8)).below()).isAir()) {
                     p_40639_.addParticle(ParticleTypes.HAPPY_VILLAGER, d6, d7, d8, d2, d3, d4);
                 }
             }

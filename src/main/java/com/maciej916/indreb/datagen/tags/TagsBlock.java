@@ -3,18 +3,22 @@ package com.maciej916.indreb.datagen.tags;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.tag.ModBlockTags;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+
+import java.util.concurrent.CompletableFuture;
 
 public class TagsBlock extends BlockTagsProvider {
 
-    public TagsBlock(DataGenerator generator, ExistingFileHelper helper) {
-        super(generator, IndReb.MODID, helper);
+    public TagsBlock(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> provider, ExistingFileHelper helper) {
+        super(packOutput, provider, IndReb.MODID, helper);
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(HolderLookup.Provider provider) {
 
         tag(BlockTags.FENCES)
                 .add(ModBlocks.IRON_FENCE.get())

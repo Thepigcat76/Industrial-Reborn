@@ -5,7 +5,9 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -18,8 +20,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class ItemsBasicProvider extends RecipeProvider {
 
-    public ItemsBasicProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ItemsBasicProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -27,16 +29,16 @@ public class ItemsBasicProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         
-        ShapedRecipeBuilder.shaped(Items.PAPER, 6)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.PAPER, 6)
                 .pattern("SSS")
                 .define('S', ModItems.SAWDUST.get())
                 .group(MODID + "/items/crafting")
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SAWDUST.get()))
                 .save(consumer, saveResource("sawdust_paper"));
         
-        ShapedRecipeBuilder.shaped(ModItems.CARBON_FIBERS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CARBON_FIBERS.get())
                 .pattern("cc ")
                 .pattern("cc ")
                 .define('c', ModItemTags.FORGE_DUSTS_COAL)
@@ -44,14 +46,14 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COAL_DUST.get()))
                 .save(consumer, saveResource("carbon_fibers"));
 
-        ShapedRecipeBuilder.shaped(ModItems.COMBINED_CARBON_FIBERS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COMBINED_CARBON_FIBERS.get())
                 .pattern("cc ")
                 .define('c', ModItems.CARBON_FIBERS.get())
                 .group(MODID + "/items/crafting")
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_FIBERS.get()))
                 .save(consumer, saveResource("combined_carbon_fibers"));
 
-        ShapedRecipeBuilder.shaped(ModItems.ENERGIUM_DUST.get(), 9)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ENERGIUM_DUST.get(), 9)
                 .pattern("rdr")
                 .pattern("drd")
                 .pattern("rdr")
@@ -61,7 +63,7 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DIAMOND_DUST.get()))
                 .save(consumer, saveResource("energium_dust"));
 
-        ShapedRecipeBuilder.shaped(ModItems.IRIDIUM_PLATE.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRIDIUM_PLATE.get(), 1)
                 .pattern("iai")
                 .pattern("ada")
                 .pattern("iai")
@@ -74,7 +76,7 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .unlockedBy("iridium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM.get()))
                 .save(consumer, saveResource("iridium_plate"));
 
-        ShapedRecipeBuilder.shaped(ModItems.SMALL_POWER_UNIT.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SMALL_POWER_UNIT.get(), 1)
                 .pattern(" ci")
                 .pattern("rem")
                 .pattern(" ci")
@@ -91,7 +93,7 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .unlockedBy("copper_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE.get()))
                 .save(consumer, saveResource("small_power_unit"));
 
-        ShapedRecipeBuilder.shaped(ModItems.POWER_UNIT.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.POWER_UNIT.get(), 1)
                 .pattern("rci")
                 .pattern("rem")
                 .pattern("rci")
@@ -108,7 +110,7 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .unlockedBy("copper_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE.get()))
                 .save(consumer, saveResource("power_unit"));
 
-        ShapedRecipeBuilder.shaped(ModItems.COIL.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COIL.get(), 1)
                 .pattern("ccc")
                 .pattern("cic")
                 .pattern("ccc")
@@ -119,7 +121,7 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .unlockedBy("copper_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE.get()))
                 .save(consumer, saveResource("coil"));
 
-        ShapedRecipeBuilder.shaped(ModItems.ELECTRIC_MOTOR.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ELECTRIC_MOTOR.get(), 1)
                 .pattern(" t ")
                 .pattern("cic")
                 .pattern(" t ")
@@ -132,7 +134,7 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
                 .save(consumer, saveResource("electric_motor"));
 
-        ShapedRecipeBuilder.shaped(ModItems.SCRAP_BOX.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SCRAP_BOX.get())
                 .pattern("sss")
                 .pattern("sss")
                 .pattern("sss")
@@ -141,7 +143,7 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .unlockedBy("scrap", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP.get()))
                 .save(consumer, saveResource("scrap_box"));
 
-        ShapedRecipeBuilder.shaped(ModItems.FOAM_POWDER.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FOAM_POWDER.get(), 1)
                 .pattern("dsd")
                 .pattern("dcd")
                 .pattern("dsd")
@@ -154,7 +156,7 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .unlockedBy("clay", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CLAY))
                 .save(consumer, saveResource("foam_powder"));
 
-        ShapedRecipeBuilder.shaped(ModItems.REINFORCED_FOAM_POWDER.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REINFORCED_FOAM_POWDER.get(), 1)
                 .pattern("dsd")
                 .pattern("dcd")
                 .pattern("dsd")
@@ -167,7 +169,7 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .unlockedBy("clay", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CLAY))
                 .save(consumer, saveResource("reinforced_foam_powder"));
         
-        ShapedRecipeBuilder.shaped(ModItems.HEAT_CONDUCTOR.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.HEAT_CONDUCTOR.get(), 1)
                 .pattern("rcr")
                 .pattern("rcr")
                 .pattern("rcr")
@@ -178,7 +180,7 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .unlockedBy("copper_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_PLATE.get()))
                 .save(consumer, saveResource("heat_conductor"));
 
-        ShapedRecipeBuilder.shaped(Items.MUD, 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.MUD, 1)
                 .pattern("mm ")
                 .pattern("mm ")
                 .define('m', ModItems.MUD_PILE.get())
@@ -186,7 +188,7 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .unlockedBy("mud_pile", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MUD_PILE.get()))
                 .save(consumer, saveResource("mud"));
 
-        ShapedRecipeBuilder.shaped(ModItems.RADIATION_SHIELDING.get(), 2)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.RADIATION_SHIELDING.get(), 2)
                 .pattern("bbb")
                 .pattern("lrl")
                 .pattern("ccc")

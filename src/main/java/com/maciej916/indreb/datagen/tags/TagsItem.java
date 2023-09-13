@@ -3,20 +3,25 @@ package com.maciej916.indreb.datagen.tags;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
+
+import javax.annotation.Nullable;
+import java.util.concurrent.CompletableFuture;
 
 public class TagsItem extends ItemTagsProvider {
 
-    public TagsItem(DataGenerator generator, BlockTagsProvider blockTagProvider, ExistingFileHelper helper) {
-        super(generator, blockTagProvider, IndReb.MODID, helper);
+    public TagsItem(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider,
+                    CompletableFuture<TagLookup<Block>> blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
+        super(packOutput, lookupProvider, blockTagProvider, IndReb.MODID, existingFileHelper);
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(HolderLookup.Provider provider) {
 
         tag(ItemTags.LEAVES)
                 .add(ModItems.RUBBER_LEAVES.get())
@@ -380,7 +385,6 @@ public class TagsItem extends ItemTagsProvider {
                 .add(ModItems.CANNED_POISON.get())
                 .add(ModItems.CANNED_HUNGER.get())
         ;
-
 
 
     }

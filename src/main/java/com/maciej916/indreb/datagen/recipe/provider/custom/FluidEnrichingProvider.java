@@ -6,6 +6,7 @@ import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.datagen.recipe.builder.FluidEnrichingRecipeBuilder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.Items;
@@ -15,12 +16,12 @@ import java.util.function.Consumer;
 
 public class FluidEnrichingProvider extends RecipeProvider {
 
-    public FluidEnrichingProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public FluidEnrichingProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
         FluidEnrichingRecipeBuilder.builder(Biomass.STILL_FLUID.getSource(), 1000)
                 .setIngredient(ModItems.BIO_CHAFF, 1)

@@ -3,7 +3,9 @@ package com.maciej916.indreb.datagen.recipe.provider.crafting;
 import com.maciej916.indreb.common.item.ModItems;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -15,8 +17,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class ItemsCropProvider extends RecipeProvider {
 
-    public ItemsCropProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ItemsCropProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -24,9 +26,9 @@ public class ItemsCropProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapelessRecipeBuilder.shapeless(ModItems.FERTILIZER.get(), 1)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.FERTILIZER.get(), 1)
                 .requires(ModItems.SCRAP.get())
                 .requires(Items.BONE_MEAL)
                 .group(MODID + "/items/crop")
@@ -34,7 +36,7 @@ public class ItemsCropProvider extends RecipeProvider {
                 .unlockedBy("bone_meal", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BONE_MEAL))
                 .save(consumer, saveResource("fertilizer"));
 
-        ShapelessRecipeBuilder.shapeless(ModItems.FERTILIZER.get(), 2)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.FERTILIZER.get(), 2)
                 .requires(ModItems.FERTILIZER.get())
                 .requires(Items.BONE_MEAL)
                 .group(MODID + "/items/crop")

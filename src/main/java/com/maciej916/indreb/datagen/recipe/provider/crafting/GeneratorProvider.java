@@ -5,7 +5,9 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -19,8 +21,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class GeneratorProvider extends RecipeProvider {
 
-    public GeneratorProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public GeneratorProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -28,9 +30,9 @@ public class GeneratorProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModBlocks.GENERATOR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GENERATOR.get())
                 .pattern("R")
                 .pattern("M")
                 .pattern("f")
@@ -41,7 +43,7 @@ public class GeneratorProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.FURNACE))
                 .save(consumer, saveResource("generator_one"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.GENERATOR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GENERATOR.get())
                 .pattern(" R ")
                 .pattern("PPP")
                 .pattern(" F ")
@@ -52,7 +54,7 @@ public class GeneratorProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.FURNACE))
                 .save(consumer, saveResource("generator_two"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.GEO_GENERATOR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GEO_GENERATOR.get())
                 .pattern("gCg")
                 .pattern("gCg")
                 .pattern("PGP")
@@ -64,7 +66,7 @@ public class GeneratorProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GENERATOR.get()))
                 .save(consumer, saveResource("geo_generator"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.SOLAR_PANEL.get(), 2)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SOLAR_PANEL.get(), 2)
                 .pattern("CgC")
                 .pattern("glg")
                 .pattern("EGE")
@@ -77,7 +79,7 @@ public class GeneratorProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GENERATOR.get()))
                 .save(consumer, saveResource("solar_panel"));
         
-        ShapedRecipeBuilder.shaped(ModBlocks.ADVANCED_SOLAR_PANEL.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ADVANCED_SOLAR_PANEL.get(), 1)
                 .pattern("ggg")
                 .pattern("asa")
                 .pattern("cmc")
@@ -94,7 +96,7 @@ public class GeneratorProvider extends RecipeProvider {
                 .unlockedBy("advanced_machine_casing", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.ADVANCED_MACHINE_CASING.get()))
                 .save(consumer, saveResource("advanced_solar_panel"));
         
-        ShapedRecipeBuilder.shaped(ModBlocks.HYBRID_SOLAR_PANEL.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.HYBRID_SOLAR_PANEL.get(), 1)
                 .pattern("ala")
                 .pattern("psp")
                 .pattern("cec")
@@ -113,7 +115,7 @@ public class GeneratorProvider extends RecipeProvider {
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
                 .save(consumer, saveResource("hybrid_solar_panel"));
         
-        ShapedRecipeBuilder.shaped(ModBlocks.SEMIFLUID_GENERATOR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SEMIFLUID_GENERATOR.get())
                 .pattern("pcp")
                 .pattern("cgc")
                 .pattern("pcp")
@@ -126,7 +128,7 @@ public class GeneratorProvider extends RecipeProvider {
                 .unlockedBy("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE.get()))
                 .save(consumer, saveResource("semifluid_generator"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.NUCLEAR_REACTOR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.NUCLEAR_REACTOR.get())
                 .pattern("aca")
                 .pattern("mmm")
                 .pattern("aga")
@@ -141,7 +143,7 @@ public class GeneratorProvider extends RecipeProvider {
                 .unlockedBy("generator", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.GENERATOR.get()))
                 .save(consumer, saveResource("nuclear_reactor"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.REACTOR_CONTROL_ROD.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.REACTOR_CONTROL_ROD.get())
                 .pattern("ara")
                 .pattern("rcr")
                 .pattern("ara")
@@ -154,7 +156,7 @@ public class GeneratorProvider extends RecipeProvider {
                 .unlockedBy("fuel_rod", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FUEL_ROD.get()))
                 .save(consumer, saveResource("reactor_control_rod"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.REACTOR_CHAMBER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.REACTOR_CHAMBER.get())
                 .pattern("ala")
                 .pattern("lbl")
                 .pattern("ala")
@@ -167,7 +169,7 @@ public class GeneratorProvider extends RecipeProvider {
                 .unlockedBy("lead_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LEAD_PLATE.get()))
                 .save(consumer, saveResource("reactor_chamber"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.REACTOR_FRAME.get(), 2)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.REACTOR_FRAME.get(), 2)
                 .pattern("ala")
                 .pattern("lbl")
                 .pattern("ala")
@@ -179,6 +181,7 @@ public class GeneratorProvider extends RecipeProvider {
                 .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY_PLATE.get()))
                 .unlockedBy("steel_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STEEL_PLATE.get()))
                 .save(consumer, saveResource("reactor_frame"));
+
 
     }
 }

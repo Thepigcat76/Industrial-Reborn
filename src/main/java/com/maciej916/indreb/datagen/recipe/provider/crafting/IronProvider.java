@@ -5,7 +5,9 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -17,8 +19,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class IronProvider extends RecipeProvider {
 
-    public IronProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public IronProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -26,9 +28,9 @@ public class IronProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModItems.IRON_ROD.get(), 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_ROD.get(), 4)
                 .pattern("i  ")
                 .pattern("i  ")
                 .define('i', ModItemTags.FORGE_INGOTS_IRON)
@@ -36,7 +38,7 @@ public class IronProvider extends RecipeProvider {
                 .unlockedBy("iron_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
                 .save(consumer, saveResource("iron_rod"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.IRON_FENCE.get(), 6)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.IRON_FENCE.get(), 6)
                 .pattern("iri")
                 .pattern("iri")
                 .define('i', ModItemTags.FORGE_PLATES_IRON)
@@ -46,7 +48,7 @@ public class IronProvider extends RecipeProvider {
                 .unlockedBy("iron_rod", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_ROD.get()))
                 .save(consumer, saveResource("iron_fence"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.IRON_GATE.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.IRON_GATE.get(), 1)
                 .pattern("rir")
                 .pattern("rir")
                 .define('i', ModItemTags.FORGE_PLATES_IRON)
@@ -56,7 +58,7 @@ public class IronProvider extends RecipeProvider {
                 .unlockedBy("iron_rod", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_ROD.get()))
                 .save(consumer, saveResource("iron_gate"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.IRON_SCAFFOLDING.get(), 6)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.IRON_SCAFFOLDING.get(), 6)
                 .pattern("ppp")
                 .pattern("ftf")
                 .pattern("ppp")
@@ -68,8 +70,6 @@ public class IronProvider extends RecipeProvider {
                 .unlockedBy("iron_rod", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_ROD.get()))
                 .unlockedBy("iron_fence", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.IRON_FENCE.get()))
                 .save(consumer, saveResource("iron_scaffolding"));
-
-
 
 
     }

@@ -4,7 +4,9 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -16,8 +18,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class ItemsStorageProvider extends RecipeProvider {
 
-    public ItemsStorageProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ItemsStorageProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -25,9 +27,9 @@ public class ItemsStorageProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModItems.FLUID_CELL.get(), 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FLUID_CELL.get(), 4)
                 .pattern(" t ")
                 .pattern("tgt")
                 .pattern(" t ")
@@ -37,7 +39,7 @@ public class ItemsStorageProvider extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_INGOT.get()))
                 .save(consumer, saveResource("fluid_cell"));
         
-        ShapedRecipeBuilder.shaped(ModItems.MEMORY_CARD.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MEMORY_CARD.get(), 1)
                 .pattern("aia")
                 .pattern("ici")
                 .pattern("pip")
@@ -52,7 +54,7 @@ public class ItemsStorageProvider extends RecipeProvider {
                 .unlockedBy("amethyst_shard", InventoryChangeTrigger.TriggerInstance.hasItems(Items.AMETHYST_SHARD))
                 .save(consumer, saveResource("memory_card"));
 
-        ShapedRecipeBuilder.shaped(ModItems.FOAM_SPRAYER.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FOAM_SPRAYER.get(), 1)
                 .pattern("i  ")
                 .pattern(" i ")
                 .pattern(" ci")
@@ -63,13 +65,14 @@ public class ItemsStorageProvider extends RecipeProvider {
                 .unlockedBy("fluid_cell", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLUID_CELL.get()))
                 .save(consumer, saveResource("foam_sprayer"));
 
-        ShapedRecipeBuilder.shaped(ModItems.EMPTY_CAN.get(), 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EMPTY_CAN.get(), 4)
                 .pattern("t t")
                 .pattern("ttt")
                 .define('t', ModItemTags.FORGE_PLATES_TIN)
                 .group(MODID + "/items/storage")
                 .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
                 .save(consumer, saveResource("tin_can"));
+
 
     }
 }

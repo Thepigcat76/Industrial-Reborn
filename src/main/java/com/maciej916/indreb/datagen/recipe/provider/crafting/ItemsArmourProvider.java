@@ -5,7 +5,9 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -18,8 +20,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class ItemsArmourProvider extends RecipeProvider {
 
-    public ItemsArmourProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ItemsArmourProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -27,9 +29,9 @@ public class ItemsArmourProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModItems.BRONZE_HELMET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BRONZE_HELMET.get())
                 .pattern("bbb")
                 .pattern("b b")
                 .define('b', ModItemTags.FORGE_INGOTS_BRONZE)
@@ -37,7 +39,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("bronze_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_helmet"));
         
-        ShapedRecipeBuilder.shaped(ModItems.BRONZE_CHESTPLATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BRONZE_CHESTPLATE.get())
                 .pattern("b b")
                 .pattern("bbb")
                 .pattern("bbb")
@@ -46,7 +48,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("bronze_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_chestplate"));
         
-        ShapedRecipeBuilder.shaped(ModItems.BRONZE_LEGGINGS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BRONZE_LEGGINGS.get())
                 .pattern("bbb")
                 .pattern("b b")
                 .pattern("b b")
@@ -55,7 +57,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("bronze_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_leggings"));
         
-        ShapedRecipeBuilder.shaped(ModItems.BRONZE_BOOTS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BRONZE_BOOTS.get())
                 .pattern("b b")
                 .pattern("b b")
                 .define('b', ModItemTags.FORGE_INGOTS_BRONZE)
@@ -63,7 +65,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("bronze_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_boots"));
         
-        ShapedRecipeBuilder.shaped(ModItems.RUBBER_BOOTS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.RUBBER_BOOTS.get())
                 .pattern("r r")
                 .pattern("r r")
                 .pattern("rwr")
@@ -74,7 +76,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("white_wool", InventoryChangeTrigger.TriggerInstance.hasItems(Items.WHITE_WOOL))
                 .save(consumer, saveResource("rubber_boots"));
 
-        ShapedRecipeBuilder.shaped(ModItems.NIGHTVISION_GOGGLES.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NIGHTVISION_GOGGLES.get())
                 .pattern(" b ")
                 .pattern("lgl")
                 .pattern("rar")
@@ -91,7 +93,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT.get()))
                 .save(consumer, saveResource("nightvision_goggles"));
 
-        ShapedRecipeBuilder.shaped(ModItems.NANO_HELMET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NANO_HELMET.get())
                 .pattern("cec")
                 .pattern("cnc")
                 .define('c', ModItems.CARBON_PLATE.get())
@@ -103,7 +105,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("nightvision_goggles", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NIGHTVISION_GOGGLES.get()))
                 .save(consumer, saveResource("nano_helmet"));
         
-        ShapedRecipeBuilder.shaped(ModItems.NANO_CHESTPLATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NANO_CHESTPLATE.get())
                 .pattern("c c")
                 .pattern("cec")
                 .pattern("ccc")
@@ -114,7 +116,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
                 .save(consumer, saveResource("nano_chestplate"));
         
-        ShapedRecipeBuilder.shaped(ModItems.NANO_LEGGINGS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NANO_LEGGINGS.get())
                 .pattern("cec")
                 .pattern("c c")
                 .pattern("c c")
@@ -125,7 +127,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
                 .save(consumer, saveResource("nano_leggings"));
 
-        ShapedRecipeBuilder.shaped(ModItems.NANO_BOOTS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NANO_BOOTS.get())
                 .pattern("cbc")
                 .pattern("cec")
                 .define('c', ModItems.CARBON_PLATE.get())
@@ -138,7 +140,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .save(consumer, saveResource("nano_boots"));
 
 
-        ShapedRecipeBuilder.shaped(ModItems.HAZMAT_SUIT_HELMET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.HAZMAT_SUIT_HELMET.get())
                 .pattern("owo")
                 .pattern("plp")
                 .pattern("wsw")
@@ -151,7 +153,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("radiation_shielding", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RADIATION_SHIELDING.get()))
                 .save(consumer, saveResource("hazmat_suit_helmet"));
 
-        ShapedRecipeBuilder.shaped(ModItems.HAZMAT_SUIT_CHESTPLATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.HAZMAT_SUIT_CHESTPLATE.get())
                 .pattern("wpw")
                 .pattern("olo")
                 .pattern("pwp")
@@ -163,7 +165,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("radiation_shielding", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RADIATION_SHIELDING.get()))
                 .save(consumer, saveResource("hazmat_suit_chestplate"));
 
-        ShapedRecipeBuilder.shaped(ModItems.HAZMAT_SUIT_LEGGINGS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.HAZMAT_SUIT_LEGGINGS.get())
                 .pattern("owo")
                 .pattern("plp")
                 .pattern("w w")
@@ -175,7 +177,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("radiation_shielding", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RADIATION_SHIELDING.get()))
                 .save(consumer, saveResource("hazmat_suit_leggings"));
 
-        ShapedRecipeBuilder.shaped(ModItems.HAZMAT_SUIT_BOOTS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.HAZMAT_SUIT_BOOTS.get())
                 .pattern("pop")
                 .pattern("wlw")
                 .define('o', ModItemTags.FORGE_DYES_BLACK)
@@ -186,7 +188,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("radiation_shielding", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RADIATION_SHIELDING.get()))
                 .save(consumer, saveResource("hazmat_suit_boots"));
 
-        ShapedRecipeBuilder.shaped(ModItems.QUANTUM_HELMET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.QUANTUM_HELMET.get())
                 .pattern("rlr")
                 .pattern("ini")
                 .pattern("aha")
@@ -201,7 +203,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL.get()))
                 .save(consumer, saveResource("quantum_helmet"));
 
-        ShapedRecipeBuilder.shaped(ModItems.QUANTUM_CHESTPLATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.QUANTUM_CHESTPLATE.get())
                 .pattern("ala")
                 .pattern("ana")
                 .pattern("rfr")
@@ -215,7 +217,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL.get()))
                 .save(consumer, saveResource("quantum_chestplate"));
 
-        ShapedRecipeBuilder.shaped(ModItems.QUANTUM_LEGGINGS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.QUANTUM_LEGGINGS.get())
                 .pattern("ala")
                 .pattern("rnr")
                 .pattern("b b")
@@ -229,7 +231,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL.get()))
                 .save(consumer, saveResource("quantum_leggings"));
 
-        ShapedRecipeBuilder.shaped(ModItems.QUANTUM_BOOTS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.QUANTUM_BOOTS.get())
                 .pattern("ini")
                 .pattern("rlr")
                 .define('i', ModItems.IRIDIUM_PLATE.get())
@@ -240,5 +242,7 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("iridium_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_PLATE.get()))
                 .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL.get()))
                 .save(consumer, saveResource("quantum_boots"));
+
+
     }
 }

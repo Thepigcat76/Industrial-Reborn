@@ -73,7 +73,7 @@ public class ExtractingRecipe extends BaseChanceRecipe {
         @Override
         public void toNetwork(FriendlyByteBuf buffer, ExtractingRecipe recipe) {
             recipe.getIngredientCount().toNetwork(buffer);
-            buffer.writeItemStack(recipe.getResultItem(), false);
+            buffer.writeItemStack(recipe.getResult(), false);
             buffer.writeInt(recipe.getDuration());
             buffer.writeInt(recipe.getTickEnergyCost());
             buffer.writeFloat(recipe.getExperience());

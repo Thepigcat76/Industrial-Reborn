@@ -5,11 +5,16 @@ import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
 import com.maciej916.indreb.common.sound.ModSounds;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -26,7 +31,7 @@ public class RadiationHelper {
     public static final double RADIATION_DECAY = (0.1  * 10e-6);
     public static final double PLAYER_RADIATION_DECAY = 0.0000005D;
     public static final int RADIATION_IMMUNE_TIME = 2400;
-    public static DamageSource RADIATION = new DamageSource("radiation");
+    public static DamageSource RADIATION = new DamageSource(Holder.direct(new DamageType("radiation", 1f)));
 
     public static double calculateRadiationDistance(double radiation, int distance) {
         return Math.max(0, radiation - (RADIATION_DECAY * distance));

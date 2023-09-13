@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.datagen.recipe.builder.SawingRecipeBuilder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.tags.ItemTags;
@@ -14,12 +15,12 @@ import java.util.function.Consumer;
 
 public class SawingRecipeProvider extends RecipeProvider {
 
-    public SawingRecipeProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public SawingRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
         SawingRecipeBuilder.builder(ModItems.RUBBER_PLANKS, 5)
                 .setIngredient(ModItems.RUBBER_LOG, 1)

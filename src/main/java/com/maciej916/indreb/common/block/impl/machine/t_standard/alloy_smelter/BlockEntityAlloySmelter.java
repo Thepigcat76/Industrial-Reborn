@@ -131,7 +131,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IHasEx
                     if (costStack0 != 0) StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT_0, costStack0);
                     if (costStack1 != 0) StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT_1, costStack1);
                     if (costStack2 != 0) StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT_2, costStack2);
-                    StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem());
+                    StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResult());
                     progressRecipe.resetProgress();
                     addRecipeUsed(recipe);
                 }
@@ -281,6 +281,6 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IHasEx
 
     private boolean canWork() {
         final ItemStack outputStack = getBaseStorage().getStackInSlot(OUTPUT_SLOT);
-        return outputStack.isEmpty() || (outputStack.getCount() + recipe.getResultItem().getCount() <= outputStack.getMaxStackSize() && recipe.getResultItem().getItem() == outputStack.getItem());
+        return outputStack.isEmpty() || (outputStack.getCount() + recipe.getResult().getCount() <= outputStack.getMaxStackSize() && recipe.getResult().getItem() == outputStack.getItem());
     }
 }

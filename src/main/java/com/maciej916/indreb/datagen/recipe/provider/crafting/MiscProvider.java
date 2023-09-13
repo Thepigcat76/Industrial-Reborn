@@ -5,7 +5,9 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -17,8 +19,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class MiscProvider extends RecipeProvider {
 
-    public MiscProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public MiscProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -26,9 +28,9 @@ public class MiscProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModBlocks.LUMINATOR.get(), 8)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LUMINATOR.get(), 8)
                 .pattern("pcp")
                 .pattern("gug")
                 .pattern("ggg")
@@ -43,7 +45,7 @@ public class MiscProvider extends RecipeProvider {
                 .unlockedBy("glass", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GLASS))
                 .save(consumer, saveResource("luminator"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.PATTERN_STORAGE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PATTERN_STORAGE.get())
                 .pattern("rrr")
                 .pattern("mam")
                 .pattern("scs")
@@ -60,7 +62,7 @@ public class MiscProvider extends RecipeProvider {
                 .unlockedBy("chest", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CHEST))
                 .save(consumer, saveResource("pattern_storage"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.TELEPORT_ANCHOR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TELEPORT_ANCHOR.get())
                 .pattern("ctc")
                 .pattern("gag")
                 .pattern("cdc")
@@ -76,5 +78,7 @@ public class MiscProvider extends RecipeProvider {
                 .unlockedBy("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
                 .unlockedBy("advanced_machine_casing", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_MACHINE_CASING.get()))
                 .save(consumer, saveResource("teleport_anchor"));
+
+
     }
 }

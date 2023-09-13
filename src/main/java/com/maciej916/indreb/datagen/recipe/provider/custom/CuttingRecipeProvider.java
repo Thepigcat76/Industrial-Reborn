@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.datagen.recipe.builder.CuttingRecipeBuilder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.Items;
@@ -13,12 +14,12 @@ import java.util.function.Consumer;
 
 public class CuttingRecipeProvider extends RecipeProvider {
 
-    public CuttingRecipeProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public CuttingRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
         CuttingRecipeBuilder.builder(ModItems.TIN_CABLE, 3)
                 .setIngredient(ModItemTags.FORGE_PLATES_TIN, 1)

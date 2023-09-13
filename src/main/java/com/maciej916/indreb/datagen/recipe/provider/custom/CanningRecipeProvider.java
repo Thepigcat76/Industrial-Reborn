@@ -4,6 +4,7 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.datagen.recipe.builder.CanningRecipeBuilder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.Items;
@@ -12,12 +13,12 @@ import java.util.function.Consumer;
 
 public class CanningRecipeProvider extends RecipeProvider {
 
-    public CanningRecipeProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public CanningRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
         CanningRecipeBuilder.builder(ModItems.CANNED_FOOD, 4)
                 .setFirstIngredient(Items.APPLE, 1)

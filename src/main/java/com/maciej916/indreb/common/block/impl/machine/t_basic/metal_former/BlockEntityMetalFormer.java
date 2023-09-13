@@ -97,7 +97,7 @@ public class BlockEntityMetalFormer extends IndRebBlockEntity implements IHasExp
                     }
 
                     if (progressRecipe.isCurrentAboveEqualMax()) {
-                        StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem());
+                        StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResult());
                         StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT, recipe.getIngredientCount().getIngredientsCount().get(0));
                         progressRecipe.resetProgress();
                         addRecipeUsed(recipe);
@@ -225,7 +225,7 @@ public class BlockEntityMetalFormer extends IndRebBlockEntity implements IHasExp
         final ItemStack inputStack = getBaseStorage().getStackInSlot(INPUT_SLOT);
         final ItemStack outputStack = getBaseStorage().getStackInSlot(OUTPUT_SLOT);
 
-        return !inputStack.isEmpty() && (outputStack.isEmpty() || (outputStack.getCount() + recipe.getResultItem().getCount() <= outputStack.getMaxStackSize() && recipe.getResultItem().getItem() == outputStack.getItem()));
+        return !inputStack.isEmpty() && (outputStack.isEmpty() || (outputStack.getCount() + recipe.getResult().getCount() <= outputStack.getMaxStackSize() && recipe.getResult().getItem() == outputStack.getItem()));
     }
 
     public Runnable changeModeClient () {

@@ -4,7 +4,9 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -16,8 +18,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class ItemsCanProvider extends RecipeProvider {
 
-    public ItemsCanProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ItemsCanProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -25,9 +27,9 @@ public class ItemsCanProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModItems.NUKA_COLA.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.NUKA_COLA.get(), 1)
                 .pattern("sss")
                 .pattern("cdd")
                 .define('s', Items.SUGAR)
@@ -39,7 +41,7 @@ public class ItemsCanProvider extends RecipeProvider {
                 .unlockedBy("empty_can", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.EMPTY_CAN.get()))
                 .save(consumer, saveResource("nuka_cola"));
 
-        ShapedRecipeBuilder.shaped(ModItems.SPRUNK.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.SPRUNK.get(), 1)
                 .pattern("sss")
                 .pattern("cdd")
                 .define('s', Items.SUGAR)
@@ -51,7 +53,7 @@ public class ItemsCanProvider extends RecipeProvider {
                 .unlockedBy("empty_can", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.EMPTY_CAN.get()))
                 .save(consumer, saveResource("sprunk"));
 
-        ShapedRecipeBuilder.shaped(ModItems.ENERGY_DRINK.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.ENERGY_DRINK.get(), 1)
                 .pattern("sss")
                 .pattern("cdd")
                 .define('s', Items.SUGAR)

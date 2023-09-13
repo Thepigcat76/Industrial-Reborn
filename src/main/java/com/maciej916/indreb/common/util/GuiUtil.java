@@ -16,21 +16,17 @@ public class GuiUtil {
         return Minecraft.getInstance().font;
     }
 
-    public static void drawString(PoseStack poseStack, String text, int x, int y, int color, boolean shadow) {
-        if (shadow) {
-            getFont().drawShadow(poseStack, text, x, y, color, true);
-        } else {
-            getFont().drawInBatch(poseStack, text, x, y, color);
-        }
+    public static void drawString(GuiGraphics guiGraphics, String text, int x, int y, int color, boolean shadow) {
+        guiGraphics.drawString(getFont(), text, x, y, color, shadow);
     }
 
-    public static void prepTextScale(GuiGraphics guiGraphics, Consumer<PoseStack> runnable, float x, float y, float scale) {
+    public static void prepTextScale(GuiGraphics guiGraphics, Consumer<GuiGraphics> runnable, float x, float y, float scale) {
         float yAdd = 4 - (scale * 8) / 2F;
         PoseStack poseStack = guiGraphics.pose();
         poseStack.pushPose();
         poseStack.translate(x, y + yAdd, 0);
         poseStack.scale(scale, scale, scale);
-        runnable.accept(poseStack);
+        runnable.accept(guiGraphics);
         poseStack.popPose();
         RenderSystem.setShaderColor(1, 1, 1, 1);
     }

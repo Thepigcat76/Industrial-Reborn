@@ -18,6 +18,7 @@ import com.maciej916.indreb.common.util.StackHandlerHelper;
 import com.maciej916.indreb.common.util.WrappedHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.SimpleContainer;
@@ -96,7 +97,7 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IHa
                 }
 
                 if (progressRecipe.isCurrentAboveEqualMax()) {
-                    StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem());
+                    StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem(level.registryAccess()));
                     StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT, 1);
                     progressRecipe.resetProgress();
                     addRecipeUsed(recipe);
@@ -195,7 +196,9 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IHa
         final ItemStack inputStack = getBaseStorage().getStackInSlot(INPUT_SLOT);
         final ItemStack outputStack = getBaseStorage().getStackInSlot(OUTPUT_SLOT);
 
-        return !inputStack.isEmpty() && (outputStack.isEmpty() || (outputStack.getCount() + recipe.getResultItem().getCount() <= outputStack.getMaxStackSize() && recipe.getResultItem().getItem() == outputStack.getItem()));
+        if (inputStack.isEmpty()) return false;
+        if (outputStack.isEmpty()) return true;
+        return outputStack.getCount() + recipe.getResultItem(level.registryAccess()).getCount() <= outputStack.getMaxStackSize() && recipe.getResultItem(level.registryAccess()).getItem() == outputStack.getItem();
     }
 
     @Override

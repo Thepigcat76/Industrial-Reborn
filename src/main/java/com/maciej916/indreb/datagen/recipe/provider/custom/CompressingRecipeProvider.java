@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.datagen.recipe.builder.CompressingRecipeBuilder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -16,12 +17,12 @@ import java.util.function.Consumer;
 
 public class CompressingRecipeProvider extends RecipeProvider {
 
-    public CompressingRecipeProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public CompressingRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
         CompressingRecipeBuilder.builder(Items.IRON_BLOCK, 1)
                 .setIngredient(ModItemTags.FORGE_INGOTS_IRON, 9)

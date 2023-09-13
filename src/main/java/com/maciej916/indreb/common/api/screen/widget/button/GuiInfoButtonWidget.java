@@ -10,6 +10,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
@@ -26,26 +27,27 @@ public class GuiInfoButtonWidget extends BaseButtonWidget {
     }
 
     @Override
-    public void renderToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
+    public void renderToolTip(Screen screen, GuiGraphics guiGraphics, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused()) {
             List<Component> elements = new ArrayList<>();
             elements.add(Component.translatable(EnumLang.SUPPORTED_UPGRADES.getTranslationKey()).withStyle(ChatFormatting.AQUA));
             for (UpgradeTypes ut: upgrades.getSupportedUpgrades()) {
                 elements.add(ut.getLang().getTranslationComponent());
             }
-            screen.renderComponentTooltip(pPoseStack, elements, pMouseX, pMouseY);
+            guiGraphics.renderComponentTooltip(screen.getMinecraft().font, elements, pMouseX, pMouseY);
         }
 
-        super.renderToolTip(screen, pPoseStack, pMouseX, pMouseY);
+        super.renderToolTip(screen, guiGraphics, pMouseX, pMouseY);
     }
 
     @Override
-    protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
-        super.renderBackground(pPoseStack, pMinecraft, pMouseX, pMouseY);
+    public void renderBackground(GuiGraphics guiGraphics, Minecraft pMinecraft, int pMouseX, int pMouseY) {
+        super.renderBackground(guiGraphics, pMinecraft, pMouseX, pMouseY);
 
+        // TODO: remove these calls
         RenderSystem.setShaderTexture(0, getResourceLocation());
         GuiSprite sprite = GuiSprite.INFO_ICON;
 
-        blit(pPoseStack, getX() + sprite.getRenderOffsetLeft(), getY() + sprite.getRenderOffsetLeft(), sprite.getOffsetLeft(), sprite.getOffsetTop(), sprite.getWidth(), sprite.getHeight());
+        guiGraphics.blit(getResourceLocation(), getX() + sprite.getRenderOffsetLeft(), getY() + sprite.getRenderOffsetLeft(), sprite.getOffsetLeft(), sprite.getOffsetTop(), sprite.getWidth(), sprite.getHeight());
     }
 }

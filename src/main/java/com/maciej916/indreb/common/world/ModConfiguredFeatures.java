@@ -2,20 +2,28 @@ package com.maciej916.indreb.common.world;
 
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
+import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.world.rubber_tree.RubberFoliagePlacer;
 import com.maciej916.indreb.common.world.rubber_tree.RubberTreeBlockStateProvider;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.OreFeatures;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.OreFeature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -27,37 +35,25 @@ import java.util.List;
 import static com.maciej916.indreb.IndReb.MODID;
 
 public class ModConfiguredFeatures {
-    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister.create(Registries.CONFIGURED_FEATURE, MODID);
 
-    public static final Supplier<List<OreConfiguration.TargetBlockState>> ORE_TIN_TARGET_LIST = Suppliers.memoize(() -> List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.TIN_ORE.get().defaultBlockState()), OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_TIN_ORE.get().defaultBlockState())));
-    public static final Supplier<List<OreConfiguration.TargetBlockState>> ORE_LEAD_TARGET_LIST = Suppliers.memoize(() -> List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.LEAD_ORE.get().defaultBlockState()), OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_LEAD_ORE.get().defaultBlockState())));
-    public static final Supplier<List<OreConfiguration.TargetBlockState>> ORE_URANIUM_TARGET_LIST = Suppliers.memoize(() -> List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.URANIUM_ORE.get().defaultBlockState()), OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_URANIUM_ORE.get().defaultBlockState())));
-    public static final Supplier<List<OreConfiguration.TargetBlockState>> ORE_SILVER_TARGET_LIST = Suppliers.memoize(() -> List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.SILVER_ORE.get().defaultBlockState()), OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_SILVER_ORE.get().defaultBlockState())));
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RUBBER_TREE_KEY = registerKey("rubber_tree");
 
-    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_TIN_SMALL = CONFIGURED_FEATURES.register("tin_ore_small", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_TIN_TARGET_LIST.get(), 8)));
-    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_TIN_LARGE = CONFIGURED_FEATURES.register("ore_tin_large", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_TIN_TARGET_LIST.get(), 10)));
-    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_LEAD = CONFIGURED_FEATURES.register("ore_lead", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_LEAD_TARGET_LIST.get(), 6)));
-    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_URANIUM = CONFIGURED_FEATURES.register("ore_uranium", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_URANIUM_TARGET_LIST.get(), 2, 0.5f)));
-    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_SILVER = CONFIGURED_FEATURES.register("ore_silver", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_SILVER_TARGET_LIST.get(), 4)));
+    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+        register(context, RUBBER_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(ModBlocks.RUBBER_LOG.get()),
+                new StraightTrunkPlacer(5, 6, 5),
+                BlockStateProvider.simple(ModBlocks.RUBBER_LEAVES.get()),
+                new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 4),
+                new TwoLayersFeatureSize(1, 0, 2)).build()
+        );
+    }
 
-    public static final RegistryObject<ConfiguredFeature<?, ?>> RUBBER_TREE =
-            CONFIGURED_FEATURES.register("rubber_tree", () ->
-                    new ConfiguredFeature<>(Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                            new RubberTreeBlockStateProvider(ModBlocks.RUBBER_LOG.get().defaultBlockState()),
-                            new StraightTrunkPlacer(4, 2, 0),
-                            SimpleStateProvider.simple(ModBlocks.RUBBER_LEAVES.get().defaultBlockState()),
-                            new RubberFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 2),
-                            new TwoLayersFeatureSize(1, 0, 1)
-                    ).ignoreVines().build()));
+    public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(IndReb.MODID, name));
+    }
 
-
-    public static final RegistryObject<ConfiguredFeature<?, ?>> RUBBER_TREE_SPAWN =
-            CONFIGURED_FEATURES.register("rubber_tree_spawn", () -> new ConfiguredFeature<>(Feature.RANDOM_SELECTOR,
-                    new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                            ModPlacedFeatures.RUBBER_TREE_CHECKED.getHolder().get(),
-                            0.5F)), ModPlacedFeatures.RUBBER_TREE_CHECKED.getHolder().get())));
-
-    public static void register(IEventBus eventBus) {
-        CONFIGURED_FEATURES.register(eventBus);
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context,
+                                                                                          ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
+        context.register(key, new ConfiguredFeature<>(feature, configuration));
     }
 }

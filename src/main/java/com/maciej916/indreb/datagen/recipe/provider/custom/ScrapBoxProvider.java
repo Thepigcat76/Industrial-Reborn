@@ -3,6 +3,7 @@ package com.maciej916.indreb.datagen.recipe.provider.custom;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.datagen.recipe.builder.ScrapBoxRecipeBuilder;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.Items;
@@ -11,12 +12,12 @@ import java.util.function.Consumer;
 
 public class ScrapBoxProvider extends RecipeProvider {
 
-    public ScrapBoxProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ScrapBoxProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
         ScrapBoxRecipeBuilder.builder(Items.WOODEN_HOE).setWeight(5.0F).save(consumer,"wooden_hoe");
         ScrapBoxRecipeBuilder.builder(Items.WOODEN_AXE).setWeight(5.0F).save(consumer,"wooden_axe");

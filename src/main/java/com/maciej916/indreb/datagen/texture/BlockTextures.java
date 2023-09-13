@@ -6,6 +6,7 @@ import com.maciej916.indreb.common.multiblock.reactor.ReactorPartIndex;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,8 +26,8 @@ import static com.maciej916.indreb.common.util.BlockStateHelper.HORIZONTAL_FACIN
 
 public class BlockTextures extends BlockStateProvider {
 
-    public BlockTextures(DataGenerator gen, ExistingFileHelper exFileHelper) {
-        super(gen, IndReb.MODID, exFileHelper);
+    public BlockTextures(PackOutput packOutput, ExistingFileHelper exFileHelper) {
+        super(packOutput, IndReb.MODID, exFileHelper);
     }
 
     @Override

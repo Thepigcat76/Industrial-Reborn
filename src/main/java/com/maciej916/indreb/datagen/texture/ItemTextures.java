@@ -3,6 +3,7 @@ package com.maciej916.indreb.datagen.texture;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.item.ModItems;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
@@ -12,8 +13,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ItemTextures extends ItemModelProvider {
 
-    public ItemTextures(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, IndReb.MODID, existingFileHelper);
+    public ItemTextures(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
+        super(packOutput, IndReb.MODID, existingFileHelper);
     }
 
     @Override

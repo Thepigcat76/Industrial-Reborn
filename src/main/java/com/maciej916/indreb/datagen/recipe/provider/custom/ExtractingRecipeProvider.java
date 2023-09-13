@@ -5,8 +5,10 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.datagen.recipe.builder.ExtractingRecipeBuilder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 
@@ -14,12 +16,12 @@ import java.util.function.Consumer;
 
 public class ExtractingRecipeProvider extends RecipeProvider {
 
-    public ExtractingRecipeProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ExtractingRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
         ExtractingRecipeBuilder.builder(ModItems.RUBBER, 3)
                 .setIngredient(ModItems.STICKY_RESIN, 1)

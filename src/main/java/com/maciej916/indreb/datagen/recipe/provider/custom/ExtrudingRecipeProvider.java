@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.datagen.recipe.builder.ExtrudingRecipeBuilder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 
@@ -12,12 +13,12 @@ import java.util.function.Consumer;
 
 public class ExtrudingRecipeProvider extends RecipeProvider {
 
-    public ExtrudingRecipeProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ExtrudingRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
         ExtrudingRecipeBuilder.builder(ModItems.EMPTY_CAN, 1)
                 .setIngredient(ModItemTags.FORGE_PLATES_TIN, 1)

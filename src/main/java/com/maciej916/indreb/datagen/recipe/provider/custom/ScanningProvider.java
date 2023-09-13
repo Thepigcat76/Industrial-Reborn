@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.datagen.recipe.builder.ScanningRecipeBuilder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.Items;
@@ -13,12 +14,12 @@ import java.util.function.Consumer;
 
 public class ScanningProvider extends RecipeProvider {
 
-    public ScanningProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ScanningProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
         ScanningRecipeBuilder.builder(Items.STONE).setExperience(5F).setMatterCost(15).addCriterion("stone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STONE)).save(consumer,"stone");
         ScanningRecipeBuilder.builder(Items.GRANITE).setExperience(5F).setMatterCost(15).addCriterion("granite", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GRANITE)).save(consumer,"granite");

@@ -4,7 +4,9 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -16,8 +18,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class ExplosiveProvider extends RecipeProvider {
 
-    public ExplosiveProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ExplosiveProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -25,9 +27,9 @@ public class ExplosiveProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModItems.INDUSTRIAL_TNT.get(), 2)
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModItems.INDUSTRIAL_TNT.get(), 2)
                 .pattern("fff")
                 .pattern("ttt")
                 .pattern("fff")
@@ -38,7 +40,7 @@ public class ExplosiveProvider extends RecipeProvider {
                 .unlockedBy("tnt", InventoryChangeTrigger.TriggerInstance.hasItems(Items.TNT))
                 .save(consumer, saveResource("industrial_tnt"));
 
-        ShapedRecipeBuilder.shaped(ModItems.INDUSTRIAL_TNT.get(), 2)
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModItems.INDUSTRIAL_TNT.get(), 2)
                 .pattern("ftf")
                 .pattern("ftf")
                 .pattern("ftf")
@@ -49,7 +51,7 @@ public class ExplosiveProvider extends RecipeProvider {
                 .unlockedBy("tnt", InventoryChangeTrigger.TriggerInstance.hasItems(Items.TNT))
                 .save(consumer, saveResource("industrial_tnt_2"));
 
-        ShapedRecipeBuilder.shaped(ModItems.NUKE.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModItems.NUKE.get(), 1)
                 .pattern("tat")
                 .pattern("ntn")
                 .pattern("tat")
@@ -62,7 +64,7 @@ public class ExplosiveProvider extends RecipeProvider {
                 .unlockedBy("iridium_neutron_reflector", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_NEUTRON_REFLECTOR.get()))
                 .save(consumer, saveResource("nuke"));
 
-        ShapedRecipeBuilder.shaped(ModItems.NUKE.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModItems.NUKE.get(), 1)
                 .pattern("tnt")
                 .pattern("ata")
                 .pattern("tnt")
@@ -74,7 +76,6 @@ public class ExplosiveProvider extends RecipeProvider {
                 .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT.get()))
                 .unlockedBy("iridium_neutron_reflector", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_NEUTRON_REFLECTOR.get()))
                 .save(consumer, saveResource("nuke_2"));
-
 
 
     }

@@ -5,7 +5,9 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -18,8 +20,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class EnergyStorageProvider extends RecipeProvider {
 
-    public EnergyStorageProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public EnergyStorageProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -27,9 +29,9 @@ public class EnergyStorageProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModBlocks.BATTERY_BOX.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BATTERY_BOX.get())
                 .pattern("pCp")
                 .pattern("BBB")
                 .pattern("ppp")
@@ -40,7 +42,7 @@ public class EnergyStorageProvider extends RecipeProvider {
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BATTERY.get()))
                 .save(consumer, saveResource("battery_box"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.CESU.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CESU.get())
                 .pattern("pcp")
                 .pattern("bbb")
                 .pattern("ppp")
@@ -51,7 +53,7 @@ public class EnergyStorageProvider extends RecipeProvider {
                 .unlockedBy("advanced_battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_BATTERY.get()))
                 .save(consumer, saveResource("cesu"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.MFE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MFE.get())
                 .pattern("geg")
                 .pattern("ece")
                 .pattern("geg")
@@ -62,7 +64,7 @@ public class EnergyStorageProvider extends RecipeProvider {
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
                 .save(consumer, saveResource("mfe"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.MFSU.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MFSU.get())
                 .pattern("lal")
                 .pattern("lml")
                 .pattern("lcl")
@@ -75,7 +77,7 @@ public class EnergyStorageProvider extends RecipeProvider {
                 .save(consumer, saveResource("mfsu"));
 
 
-        ShapedRecipeBuilder.shaped(ModBlocks.CHARGE_PAD_BATTERY_BOX.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHARGE_PAD_BATTERY_BOX.get())
                 .pattern("epe")
                 .pattern("rbr")
                 .define('e', ModItems.ELECTRONIC_CIRCUIT.get())
@@ -89,7 +91,7 @@ public class EnergyStorageProvider extends RecipeProvider {
                 .unlockedBy("battery_box", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BATTERY_BOX.get()))
                 .save(consumer, saveResource("charge_pad_battery_box"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.CHARGE_PAD_CESU.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHARGE_PAD_CESU.get())
                 .pattern("epe")
                 .pattern("rbr")
                 .define('e', ModItems.ELECTRONIC_CIRCUIT.get())
@@ -103,7 +105,7 @@ public class EnergyStorageProvider extends RecipeProvider {
                 .unlockedBy("cesu", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.CESU.get()))
                 .save(consumer, saveResource("charge_pad_cesu"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.CHARGE_PAD_MFE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHARGE_PAD_MFE.get())
                 .pattern("epe")
                 .pattern("rbr")
                 .define('e', ModItems.ELECTRONIC_CIRCUIT.get())
@@ -117,7 +119,7 @@ public class EnergyStorageProvider extends RecipeProvider {
                 .unlockedBy("mfe", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.MFE.get()))
                 .save(consumer, saveResource("charge_pad_mfe"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.CHARGE_PAD_MFSU.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHARGE_PAD_MFSU.get())
                 .pattern("epe")
                 .pattern("rbr")
                 .define('e', ModItems.ADVANCED_CIRCUIT.get())
@@ -132,7 +134,7 @@ public class EnergyStorageProvider extends RecipeProvider {
                 .save(consumer, saveResource("charge_pad_mfsu"));
 
 
-        ShapedRecipeBuilder.shaped(ModBlocks.LV_TRANSFORMER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LV_TRANSFORMER.get())
                 .pattern("pcp")
                 .pattern("bob")
                 .pattern("pcp")
@@ -147,7 +149,7 @@ public class EnergyStorageProvider extends RecipeProvider {
                 .unlockedBy("bronze_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_PLATE.get()))
                 .save(consumer, saveResource("lv_transformer"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.MV_TRANSFORMER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MV_TRANSFORMER.get())
                 .pattern(" g ")
                 .pattern("eba")
                 .pattern(" g ")
@@ -162,7 +164,7 @@ public class EnergyStorageProvider extends RecipeProvider {
                 .unlockedBy("advanced_battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_BATTERY.get()))
                 .save(consumer, saveResource("mv_transformer"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.HV_TRANSFORMER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.HV_TRANSFORMER.get())
                 .pattern(" g ")
                 .pattern("ebn")
                 .pattern(" g ")
@@ -177,7 +179,7 @@ public class EnergyStorageProvider extends RecipeProvider {
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
                 .save(consumer, saveResource("hv_transformer"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.EV_TRANSFORMER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.EV_TRANSFORMER.get())
                 .pattern(" g ")
                 .pattern("ebn")
                 .pattern(" g ")

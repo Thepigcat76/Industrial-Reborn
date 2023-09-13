@@ -29,11 +29,6 @@ public class DebugStick extends IEMeter {
     }
 
     @Override
-    public void fillItemCategory(CreativeModeTab pCategory, NonNullList<ItemStack> pItems) {
-
-    }
-
-    @Override
     public void appendHoverText(ItemStack p_41421_, @Nullable Level level, List<Component> components, TooltipFlag flag) {
 
     }

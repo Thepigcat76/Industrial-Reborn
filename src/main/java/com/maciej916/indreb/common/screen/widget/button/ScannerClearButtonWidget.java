@@ -36,9 +36,9 @@ public class ScannerClearButtonWidget extends BaseButtonWidget {
     }
 
     @Override
-    protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
+    public void renderBackground(GuiGraphics guiGraphics, Minecraft pMinecraft, int pMouseX, int pMouseY) {
         if (entity.getMode().getId() >= 4) {
-            super.renderBackground(pPoseStack, pMinecraft, pMouseX, pMouseY);
+            super.renderBackground(guiGraphics, pMinecraft, pMouseX, pMouseY);
         }
     }
 }

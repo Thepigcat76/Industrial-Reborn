@@ -9,4 +9,8 @@ public interface SolarPanelTier {
     double getHeight();
     int getEnergyCapacity();
 
+    int getDayGenerate();
+
+    int getNightGenerate();
+
 }

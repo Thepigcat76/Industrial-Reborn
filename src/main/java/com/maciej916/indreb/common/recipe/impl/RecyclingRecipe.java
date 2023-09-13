@@ -130,7 +130,7 @@ public class RecyclingRecipe extends BaseRecipe {
         public void toNetwork(FriendlyByteBuf buffer, RecyclingRecipe recipe) {
             recipe.getIngredientCount().toNetwork(buffer);
             recipe.getIngredientsExcluded().toNetwork(buffer);
-            buffer.writeItemStack(recipe.getResultItem(), false);
+            buffer.writeItemStack(recipe.getResult(), false);
             buffer.writeFloat(recipe.getChance());
             buffer.writeInt(recipe.getDuration());
             buffer.writeInt(recipe.getTickEnergyCost());

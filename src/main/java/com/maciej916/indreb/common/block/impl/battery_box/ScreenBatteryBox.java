@@ -7,6 +7,9 @@ import com.maciej916.indreb.common.api.screen.widget.text.SimpleTextWidget;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -31,9 +34,10 @@ public class ScreenBatteryBox extends IndRebScreen<MenuBatteryBox> {
     }
 
     @Override
-    protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-        super.renderLabels(poseStack, mouseX, mouseY);
-        this.font.draw(poseStack, EnumLang.ARMOUR.getTranslationComponent(), 8, 72, 4210752);
+    protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+        super.renderLabels(guiGraphics, mouseX, mouseY);
+        Font font = super.font;
+        guiGraphics.drawCenteredString(font, EnumLang.ARMOUR.getTranslationComponent(), 8, 72, 4210752);
     }
 
     @Override

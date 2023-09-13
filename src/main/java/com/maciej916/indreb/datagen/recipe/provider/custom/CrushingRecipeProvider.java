@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.datagen.recipe.builder.CrushingRecipeBuilder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.tags.ItemTags;
@@ -14,12 +15,12 @@ import java.util.function.Consumer;
 
 public class CrushingRecipeProvider extends RecipeProvider {
 
-    public CrushingRecipeProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public CrushingRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         CrushingRecipeBuilder.builder(Items.BLAZE_POWDER,3)
                 .setIngredient(Items.BLAZE_ROD, 1)
                 .setExperience(0.1F)

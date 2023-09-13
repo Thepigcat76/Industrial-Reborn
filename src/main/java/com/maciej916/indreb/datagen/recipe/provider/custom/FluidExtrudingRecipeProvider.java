@@ -4,6 +4,7 @@ import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.datagen.recipe.builder.FluidExtrudingRecipeBuilder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.level.block.Blocks;
@@ -13,12 +14,12 @@ import java.util.function.Consumer;
 
 public class FluidExtrudingRecipeProvider extends RecipeProvider {
 
-    public FluidExtrudingRecipeProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public FluidExtrudingRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
         FluidExtrudingRecipeBuilder.builder(Blocks.COBBLESTONE, 1)
                 .setFirstFluid(Fluids.WATER, 1, false)

@@ -4,6 +4,7 @@ import com.maciej916.indreb.common.api.enums.EnergyTiers;
 import com.maciej916.indreb.common.api.enums.interfaces.EnergyTier;
 import com.maciej916.indreb.common.api.tier.interfaces.SolarPanelTier;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
+import jdk.jfr.Percentage;
 
 public enum SolarPanelTiers implements SolarPanelTier {
     BASIC(1, EnergyTiers.BASIC, "basic", 8.0D),
@@ -50,6 +51,7 @@ public enum SolarPanelTiers implements SolarPanelTier {
         };
     }
 
+    @Override
     public int getDayGenerate() {
         return switch (energyTier) {
             case BASIC -> ServerConfig.solar_generator_day_tick_generate.get();
@@ -60,6 +62,7 @@ public enum SolarPanelTiers implements SolarPanelTier {
         };
     }
 
+    @Override
     public int getNightGenerate() {
         return switch (energyTier) {
             case BASIC -> ServerConfig.solar_generator_night_tick_generate.get();

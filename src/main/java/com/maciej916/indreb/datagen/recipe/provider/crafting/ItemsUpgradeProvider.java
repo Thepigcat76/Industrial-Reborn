@@ -5,7 +5,9 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -18,8 +20,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class ItemsUpgradeProvider extends RecipeProvider {
 
-    public ItemsUpgradeProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ItemsUpgradeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -27,9 +29,9 @@ public class ItemsUpgradeProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModItems.OVERCLOCKER_UPGRADE.get(), 2)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.OVERCLOCKER_UPGRADE.get(), 2)
                 .pattern("ccc")
                 .pattern("aea")
                 .define('c', ModItems.SMALL_COOLANT_CELL.get())
@@ -41,7 +43,7 @@ public class ItemsUpgradeProvider extends RecipeProvider {
                 .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT.get()))
                 .save(consumer, saveResource("overclocker_upgrade"));
 
-        ShapedRecipeBuilder.shaped(ModItems.OVERCLOCKER_UPGRADE.get(), 6)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.OVERCLOCKER_UPGRADE.get(), 6)
                 .pattern("ccc")
                 .pattern("aea")
                 .define('c', ModItems.MEDIUM_COOLANT_CELL.get())
@@ -54,7 +56,7 @@ public class ItemsUpgradeProvider extends RecipeProvider {
                 .save(consumer, saveResource("overclocker_upgrade_1"));
 
 
-        ShapedRecipeBuilder.shaped(ModItems.OVERCLOCKER_UPGRADE.get(), 12)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.OVERCLOCKER_UPGRADE.get(), 12)
                 .pattern("ccc")
                 .pattern("aea")
                 .define('c', ModItems.LARGE_COOLANT_CELL.get())
@@ -66,7 +68,7 @@ public class ItemsUpgradeProvider extends RecipeProvider {
                 .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT.get()))
                 .save(consumer, saveResource("overclocker_upgrade_2"));
 
-        ShapedRecipeBuilder.shaped(ModItems.TRANSFORMER_UPGRADE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TRANSFORMER_UPGRADE.get())
                 .pattern("ggg")
                 .pattern("ctc")
                 .pattern("geg")
@@ -82,7 +84,7 @@ public class ItemsUpgradeProvider extends RecipeProvider {
                 .save(consumer, saveResource("transformer_upgrade"));
 
 
-        ShapedRecipeBuilder.shaped(ModItems.ENERGY_STORAGE_UPGRADE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ENERGY_STORAGE_UPGRADE.get())
                 .pattern("ppp")
                 .pattern("cbc")
                 .pattern("pep")
@@ -97,7 +99,7 @@ public class ItemsUpgradeProvider extends RecipeProvider {
                 .unlockedBy("copper_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED.get()))
                 .save(consumer, saveResource("energy_storage_upgrade"));
 
-        ShapedRecipeBuilder.shaped(ModItems.REDSTONE_SIGNAL_INVERTER_UPGRADE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REDSTONE_SIGNAL_INVERTER_UPGRADE.get())
                 .pattern("t t")
                 .pattern(" l ")
                 .pattern("t t")
@@ -108,7 +110,7 @@ public class ItemsUpgradeProvider extends RecipeProvider {
                 .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
                 .save(consumer, saveResource("redstone_signal_inverter_upgrade"));
 
-        ShapedRecipeBuilder.shaped(ModItems.PULLING_UPGRADE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PULLING_UPGRADE.get())
                 .pattern("t t")
                 .pattern(" p ")
                 .pattern("t t")
@@ -119,7 +121,7 @@ public class ItemsUpgradeProvider extends RecipeProvider {
                 .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
                 .save(consumer, saveResource("pulling_upgrade"));
 
-        ShapedRecipeBuilder.shaped(ModItems.EJECTOR_UPGRADE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EJECTOR_UPGRADE.get())
                 .pattern("t t")
                 .pattern(" p ")
                 .pattern("t t")
@@ -130,7 +132,7 @@ public class ItemsUpgradeProvider extends RecipeProvider {
                 .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
                 .save(consumer, saveResource("ejector_upgrade"));
 
-        ShapedRecipeBuilder.shaped(ModItems.FLUID_EJECTOR_UPGRADE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FLUID_EJECTOR_UPGRADE.get())
                 .pattern("t t")
                 .pattern(" e ")
                 .pattern("t t")
@@ -141,7 +143,7 @@ public class ItemsUpgradeProvider extends RecipeProvider {
                 .unlockedBy("electric_motor", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRIC_MOTOR.get()))
                 .save(consumer, saveResource("fluid_ejector_upgrade"));
 
-        ShapedRecipeBuilder.shaped(ModItems.FLUID_PULLING_UPGRADE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FLUID_PULLING_UPGRADE.get())
                 .pattern("trt")
                 .pattern(" e ")
                 .pattern("t t")

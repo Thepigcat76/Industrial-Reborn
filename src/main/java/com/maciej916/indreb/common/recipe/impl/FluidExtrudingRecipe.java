@@ -107,7 +107,7 @@ public class FluidExtrudingRecipe extends BaseRecipe {
             buffer.writeFluidStack(recipe.secondFluid);
             buffer.writeBoolean(recipe.consumeFist);
             buffer.writeBoolean(recipe.consumeSecond);
-            buffer.writeItemStack(recipe.getResultItem(), false);
+            buffer.writeItemStack(recipe.getResult(), false);
             buffer.writeInt(recipe.getDuration());
             buffer.writeInt(recipe.getTickEnergyCost());
             buffer.writeFloat(recipe.getExperience());

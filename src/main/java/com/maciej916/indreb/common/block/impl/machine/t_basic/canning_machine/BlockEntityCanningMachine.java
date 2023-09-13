@@ -97,7 +97,7 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IHas
                     }
 
                     if (progressRecipe.isCurrentAboveEqualMax()) {
-                        StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem());
+                        StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResult());
                         StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT_0, recipe.getIngredientCount().getIngredientsCount().get(0));
                         StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT_1, recipe.getIngredientCount().getIngredientsCount().get(1));
                         progressRecipe.resetProgress();
@@ -210,15 +210,11 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IHas
         return level.getRecipeManager().getRecipeFor(ModRecipeType.CANNING.get(), new SimpleContainer(input), level);
     }
 
-
-
-
-
     private boolean canWork() {
         final ItemStack inputStack0 = getBaseStorage().getStackInSlot(INPUT_SLOT_0);
         final ItemStack inputStack1 = getBaseStorage().getStackInSlot(INPUT_SLOT_1);
         final ItemStack outputStack = getBaseStorage().getStackInSlot(OUTPUT_SLOT);
-        return !inputStack0.isEmpty() && !inputStack1.isEmpty() && (outputStack.isEmpty() || (outputStack.getCount() + recipe.getResultItem().getCount() <= outputStack.getMaxStackSize() && recipe.getResultItem().getItem() == outputStack.getItem()));
+        return !inputStack0.isEmpty() && !inputStack1.isEmpty() && (outputStack.isEmpty() || (outputStack.getCount() + recipe.getResultItem(level.registryAccess()).getCount() <= outputStack.getMaxStackSize() && recipe.getResultItem(level.registryAccess()).getItem() == outputStack.getItem()));
     }
 
 

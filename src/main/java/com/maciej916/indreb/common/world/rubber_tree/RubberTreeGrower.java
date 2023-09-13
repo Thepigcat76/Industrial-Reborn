@@ -10,6 +10,6 @@ public class RubberTreeGrower extends AbstractTreeGrower {
 
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) {
-        return ModConfiguredFeatures.RUBBER_TREE.getKey();
+        return ModConfiguredFeatures.RUBBER_TREE_KEY;
     }
 }

@@ -86,7 +86,7 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IHasExp
 
             if (canWork() && progressBurn.getCurrentProgress() > 0) {
                 if (progressSmelting.isCurrentAboveEqualMax()) {
-                    StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem());
+                    StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem(level.registryAccess()));
                     StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT, 1);
                     progressSmelting.resetProgress();
                     addRecipeUsed(recipe);
@@ -199,7 +199,7 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IHasExp
         final ItemStack inputStack = getBaseStorage().getStackInSlot(INPUT_SLOT);
         final ItemStack outputStack = getBaseStorage().getStackInSlot(OUTPUT_SLOT);
 
-        return !inputStack.isEmpty() && (outputStack.isEmpty() || outputStack.getCount() + recipe.getResultItem().getCount() <= outputStack.getMaxStackSize());
+        return !inputStack.isEmpty() && (outputStack.isEmpty() || outputStack.getCount() + recipe.getResultItem(level.registryAccess()).getCount() <= outputStack.getMaxStackSize());
     }
 
 }

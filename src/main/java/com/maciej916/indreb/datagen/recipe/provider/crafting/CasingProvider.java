@@ -5,7 +5,9 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -17,8 +19,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class CasingProvider extends RecipeProvider {
 
-    public CasingProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public CasingProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -26,9 +28,9 @@ public class CasingProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModBlocks.BASIC_MACHINE_CASING.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BASIC_MACHINE_CASING.get())
                 .pattern("iii")
                 .pattern("iri")
                 .pattern("iii")
@@ -39,7 +41,7 @@ public class CasingProvider extends RecipeProvider {
                 .unlockedBy("rubber", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RUBBER.get()))
                 .save(consumer, saveResource("basic_machine_casing"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.ADVANCED_MACHINE_CASING.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ADVANCED_MACHINE_CASING.get())
                 .pattern("scs")
                 .pattern("aba")
                 .pattern("scs")
@@ -54,7 +56,7 @@ public class CasingProvider extends RecipeProvider {
                 .unlockedBy("basic_machine", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BASIC_MACHINE_CASING.get()))
                 .save(consumer, saveResource("advanced_machine_casing"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.ADVANCED_MACHINE_CASING.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ADVANCED_MACHINE_CASING.get())
                 .pattern("sas")
                 .pattern("cbc")
                 .pattern("sas")
@@ -68,9 +70,6 @@ public class CasingProvider extends RecipeProvider {
                 .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY_PLATE.get()))
                 .unlockedBy("basic_machine", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BASIC_MACHINE_CASING.get()))
                 .save(consumer, saveResource("advanced_machine_casing_2"));
-
-
-
 
 
     }

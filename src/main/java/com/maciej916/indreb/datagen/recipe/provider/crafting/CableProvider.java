@@ -5,10 +5,8 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 
@@ -18,8 +16,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class CableProvider extends RecipeProvider {
 
-    public CableProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public CableProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     private ResourceLocation saveResource(String name) {
@@ -27,30 +25,30 @@ public class CableProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapelessRecipeBuilder.shapeless(ModBlocks.COPPER_CABLE.get(), 2)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.COPPER_CABLE.get(), 2)
                 .requires(ModItems.CUTTER.get())
                 .requires(ModItemTags.FORGE_PLATES_COPPER)
                 .group(MODID + "/cable")
                 .unlockedBy("copper_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_PLATE.get()))
                 .save(consumer, saveResource("copper_cable"));
 
-        ShapelessRecipeBuilder.shapeless(ModBlocks.TIN_CABLE.get(), 2)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.TIN_CABLE.get(), 2)
                 .requires(ModItems.CUTTER.get())
                 .requires(ModItemTags.FORGE_PLATES_TIN)
                 .group(MODID + "/cable")
                 .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
                 .save(consumer, saveResource("tin_cable"));
 
-        ShapelessRecipeBuilder.shapeless(ModBlocks.GOLD_CABLE.get(), 2)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.GOLD_CABLE.get(), 2)
                 .requires(ModItems.CUTTER.get())
                 .requires(ModItemTags.FORGE_PLATES_GOLD)
                 .group(MODID + "/cable")
                 .unlockedBy("gold_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.GOLD_PLATE.get()))
                 .save(consumer, saveResource("gold_cable"));
 
-        ShapelessRecipeBuilder.shapeless(ModBlocks.HV_CABLE.get(), 2)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.HV_CABLE.get(), 2)
                 .requires(ModItems.CUTTER.get())
                 .requires(ModItemTags.FORGE_PLATES_IRON)
                 .group(MODID + "/cable")
@@ -58,7 +56,7 @@ public class CableProvider extends RecipeProvider {
                 .save(consumer, saveResource("hv_cable"));
 
 
-        ShapelessRecipeBuilder.shapeless(ModBlocks.COPPER_CABLE_INSULATED.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.COPPER_CABLE_INSULATED.get())
                 .requires(ModItems.RUBBER.get())
                 .requires(ModBlocks.COPPER_CABLE.get())
                 .group(MODID + "/cable")
@@ -66,7 +64,7 @@ public class CableProvider extends RecipeProvider {
                 .unlockedBy("copper_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE.get()))
                 .save(consumer, saveResource("copper_cable_insulated"));
 
-        ShapelessRecipeBuilder.shapeless(ModBlocks.TIN_CABLE_INSULATED.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.TIN_CABLE_INSULATED.get())
                 .requires(ModItems.RUBBER.get())
                 .requires(ModBlocks.TIN_CABLE.get())
                 .group(MODID + "/cable")
@@ -74,7 +72,7 @@ public class CableProvider extends RecipeProvider {
                 .unlockedBy("tin_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.TIN_CABLE.get()))
                 .save(consumer, saveResource("tin_cable_insulated"));
 
-        ShapelessRecipeBuilder.shapeless(ModBlocks.GOLD_CABLE_INSULATED.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.GOLD_CABLE_INSULATED.get())
                 .requires(ModItems.RUBBER.get())
                 .requires(ModBlocks.GOLD_CABLE.get())
                 .group(MODID + "/cable")
@@ -82,7 +80,7 @@ public class CableProvider extends RecipeProvider {
                 .unlockedBy("gold_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GOLD_CABLE.get()))
                 .save(consumer, saveResource("gold_cable_insulated"));
 
-        ShapelessRecipeBuilder.shapeless(ModBlocks.HV_CABLE_INSULATED.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.HV_CABLE_INSULATED.get())
                 .requires(ModItems.RUBBER.get())
                 .requires(ModBlocks.HV_CABLE.get())
                 .group(MODID + "/cable")
@@ -90,7 +88,7 @@ public class CableProvider extends RecipeProvider {
                 .unlockedBy("hv_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.HV_CABLE.get()))
                 .save(consumer, saveResource("hv_cable_insulated"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.GLASS_FIBRE_CABLE.get(),6)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GLASS_FIBRE_CABLE.get(),6)
                 .pattern("ggg")
                 .pattern("ese")
                 .pattern("ggg")
