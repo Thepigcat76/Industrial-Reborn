@@ -15,6 +15,7 @@ import com.maciej916.indreb.common.recipe.ModRecipeSerializer;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
 import com.maciej916.indreb.common.screen.ModMenuTypes;
 import com.maciej916.indreb.common.sound.ModSounds;
+import com.maciej916.indreb.common.tabs.IRCreativeTabs;
 import com.maciej916.indreb.common.world.ModConfiguredFeatures;
 import com.maciej916.indreb.common.world.ModPlacedFeatures;
 import com.maciej916.indreb.integration.top.TOPPlugin;
@@ -55,6 +56,7 @@ public class IndReb {
 
         ModLootModifiers.register(modEventBus);
 
+        IRCreativeTabs.register(modEventBus);
         ModConfig.register();
 
         MinecraftForge.EVENT_BUS.register(this);

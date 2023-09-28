@@ -1,7 +1,6 @@
 package com.maciej916.indreb.common.item.impl;
 
 import com.maciej916.indreb.IndReb;
-import com.maciej916.indreb.common.api.item.base.BaseItem;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
 import com.maciej916.indreb.common.recipe.impl.ScrapBoxRecipe;
@@ -14,7 +13,7 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
@@ -28,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ScrapBox extends BaseItem {
+public class ScrapBox extends Item {
     private static final List<ScrapBox> SCRAP_BOX = new ArrayList<>();
 
     public ScrapBox() {

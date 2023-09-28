@@ -21,7 +21,7 @@ import org.joml.Vector3fc;
 
 public class ReinforcedFoamBlock extends BlockFoam {
 
-    public static final Vector3f PARTICLE_COLOR = new Vector3f((Vector3fc) Vec3.fromRGB24(0x9b9b9b));
+    public static final Vector3f PARTICLE_COLOR = new Vector3f(Vec3.fromRGB24(0x9b9b9b).toVector3f());
 
     public ReinforcedFoamBlock() {
         super(BlockBehaviour.Properties.of().strength(0.25F).sound(SoundType.POWDER_SNOW).dynamicShape(), PARTICLE_COLOR);

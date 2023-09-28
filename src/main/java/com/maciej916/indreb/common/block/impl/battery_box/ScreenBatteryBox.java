@@ -37,7 +37,7 @@ public class ScreenBatteryBox extends IndRebScreen<MenuBatteryBox> {
     protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
         super.renderLabels(guiGraphics, mouseX, mouseY);
         Font font = super.font;
-        guiGraphics.drawCenteredString(font, EnumLang.ARMOUR.getTranslationComponent(), 8, 72, 4210752);
+        guiGraphics.drawString(font, EnumLang.ARMOUR.getTranslationComponent(), 8, 72, 4210752);
     }
 
     @Override

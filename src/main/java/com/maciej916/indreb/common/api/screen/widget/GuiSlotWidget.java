@@ -25,9 +25,4 @@ public class GuiSlotWidget extends BaseWidget {
 
         super.renderBackground(guiGraphics, pMinecraft, pMouseX, pMouseY);
     }
-
-    @Override
-    protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-
-    }
 }

@@ -1,7 +1,6 @@
 package com.maciej916.indreb.common.item.impl.reactor;
 
 import com.maciej916.indreb.IndReb;
-import com.maciej916.indreb.common.api.item.base.BaseItem;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.capability.reactor.IReactorComponentCapability;
 import com.maciej916.indreb.common.util.CapabilityUtil;
@@ -10,7 +9,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
-import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -18,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class BaseReactorItem extends BaseItem {
+public class BaseReactorItem extends Item {
 
     protected boolean isBarVisible;
     protected final int maxDamage;

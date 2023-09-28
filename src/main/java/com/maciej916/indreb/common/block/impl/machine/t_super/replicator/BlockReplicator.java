@@ -30,6 +30,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
 import org.joml.Vector3fc;
@@ -38,7 +39,7 @@ import java.util.List;
 
 public class BlockReplicator extends BaseElectricMachineBlock {
 
-    public static final Vector3f PARTICLE_COLOR = new Vector3f((Vector3fc) Vec3.fromRGB24(0XA1800e7c));
+    public static final Vector3f PARTICLE_COLOR = new Vector3f(Vec3.fromRGB24(0XA1800e7c).toVector3f());
 
     public BlockReplicator() {
         super(EnergyTiers.SUPER,6, 0);
@@ -50,7 +51,7 @@ public class BlockReplicator extends BaseElectricMachineBlock {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @javax.annotation.Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
+    public void appendHoverText(@NotNull ItemStack pStack, @javax.annotation.Nullable BlockGetter pLevel, List<Component> pTooltip, @NotNull TooltipFlag pFlag) {
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
 
         pTooltip.add(TextComponentUtil.build(

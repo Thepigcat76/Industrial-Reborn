@@ -12,7 +12,6 @@ import com.maciej916.indreb.common.api.screen.widget.GuiSlotWidget;
 import com.maciej916.indreb.common.api.screen.widget.GuiUpgradesWidget;
 import com.maciej916.indreb.common.api.screen.widget.bar.GuiEnergyBarHorizontalWidget;
 import com.maciej916.indreb.common.api.screen.widget.bar.GuiEnergyBarVerticalWidget;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -67,7 +66,7 @@ public class IndRebScreen <T extends IndRebContainerMenu> extends WidgetScreen<T
 
         if (getEntity() instanceof IHasExp expCollector) {
             if (expCollector.hasExpButton()) {
-                addUssableWidget(new GuiExpButtonWidget(this, topOffset, expCollector));
+                addUsableWidget(new GuiExpButtonWidget(this, topOffset, expCollector));
                 topOffset += GuiSprite.LEFT_BUTTON.getHeight() + 3;
             }
         }
@@ -76,6 +75,7 @@ public class IndRebScreen <T extends IndRebContainerMenu> extends WidgetScreen<T
 
     @Override
     protected void renderBg(GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
+        System.out.println("Rendering");
         updateData();
         super.renderBg(pGuiGraphics, pPartialTick, pMouseX, pMouseY);
     }

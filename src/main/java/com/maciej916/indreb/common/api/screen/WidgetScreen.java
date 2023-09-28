@@ -1,7 +1,6 @@
 package com.maciej916.indreb.common.api.screen;
 
 import com.maciej916.indreb.common.api.screen.widget.BaseWidget;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.network.chat.Component;
@@ -18,7 +17,7 @@ public class WidgetScreen <T extends IndRebContainerMenu> extends BaseScreen<T> 
         super(menu, playerInventory, title);
     }
 
-    protected void addUssableWidget(BaseWidget widget) {
+    protected void addUsableWidget(BaseWidget widget) {
         widgets.add(widget);
         super.addRenderableWidget(widget);
     }

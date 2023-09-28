@@ -26,7 +26,7 @@ public class ScreenTransformer extends IndRebScreen<MenuTransformer> {
         addRenderableOnlyWidget(new SimpleTextWidget(this, 8, 30, 88, 5, Component.translatable("gui."+ IndReb.MODID + ".input"), 0.8f, 4210752, false));
         addRenderableOnlyWidget(new SimpleTextWidget(this, 8, 46, 88, 5, Component.translatable("gui."+ IndReb.MODID + ".output"), 0.8f, 4210752, false));
 
-        addUssableWidget(new TransformerModeButtonWidget(this, 140, 32, entity.changeModeClient()));
+        addUsableWidget(new TransformerModeButtonWidget(this, 140, 32, entity.changeModeClient()));
         addRenderableOnlyWidget(new TransformerInfoTextWidget(this, 48, 28, entity));
     }
 

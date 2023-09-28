@@ -23,6 +23,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
 public class BlockFoam extends AbstractGlassBlock {
@@ -38,7 +39,7 @@ public class BlockFoam extends AbstractGlassBlock {
         return blockState.is(this) || super.skipRendering(state, blockState, direction);
     }
 
-    public VoxelShape getOcclusionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+    public @NotNull VoxelShape getOcclusionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         return Shapes.empty();
     }
 
@@ -89,15 +90,11 @@ public class BlockFoam extends AbstractGlassBlock {
         return Shapes.empty();
     }
 
-    public VoxelShape getVisualShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return Shapes.empty();
-    }
-
     public static boolean canEntityWalkOnPowderSnow(Entity pEntity) {
         if (pEntity.getType().is(EntityTypeTags.POWDER_SNOW_WALKABLE_MOBS)) {
             return true;
         } else {
-            return pEntity instanceof LivingEntity ? ((LivingEntity)pEntity).getItemBySlot(EquipmentSlot.FEET).canWalkOnPowderedSnow((LivingEntity)pEntity) : false;
+            return pEntity instanceof LivingEntity && ((LivingEntity) pEntity).getItemBySlot(EquipmentSlot.FEET).canWalkOnPowderedSnow((LivingEntity) pEntity);
         }
     }
 

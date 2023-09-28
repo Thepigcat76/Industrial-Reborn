@@ -27,8 +27,8 @@ public class ScreenExtruder extends IndRebScreen<MenuExtruder> {
         addRenderableOnlyWidget(new GuiFluidStorageVerticalWidget(this, 7, 18, entity.firstTank));
         addRenderableOnlyWidget(new GuiFluidStorageVerticalWidget(this, 44, 18, entity.secondTank));
 
-        addUssableWidget(new GuiForwardButton(this, 99, 61, entity.changeRecipeClient(false), null));
-        addUssableWidget(new GuiBackwardButton(this, 65, 61, entity.changeRecipeClient(true), null));
+        addUsableWidget(new GuiForwardButton(this, 99, 61, entity.changeRecipeClient(false), null));
+        addUsableWidget(new GuiBackwardButton(this, 65, 61, entity.changeRecipeClient(true), null));
     }
 
     @Override

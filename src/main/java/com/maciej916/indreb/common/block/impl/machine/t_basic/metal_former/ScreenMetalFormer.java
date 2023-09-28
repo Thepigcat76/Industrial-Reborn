@@ -23,7 +23,7 @@ public class ScreenMetalFormer extends IndRebScreen<MenuMetalFormer> {
         super.initElements();
 
         addRenderableOnlyWidget(new MetalFormerProgressWidget(this, 71, 34, entity));
-        addUssableWidget(new ChangeModeButtonWidget(this, 14, 33, entity.changeModeClient(), false));
+        addUsableWidget(new ChangeModeButtonWidget(this, 14, 33, entity.changeModeClient(), false));
     }
 
     @Override

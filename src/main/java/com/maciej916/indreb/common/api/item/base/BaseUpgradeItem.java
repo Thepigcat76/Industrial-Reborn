@@ -2,9 +2,10 @@ package com.maciej916.indreb.common.api.item.base;
 
 import com.maciej916.indreb.common.api.enums.UpgradeTypes;
 import com.maciej916.indreb.common.api.interfaces.item.IItemUpgrade;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-public class BaseUpgradeItem extends BaseItem implements IItemUpgrade {
+public class BaseUpgradeItem extends Item implements IItemUpgrade {
 
     private final UpgradeTypes upgradeType;
 

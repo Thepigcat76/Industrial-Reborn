@@ -36,12 +36,12 @@ public class ScreenReplicator extends IndRebScreen<MenuReplicator> {
         addRenderableOnlyWidget(new GuiFluidStorageVerticalWidget(this, 27, 18, entity.firstTank));
         addRenderableOnlyWidget(new ReplicatorModeTextWidget(this, entity));
 
-        addUssableWidget(new GuiBackwardButton(this, 51, 26, entity.clickPrevPatternClient(), List.of(EnumLang.LAST_PATTERN.getTranslationComponent())));
-        addUssableWidget(new GuiForwardButton(this, 89, 26, entity.clickNextPatternClient(), List.of(EnumLang.NEXT_PATTERN.getTranslationComponent())));
+        addUsableWidget(new GuiBackwardButton(this, 51, 26, entity.clickPrevPatternClient(), List.of(EnumLang.LAST_PATTERN.getTranslationComponent())));
+        addUsableWidget(new GuiForwardButton(this, 89, 26, entity.clickNextPatternClient(), List.of(EnumLang.NEXT_PATTERN.getTranslationComponent())));
 
-        addUssableWidget(new ReplicatorStopButtonWidget(this, 86, 61, entity.clientClickStop()));
-        addUssableWidget(new ReplicatorSingleRunButtonWidget(this, 105, 61, entity.clientClickRun(true)));
-        addUssableWidget(new ReplicatorRepeatRunButtonWidget(this,124, 61, entity.clientClickRun(false)));
+        addUsableWidget(new ReplicatorStopButtonWidget(this, 86, 61, entity.clientClickStop()));
+        addUsableWidget(new ReplicatorSingleRunButtonWidget(this, 105, 61, entity.clientClickRun(true)));
+        addUsableWidget(new ReplicatorRepeatRunButtonWidget(this,124, 61, entity.clientClickRun(false)));
     }
 
     @Override

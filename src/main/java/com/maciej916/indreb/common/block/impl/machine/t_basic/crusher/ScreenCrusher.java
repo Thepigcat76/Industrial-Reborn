@@ -25,6 +25,7 @@ public class ScreenCrusher extends IndRebScreen<MenuCrusher> {
 
     @Override
     public void updateData() {
+        System.out.println("Updating data");
         super.updateData();
         menu.getContainerData().updateProgressFloatData(0, entity.progressRecipe);
     }

@@ -424,7 +424,7 @@ public class TagsBlock extends BlockTagsProvider {
 
     @Override
     public String getName() {
-        return "Industrial Reborn Tags";
+        return "Industrial Reborn Block Tags";
     }
 
 }

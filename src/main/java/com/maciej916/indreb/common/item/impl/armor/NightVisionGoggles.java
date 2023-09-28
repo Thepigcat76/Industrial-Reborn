@@ -2,13 +2,12 @@ package com.maciej916.indreb.common.item.impl.armor;
 
 import com.maciej916.indreb.common.api.enums.CustomArmorMaterial;
 import com.maciej916.indreb.common.api.interfaces.item.IArmorProperties;
-import com.maciej916.indreb.common.api.item.base.BaseArmor;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 
-public class NightVisionGoggles extends BaseArmor implements IArmorProperties {
+public class NightVisionGoggles extends ArmorItem implements IArmorProperties {
 
     public NightVisionGoggles() {
-        super(CustomArmorMaterial.NIGHTVISION, Type.HELMET);
+        super(CustomArmorMaterial.NIGHTVISION, Type.HELMET, new Properties());
     }
 
     @Override

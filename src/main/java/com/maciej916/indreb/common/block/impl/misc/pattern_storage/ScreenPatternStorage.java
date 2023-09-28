@@ -29,10 +29,10 @@ public class ScreenPatternStorage extends IndRebScreen<MenuPatternStorage> {
     public void initElements() {
         super.initElements();
 
-        addUssableWidget(new GuiBackwardButton(this, 34, 21, entity.clickPrevPatternClient(), List.of(EnumLang.LAST_PATTERN.getTranslationComponent())));
-        addUssableWidget(new GuiForwardButton(this, 48, 21, entity.clickNextPatternClient(), List.of(EnumLang.NEXT_PATTERN.getTranslationComponent())));
-        addUssableWidget(new GuiUpButton(this, 123, 21, entity.clientClickExportPattern(), List.of(EnumLang.EXPORT_MEMORY.getTranslationComponent())));
-        addUssableWidget(new GuiDownButton(this, 157, 21, entity.clientClickImportPattern(), List.of(EnumLang.IMPORT_MEMORY.getTranslationComponent())));
+        addUsableWidget(new GuiBackwardButton(this, 34, 21, entity.clickPrevPatternClient(), List.of(EnumLang.LAST_PATTERN.getTranslationComponent())));
+        addUsableWidget(new GuiForwardButton(this, 48, 21, entity.clickNextPatternClient(), List.of(EnumLang.NEXT_PATTERN.getTranslationComponent())));
+        addUsableWidget(new GuiUpButton(this, 123, 21, entity.clientClickExportPattern(), List.of(EnumLang.EXPORT_MEMORY.getTranslationComponent())));
+        addUsableWidget(new GuiDownButton(this, 157, 21, entity.clientClickImportPattern(), List.of(EnumLang.IMPORT_MEMORY.getTranslationComponent())));
 
         addRenderableOnlyWidget(new PatternStoragePageTextWidget(this, entity));
         addRenderableOnlyWidget(new PatternStorageInfoTextWidget(this, entity));

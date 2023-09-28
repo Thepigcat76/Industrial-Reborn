@@ -29,6 +29,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import static com.maciej916.indreb.IndReb.LOGGER;
 import static com.maciej916.indreb.IndReb.MODID;
 
 public final class ModItems {
@@ -465,12 +466,12 @@ public final class ModItems {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItemElectric(block.get(), rarity));
     }
 
-
     private static <T extends Item> RegistryObject<T> registerItem(String name, Supplier<T> item) {
         return ITEMS.register(name, item);
     }
 
     public static void register(IEventBus eventBus) {
+        LOGGER.info("all items!!!"+ITEMS.getEntries());
         ITEMS.register(eventBus);
     }
 }

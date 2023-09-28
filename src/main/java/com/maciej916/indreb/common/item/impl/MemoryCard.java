@@ -1,6 +1,5 @@
 package com.maciej916.indreb.common.item.impl;
 
-import com.maciej916.indreb.common.api.item.base.BaseItem;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.capability.scanner.IScannerResult;
 import com.maciej916.indreb.common.capability.scanner.ScannerResult;

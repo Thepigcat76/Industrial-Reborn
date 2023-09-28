@@ -4,6 +4,7 @@ import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
 import com.maciej916.indreb.common.api.enums.CustomArmorMaterial;
 import com.maciej916.indreb.common.api.interfaces.item.IElectricItem;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
@@ -18,7 +19,8 @@ public class LivingHurt {
 
     @SubscribeEvent
     public static void livingHurtEvent(LivingHurtEvent event) {
-        if (!event.getSource().getEntity().isInvulnerable() && event.getEntity() instanceof Player player) {
+        Entity entity = event.getSource().getEntity();
+        if (entity != null && !entity.isInvulnerable() && event.getEntity() instanceof Player player) {
             Iterable<ItemStack> stacks = player.getArmorSlots();
             for (ItemStack stack : stacks) {
                 if (stack.getItem() instanceof IElectricItem iei) {

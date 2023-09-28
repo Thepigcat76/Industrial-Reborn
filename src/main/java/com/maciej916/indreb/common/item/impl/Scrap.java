@@ -1,7 +1,5 @@
 package com.maciej916.indreb.common.item.impl;
 
-import com.maciej916.indreb.common.api.item.base.BaseItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;

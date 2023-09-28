@@ -1,5 +1,7 @@
 package com.maciej916.indreb.datagen;
 
+import com.maciej916.indreb.IndReb;
+import com.maciej916.indreb.common.tag.ModBlockTags;
 import com.maciej916.indreb.datagen.loot.LootModifiers;
 import com.maciej916.indreb.datagen.loot.ModBlockLootTables;
 import com.maciej916.indreb.datagen.loot.ModLoottableProvider;
@@ -23,7 +25,7 @@ import net.minecraftforge.fml.common.Mod;
 
 import java.util.concurrent.CompletableFuture;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = IndReb.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
 
     @SubscribeEvent
@@ -36,9 +38,10 @@ public class DataGenerators {
         generator.addProvider(event.includeClient(), new BlockTextures(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new ItemTextures(packOutput, existingFileHelper));
 
-        TagsBlock blockTags = new TagsBlock(packOutput, lookupProvider, existingFileHelper);
-        generator.addProvider(event.includeServer(), blockTags);
-        generator.addProvider(event.includeServer(), new TagsItem(packOutput, lookupProvider, blockTags.contentsGetter(), existingFileHelper));
+        TagsBlock blockTagGenerator = generator.addProvider(event.includeServer(),
+                new TagsBlock(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new TagsItem(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
+
 
         generator.addProvider(event.includeServer(), new LootModifiers(packOutput));
 

@@ -4,7 +4,6 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.maciej916.indreb.common.api.enums.CustomArmorMaterial;
 import com.maciej916.indreb.common.api.interfaces.item.IArmorProperties;
-import com.maciej916.indreb.common.api.item.base.BaseArmor;
 import com.maciej916.indreb.common.attributes.ModAttributes;
 import com.maciej916.indreb.common.capability.radiation.IHasRadiation;
 import net.minecraft.world.entity.EquipmentSlot;

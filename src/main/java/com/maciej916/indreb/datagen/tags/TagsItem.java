@@ -391,7 +391,7 @@ public class TagsItem extends ItemTagsProvider {
 
     @Override
     public String getName() {
-        return "Industrial Reborn Tags";
+        return "Industrial Reborn Item Tags";
     }
 
 }

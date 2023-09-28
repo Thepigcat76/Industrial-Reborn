@@ -68,7 +68,7 @@ public abstract class BaseProgressWidget extends BaseWidget {
         int scaleY = Math.round(currProgress / 100 * guiSprite.getActiveWidth());
 
         switch (direction) {
-            case VERTICAL:
+            case VERTICAL -> {
                 if (reverse) {
                     guiGraphics.blit(
                             getResourceLocation(),
@@ -89,8 +89,8 @@ public abstract class BaseProgressWidget extends BaseWidget {
                             scaleX * -1
                     );
                 }
-                break;
-            case HORIZONTAL:
+            }
+            case HORIZONTAL -> {
                 if (reverse) {
                     guiGraphics.blit(
                             getResourceLocation(),
@@ -112,7 +112,7 @@ public abstract class BaseProgressWidget extends BaseWidget {
                             guiSprite.getActiveHeight()
                     );
                 }
-                break;
+            }
         }
 
         super.renderBackground(guiGraphics, pMinecraft, pMouseX, pMouseY);

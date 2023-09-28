@@ -26,8 +26,8 @@ public class ScreenScanner extends IndRebScreen<MenuScanner> {
     public void initElements() {
         super.initElements();
 
-        addUssableWidget(new ScannerClearButtonWidget(this, entity));
-        addUssableWidget(new ScannerSaveButtonWidget(this, entity));
+        addUsableWidget(new ScannerClearButtonWidget(this, entity));
+        addUsableWidget(new ScannerSaveButtonWidget(this, entity));
 
         addRenderableOnlyWidget(new ScannerProgressWidget(this, 7, 15, entity.progressRecipe));
         addRenderableOnlyWidget(new ScannerModeTextWidget(this, entity));
